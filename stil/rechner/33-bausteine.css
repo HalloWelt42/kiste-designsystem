@@ -1408,6 +1408,20 @@
   .r-eigenschaft dd.errechnet {
     color: var(--wert-errechnet);
   }
+  /* Woher ein Wert kommt (Quelle, KI, Produkt), leise unter dem Wert. */
+  .r-eigenschaft dd small {
+    display: block;
+    font-size: var(--r-schrift-klein);
+    font-weight: 400;
+    color: var(--tinte-leise);
+  }
+
+  /* Score-Marke über ihrer Erklärung (Nutri-Score, NOVA-Gruppe). */
+  .r-score {
+    display: grid;
+    justify-items: start;
+    gap: var(--r-a2);
+  }
 
   /* ==== Verlauf: wann, was, wer, in klarer Sprache ============================================ */
   .r-verlauf {

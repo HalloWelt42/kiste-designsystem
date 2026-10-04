@@ -89,6 +89,7 @@ const SEITEN = [
   ["h57-codes-gross.html", "H57", "Codes groß", "QR-Code oder Strichcode zum Abscannen", "handy", 3],
   ["h58-aufraeumen-vorschau.html", "H58", "Eigenschaften aufräumen", "Vorher und nachher je Zeile, einzeln übernehmen", "handy", 3],
   ["h60-erinnerungen-eintrag.html", "H60", "Erinnerungen am Eintrag", "Liste am Eintrag, Blatt Erinnerung anlegen", "handy", 3],
+  ["h66-zeile-aktionen.html", "H66", "Aktionen an einer Zeile", "Langes Drücken: Alltagsknöpfe, Öffnen, Bewegen", "handy", 4],
   ["h65-auswahl-behaelter.html", "H65", "Auswahl im Behälter", "Mehrere Einträge antippen und gemeinsam bewegen", "handy", 4],
   ["h64-zielort-waehlen.html", "H64", "Zielort wählen", "Wohin Neues aus dem Scanner kommt, mit zuletzt genutzten Orten", "handy", 4],
   ["h63-inhalt-ordnen.html", "H63", "Inhalt ordnen", "Reihenfolge, Archiv und Kategorie für den Inhalt eines Behälters", "handy", 4],

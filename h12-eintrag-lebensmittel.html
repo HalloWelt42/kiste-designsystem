@@ -28,17 +28,12 @@
     <!-- /block:kopf-handy -->
     <title>Kiste - Milch</title>
     <style>
-      /* Nur Anordnung: Erscheinungsbild neben dem Titel, Score-Marke über ihrer Erklärung. */
+      /* Nur Anordnung: Erscheinungsbild neben dem Titel. */
       .s-titelzeile {
         display: flex;
         align-items: center;
         gap: var(--h-a3);
         min-inline-size: 0;
-      }
-      .s-score {
-        display: grid;
-        justify-items: start;
-        gap: var(--h-a2);
       }
     </style>
   </head>
@@ -102,20 +97,20 @@
 
         <section class="h-abschnitt">
           <div class="h-abschnitt-kopf"><h2>Nährwert</h2></div>
-          <div class="s-score">
+          <div class="h-score">
             <span class="z-score nutri" data-stufe="b" role="img" aria-label="Nutri-Score B"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></span>
-            <p class="h-klein h-leise">Stufe B von A bis E: günstige Nährwerte im Vergleich zu ähnlichen Lebensmitteln.</p>
+            <p class="h-klein h-leise">Stufe B von A bis E: günstige Nährwerte im Vergleich zu ähnlichen Lebensmitteln. Herkunft: Lebensmitteldatenbank.</p>
           </div>
-          <div class="s-score">
+          <div class="h-score">
             <span class="z-score nova" data-stufe="1" role="img" aria-label="NOVA-Gruppe 1"><b>1</b> NOVA</span>
-            <p class="h-klein h-leise">Gruppe 1 von 4: unverarbeitet oder nur wenig verarbeitet.</p>
+            <p class="h-klein h-leise">Gruppe 1 von 4: unverarbeitet oder nur wenig verarbeitet. Herkunft: Lebensmitteldatenbank.</p>
           </div>
         </section>
 
         <section class="h-abschnitt">
           <div class="h-abschnitt-kopf"><h2>Eigenschaften</h2><span class="h-abschnitt-zahl">2 Werte</span></div>
           <dl class="h-eigenschaften">
-            <div class="h-eigenschaft"><dt>Fettgehalt</dt><dd>3,5 %</dd></div>
+            <div class="h-eigenschaft"><dt>Fettgehalt</dt><dd>3,5 %<small>Lebensmitteldatenbank</small></dd></div>
             <div class="h-eigenschaft"><dt>Inhalt</dt><dd>1 l je Tetrapack</dd></div>
           </dl>
         </section>
