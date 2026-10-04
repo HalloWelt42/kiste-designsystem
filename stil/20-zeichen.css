@@ -170,4 +170,48 @@
   .z-marke i {
     font-size: 0.9em;
   }
+
+  /* ---- Lesetext der Hilfe: größer und luftiger als die Beschriftungen der Oberfläche ---------- */
+  .z-hilfetext {
+    display: grid;
+    gap: 0.75em;
+    font-size: 1.0625em;
+    line-height: 1.6;
+    color: var(--tinte);
+  }
+  .z-hilfetext h2 {
+    margin-block-start: 0.5em;
+    font-family: var(--schrift-titel);
+    font-size: 1.15em;
+    font-weight: 600;
+  }
+  .z-hilfetext ul,
+  .z-hilfetext ol {
+    display: grid;
+    gap: 0.35em;
+    padding-inline-start: 1.4em;
+  }
+  .z-hilfetext ul {
+    list-style: disc;
+  }
+  .z-hilfetext ol {
+    list-style: decimal;
+  }
+  .z-hilfetext strong {
+    font-weight: 600;
+  }
+  .z-hilfetext code {
+    font-family: var(--schrift-code);
+    font-size: 0.9em;
+  }
+  /* Treffer der Suche: Messing hinterlegt, der aktive kräftig. */
+  .z-treffer {
+    border-radius: var(--rund-1);
+    background: var(--messing-flaeche);
+    color: inherit;
+  }
+  .z-treffer.aktiv {
+    background: var(--messing);
+    color: var(--auf-messing);
+  }
 }

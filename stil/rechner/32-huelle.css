@@ -397,6 +397,53 @@
     flex: none;
     min-inline-size: 0;
   }
+  /* Das Hilfefenster schwebt ohne Schleier über der Seite: verschiebbar, in der Größe verstellbar, die Seite
+     darunter bleibt bedienbar. Lage und Größe setzt die Oberfläche. */
+  .r-hilfefenster {
+    position: fixed;
+    z-index: 25;
+    inline-size: auto;
+    max-block-size: none;
+  }
+  .r-hilfefenster .r-fenster-kopf {
+    cursor: move;
+    touch-action: none;
+  }
+  .r-hilfefenster.maximiert {
+    inset: var(--r-a4);
+  }
+  .r-hilfefenster.minimiert {
+    grid-template-rows: auto;
+  }
+  .r-hilfefenster-raster {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    align-items: start;
+    gap: var(--r-a5);
+  }
+  @container (max-width: 560px) {
+    .r-hilfefenster-raster {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  .r-hilfefenster-griff {
+    position: absolute;
+    inset-block-end: 0;
+    inset-inline-end: 0;
+    inline-size: 18px;
+    block-size: 18px;
+    cursor: nwse-resize;
+    touch-action: none;
+    background: linear-gradient(135deg, transparent 50%, var(--papier-linie) 50%);
+    border-end-end-radius: var(--rund-3);
+  }
+  /* Info-Modus: was eine Erklärung hat, trägt einen blauen Rahmen; ein Klick erklärt statt zu handeln. */
+  .r-huelle.info-modus [data-hilfe] {
+    outline: 2px solid var(--hilfe);
+    outline-offset: 2px;
+    border-radius: var(--rund-2);
+    cursor: help;
+  }
   .r-fenster-fuss {
     display: flex;
     align-items: center;
