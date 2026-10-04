@@ -110,6 +110,12 @@
     background: var(--nacht);
     color: var(--auf-nacht);
   }
+  /* Ein Band (getrennt, neue Fassung) liegt oben über dem Sucher; die festen Zeilen bleiben. */
+  .h-scanner .h-band {
+    grid-row: 4;
+    align-self: start;
+    z-index: 1;
+  }
   /* Jeder Teil hat seine feste Zeile: fehlt der Zielort, rutscht nichts nach oben. */
   .h-scanner-kopf {
     grid-row: 1;

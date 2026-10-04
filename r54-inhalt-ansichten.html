@@ -27,6 +27,10 @@
     <!-- /block:kopf-rechner -->
     <title>Kiste - Inhalt als Liste und kompakt</title>
     <style>
+      /* Nur Anordnung: die Spalte mit dem Kästchen so schmal wie nötig. */
+      .s-schmal { inline-size: 1%; }
+    </style>
+    <style>
       /* Nur Anordnung: in einer schmalen Inhaltsspalte steht die Seitenspalte unter dem Hauptteil,
          und die Handlungen im Seitenkopf dürfen umbrechen. */
       @container (max-width: 760px) {
@@ -291,6 +295,7 @@
                   <button class="r-auswahl" type="button" title="Nur Einträge einer Kategorie zeigen"><span>Alle Kategorien</span><i class="fa-solid fa-chevron-down"></i></button>
                   <button class="r-auswahl" type="button" title="Reihenfolge des Inhalts"><span>Nach Name</span><i class="fa-solid fa-chevron-down"></i></button>
                   <button class="r-kaestchen" type="button" role="checkbox" aria-checked="false"><span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span><span class="r-kaestchen-text">Archiv zeigen</span></button>
+                  <button class="r-knopf klein" type="button" title="Einträge ankreuzen und gemeinsam bewegen"><i class="fa-solid fa-list-check"></i> Auswählen</button>
                 </div>
                 <div class="r-tabellenfeld"><table class="r-tabelle">
                   <thead><tr><th>Eintrag</th><th>Code</th><th>Menge</th><th>Kategorie</th></tr></thead>
@@ -299,6 +304,22 @@
                     <tr><td><span class="r-reihe"><span class="z-erscheinung"><i class="fa-solid fa-cube"></i></span><a class="r-link" href="#">Butter</a></span></td><td><span class="z-code">B6H2</span></td><td><span class="z-menge leer">leer</span></td><td>Milchprodukt</td></tr>
                     <tr><td><span class="r-reihe"><span class="z-erscheinung"><i class="fa-solid fa-egg"></i></span><a class="r-link" href="#">Eier</a></span></td><td><span class="z-code">E9C4</span></td><td><span class="z-menge"><b>2</b> Schachteln, <b>16</b> Eier</span></td><td>Lebensmittel</td></tr>
                     <tr><td><span class="r-reihe"><span class="z-erscheinung"><i class="fa-solid fa-jar"></i></span><a class="r-link" href="#">Joghurt</a></span></td><td><span class="z-code">Y2G6</span></td><td><span class="z-menge"><b>4</b> Becher</span></td><td>Milchprodukt</td></tr>
+                  </tbody>
+                </table></div>
+              </section>
+              <section class="r-abschnitt">
+                <div class="r-abschnitt-kopf"><h2>Inhalt</h2><span class="r-abschnitt-zahl">4 Einträge, Auswahl</span></div>
+                <div class="r-listenleiste">
+                  <span><b>2</b> ausgewählt</span>
+                  <button class="r-knopf primaer klein" type="button" title="Die gewählten Einträge gemeinsam an einen anderen Ort bewegen"><i class="fa-solid fa-up-down-left-right"></i> Auswahl bewegen</button>
+                  <button class="r-knopf klein" type="button">Fertig</button>
+                </div>
+                <div class="r-tabellenfeld"><table class="r-tabelle">
+                  <thead><tr><th class="s-schmal"><button class="r-kaestchen" type="button" role="checkbox" aria-checked="false" title="Ankreuzen"><span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span></button></th><th>Eintrag</th><th>Code</th><th>Menge</th></tr></thead>
+                  <tbody>
+                    <tr class="gewaehlt"><td class="s-schmal"><button class="r-kaestchen an" type="button" role="checkbox" aria-checked="true" title="Ankreuzen"><span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span></button></td><td>Milch</td><td><span class="z-code">M3T7</span></td><td><span class="z-menge"><b>3</b> Tetrapack</span></td></tr>
+                    <tr><td class="s-schmal"><button class="r-kaestchen" type="button" role="checkbox" aria-checked="false" title="Ankreuzen"><span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span></button></td><td>Butter</td><td><span class="z-code">B6H2</span></td><td><span class="z-menge leer">leer</span></td></tr>
+                    <tr class="gewaehlt"><td class="s-schmal"><button class="r-kaestchen an" type="button" role="checkbox" aria-checked="true" title="Ankreuzen"><span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span></button></td><td>Eier</td><td><span class="z-code">E9C4</span></td><td><span class="z-menge"><b>2</b> Schachteln</span></td></tr>
                   </tbody>
                 </table></div>
               </section>
@@ -313,6 +334,7 @@
                   <button class="r-auswahl" type="button" title="Nur Einträge einer Kategorie zeigen"><span>Alle Kategorien</span><i class="fa-solid fa-chevron-down"></i></button>
                   <button class="r-auswahl" type="button" title="Reihenfolge des Inhalts"><span>Nach Name</span><i class="fa-solid fa-chevron-down"></i></button>
                   <button class="r-kaestchen" type="button" role="checkbox" aria-checked="false"><span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span><span class="r-kaestchen-text">Archiv zeigen</span></button>
+                  <button class="r-knopf klein" type="button" title="Einträge ankreuzen und gemeinsam bewegen"><i class="fa-solid fa-list-check"></i> Auswählen</button>
                 </div>
                 <div class="r-kompakt">
                   <a class="r-kompakt-zeile" href="#"><span class="z-erscheinung"><i class="fa-solid fa-cow"></i></span><span class="r-kompakt-name">Milch</span><span class="z-code">M3T7</span><span class="z-menge"><b>3</b> Tetrapack, <b>2,8</b> l</span></a>

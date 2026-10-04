@@ -436,7 +436,8 @@
     color: transparent;
     font-size: var(--h-icon-klein);
   }
-  .h-kaestchen.an .h-kaestchen-feld {
+  .h-kaestchen.an .h-kaestchen-feld,
+  .h-zeile.gewaehlt .h-kaestchen-feld {
     border-color: var(--tinte);
     background: var(--tinte);
     color: var(--auf-tinte);
