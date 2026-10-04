@@ -300,6 +300,11 @@
   .r-eingabe.schmal {
     inline-size: 112px;
   }
+  /* Für Muster und Kennungen: gleichbreite Schrift, damit jedes Zeichen lesbar bleibt. */
+  .r-eingabe.code {
+    font-family: var(--schrift-code);
+    letter-spacing: 0;
+  }
   .r-feld-hinweis {
     font-size: var(--r-schrift-klein);
     color: var(--tinte-leise);
