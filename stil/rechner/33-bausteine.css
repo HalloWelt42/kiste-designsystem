@@ -783,6 +783,58 @@
   }
 
   /* Eintragskarte: Icon, Name, Menge, Code; immer gleich hoch. */
+  /* ---- Werkzeugleiste über einer Liste: Ansicht, Filter, Sortierung, Archiv ------------------------- */
+  .r-listenleiste {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--r-a2) var(--r-a3);
+  }
+  .r-listenleiste > * {
+    flex: none;
+  }
+  .r-listenleiste .r-auswahl {
+    inline-size: 220px;
+  }
+  .r-listenleiste .r-kaestchen {
+    inline-size: auto;
+  }
+
+  /* ---- Kompakte Liste: eine Zeile je Eintrag, dicht gepackt ----------------------------------------- */
+  .r-kompakt {
+    display: grid;
+    overflow: hidden;
+    border: 1px solid var(--papier-linie);
+    border-radius: var(--rund-2);
+    background: var(--papier-weich);
+  }
+  .r-kompakt-zeile {
+    --z-mass: 24px;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto auto;
+    align-items: center;
+    gap: var(--r-a3);
+    min-block-size: 36px;
+    padding: var(--r-a1) var(--r-a3);
+    border-block-end: 1px solid var(--papier-linie);
+    color: var(--tinte);
+    text-decoration: none;
+  }
+  .r-kompakt-zeile:last-child {
+    border-block-end: 0;
+  }
+  .r-kompakt-zeile:hover {
+    background: var(--papier-tief);
+  }
+  .r-kompakt-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .r-kompakt-zeile.leer {
+    color: var(--tinte-leise);
+  }
+
   .r-karten {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(208px, 1fr));

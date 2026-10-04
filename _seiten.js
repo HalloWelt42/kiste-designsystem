@@ -89,6 +89,8 @@ const SEITEN = [
   ["h57-codes-gross.html", "H57", "Codes groß", "QR-Code oder Strichcode zum Abscannen", "handy", 3],
   ["h58-aufraeumen-vorschau.html", "H58", "Eigenschaften aufräumen", "Vorher und nachher je Zeile, einzeln übernehmen", "handy", 3],
   ["h60-erinnerungen-eintrag.html", "H60", "Erinnerungen am Eintrag", "Liste am Eintrag, Blatt Erinnerung anlegen", "handy", 3],
+  ["h63-inhalt-ordnen.html", "H63", "Inhalt ordnen", "Reihenfolge, Archiv und Kategorie für den Inhalt eines Behälters", "handy", 4],
+  ["h62-zuletzt-bewegt.html", "H62", "Zuletzt bewegt", "Bewegungen des Haushalts, unter Mehr", "handy", 4],
   ["h61-fuellstand.html", "H61", "Füllstand", "Pegel angebrochener Packungen mit dem Finger ziehen", "handy", 4],
   ["h59-verkauf.html", "H59", "Verkauf", "Titel, Zustand, Preis, Beschreibung, Text kopieren", "handy", 3],
   ["r16-anreichern.html", "R16", "Anreichern", "Fenster mit Bereich, Treffer und Vorschau je Feld", "rechner", 3],
@@ -112,6 +114,11 @@ const SEITEN = [
   ["r46-fenster-wiegen.html", "R46", "Fenster: Wiegen", "Wert der Waage, Ergebnis, Bestand festhalten", "rechner", 3],
   ["r47-verbrauchsplan.html", "R47", "Verbrauchsplan", "Plan am Eintrag, Fenster Plan einrichten", "rechner", 3],
   ["r48-erinnerungen-eintrag.html", "R48", "Erinnerungen am Eintrag", "Tabelle am Eintrag, Fenster Erinnerung anlegen", "rechner", 3],
+  ["r54-inhalt-ansichten.html", "R54", "Inhalt als Liste und kompakt", "Ansicht, Filter, Sortierung und Archiv über dem Inhalt", "rechner", 4],
+  ["r53-verkauf-liste.html", "R53", "Verkauf", "Offene Verkäufe: Entwürfe und eingestellte Anzeigen", "rechner", 4],
+  ["r52-zuletzt-bewegt.html", "R52", "Zuletzt bewegt", "Bewegungen des Haushalts als Tabelle, in der Seitenleiste", "rechner", 4],
+  ["r51-fotos-anlegen.html", "R51", "Fotos anlegen", "Mehrere Bilder nacheinander: neu, hinzufügen oder parken", "rechner", 4],
+  ["r50-geloescht.html", "R50", "Zuletzt gelöscht", "Löschvorgänge wiederherstellen, erreichbar vom Park-Bereich", "rechner", 4],
   ["r49-fuellstand.html", "R49", "Füllstand", "Pegel angebrochener Packungen ziehen oder mit Pfeiltasten schieben", "rechner", 4],
 ];
 

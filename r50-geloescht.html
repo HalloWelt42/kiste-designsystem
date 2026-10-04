@@ -25,14 +25,10 @@
     <script src="_seiten.js" defer></script>
     <script src="_gemeinsam.js" defer></script>
     <!-- /block:kopf-rechner -->
-    <title>Kiste - Park-Bereich</title>
+    <title>Kiste - Zuletzt gelöscht</title>
     <style>
-      /* Nur Anordnung: die Handlungen im Seitenkopf dürfen umbrechen. */
-      .s-kopfzeile { flex-wrap: wrap; }
-      .s-aktionen { flex: 1 1 auto; flex-wrap: wrap; justify-content: flex-end; }
-      /* Parkkarte: links das Kästchen zur Auswahl, dann Erscheinungsbild und Name; im Fuß Code, Menge, Einsortieren. */
-      .s-parkkarte { grid-template-columns: auto auto minmax(0, 1fr); }
-      .s-parkkarten { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+      /* Nur Anordnung: die Spalte mit dem Knopf so schmal wie nötig. */
+      .s-rechts { inline-size: 1%; white-space: nowrap; }
     </style>
   </head>
   <body data-seite="park" data-leuchte="verbunden">
@@ -85,43 +81,32 @@
       <div class="r-anfasser" title="Breite der Seitenleiste ziehen"></div>
       <section class="r-inhalt">
         <header class="r-seitenkopf">
-          <div class="r-titelzeile s-kopfzeile">
-            <h1>Park-Bereich</h1>
-            <div class="r-seitenkopf-aktionen s-aktionen">
-              <a class="r-knopf" href="r50-geloescht.html" title="Gelöschte Einträge ansehen und wiederherstellen"><i class="fa-solid fa-trash-can-arrow-up"></i> Zuletzt gelöscht</a>
-              <a class="r-knopf primaer" href="r11-fenster-bewegen.html" title="Die 2 gewählten Einträge gemeinsam an einen Ort im Lager bewegen"><i class="fa-solid fa-up-down-left-right"></i> Auswahl einsortieren</a>
-            </div>
+          <div class="r-titelzeile">
+            <h1>Zuletzt gelöscht</h1>
           </div>
           <div class="r-titelunter">
-            <span><b>3</b> Einträge warten auf einen Ort</span>
-            <span><b>2</b> ausgewählt</span>
+            <span>Je Löschvorgang eine Zeile; Wiederherstellen bringt alles zurück, was zusammen ging</span>
           </div>
         </header>
         <div class="r-rollfeld">
           <div class="r-breite r-stapel">
-            <div class="r-hinweis"><i class="fa-solid fa-inbox"></i><p>Hier landet, was noch keinen Ort hat: Neues aus dem Scanner ohne Zielort und der Inhalt gelöschter Behälter.</p></div>
             <section class="r-abschnitt">
-              <div class="r-abschnitt-kopf"><h2>Geparkt</h2><span class="r-abschnitt-zahl">3 Einträge</span></div>
-              <div class="r-karten s-parkkarten">
-                  <div class="r-karte s-parkkarte gewaehlt">
-                    <button class="r-kaestchen an" type="button" role="checkbox" aria-checked="true" title="Sahne für das gemeinsame Einsortieren wählen"><span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span></button>
-                    <span class="z-erscheinung"><i class="fa-solid fa-jar"></i></span>
-                    <a class="r-karte-name" href="#">Sahne</a>
-                    <span class="r-karte-fuss"><span class="r-reihe"><span class="z-code">S8W4</span><span class="z-menge"><b>1</b> Becher</span></span><a class="r-knopf klein" href="r11-fenster-bewegen.html" title="Sahne an einen Ort im Lager bewegen"><i class="fa-solid fa-up-down-left-right"></i> Einsortieren</a></span>
-                  </div>
-                  <div class="r-karte s-parkkarte">
-                    <button class="r-kaestchen" type="button" role="checkbox" aria-checked="false" title="Verlängerungskabel für das gemeinsame Einsortieren wählen"><span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span></button>
-                    <span class="z-erscheinung"><i class="fa-solid fa-plug"></i></span>
-                    <a class="r-karte-name" href="#">Verlängerungskabel</a>
-                    <span class="r-karte-fuss"><span class="r-reihe"><span class="z-code">L7C2</span><span class="z-menge"><b>1</b> Stück</span></span><a class="r-knopf klein" href="r11-fenster-bewegen.html" title="Verlängerungskabel an einen Ort im Lager bewegen"><i class="fa-solid fa-up-down-left-right"></i> Einsortieren</a></span>
-                  </div>
-                  <div class="r-karte s-parkkarte gewaehlt">
-                    <button class="r-kaestchen an" type="button" role="checkbox" aria-checked="true" title="Batterien für das gemeinsame Einsortieren wählen"><span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span></button>
-                    <span class="z-erscheinung"><i class="fa-solid fa-battery-full"></i></span>
-                    <a class="r-karte-name" href="#">Batterien</a>
-                    <span class="r-karte-fuss"><span class="r-reihe"><span class="z-code">B9X5</span><span class="z-menge"><b>8</b> Stück</span></span><a class="r-knopf klein" href="r11-fenster-bewegen.html" title="Batterien an einen Ort im Lager bewegen"><i class="fa-solid fa-up-down-left-right"></i> Einsortieren</a></span>
-                  </div>
-              </div>
+              <div class="r-abschnitt-kopf"><h2>Gelöscht</h2><span class="r-abschnitt-zahl">2 Einträge</span></div>
+              <div class="r-tabellenfeld"><table class="r-tabelle">
+                <thead><tr><th>Eintrag</th><th>Lag in</th><th class="s-rechts"><span class="r-leise">Zurückholen</span></th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td><span class="r-reihe"><span class="z-erscheinung"><i class="fa-solid fa-box"></i></span><strong>Werkzeugkiste</strong></span></td>
+                    <td>Garage</td>
+                    <td class="s-rechts"><button class="r-knopf klein" type="button" title="Werkzeugkiste und alles, was mit ihr gelöscht wurde, wiederherstellen">Wiederherstellen</button></td>
+                  </tr>
+                  <tr>
+                    <td><span class="r-reihe"><span class="z-erscheinung"><i class="fa-solid fa-jar"></i></span><strong>Kondensmilch</strong></span></td>
+                    <td><span class="r-leise">Hauptebene</span></td>
+                    <td class="s-rechts"><button class="r-knopf klein" type="button" title="Kondensmilch wiederherstellen">Wiederherstellen</button></td>
+                  </tr>
+                </tbody>
+              </table></div>
             </section>
           </div>
         </div>

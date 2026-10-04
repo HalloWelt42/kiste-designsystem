@@ -26,7 +26,7 @@
     <script src="_seiten.js" defer></script>
     <script src="_gemeinsam.js" defer></script>
     <!-- /block:kopf-handy -->
-    <title>Kiste - Behälter</title>
+    <title>Kiste - Inhalt ordnen</title>
   </head>
   <body data-seite="lager" data-leuchte="verbunden">
     <div class="h-huelle">
@@ -57,7 +57,8 @@
         </div>
 
         <section class="h-abschnitt">
-          <div class="h-abschnitt-kopf"><h2>Inhalt</h2><a class="h-link" href="h63-inhalt-ordnen.html"><i class="fa-solid fa-sliders"></i> Ordnen</a></div>
+          <div class="h-abschnitt-kopf"><h2>Inhalt</h2><button class="h-link" type="button" data-zeige="#schleier, #blatt-ordnen"><i class="fa-solid fa-sliders"></i> Ordnen</button></div>
+          <div class="h-reihe verteilt"><span class="h-klein h-leise">Milchprodukt, Zuletzt angelegt, 2 Einträge</span><button class="h-link" type="button">Aufheben</button></div>
           <div class="h-liste">
             <a class="h-zeile" href="h12-eintrag-lebensmittel.html">
               <span class="z-erscheinung"><i class="fa-solid fa-cow"></i></span>
@@ -119,6 +120,36 @@
         <a class="h-leiste-eintrag" data-seite="mehr" href="h48-mehr.html"><i class="fa-solid fa-ellipsis"></i><span>Mehr</span></a>
       </nav>
       <!-- /block:h-leiste -->
+    <div class="h-schleier" id="schleier"></div>
+    <section class="h-blatt" id="blatt-ordnen" role="dialog" aria-modal="true" aria-labelledby="blatt-ordnen-titel">
+      <header class="h-blatt-kopf">
+        <h2 class="h-blatt-titel" id="blatt-ordnen-titel">Inhalt ordnen</h2>
+        <button class="h-symbolknopf nackt" type="button" aria-label="Schließen" data-zeige="#schleier, #blatt-ordnen"><i class="fa-solid fa-xmark"></i></button>
+        <p class="h-blatt-unter">Kühlschrank</p>
+      </header>
+      <div class="h-blatt-rumpf">
+        <div class="h-feld">
+          <span class="h-feld-name">Reihenfolge</span>
+          <div class="h-wahlreihe" role="radiogroup" aria-label="Reihenfolge">
+            <button class="h-wahl" type="button" role="radio" aria-checked="false">Nach Name</button>
+            <button class="h-wahl aktiv" type="button" role="radio" aria-checked="true">Zuletzt angelegt</button>
+            <button class="h-wahl" type="button" role="radio" aria-checked="false">Zuletzt geändert</button>
+          </div>
+        </div>
+        <button class="h-schalter" type="button" role="switch" aria-checked="false"><span class="h-schalter-text">Archiv zeigen</span><span class="h-schalter-bahn"></span></button>
+        <div class="h-feld">
+          <span class="h-feld-name">Kategorie</span>
+          <div role="group" aria-label="Kategorie">
+            <button class="h-wahlzeile" type="button" aria-pressed="false"><i class="fa-solid fa-layer-group"></i><span class="h-wahlzeile-text">Alle Kategorien</span><i class="fa-solid fa-check h-wahlzeile-haken"></i></button>
+            <button class="h-wahlzeile" type="button" aria-pressed="false"><i class="fa-solid fa-apple-whole"></i><span class="h-wahlzeile-text">Lebensmittel<small>Baustein</small></span><i class="fa-solid fa-check h-wahlzeile-haken"></i></button>
+            <button class="h-wahlzeile gewaehlt" type="button" aria-pressed="true"><i class="fa-solid fa-cow"></i><span class="h-wahlzeile-text">Milchprodukt</span><i class="fa-solid fa-check h-wahlzeile-haken"></i></button>
+          </div>
+        </div>
+      </div>
+      <footer class="h-blatt-fuss">
+        <button class="h-knopf primaer haupt" type="button" data-zeige="#schleier, #blatt-ordnen">Fertig</button>
+      </footer>
+    </section>
     </div>
   </body>
 </html>
