@@ -89,6 +89,7 @@ const SEITEN = [
   ["h57-codes-gross.html", "H57", "Codes groß", "QR-Code oder Strichcode zum Abscannen", "handy", 3],
   ["h58-aufraeumen-vorschau.html", "H58", "Eigenschaften aufräumen", "Vorher und nachher je Zeile, einzeln übernehmen", "handy", 3],
   ["h60-erinnerungen-eintrag.html", "H60", "Erinnerungen am Eintrag", "Liste am Eintrag, Blatt Erinnerung anlegen", "handy", 3],
+  ["h61-fuellstand.html", "H61", "Füllstand", "Pegel angebrochener Packungen mit dem Finger ziehen", "handy", 4],
   ["h59-verkauf.html", "H59", "Verkauf", "Titel, Zustand, Preis, Beschreibung, Text kopieren", "handy", 3],
   ["r16-anreichern.html", "R16", "Anreichern", "Fenster mit Bereich, Treffer und Vorschau je Feld", "rechner", 3],
   ["r17-ki-vorschau.html", "R17", "Vorschlag der KI", "Eigenschaften aufräumen: vorher und nachher", "rechner", 3],
@@ -111,12 +112,14 @@ const SEITEN = [
   ["r46-fenster-wiegen.html", "R46", "Fenster: Wiegen", "Wert der Waage, Ergebnis, Bestand festhalten", "rechner", 3],
   ["r47-verbrauchsplan.html", "R47", "Verbrauchsplan", "Plan am Eintrag, Fenster Plan einrichten", "rechner", 3],
   ["r48-erinnerungen-eintrag.html", "R48", "Erinnerungen am Eintrag", "Tabelle am Eintrag, Fenster Erinnerung anlegen", "rechner", 3],
+  ["r49-fuellstand.html", "R49", "Füllstand", "Pegel angebrochener Packungen ziehen oder mit Pfeiltasten schieben", "rechner", 4],
 ];
 
 const STAFFELN = {
   1: "Staffel 1: Fundament, Anmeldung, Lager, Eintrag, Anlegen, Bewegen, Bearbeiten, Löschen",
   2: "Staffel 2: Mengen, Scanner, Listen, Katalog, Kategorien, Fotos",
   3: "Staffel 3: Anreichern, KI, Vorgänge, Wiegen, Hilfe, Einstellungen, Verwaltung, Etiketten, Verkauf",
+  4: "Staffel 4: Zurückgestelltes, je Stück eine Seite",
 };
 
 if (typeof module !== "undefined" && module.exports) module.exports = { SEITEN, STAFFELN };

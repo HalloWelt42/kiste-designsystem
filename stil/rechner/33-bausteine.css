@@ -1204,6 +1204,58 @@
     color: var(--tinte-leise);
   }
 
+  /* ---- Füllstand: Pegel einer angebrochenen Packung, ungefähr statt genau (Kategorie-Schalter) ---- */
+  /* Ziehen setzt den Pegel, Loslassen übernimmt; --stand ist der Füllstand in Prozent. */
+  .r-fuellstaende {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: var(--r-a4);
+  }
+  .r-fuellstand {
+    display: grid;
+    justify-items: center;
+    gap: var(--r-a1);
+    cursor: ns-resize;
+    touch-action: none;
+    user-select: none;
+  }
+  .r-fuellstand-gefaess {
+    position: relative;
+    inline-size: 64px;
+    block-size: 128px;
+    overflow: hidden;
+    border: 2px solid var(--tinte-leise);
+    border-radius: var(--rund-2) var(--rund-2) var(--rund-3) var(--rund-3);
+    background:
+      linear-gradient(to top, var(--moos-weich) calc(var(--stand, 0) * 1%), transparent 0),
+      repeating-linear-gradient(to top, transparent 0 calc(25% - 1px), var(--papier-linie) calc(25% - 1px) 25%),
+      var(--papier);
+  }
+  .r-fuellstand-gefaess::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: calc(var(--stand, 0) * 1%);
+    block-size: 4px;
+    margin-block-end: -2px;
+    background: var(--messing);
+  }
+  .r-fuellstand.zieht .r-fuellstand-gefaess,
+  .r-fuellstand:focus-visible .r-fuellstand-gefaess {
+    border-color: var(--messing);
+  }
+  .r-fuellstand-text {
+    font-size: var(--r-schrift-klein);
+    font-variant-numeric: tabular-nums;
+    color: var(--tinte-weich);
+  }
+  .r-fuellstand-text b {
+    font-weight: 600;
+    color: var(--tinte);
+  }
+
   /* ==== Bilder: immer vollständig, nie beschnitten ============================================ */
   .r-bilder {
     display: grid;
