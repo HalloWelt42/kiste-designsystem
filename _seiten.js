@@ -88,6 +88,7 @@ const SEITEN = [
   ["h56-verbrauchsplan.html", "H56", "Verbrauchsplan", "Reichweite, heute offen, Plan einrichten", "handy", 3],
   ["h57-codes-gross.html", "H57", "Codes groß", "QR-Code oder Strichcode zum Abscannen", "handy", 3],
   ["h58-aufraeumen-vorschau.html", "H58", "Eigenschaften aufräumen", "Vorher und nachher je Zeile, einzeln übernehmen", "handy", 3],
+  ["h60-erinnerungen-eintrag.html", "H60", "Erinnerungen am Eintrag", "Liste am Eintrag, Blatt Erinnerung anlegen", "handy", 3],
   ["h59-verkauf.html", "H59", "Verkauf", "Titel, Zustand, Preis, Beschreibung, Text kopieren", "handy", 3],
   ["r16-anreichern.html", "R16", "Anreichern", "Fenster mit Bereich, Treffer und Vorschau je Feld", "rechner", 3],
   ["r17-ki-vorschau.html", "R17", "Vorschlag der KI", "Eigenschaften aufräumen: vorher und nachher", "rechner", 3],
@@ -109,6 +110,7 @@ const SEITEN = [
   ["r41-etiketten.html", "R41", "Etiketten", "Bogen mit Druckvorschau", "rechner", 3],
   ["r46-fenster-wiegen.html", "R46", "Fenster: Wiegen", "Wert der Waage, Ergebnis, Bestand festhalten", "rechner", 3],
   ["r47-verbrauchsplan.html", "R47", "Verbrauchsplan", "Plan am Eintrag, Fenster Plan einrichten", "rechner", 3],
+  ["r48-erinnerungen-eintrag.html", "R48", "Erinnerungen am Eintrag", "Tabelle am Eintrag, Fenster Erinnerung anlegen", "rechner", 3],
 ];
 
 const STAFFELN = {

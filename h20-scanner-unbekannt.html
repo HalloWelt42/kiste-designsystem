@@ -3,7 +3,7 @@
   <head>
     <!-- block:kopf-handy -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
@@ -27,6 +27,14 @@
     <script src="_gemeinsam.js" defer></script>
     <!-- /block:kopf-handy -->
     <title>Kiste - Scanner: Strichcode unbekannt</title>
+    <style>
+      /* Nur Anordnung: die Fotos als kleine Kacheln in einer Reihe, der Knopf für das nächste daneben. */
+      .s-fotos { display: flex; flex-wrap: wrap; gap: var(--h-a2); }
+      .s-foto { position: relative; display: block; inline-size: 88px; block-size: 88px; }
+      .s-foto img { inline-size: 100%; block-size: 100%; object-fit: contain; border-radius: var(--rund-2); background: var(--papier-tief); }
+      .s-foto .h-symbolknopf { position: absolute; inset-block-start: 2px; inset-inline-end: 2px; }
+      .s-plus { inline-size: 88px; block-size: 88px; }
+    </style>
   </head>
   <body data-leuchte="verbunden">
     <div class="h-scanner">
@@ -68,9 +76,25 @@
         <p class="h-blatt-unter">Strichcode 4012345678901</p>
       </header>
       <div class="h-blatt-rumpf">
+        <div class="h-hinweis"><i class="fa-solid fa-magnifying-glass"></i><p>Keine Quelle kennt diesen Code. Fotos von Vorder- und Rückseite helfen der KI beim Erkennen.</p></div>
+        <div class="h-feld">
+          <span class="h-feld-name">Fotos</span>
+          <div class="s-fotos">
+            <span class="s-foto"><img src="bilder/foto-sahne.svg" alt="Foto der Vorderseite" /><button class="h-symbolknopf" type="button" aria-label="Foto entfernen"><i class="fa-solid fa-xmark"></i></button></span>
+            <button class="h-knopf s-plus" type="button" aria-label="Weiteres Foto aufnehmen"><i class="fa-solid fa-camera"></i></button>
+          </div>
+          <div class="h-reihe">
+            <button class="h-symbolknopf ki" type="button" aria-label="Aus den Fotos erkennen"><i class="fa-solid fa-brain"></i></button>
+            <span class="h-klein h-leise">Erkannt aus 1 Foto; bitte prüfen.</span>
+          </div>
+        </div>
         <label class="h-feld">
           <span class="h-feld-name">Name</span>
-          <input class="h-eingabe gross" type="text" value="Sahne" autocomplete="off" />
+          <input class="h-eingabe gross" type="text" value="Sahne 30 %" autocomplete="off" />
+        </label>
+        <label class="h-feld">
+          <span class="h-feld-name">Marke</span>
+          <input class="h-eingabe" type="text" value="Hofgut" autocomplete="off" />
         </label>
         <div class="h-feld">
           <span class="h-feld-name">Kategorie</span>

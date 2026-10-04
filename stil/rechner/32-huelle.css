@@ -193,10 +193,23 @@
     background: var(--papier-linie);
   }
   .r-anfasser:hover::before,
+  .r-anfasser:focus-visible::before,
   .r-anfasser.gezogen::before {
     inline-size: 3px;
     margin-inline-start: -1px;
     background: var(--messing);
+  }
+  .r-anfasser:focus-visible {
+    outline: none;
+  }
+  /* Eingeklappte Seitenleiste: ihre Breite steht fest, der Anfasser ist nur noch die Linie. */
+  .r-anfasser.gesperrt {
+    cursor: default;
+  }
+  .r-anfasser.gesperrt:hover::before {
+    inline-size: 1px;
+    margin-inline-start: 0;
+    background: var(--papier-linie);
   }
 
   /* ---- Mittelspalte: Baum oder Liste des Bereichs ---------------------------------------------- */
