@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="handy" data-thema="hell">
+  <head>
+    <!-- block:kopf-handy -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/regular.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/handy/40-masse.css" />
+    <link rel="stylesheet" href="stil/handy/41-grund.css" />
+    <link rel="stylesheet" href="stil/handy/42-huelle.css" />
+    <link rel="stylesheet" href="stil/handy/43-bausteine.css" />
+    <link rel="stylesheet" href="stil/handy/44-ansichten.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <!-- /block:kopf-handy -->
+    <title>Kiste - Packungen</title>
+    <style>
+      /* Nur Anordnung: die Aktionen einer Karte brechen auf schmalen Geräten um. */
+      .s-aktionen {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--h-a2);
+      }
+    </style>
+  </head>
+  <body data-seite="lager" data-leuchte="verbunden">
+    <div class="h-huelle vollflaeche">
+      <header class="h-kopf">
+        <a class="h-kopf-zurueck" href="h12-eintrag-lebensmittel.html"><i class="fa-solid fa-chevron-left"></i><span>Milch</span></a>
+        <div class="h-kopf-titel">Packungen</div>
+      </header>
+      <main class="h-rollfeld">
+        <div class="h-titelblock">
+          <h1>Packungen</h1>
+          <p class="h-titelblock-unter">2 Käufe, 3 Tetrapack, zusammen 2,8 l</p>
+        </div>
+        <div class="h-stapel">
+          <div class="h-karte">
+            <div class="h-reihe verteilt">
+              <strong>Haltbar bis 10.10.2026</strong>
+              <span class="h-zustand warn"><i class="fa-solid fa-hourglass-half"></i> in 7 Tagen</span>
+            </div>
+            <span class="z-menge"><b>1</b> Tetrapack, noch <b>800</b> ml</span>
+            <dl class="h-eigenschaften">
+              <div class="h-eigenschaft"><dt>Gekauft am</dt><dd>30.09.2026</dd></div>
+            </dl>
+            <div class="s-aktionen">
+              <a class="h-knopf" href="#"><i class="fa-solid fa-pen"></i> Angaben ändern</a>
+              <button class="h-knopf gefahr" type="button" data-zeige="#schleier, #blatt-entsorgen"><i class="fa-solid fa-trash-can"></i> Entsorgen</button>
+            </div>
+          </div>
+          <div class="h-karte">
+            <strong>Haltbar bis 14.10.2026</strong>
+            <span class="z-menge"><b>2</b> Tetrapack</span>
+            <dl class="h-eigenschaften">
+              <div class="h-eigenschaft"><dt>Gekauft am</dt><dd>02.10.2026</dd></div>
+              <div class="h-eigenschaft"><dt>Preis</dt><dd>1,19 EUR je Tetrapack</dd></div>
+            </dl>
+            <div class="s-aktionen">
+              <a class="h-knopf" href="#"><i class="fa-solid fa-pen"></i> Angaben ändern</a>
+              <a class="h-knopf gefahr" href="#"><i class="fa-solid fa-trash-can"></i> Entsorgen</a>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div class="h-schleier" id="schleier"></div>
+
+    <section class="h-blatt" id="blatt-entsorgen" role="alertdialog" aria-modal="true" aria-labelledby="blatt-entsorgen-titel">
+      <header class="h-blatt-kopf">
+        <h2 class="h-blatt-titel" id="blatt-entsorgen-titel">Packung entsorgen</h2>
+        <button class="h-symbolknopf nackt" type="button" aria-label="Schließen" data-zeige="#schleier, #blatt-entsorgen"><i class="fa-solid fa-xmark"></i></button>
+      </header>
+      <div class="h-blatt-rumpf">
+        <p>1 Tetrapack mit noch 800 ml wird aus dem Bestand genommen.</p>
+        <div class="h-stapel" role="radiogroup" aria-label="Grund">
+          <button class="h-wahlkarte gewaehlt" type="button" role="radio" aria-checked="true">
+            <span class="h-wahlkarte-punkt"></span>
+            <span class="h-wahlkarte-text"><strong>Entsorgt</strong><small>Abgelaufen oder nicht mehr gut.</small></span>
+          </button>
+          <button class="h-wahlkarte" type="button" role="radio" aria-checked="false">
+            <span class="h-wahlkarte-punkt"></span>
+            <span class="h-wahlkarte-text"><strong>Kaputt</strong><small>Beschädigt oder ausgelaufen.</small></span>
+          </button>
+          <button class="h-wahlkarte" type="button" role="radio" aria-checked="false">
+            <span class="h-wahlkarte-punkt"></span>
+            <span class="h-wahlkarte-text"><strong>Verschenkt</strong><small>An jemand anderen weitergegeben.</small></span>
+          </button>
+        </div>
+      </div>
+      <footer class="h-blatt-fuss">
+        <button class="h-halten" type="button" style="--stand: 0"><span class="h-halten-ring"></span> Zum Entsorgen halten</button>
+        <button class="h-knopf still breit" type="button" data-zeige="#schleier, #blatt-entsorgen">Abbrechen</button>
+      </footer>
+    </section>
+  </body>
+</html>

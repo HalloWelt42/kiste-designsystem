@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="rechner" data-thema="hell">
+  <head>
+    <!-- block:kopf-rechner -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/regular.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/rechner/30-masse.css" />
+    <link rel="stylesheet" href="stil/rechner/31-grund.css" />
+    <link rel="stylesheet" href="stil/rechner/32-huelle.css" />
+    <link rel="stylesheet" href="stil/rechner/33-bausteine.css" />
+    <link rel="stylesheet" href="stil/rechner/34-ansichten.css" />
+    <link rel="stylesheet" href="stil/mock/90-mock.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <!-- /block:kopf-rechner -->
+    <title>Kiste - Suche</title>
+    <style>
+      /* Nur Anordnung: die Wahlreihe steht im Kopf der Mittelspalte unter dem Suchfeld über die ganze Breite. */
+      .s-ganz { grid-column: 1 / -1; }
+      .s-kopfzeile { flex-wrap: wrap; }
+      .s-aktionen { flex: 1 1 auto; flex-wrap: wrap; justify-content: flex-end; }
+      @container (max-width: 520px) {
+        .s-menge { grid-template-columns: minmax(0, 1fr); }
+      }
+      .s-fest { flex: none; white-space: nowrap; }
+    </style>
+  </head>
+  <body data-seite="suche" data-leuchte="verbunden">
+    <!-- block:r-zu-schmal -->
+    <div class="r-zu-schmal">
+      <i class="fa-solid fa-display"></i>
+      <strong>Das Fenster ist zu schmal für die Rechner-Ansicht.</strong>
+      <p>Kiste am Rechner braucht mindestens 1024 Pixel Breite. Vergrößere das Fenster oder wechsle zur Handy-Ansicht.</p>
+      <a class="r-knopf primaer" href="h04-start.html"><i class="fa-solid fa-mobile-screen"></i> Zur Handy-Ansicht</a>
+    </div>
+    <!-- /block:r-zu-schmal -->
+    <div class="r-huelle">
+      <!-- block:r-seitenleiste -->
+      <aside class="r-seitenleiste">
+        <div class="r-seitenleiste-kopf">
+          <a class="z-marke" href="r03-lager-start.html"><i class="fa-solid fa-table-cells-large"></i><span>Kiste</span></a>
+          <button class="r-symbolknopf nackt klein" type="button" title="Seitenleiste einklappen" data-schalte=".r-huelle" data-klasse="eingeklappt"><i class="fa-solid fa-angles-left"></i></button>
+        </div>
+        <nav class="r-nav" aria-label="Bereiche">
+          <a class="r-nav-eintrag" data-seite="lager" href="r03-lager-start.html" title="Lager"><i class="fa-solid fa-house"></i><span>Lager</span></a>
+          <a class="r-nav-eintrag" data-seite="suche" href="r19-suche.html" title="Suche"><i class="fa-solid fa-magnifying-glass"></i><span>Suche</span></a>
+          <a class="r-nav-eintrag" data-seite="einkauf" href="r23-einkaufsliste.html" title="Einkauf: 4 Einträge fehlen"><i class="fa-solid fa-cart-shopping"></i><span>Einkauf</span><span class="r-nav-zahl">4</span></a>
+          <a class="r-nav-eintrag" data-seite="haltbarkeit" href="r24-haltbarkeit.html" title="Haltbarkeit: 3 Einträge sind bald fällig"><i class="fa-solid fa-hourglass-half"></i><span>Haltbarkeit</span><span class="r-nav-zahl">3</span></a>
+          <a class="r-nav-eintrag" data-seite="erinnerungen" href="#" title="Erinnerungen"><i class="fa-solid fa-bell"></i><span>Erinnerungen</span></a>
+          <a class="r-nav-eintrag" data-seite="park" href="#" title="Park-Bereich: 3 Einträge warten auf einen Ort"><i class="fa-solid fa-inbox"></i><span>Park-Bereich</span><span class="r-nav-zahl">3</span></a>
+          <a class="r-nav-eintrag" data-seite="verlauf" href="#" title="Zuletzt bewegt"><i class="fa-solid fa-clock-rotate-left"></i><span>Zuletzt bewegt</span></a>
+          <span class="r-nav-gruppe">Stammdaten</span>
+          <a class="r-nav-eintrag" data-seite="katalog" href="r20-katalog.html" title="Katalog der Produkte"><i class="fa-solid fa-book-open"></i><span>Katalog</span></a>
+          <a class="r-nav-eintrag" data-seite="kategorien" href="r29-kategorien.html" title="Kategorien und ihr Verhalten"><i class="fa-solid fa-shapes"></i><span>Kategorien</span></a>
+          <a class="r-nav-eintrag" data-seite="etiketten" href="#" title="Etiketten drucken"><i class="fa-solid fa-qrcode"></i><span>Etiketten</span></a>
+        </nav>
+        <div class="r-seitenfuss">
+          <a class="r-nav-eintrag" data-seite="vorgaenge" href="#" title="Vorgänge: 1 läuft"><i class="fa-solid fa-list-check"></i><span>Vorgänge</span><span class="r-nav-zahl">1</span></a>
+          <a class="r-nav-eintrag" data-seite="hilfe" href="#" title="Hilfe öffnen"><i class="fa-solid fa-circle-info"></i><span>Hilfe</span></a>
+          <a class="r-nav-eintrag" data-seite="einstellungen" href="#" title="Einstellungen"><i class="fa-solid fa-gear"></i><span>Einstellungen</span></a>
+          <a class="r-nav-eintrag" data-seite="verwaltung" href="#" title="Verwaltung: Konten, Anbindungen, Sicherungen"><i class="fa-solid fa-screwdriver-wrench"></i><span>Verwaltung</span></a>
+          <div class="r-nutzer">
+            <span class="r-nutzer-bild">M</span>
+            <span class="r-nutzer-text"><strong>Alex</strong><small>Haushalt Zuhause</small></span>
+            <button class="r-symbolknopf nackt klein" type="button" title="Abmelden"><i class="fa-solid fa-right-from-bracket"></i></button>
+          </div>
+          <div class="r-fassung">
+            <span class="r-leuchte verbunden" title="Verbunden mit dem Dienst"></span>
+            <span data-fassung></span>
+            <button class="r-symbolknopf nackt klein" type="button" title="Zwischen hellem und dunklem Thema wechseln" data-thema-wechsel><i class="fa-solid fa-circle-half-stroke"></i></button>
+          </div>
+        </div>
+      </aside>
+      <!-- /block:r-seitenleiste -->
+      <div class="r-anfasser" title="Breite der Seitenleiste ziehen"></div>
+      <aside class="r-mitte">
+        <div class="r-mitte-kopf">
+          <div class="r-suchfeld s-ganz">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input class="r-eingabe" type="search" value="milch" placeholder="Im Lager suchen" aria-label="Im Lager suchen" />
+            <button class="r-suchfeld-leeren" type="button" title="Suche leeren"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <div class="r-wahlreihe s-ganz" role="tablist" aria-label="Wo gesucht wird">
+            <button class="r-wahl aktiv" type="button" role="tab" aria-selected="true" title="Zeigt, was im Lager liegt und zum Suchwort passt">Im Lager</button>
+            <a class="r-wahl" href="r20-katalog.html" role="tab" aria-selected="false" title="Zeigt Produkte aus dem Katalog, auch solche ohne Bestand">Im Katalog</a>
+          </div>
+        </div>
+        <nav class="r-mitte-rumpf r-baum" aria-label="Treffer">
+          <p class="r-nav-gruppe">3 Treffer</p>
+          <ul class="r-baumkinder">
+            <li class="r-baumknoten">
+              <div class="r-baumzeile aktiv"><span></span><a class="r-baumziel" href="r19-suche.html" title="Wohnung, Küche, Kühlschrank"><i class="fa-solid fa-cow"></i><span>Milch</span></a><span class="r-baumzahl">Kühlschrank</span></div>
+            </li>
+            <li class="r-baumknoten">
+              <div class="r-baumzeile"><span></span><a class="r-baumziel" href="#" title="Wohnung, Küche, Vorratsschrank"><i class="fa-solid fa-cow"></i><span>H-Milch</span></a><span class="r-baumzahl">Vorratsschrank</span></div>
+            </li>
+            <li class="r-baumknoten">
+              <div class="r-baumzeile"><span></span><a class="r-baumziel" href="#" title="Wohnung, Küche, Vorratsschrank"><i class="fa-solid fa-jar"></i><span>Kondensmilch</span></a><span class="r-baumzahl">Vorratsschrank</span></div>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <div class="r-anfasser" title="Breite der Trefferliste ziehen"></div>
+      <section class="r-inhalt">
+        <header class="r-seitenkopf">
+          <nav class="r-brotkrumen" aria-label="Pfad">
+            <a href="#">Wohnung</a><i class="fa-solid fa-chevron-right"></i><a href="#">Küche</a><i class="fa-solid fa-chevron-right"></i><a href="r04-behaelter-lesen.html">Kühlschrank</a><i class="fa-solid fa-chevron-right"></i><strong>Milch</strong>
+          </nav>
+          <div class="r-titelzeile s-kopfzeile">
+            <h1>Milch</h1>
+            <div class="r-seitenkopf-aktionen s-aktionen">
+              <a class="r-knopf" href="r04-behaelter-lesen.html" title="Wechselt ins Lager und zeigt den Kühlschrank, in dem die Milch liegt"><i class="fa-solid fa-location-dot"></i> Im Lager zeigen</a>
+              <div class="r-seitenkopf-fest">
+                <button class="r-symbolknopf nackt" type="button" title="Bearbeiten: Einrichten und Korrigieren einschalten"><i class="fa-solid fa-pen"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="r-titelunter">
+            <span class="z-code">M3T7</span>
+            <span class="r-pille">Milchprodukt</span>
+            <span class="r-pille moos">Lebensmittel</span>
+          </div>
+        </header>
+        <div class="r-rollfeld">
+          <div class="r-breite r-detail-haupt">
+            <section class="r-abschnitt">
+              <div class="r-abschnitt-kopf"><h2>Menge</h2></div>
+              <div class="r-mengenblock s-menge">
+                <div>
+                  <div class="r-mengenblock-menge"><b>2,8</b> l <span class="r-zustand warn"><i class="fa-solid fa-hourglass-half"></i> haltbar bis 10.10.2026</span></div>
+                  <p class="r-mengenblock-unter">3 Tetrapack: 2 ungeöffnet, 1 angebrochen mit 800 ml</p>
+                </div>
+                <div class="r-mengenblock-knoepfe">
+                  <button class="r-knopf primaer" type="button" title="200 ml verbrauchen: trifft den angebrochenen Tetrapack"><i class="fa-solid fa-minus"></i> 200 ml</button>
+                  <button class="r-knopf" type="button" title="1 Tetrapack verbrauchen: trifft zuerst den angebrochenen"><i class="fa-solid fa-minus"></i> 1 Tetrapack</button>
+                  <a class="r-knopf" href="r45-fenster-einkaufen.html" title="Tetrapack einkaufen: fragt nach Anzahl, Haltbarkeit und Preis"><i class="fa-solid fa-plus"></i> Einkaufen</a>
+                </div>
+                <div class="r-mengenblock-fuss"><span>Mindestens 2 Tetrapack über alle Orte, zuletzt gekauft am 02.10.2026 für 1,19 EUR je Tetrapack</span><a class="r-link s-fest" href="#" title="Den Bestand von Hand auf einen gezählten Wert setzen">Menge ändern <i class="fa-solid fa-chevron-right"></i></a></div>
+              </div>
+            </section>
+
+            <section class="r-abschnitt">
+              <div class="r-abschnitt-kopf"><h2>Packungen</h2><span class="r-abschnitt-zahl">2 Käufe</span></div>
+              <div class="r-tabellenfeld"><table class="r-tabelle">
+                <thead><tr><th>Gekauft am</th><th>Haltbar bis</th><th>Ungeöffnet</th><th>Angebrochen</th><th>Preis</th></tr></thead>
+                <tbody>
+                  <tr><td>28.09.2026</td><td><span class="r-zustand warn"><i class="fa-solid fa-hourglass-half"></i> 10.10.2026</span></td><td><span class="r-leise">keiner</span></td><td><span class="z-menge"><b>1</b> mit <b>800</b> ml</span></td><td>1,19 EUR</td></tr>
+                  <tr><td>02.10.2026</td><td>14.10.2026</td><td><span class="z-menge"><b>2</b> Tetrapack</span></td><td><span class="r-leise">keiner</span></td><td>1,19 EUR</td></tr>
+                </tbody>
+              </table></div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- block:mock-leiste -->
+    <div class="m-leiste">
+      <a href="galerie.html" title="Galerie aller Seiten"><i class="fa-solid fa-grip"></i></a>
+      <button type="button" data-thema-knopf="hell" title="Helles Thema"><i class="fa-solid fa-sun"></i></button>
+      <button type="button" data-thema-knopf="dunkel" title="Dunkles Thema"><i class="fa-solid fa-moon"></i></button>
+    </div>
+    <!-- /block:mock-leiste -->
+  </body>
+</html>

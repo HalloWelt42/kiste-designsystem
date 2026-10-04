@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="handy" data-thema="hell">
+  <head>
+    <!-- block:kopf-handy -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/regular.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/handy/40-masse.css" />
+    <link rel="stylesheet" href="stil/handy/41-grund.css" />
+    <link rel="stylesheet" href="stil/handy/42-huelle.css" />
+    <link rel="stylesheet" href="stil/handy/43-bausteine.css" />
+    <link rel="stylesheet" href="stil/handy/44-ansichten.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <!-- /block:kopf-handy -->
+    <title>Kiste - Scanner: Behälter gescannt</title>
+  </head>
+  <body data-leuchte="verbunden">
+    <div class="h-scanner">
+      <header class="h-scanner-kopf">
+        <a class="h-scanner-knopf" href="h06-behaelter.html" aria-label="Scanner schließen"><i class="fa-solid fa-xmark"></i></a>
+        <h1>Scanner</h1>
+        <button class="h-scanner-knopf" type="button" aria-label="Leuchte einschalten"><i class="fa-solid fa-bolt"></i></button>
+      </header>
+
+      <div class="h-scanner-modi" role="tablist" aria-label="Was der Scan tut">
+        <button class="h-scanner-modus aktiv" type="button" role="tab" aria-selected="true">Einbuchen</button>
+        <button class="h-scanner-modus" type="button" role="tab" aria-selected="false">Verbrauchen</button>
+        <button class="h-scanner-modus" type="button" role="tab" aria-selected="false">Nachschlagen</button>
+      </div>
+
+      <div class="h-scanner-ziel">
+        <i class="fa-solid fa-location-dot"></i>
+        <span><small>Neues kommt nach</small><strong>Vorratsschrank</strong></span>
+        <button class="h-scanner-link" type="button">Ändern</button>
+      </div>
+
+      <div class="h-scanner-sucher">
+        <div class="h-scanner-rahmen gut"></div>
+        <p class="h-scanner-hinweis"><strong>Code in den Rahmen halten</strong>Etikett, Strichcode oder Buchnummer</p>
+      </div>
+
+      <div class="h-scanner-unten">
+        <div class="h-scanner-ergebnis" role="status">
+          <div class="h-scanner-ergebnis-kopf">
+            <span class="z-erscheinung" data-ton="messing"><i class="fa-solid fa-box-archive"></i></span>
+            <span class="h-scanner-ergebnis-text"><strong>Vorratsschrank</strong><small>Ab jetzt nach Vorratsschrank.</small></span>
+          </div>
+          <a class="h-knopf" href="h06-behaelter.html">Öffnen</a>
+          <div class="h-reihe">
+            <span class="z-code">V8N3</span>
+            <span class="h-klein">5 Einträge, 17 Gegenstände</span>
+          </div>
+        </div>
+      </div>
+
+      <footer class="h-scanner-fuss">
+        <a class="h-knopf" href="h21-scanner-code-tippen.html">Code tippen</a>
+        <a class="h-knopf primaer" href="h06-behaelter.html">Fertig</a>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="allgemein" data-thema="hell">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Kiste Designsystem: Papier, Tinte, Messing. Marken, Zeichen und Bausteine für zwei eigenständige Oberflächen, Handy und Rechner, in reinem CSS mit Kaskadenschichten, hell und dunkel." />
+    <meta property="og:title" content="Kiste Designsystem" />
+    <meta property="og:description" content="Ein Designsystem in reinem CSS für eine Inventar-App: zwei Oberflächen, gemessene Kontraste, 110 Beispielseiten." />
+    <meta property="og:image" content="vorschau/g01-marken-hell-1440.png" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/mock/90-mock.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <title>Kiste Designsystem</title>
+    <style>
+      /* Nur Anordnung der Startseite. */
+      .s-kacheln {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: var(--a4, 16px);
+      }
+      .s-kachel {
+        display: grid;
+        gap: 6px;
+        align-content: start;
+        text-decoration: none;
+      }
+      .s-kachel img {
+        inline-size: 100%;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+        object-position: top;
+        border-radius: var(--rund-2);
+        border: 1px solid var(--papier-linie);
+      }
+      .s-grundsaetze {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 12px 24px;
+        padding: 0;
+        list-style: none;
+      }
+      .s-grundsaetze li {
+        display: grid;
+        grid-template-columns: 24px minmax(0, 1fr);
+        gap: 10px;
+      }
+      .s-grundsaetze i {
+        color: var(--messing-schrift);
+        padding-top: 4px;
+      }
+      .s-code {
+        padding: 16px;
+        border-radius: var(--rund-2);
+        background: var(--papier-tief);
+        font-family: var(--schrift-code);
+        font-size: 14px;
+        line-height: 1.6;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+      .s-fuss {
+        color: var(--tinte-leise);
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="m-seite">
+      <header class="m-kopf">
+        <div>
+          <span class="z-marke"><i class="fa-solid fa-table-cells-large"></i> Kiste</span>
+          <h1>Designsystem</h1>
+          <p>Papier trägt, Tinte schreibt, Messing zeichnet aus. Ein Designsystem in reinem CSS für eine Inventar-App mit zwei eigenständigen Oberflächen: eine fürs Handy, eine für den Rechner. Hell und dunkel, Kontraste gemessen, ohne Rahmenwerk und ohne Bauschritt.</p>
+        </div>
+        <span class="m-unter" data-fassung></span>
+      </header>
+
+      <section class="m-abschnitt">
+        <h2>Einstieg</h2>
+        <div class="s-kacheln">
+          <a class="s-kachel" href="g01-marken.html">
+            <img src="vorschau/g01-marken-hell-1440.png" alt="Die Farbmarken des Designsystems" loading="lazy" />
+            <strong>Marken</strong><span class="m-unter">Farben, Schriften, Schatten, Rundungen, gemessene Kontraste</span>
+          </a>
+          <a class="s-kachel" href="g02-zeichen.html">
+            <img src="vorschau/r03-lager-start-hell-1440.png" alt="Die Rechner-Oberfläche mit Baum und Karten" loading="lazy" />
+            <strong>Zeichen</strong><span class="m-unter">Code-Stempel, Erscheinungsbild, Mengentext, Score-Marken</span>
+          </a>
+          <a class="s-kachel" href="h01-bausteine.html">
+            <img src="vorschau/h04-start-dunkel-430.png" alt="Die Handy-Oberfläche im dunklen Thema" loading="lazy" />
+            <strong>Bausteine Handy</strong><span class="m-unter">Hülle, Leiste, Blätter, Felder, Halten, Fortschritt</span>
+          </a>
+          <a class="s-kachel" href="r01-bausteine.html">
+            <img src="vorschau/h12-eintrag-lebensmittel-hell-430.png" alt="Ein Eintrag mit Menge und Packungen" loading="lazy" />
+            <strong>Bausteine Rechner</strong><span class="m-unter">Drei Spalten, Baum, Tabellen, Fenster, Schubladen</span>
+          </a>
+        </div>
+        <p><a class="m-knopf" href="galerie.html"><i class="fa-solid fa-grip"></i> Alle 110 Beispielseiten</a></p>
+      </section>
+
+      <section class="m-abschnitt">
+        <h2>Grundsätze</h2>
+        <ul class="s-grundsaetze">
+          <li><i class="fa-solid fa-layer-group"></i><span><strong>Kaskadenschichten statt Kampf um Vorrang.</strong> Marken, Zeichen, Maße, Grund, Hülle, Bausteine, Ansichten: jede Schicht hat ihren Platz, kein einziges !important.</span></li>
+          <li><i class="fa-solid fa-mobile-screen"></i><span><strong>Zwei Oberflächen, keine Umbruchpunkte.</strong> Handy und Rechner haben eigene Maße und Bausteine; geteilt werden nur Marken und Zeichen.</span></li>
+          <li><i class="fa-solid fa-circle-half-stroke"></i><span><strong>Hell und dunkel aus denselben Marken.</strong> Jede Farbe ist eine Variable; das Thema wechselt eine Stelle.</span></li>
+          <li><i class="fa-solid fa-scale-balanced"></i><span><strong>Kontraste gemessen, nicht geschätzt.</strong> Die Marken-Seite zeigt jede Paarung mit ihrem Wert.</span></li>
+          <li><i class="fa-solid fa-hand-pointer"></i><span><strong>Für den Daumen gebaut.</strong> Berührflächen ab 44 Punkten, Feldschrift ab 16 Pixeln, sichere Bereiche, nichts rollt seitlich.</span></li>
+          <li><i class="fa-solid fa-house-signal"></i><span><strong>Alles lokal.</strong> Schriften und Icons liegen bei; keine fremden Server, kein Nachladen.</span></li>
+        </ul>
+      </section>
+
+      <section class="m-abschnitt">
+        <h2>Nutzen</h2>
+        <p>Repo klonen, die Stile in dieser Reihenfolge einbinden und das Wurzelelement markieren. Die beiden Vorlagen <a href="_vorlage-handy.html">für das Handy</a> und <a href="_vorlage-rechner.html">für den Rechner</a> zeigen den Kopf einer Seite vollständig.</p>
+        <div class="s-code">&lt;html lang="de" data-oberflaeche="handy" data-thema="hell"&gt;
+&lt;link rel="stylesheet" href="stil/00-schichten.css" /&gt;
+&lt;link rel="stylesheet" href="stil/10-marken.css" /&gt;
+&lt;link rel="stylesheet" href="stil/20-zeichen.css" /&gt;
+&lt;link rel="stylesheet" href="stil/handy/40-masse.css" /&gt;
+&lt;link rel="stylesheet" href="stil/handy/41-grund.css" /&gt;
+&lt;link rel="stylesheet" href="stil/handy/42-huelle.css" /&gt;
+&lt;link rel="stylesheet" href="stil/handy/43-bausteine.css" /&gt;
+&lt;link rel="stylesheet" href="stil/handy/44-ansichten.css" /&gt;</div>
+        <p>Für den Rechner dieselben ersten drei Dateien, danach <code>stil/rechner/30-masse.css</code> bis <code>34-ansichten.css</code>. Klassen beginnen mit <code>z-</code> (Zeichen, beide Oberflächen), <code>h-</code> (Handy) und <code>r-</code> (Rechner).</p>
+      </section>
+
+      <section class="m-abschnitt">
+        <p class="s-fuss">Kiste ist eine selbst gehostete Inventar-App für Haushalt und Familie. Dieses Repo ist die Ausgabe ihres Designsystems. Nicht-kommerzielle Nutzung, siehe <a href="https://github.com/HalloWelt42/kiste-designsystem/blob/main/LICENSE">Lizenz</a>. Quelltext auf <a href="https://github.com/HalloWelt42/kiste-designsystem">GitHub</a>.</p>
+      </section>
+    </main>
+    <div class="m-leiste">
+      <a href="galerie.html" title="Galerie aller Seiten"><i class="fa-solid fa-grip"></i></a>
+      <button type="button" data-thema-knopf="hell" title="Helles Thema"><i class="fa-solid fa-sun"></i></button>
+      <button type="button" data-thema-knopf="dunkel" title="Dunkles Thema"><i class="fa-solid fa-moon"></i></button>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,312 @@
+/* Handy: die Hülle steht. Zeilen von oben: Statusband, Kopf, Band, Rollfeld, Fuß, untere Leiste.
+   Je Ansicht gibt es genau ein Rollfeld; Dokument und Körper rollen nie. */
+@layer h-huelle {
+  .h-huelle {
+    position: fixed;
+    inset: 0 0 var(--h-tastatur) 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto minmax(0, 1fr) auto auto;
+    padding-inline: var(--h-sicher-links) var(--h-sicher-rechts);
+    background-color: var(--papier);
+    background-image:
+      linear-gradient(var(--raster-linie) 1px, transparent 1px),
+      linear-gradient(90deg, var(--raster-linie) 1px, transparent 1px);
+    background-size: var(--raster-weite) var(--raster-weite);
+  }
+
+  /* Alles steht in der einen Spalte; ohne das weicht ein Kind einem anderen in eine Nebenspalte aus. */
+  .h-huelle > *,
+  .h-huelle::before {
+    grid-column: 1;
+  }
+
+  /* Statusband: Tinte über dem sicheren Bereich, damit Uhr und Empfang in beiden Themen lesbar sind. */
+  .h-huelle::before {
+    content: "";
+    grid-row: 1;
+    block-size: var(--h-sicher-oben);
+    margin-inline: calc(var(--h-sicher-links) * -1) calc(var(--h-sicher-rechts) * -1);
+    background: var(--nacht);
+  }
+
+  /* ---- Kopf: links Zurück mit dem Namen des Elternteils, rechts höchstens zwei Symbolknöpfe --- */
+  .h-kopf {
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: minmax(0, auto) minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--h-a2);
+    min-block-size: var(--h-kopf-hoehe);
+    padding: var(--h-a1) var(--h-a2);
+    border-block-end: 1px solid var(--papier-linie);
+    background: var(--papier);
+  }
+  .h-kopf-zurueck {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--h-a2);
+    min-inline-size: 0;
+    min-block-size: var(--h-griff-klein);
+    padding-inline: var(--h-a2) var(--h-a3);
+    color: var(--messing-schrift);
+    font-weight: 500;
+  }
+  .h-kopf-zurueck span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .h-kopf-marke {
+    padding-inline-start: var(--h-a2);
+    font-size: var(--h-titel-2);
+  }
+  /* Der kurze Titel im Kopf erscheint erst, wenn der große Titel hinausgerollt ist. */
+  .h-kopf-titel {
+    display: none;
+    grid-column: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+    font-family: var(--schrift-text);
+    font-size: var(--h-schrift);
+    font-weight: 600;
+  }
+  .h-huelle.gerollt .h-kopf-titel {
+    display: block;
+  }
+  .h-kopf-aktionen {
+    grid-column: 3;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--h-a1);
+  }
+
+  /* ---- Band: Zustand der Verbindung oder neue Fassung, direkt unter dem Kopf ---------------- */
+  .h-band {
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--h-a3);
+    min-block-size: var(--h-griff-klein);
+    padding: var(--h-a2) var(--h-rand);
+    border-block-end: 1px solid var(--papier-linie);
+    background: var(--papier-tief);
+    font-size: var(--h-schrift-klein);
+    color: var(--tinte-weich);
+  }
+  .h-band.fassung {
+    border-color: var(--messing-weich);
+    background: var(--messing-flaeche);
+    color: var(--tinte);
+  }
+  .h-band.fassung i {
+    color: var(--messing-schrift);
+  }
+  .h-band-knopf {
+    min-block-size: var(--h-griff-klein);
+    padding-inline: var(--h-a3);
+    font-weight: 600;
+    color: var(--messing-schrift);
+  }
+
+  /* ---- Rollfeld: das eine Rollfeld der Ansicht ------------------------------------------------ */
+  .h-rollfeld {
+    grid-row: 4;
+    display: flex;
+    flex-direction: column;
+    gap: var(--h-a5);
+    min-block-size: 0;
+    padding: var(--h-a4) var(--h-rand) var(--h-luft-unten);
+    overflow-y: auto;
+    overflow-x: clip;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+  .h-rollfeld > * {
+    flex: none;
+    min-inline-size: 0;
+  }
+  .h-rollfeld.mittig {
+    justify-content: center;
+  }
+
+  /* Vollfläche: Ansichten ohne untere Leiste (Anmeldung, Anlegen, Bearbeiten); der Fuß trägt die Luft. */
+  .h-huelle.vollflaeche .h-rollfeld {
+    padding-block-end: var(--h-a6);
+  }
+
+  /* ---- Fuß einer Vollfläche: Hauptknopf, steht über der Tastatur ------------------------------ */
+  .h-fuss {
+    grid-row: 5;
+    display: grid;
+    gap: var(--h-a2);
+    padding: var(--h-a3) var(--h-rand) calc(var(--h-a3) + var(--h-sicher-unten));
+    border-block-start: 1px solid var(--papier-linie);
+    background: var(--papier);
+  }
+  .h-fuss.zweigeteilt {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .h-huelle:has(.h-leiste) .h-fuss {
+    padding-block-end: var(--h-a3);
+  }
+
+  /* ---- Untere Leiste: Lager, Suche, Scan-Knopf, Verbrauch, Mehr ------------------------------- */
+  .h-leiste {
+    grid-row: 6;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    align-items: end;
+    padding: var(--h-a1) var(--h-a2) calc(var(--h-a1) + var(--h-sicher-unten));
+    border-block-start: 1px solid var(--papier-linie);
+    background: var(--papier-weich);
+  }
+  .h-leiste-eintrag {
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    gap: 2px;
+    min-block-size: var(--h-leiste-hoehe);
+    font-size: var(--h-schrift-winzig);
+    font-weight: 500;
+    color: var(--tinte-leise);
+  }
+  .h-leiste-eintrag i {
+    display: grid;
+    place-items: center;
+    inline-size: 56px;
+    block-size: 30px;
+    border-radius: var(--rund-voll);
+    font-size: var(--h-icon);
+  }
+  .h-leiste-eintrag.aktiv {
+    font-weight: 600;
+    color: var(--tinte);
+  }
+  .h-leiste-eintrag.aktiv i {
+    background: var(--papier-tief);
+  }
+  /* Beim Tippen zählt jede Zeile: die Leiste macht der Tastatur Platz. */
+  :root.tastatur-offen .h-leiste {
+    display: none;
+  }
+  /* Der Scan-Knopf steht erhaben in der Mitte. */
+  .h-leiste-scan {
+    display: grid;
+    place-items: center;
+    justify-self: center;
+    align-self: start;
+    inline-size: var(--h-scan-knopf);
+    block-size: var(--h-scan-knopf);
+    margin-block-start: calc(var(--h-scan-knopf) * -0.4);
+    border: 4px solid var(--papier-weich);
+    border-radius: 50%;
+    background: var(--tinte);
+    color: var(--auf-tinte);
+    font-size: var(--h-icon-gross);
+    box-shadow: var(--schatten-tief);
+  }
+
+  /* ---- Meldungen: schweben unter dem Kopf über dem Rollfeld ----------------------------------- */
+  .h-meldungen {
+    grid-row: 4;
+    align-self: start;
+    z-index: 5;
+    display: grid;
+    gap: var(--h-a2);
+    padding: var(--h-a2) var(--h-rand) 0;
+    pointer-events: none;
+  }
+  .h-meldungen > * {
+    pointer-events: auto;
+  }
+
+  /* ---- Schleier und Blätter: liegen über allem, das Blatt steht am unteren Rand --------------- */
+  .h-schleier {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    background: var(--schleier);
+  }
+  .h-blatt {
+    position: fixed;
+    inset: auto 0 var(--h-tastatur) 0;
+    z-index: 21;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    max-block-size: calc(100% - var(--h-tastatur) - var(--h-sicher-oben) - var(--h-a6));
+    padding-inline: var(--h-sicher-links) var(--h-sicher-rechts);
+    border-start-start-radius: var(--rund-blatt);
+    border-start-end-radius: var(--rund-blatt);
+    background: var(--papier);
+    box-shadow: var(--schatten-tief);
+  }
+  /* Vollblatt: füllt die Fläche unter dem Statusband, für Anlegen, Bearbeiten und Hilfe. */
+  .h-blatt.voll {
+    inset: var(--h-sicher-oben) 0 var(--h-tastatur) 0;
+    max-block-size: none;
+    border-radius: 0;
+  }
+  .h-blatt-kopf {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--h-a2);
+    padding: var(--h-a3) var(--h-a2) var(--h-a2) var(--h-rand);
+    border-block-end: 1px solid var(--papier-linie);
+  }
+  /* Der Griff zeigt, dass sich ein Halbblatt nach unten wegziehen lässt. */
+  .h-blatt-kopf::before {
+    content: "";
+    grid-column: 1 / -1;
+    justify-self: center;
+    inline-size: 40px;
+    block-size: 4px;
+    margin-block-end: var(--h-a1);
+    border-radius: var(--rund-voll);
+    background: var(--tinte-blass);
+  }
+  .h-blatt.voll .h-blatt-kopf::before {
+    content: none;
+  }
+  .h-blatt-titel {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: var(--h-titel-2);
+  }
+  .h-blatt-unter {
+    grid-column: 1 / -1;
+    font-size: var(--h-schrift-klein);
+    color: var(--tinte-leise);
+  }
+  .h-blatt-rumpf {
+    display: flex;
+    flex-direction: column;
+    gap: var(--h-a4);
+    min-block-size: 0;
+    padding: var(--h-a4) var(--h-rand);
+    overflow-y: auto;
+    overflow-x: clip;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+  .h-blatt-rumpf > * {
+    flex: none;
+    min-inline-size: 0;
+  }
+  .h-blatt-fuss {
+    display: grid;
+    gap: var(--h-a2);
+    padding: var(--h-a3) var(--h-rand) calc(var(--h-a3) + var(--h-sicher-unten));
+    border-block-start: 1px solid var(--papier-linie);
+    background: var(--papier);
+  }
+  .h-blatt-fuss.zweigeteilt {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}

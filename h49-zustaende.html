@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="handy" data-thema="hell">
+  <head>
+    <!-- block:kopf-handy -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/regular.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/handy/40-masse.css" />
+    <link rel="stylesheet" href="stil/handy/41-grund.css" />
+    <link rel="stylesheet" href="stil/handy/42-huelle.css" />
+    <link rel="stylesheet" href="stil/handy/43-bausteine.css" />
+    <link rel="stylesheet" href="stil/handy/44-ansichten.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <!-- /block:kopf-handy -->
+    <title>Kiste - Zustände</title>
+  </head>
+  <body data-seite="lager" data-leuchte="getrennt">
+    <div class="h-huelle">
+      <header class="h-kopf">
+        <span class="z-marke h-kopf-marke"><i class="fa-solid fa-table-cells-large"></i> Kiste</span>
+        <div class="h-kopf-titel">Zustände</div>
+      </header>
+
+      <div class="h-band">
+        <i class="fa-solid fa-plug-circle-xmark"></i>
+        <span>Keine Verbindung. Neuer Versuch in 8 Sekunden.</span>
+        <button class="h-band-knopf" type="button">Jetzt versuchen</button>
+      </div>
+
+      <main class="h-rollfeld">
+        <div class="h-titelblock">
+          <h1>Zustände</h1>
+          <p class="h-titelblock-unter">Was die Oberfläche zeigt, wenn etwas nicht wie gewohnt läuft.</p>
+        </div>
+
+        <section class="h-abschnitt">
+          <div class="h-abschnitt-kopf"><h2>Getrennt</h2></div>
+          <div class="h-reihe">
+            <span class="h-leuchte"></span><span class="h-klein">Das Band unter dem Kopf nennt den nächsten Versuch.</span>
+          </div>
+        </section>
+
+        <section class="h-abschnitt">
+          <div class="h-abschnitt-kopf"><h2>Neue Fassung</h2></div>
+          <div class="h-hinweis messing"><i class="fa-solid fa-arrows-rotate"></i><p>Neue Fassung bereit. Sie wird beim nächsten Seitenwechsel geladen.</p></div>
+          <a class="h-link" href="#">Jetzt neu laden <i class="fa-solid fa-chevron-right"></i></a>
+        </section>
+
+        <section class="h-abschnitt">
+          <div class="h-abschnitt-kopf"><h2>Laden</h2></div>
+          <div class="h-stapel" aria-hidden="true">
+            <span class="h-skelett titel"></span>
+            <span class="h-skelett kurz"></span>
+            <span class="h-skelett zeile"></span>
+            <span class="h-skelett zeile"></span>
+            <span class="h-skelett zeile"></span>
+          </div>
+        </section>
+
+        <section class="h-abschnitt">
+          <div class="h-abschnitt-kopf"><h2>Fehler beim Laden</h2></div>
+          <div class="h-hinweis gefahr"><i class="fa-solid fa-triangle-exclamation"></i><p>Der Inhalt ließ sich nicht laden: Der Dienst antwortet nicht.</p></div>
+          <button class="h-knopf breit" type="button"><i class="fa-solid fa-rotate-right"></i> Erneut versuchen</button>
+        </section>
+
+        <section class="h-abschnitt">
+          <div class="h-abschnitt-kopf"><h2>Sitzung abgelaufen</h2></div>
+          <div class="h-leerzustand">
+            <i class="fa-solid fa-lock"></i>
+            <h2>Bitte neu anmelden</h2>
+            <p>Die Sitzung ist abgelaufen. Nach der Anmeldung geht es hier weiter.</p>
+            <a class="h-knopf primaer" href="h02-anmeldung.html"><i class="fa-solid fa-right-to-bracket"></i> Zur Anmeldung</a>
+          </div>
+        </section>
+      </main>
+      <!-- block:h-leiste -->
+      <nav class="h-leiste" aria-label="Hauptbereiche">
+        <a class="h-leiste-eintrag" data-seite="lager" href="h04-start.html"><i class="fa-solid fa-house"></i><span>Lager</span></a>
+        <a class="h-leiste-eintrag" data-seite="suche" href="h29-suche.html"><i class="fa-solid fa-magnifying-glass"></i><span>Suche</span></a>
+        <a class="h-leiste-scan" href="h17-scanner-einbuchen.html" aria-label="Scannen"><i class="fa-solid fa-qrcode"></i></a>
+        <a class="h-leiste-eintrag" data-seite="verbrauch" href="h30-verbrauch.html"><i class="fa-solid fa-circle-minus"></i><span>Verbrauch</span></a>
+        <a class="h-leiste-eintrag" data-seite="mehr" href="h48-mehr.html"><i class="fa-solid fa-ellipsis"></i><span>Mehr</span></a>
+      </nav>
+      <!-- /block:h-leiste -->
+    </div>
+  </body>
+</html>

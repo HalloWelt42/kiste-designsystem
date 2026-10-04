@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="rechner" data-thema="hell">
+  <head>
+    <!-- block:kopf-rechner -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/regular.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/rechner/30-masse.css" />
+    <link rel="stylesheet" href="stil/rechner/31-grund.css" />
+    <link rel="stylesheet" href="stil/rechner/32-huelle.css" />
+    <link rel="stylesheet" href="stil/rechner/33-bausteine.css" />
+    <link rel="stylesheet" href="stil/rechner/34-ansichten.css" />
+    <link rel="stylesheet" href="stil/mock/90-mock.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <!-- /block:kopf-rechner -->
+    <title>Kiste - Kategorien</title>
+    <style>
+      /* Nur Anordnung: in einer schmalen Inhaltsspalte steht die Seitenspalte unter dem Hauptteil. */
+      @container (max-width: 760px) {
+        .s-detail { grid-template-columns: minmax(0, 1fr); }
+      }
+      .s-links { justify-self: start; }
+      /* Je Schalter: links Name und Wirkung, rechts die Wahl und darunter, was wirkt und woher es kommt. */
+      .s-schalter { display: grid; gap: 2px; min-inline-size: 150px; }
+      .s-wahl { display: grid; justify-items: start; gap: var(--r-a1); }
+      .s-rechts { inline-size: 1%; white-space: nowrap; }
+      .s-punkt { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: baseline; gap: var(--r-a2); }
+      /* Kopf der Mittelspalte mit zwei Teilen: das Suchfeld nimmt den ganzen Rest, sein Text reicht bis zum Rand. */
+      .s-kopf { grid-template-columns: minmax(0, 1fr) auto; }
+      .s-suche { padding-inline-end: var(--r-a3); }
+    </style>
+  </head>
+  <body data-seite="kategorien" data-leuchte="verbunden">
+    <!-- block:r-zu-schmal -->
+    <div class="r-zu-schmal">
+      <i class="fa-solid fa-display"></i>
+      <strong>Das Fenster ist zu schmal für die Rechner-Ansicht.</strong>
+      <p>Kiste am Rechner braucht mindestens 1024 Pixel Breite. Vergrößere das Fenster oder wechsle zur Handy-Ansicht.</p>
+      <a class="r-knopf primaer" href="h04-start.html"><i class="fa-solid fa-mobile-screen"></i> Zur Handy-Ansicht</a>
+    </div>
+    <!-- /block:r-zu-schmal -->
+    <div class="r-huelle">
+      <!-- block:r-seitenleiste -->
+      <aside class="r-seitenleiste">
+        <div class="r-seitenleiste-kopf">
+          <a class="z-marke" href="r03-lager-start.html"><i class="fa-solid fa-table-cells-large"></i><span>Kiste</span></a>
+          <button class="r-symbolknopf nackt klein" type="button" title="Seitenleiste einklappen" data-schalte=".r-huelle" data-klasse="eingeklappt"><i class="fa-solid fa-angles-left"></i></button>
+        </div>
+        <nav class="r-nav" aria-label="Bereiche">
+          <a class="r-nav-eintrag" data-seite="lager" href="r03-lager-start.html" title="Lager"><i class="fa-solid fa-house"></i><span>Lager</span></a>
+          <a class="r-nav-eintrag" data-seite="suche" href="r19-suche.html" title="Suche"><i class="fa-solid fa-magnifying-glass"></i><span>Suche</span></a>
+          <a class="r-nav-eintrag" data-seite="einkauf" href="r23-einkaufsliste.html" title="Einkauf: 4 Einträge fehlen"><i class="fa-solid fa-cart-shopping"></i><span>Einkauf</span><span class="r-nav-zahl">4</span></a>
+          <a class="r-nav-eintrag" data-seite="haltbarkeit" href="r24-haltbarkeit.html" title="Haltbarkeit: 3 Einträge sind bald fällig"><i class="fa-solid fa-hourglass-half"></i><span>Haltbarkeit</span><span class="r-nav-zahl">3</span></a>
+          <a class="r-nav-eintrag" data-seite="erinnerungen" href="#" title="Erinnerungen"><i class="fa-solid fa-bell"></i><span>Erinnerungen</span></a>
+          <a class="r-nav-eintrag" data-seite="park" href="#" title="Park-Bereich: 3 Einträge warten auf einen Ort"><i class="fa-solid fa-inbox"></i><span>Park-Bereich</span><span class="r-nav-zahl">3</span></a>
+          <a class="r-nav-eintrag" data-seite="verlauf" href="#" title="Zuletzt bewegt"><i class="fa-solid fa-clock-rotate-left"></i><span>Zuletzt bewegt</span></a>
+          <span class="r-nav-gruppe">Stammdaten</span>
+          <a class="r-nav-eintrag" data-seite="katalog" href="r20-katalog.html" title="Katalog der Produkte"><i class="fa-solid fa-book-open"></i><span>Katalog</span></a>
+          <a class="r-nav-eintrag" data-seite="kategorien" href="r29-kategorien.html" title="Kategorien und ihr Verhalten"><i class="fa-solid fa-shapes"></i><span>Kategorien</span></a>
+          <a class="r-nav-eintrag" data-seite="etiketten" href="#" title="Etiketten drucken"><i class="fa-solid fa-qrcode"></i><span>Etiketten</span></a>
+        </nav>
+        <div class="r-seitenfuss">
+          <a class="r-nav-eintrag" data-seite="vorgaenge" href="#" title="Vorgänge: 1 läuft"><i class="fa-solid fa-list-check"></i><span>Vorgänge</span><span class="r-nav-zahl">1</span></a>
+          <a class="r-nav-eintrag" data-seite="hilfe" href="#" title="Hilfe öffnen"><i class="fa-solid fa-circle-info"></i><span>Hilfe</span></a>
+          <a class="r-nav-eintrag" data-seite="einstellungen" href="#" title="Einstellungen"><i class="fa-solid fa-gear"></i><span>Einstellungen</span></a>
+          <a class="r-nav-eintrag" data-seite="verwaltung" href="#" title="Verwaltung: Konten, Anbindungen, Sicherungen"><i class="fa-solid fa-screwdriver-wrench"></i><span>Verwaltung</span></a>
+          <div class="r-nutzer">
+            <span class="r-nutzer-bild">M</span>
+            <span class="r-nutzer-text"><strong>Alex</strong><small>Haushalt Zuhause</small></span>
+            <button class="r-symbolknopf nackt klein" type="button" title="Abmelden"><i class="fa-solid fa-right-from-bracket"></i></button>
+          </div>
+          <div class="r-fassung">
+            <span class="r-leuchte verbunden" title="Verbunden mit dem Dienst"></span>
+            <span data-fassung></span>
+            <button class="r-symbolknopf nackt klein" type="button" title="Zwischen hellem und dunklem Thema wechseln" data-thema-wechsel><i class="fa-solid fa-circle-half-stroke"></i></button>
+          </div>
+        </div>
+      </aside>
+      <!-- /block:r-seitenleiste -->
+      <div class="r-anfasser" title="Breite der Seitenleiste ziehen"></div>
+      <aside class="r-mitte">
+        <div class="r-mitte-kopf s-kopf">
+          <div class="r-suchfeld">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input class="r-eingabe s-suche" type="search" placeholder="Kategorie suchen" aria-label="Kategorie suchen" />
+          </div>
+          <button class="r-symbolknopf aktiv" type="button" title="Neue Kategorie anlegen"><i class="fa-solid fa-plus"></i></button>
+        </div>
+        <nav class="r-mitte-rumpf r-baum" aria-label="Kategorien">
+          <p class="r-nav-gruppe">Räume und Behälter</p>
+          <ul class="r-baumkinder">
+            <li class="r-baumknoten"><div class="r-baumzeile"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-door-open"></i><span>Raum</span></a></div></li>
+            <li class="r-baumknoten"><div class="r-baumzeile"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-box-archive"></i><span>Schrank</span></a></div></li>
+            <li class="r-baumknoten"><div class="r-baumzeile"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-layer-group"></i><span>Regal</span></a></div></li>
+            <li class="r-baumknoten"><div class="r-baumzeile"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-box"></i><span>Kiste</span></a></div></li>
+          </ul>
+          <p class="r-nav-gruppe">Gegenstände</p>
+          <ul class="r-baumkinder">
+            <li class="r-baumknoten"><div class="r-baumzeile"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-utensils"></i><span>Lebensmittel</span></a><span class="r-pille moos" title="Ein Baustein gibt sein Verhalten und seine Felder an andere Kategorien weiter">Baustein</span></div></li>
+            <li class="r-baumknoten"><div class="r-baumzeile aktiv"><span></span><a class="r-baumziel" href="r29-kategorien.html"><i class="fa-solid fa-cow"></i><span>Milchprodukt</span></a></div></li>
+            <li class="r-baumknoten"><div class="r-baumzeile"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-bottle-water"></i><span>Getränk</span></a></div></li>
+            <li class="r-baumknoten"><div class="r-baumzeile"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-wheat-awn"></i><span>Backzutat</span></a></div></li>
+            <li class="r-baumknoten"><div class="r-baumzeile"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-spray-can-sparkles"></i><span>Haushaltsmittel</span></a></div></li>
+            <li class="r-baumknoten"><div class="r-baumzeile"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-pills"></i><span>Medikament</span></a></div></li>
+            <li class="r-baumknoten"><div class="r-baumzeile"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-screwdriver-wrench"></i><span>Werkzeug</span></a></div></li>
+            <li class="r-baumknoten"><div class="r-baumzeile"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-book"></i><span>Buch</span></a></div></li>
+          </ul>
+        </nav>
+      </aside>
+      <div class="r-anfasser" title="Breite der Kategorienliste ziehen"></div>
+      <section class="r-inhalt">
+        <header class="r-seitenkopf">
+          <div class="r-titelzeile">
+            <h1>Milchprodukt</h1>
+            <div class="r-seitenkopf-aktionen">
+              <div class="r-seitenkopf-fest">
+                <button class="r-symbolknopf nackt" type="button" title="Bearbeiten: Name, Icon und Felder der Kategorie ändern"><i class="fa-solid fa-pen"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="r-titelunter">
+            <span class="r-pille">Gegenstand</span>
+            <span>enthält <b>Lebensmittel</b></span>
+            <span><b>12</b> Einträge</span>
+          </div>
+        </header>
+        <div class="r-rollfeld">
+          <div class="r-detail r-breite s-detail">
+            <div class="r-detail-haupt">
+              <section class="r-abschnitt">
+                <div class="r-abschnitt-kopf"><h2>Verhalten</h2><span class="r-abschnitt-zahl">11 Schalter, 1 eigen</span></div>
+                <div class="r-tabellenfeld"><table class="r-tabelle">
+                  <thead><tr><th>Schalter</th><th>Einstellung und Wirkung</th></tr></thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="s-schalter"><strong>Zählbar</strong><span class="r-leise r-klein">Der Eintrag hat eine Menge.</span></span></td>
+                      <td class="s-rechts"><div class="s-wahl"><div class="r-dreiwahl" role="radiogroup" aria-label="Zählbar" title="An oder aus gilt nur für diese Kategorie; nicht gesetzt übernimmt den Wert vom Baustein oder aus der Vorgabe"><button class="r-wahl" type="button" role="radio" aria-checked="false">an</button><button class="r-wahl" type="button" role="radio" aria-checked="false">aus</button><button class="r-wahl aktiv" type="button" role="radio" aria-checked="true">nicht gesetzt</button></div><span class="r-reihe"><span class="r-zustand gut"><i class="fa-solid fa-check"></i> an</span><span class="r-leise r-klein">Vorgabe</span></span></div></td>
+                    </tr>
+                    <tr>
+                      <td><span class="s-schalter"><strong>Verbrauchbar</strong><span class="r-leise r-klein">Die Menge sinkt durch Verbrauchen.</span></span></td>
+                      <td class="s-rechts"><div class="s-wahl"><div class="r-dreiwahl" role="radiogroup" aria-label="Verbrauchbar" title="An oder aus gilt nur für diese Kategorie; nicht gesetzt übernimmt den Wert vom Baustein oder aus der Vorgabe"><button class="r-wahl" type="button" role="radio" aria-checked="false">an</button><button class="r-wahl" type="button" role="radio" aria-checked="false">aus</button><button class="r-wahl aktiv" type="button" role="radio" aria-checked="true">nicht gesetzt</button></div><span class="r-reihe"><span class="r-zustand gut"><i class="fa-solid fa-check"></i> an</span><span class="r-leise r-klein">von Lebensmittel</span></span></div></td>
+                    </tr>
+                    <tr>
+                      <td><span class="s-schalter"><strong>Wiegbar</strong><span class="r-leise r-klein">Die Menge lässt sich durch Wiegen bestimmen.</span></span></td>
+                      <td class="s-rechts"><div class="s-wahl"><div class="r-dreiwahl" role="radiogroup" aria-label="Wiegbar" title="An oder aus gilt nur für diese Kategorie; nicht gesetzt übernimmt den Wert vom Baustein oder aus der Vorgabe"><button class="r-wahl" type="button" role="radio" aria-checked="false">an</button><button class="r-wahl" type="button" role="radio" aria-checked="false">aus</button><button class="r-wahl aktiv" type="button" role="radio" aria-checked="true">nicht gesetzt</button></div><span class="r-reihe"><span class="r-zustand gut"><i class="fa-solid fa-check"></i> an</span><span class="r-leise r-klein">von Lebensmittel</span></span></div></td>
+                    </tr>
+                    <tr>
+                      <td><span class="s-schalter"><strong>Mit Haltbarkeit</strong><span class="r-leise r-klein">Jede Packung trägt ein Haltbarkeitsdatum.</span></span></td>
+                      <td class="s-rechts"><div class="s-wahl"><div class="r-dreiwahl" role="radiogroup" aria-label="Mit Haltbarkeit" title="An oder aus gilt nur für diese Kategorie; nicht gesetzt übernimmt den Wert vom Baustein oder aus der Vorgabe"><button class="r-wahl" type="button" role="radio" aria-checked="false">an</button><button class="r-wahl" type="button" role="radio" aria-checked="false">aus</button><button class="r-wahl aktiv" type="button" role="radio" aria-checked="true">nicht gesetzt</button></div><span class="r-reihe"><span class="r-zustand gut"><i class="fa-solid fa-check"></i> an</span><span class="r-leise r-klein">von Lebensmittel</span></span></div></td>
+                    </tr>
+                    <tr>
+                      <td><span class="s-schalter"><strong>Mit Preis</strong><span class="r-leise r-klein">Beim Einkaufen wird der Preis festgehalten.</span></span></td>
+                      <td class="s-rechts"><div class="s-wahl"><div class="r-dreiwahl" role="radiogroup" aria-label="Mit Preis" title="An oder aus gilt nur für diese Kategorie; nicht gesetzt übernimmt den Wert vom Baustein oder aus der Vorgabe"><button class="r-wahl" type="button" role="radio" aria-checked="false">an</button><button class="r-wahl" type="button" role="radio" aria-checked="false">aus</button><button class="r-wahl aktiv" type="button" role="radio" aria-checked="true">nicht gesetzt</button></div><span class="r-reihe"><span class="r-zustand gut"><i class="fa-solid fa-check"></i> an</span><span class="r-leise r-klein">Vorgabe</span></span></div></td>
+                    </tr>
+                    <tr class="gewaehlt">
+                      <td><span class="s-schalter"><strong>Mit Etikett</strong><span class="r-leise r-klein">Der Eintrag bekommt einen eigenen Code zum Aufkleben.</span></span></td>
+                      <td class="s-rechts"><div class="s-wahl"><div class="r-dreiwahl" role="radiogroup" aria-label="Mit Etikett" title="An oder aus gilt nur für diese Kategorie; nicht gesetzt übernimmt den Wert vom Baustein oder aus der Vorgabe"><button class="r-wahl" type="button" role="radio" aria-checked="false">an</button><button class="r-wahl aktiv" type="button" role="radio" aria-checked="true">aus</button><button class="r-wahl" type="button" role="radio" aria-checked="false">nicht gesetzt</button></div><span class="r-reihe"><span class="r-zustand">aus</span><span class="r-klein"><b>eigen</b></span></span></div></td>
+                    </tr>
+                    <tr>
+                      <td><span class="s-schalter"><strong>Mit Strichcode</strong><span class="r-leise r-klein">Der Scanner erkennt die Packung am Strichcode.</span></span></td>
+                      <td class="s-rechts"><div class="s-wahl"><div class="r-dreiwahl" role="radiogroup" aria-label="Mit Strichcode" title="An oder aus gilt nur für diese Kategorie; nicht gesetzt übernimmt den Wert vom Baustein oder aus der Vorgabe"><button class="r-wahl" type="button" role="radio" aria-checked="false">an</button><button class="r-wahl" type="button" role="radio" aria-checked="false">aus</button><button class="r-wahl aktiv" type="button" role="radio" aria-checked="true">nicht gesetzt</button></div><span class="r-reihe"><span class="r-zustand gut"><i class="fa-solid fa-check"></i> an</span><span class="r-leise r-klein">Vorgabe</span></span></div></td>
+                    </tr>
+                    <tr>
+                      <td><span class="s-schalter"><strong>Mit Fotos</strong><span class="r-leise r-klein">Am Eintrag lassen sich Bilder ablegen.</span></span></td>
+                      <td class="s-rechts"><div class="s-wahl"><div class="r-dreiwahl" role="radiogroup" aria-label="Mit Fotos" title="An oder aus gilt nur für diese Kategorie; nicht gesetzt übernimmt den Wert vom Baustein oder aus der Vorgabe"><button class="r-wahl" type="button" role="radio" aria-checked="false">an</button><button class="r-wahl" type="button" role="radio" aria-checked="false">aus</button><button class="r-wahl aktiv" type="button" role="radio" aria-checked="true">nicht gesetzt</button></div><span class="r-reihe"><span class="r-zustand gut"><i class="fa-solid fa-check"></i> an</span><span class="r-leise r-klein">Vorgabe</span></span></div></td>
+                    </tr>
+                    <tr>
+                      <td><span class="s-schalter"><strong>Mit Verlauf</strong><span class="r-leise r-klein">Jede Änderung wird im Verlauf festgehalten.</span></span></td>
+                      <td class="s-rechts"><div class="s-wahl"><div class="r-dreiwahl" role="radiogroup" aria-label="Mit Verlauf" title="An oder aus gilt nur für diese Kategorie; nicht gesetzt übernimmt den Wert vom Baustein oder aus der Vorgabe"><button class="r-wahl" type="button" role="radio" aria-checked="false">an</button><button class="r-wahl" type="button" role="radio" aria-checked="false">aus</button><button class="r-wahl aktiv" type="button" role="radio" aria-checked="true">nicht gesetzt</button></div><span class="r-reihe"><span class="r-zustand gut"><i class="fa-solid fa-check"></i> an</span><span class="r-leise r-klein">Vorgabe</span></span></div></td>
+                    </tr>
+                    <tr>
+                      <td><span class="s-schalter"><strong>Verleihbar</strong><span class="r-leise r-klein">Der Eintrag lässt sich an Personen verleihen.</span></span></td>
+                      <td class="s-rechts"><div class="s-wahl"><div class="r-dreiwahl" role="radiogroup" aria-label="Verleihbar" title="An oder aus gilt nur für diese Kategorie; nicht gesetzt übernimmt den Wert vom Baustein oder aus der Vorgabe"><button class="r-wahl" type="button" role="radio" aria-checked="false">an</button><button class="r-wahl" type="button" role="radio" aria-checked="false">aus</button><button class="r-wahl aktiv" type="button" role="radio" aria-checked="true">nicht gesetzt</button></div><span class="r-reihe"><span class="r-zustand">aus</span><span class="r-leise r-klein">von Lebensmittel</span></span></div></td>
+                    </tr>
+                    <tr>
+                      <td><span class="s-schalter"><strong>Unverkäuflich</strong><span class="r-leise r-klein">Der Eintrag erscheint nie in Verkaufslisten.</span></span></td>
+                      <td class="s-rechts"><div class="s-wahl"><div class="r-dreiwahl" role="radiogroup" aria-label="Unverkäuflich" title="An oder aus gilt nur für diese Kategorie; nicht gesetzt übernimmt den Wert vom Baustein oder aus der Vorgabe"><button class="r-wahl" type="button" role="radio" aria-checked="false">an</button><button class="r-wahl" type="button" role="radio" aria-checked="false">aus</button><button class="r-wahl aktiv" type="button" role="radio" aria-checked="true">nicht gesetzt</button></div><span class="r-reihe"><span class="r-zustand gut"><i class="fa-solid fa-check"></i> an</span><span class="r-leise r-klein">von Lebensmittel</span></span></div></td>
+                    </tr>
+                  </tbody>
+                </table></div>
+              </section>
+
+              <section class="r-abschnitt">
+                <div class="r-abschnitt-kopf"><h2>Bausteine</h2><span class="r-abschnitt-zahl">1 Baustein</span></div>
+                <div class="r-pillen">
+                  <span class="r-pille moos">Lebensmittel <button type="button" title="Baustein Lebensmittel entfernen: sein Verhalten und seine Felder gelten dann nicht mehr"><i class="fa-solid fa-xmark"></i></button></span>
+                  <a class="r-link" href="#" title="Einen weiteren Baustein wählen; er bringt Verhalten und Felder mit"><i class="fa-solid fa-plus"></i> Baustein hinzufügen</a>
+                </div>
+              </section>
+
+              <section class="r-abschnitt">
+                <div class="r-abschnitt-kopf"><h2>Felder</h2><span class="r-abschnitt-zahl">5 Felder, 3 eigen</span></div>
+                <div class="r-tabellenfeld"><table class="r-tabelle">
+                  <thead><tr><th>Feld</th><th>Art</th><th>Regel</th><th>kommt von</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Fettgehalt</strong></td><td>Zahl</td><td>eine Nachkommastelle</td><td><b>eigen</b></td></tr>
+                    <tr><td><strong>Bio</strong></td><td>ja oder nein</td><td><span class="r-leise">ohne</span></td><td><b>eigen</b></td></tr>
+                    <tr><td><strong>Laktosefrei</strong></td><td>ja oder nein</td><td><span class="r-leise">ohne</span></td><td><b>eigen</b></td></tr>
+                    <tr><td><strong>Marke</strong></td><td>Text</td><td><span class="r-leise">ohne</span></td><td><span class="r-leise">Lebensmittel</span></td></tr>
+                    <tr><td><strong>Nutri-Score</strong></td><td>Auswahl</td><td>A bis E</td><td><span class="r-leise">Lebensmittel</span></td></tr>
+                  </tbody>
+                </table></div>
+              </section>
+            </div>
+            <aside class="r-detail-seite">
+              <div class="r-flaeche">
+                <span class="r-flaeche-titel">Wirkt so</span>
+                <div class="r-stapel">
+                  <span class="s-punkt"><i class="fa-solid fa-check"></i><span>Mengenblock mit Verbrauchsknöpfen</span></span>
+                  <span class="s-punkt"><i class="fa-solid fa-check"></i><span>Haltbarkeit je Packung</span></span>
+                  <span class="s-punkt"><i class="fa-solid fa-check"></i><span>Steht bei 0 auf der Einkaufsliste</span></span>
+                  <span class="s-punkt r-leise"><i class="fa-solid fa-ban"></i><span>Kein Etikett</span></span>
+                </div>
+              </div>
+              <div class="r-flaeche">
+                <span class="r-flaeche-titel">Werkstand</span>
+                <p>Diese Kategorie weicht vom Werkstand ab.</p>
+                <button class="r-knopf s-links" type="button" title="Setzt Verhalten, Bausteine und Felder dieser Kategorie auf den Werkstand zurück; eigene Einstellungen gehen verloren"><i class="fa-solid fa-rotate-left"></i> Zurücksetzen</button>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- block:mock-leiste -->
+    <div class="m-leiste">
+      <a href="galerie.html" title="Galerie aller Seiten"><i class="fa-solid fa-grip"></i></a>
+      <button type="button" data-thema-knopf="hell" title="Helles Thema"><i class="fa-solid fa-sun"></i></button>
+      <button type="button" data-thema-knopf="dunkel" title="Dunkles Thema"><i class="fa-solid fa-moon"></i></button>
+    </div>
+    <!-- /block:mock-leiste -->
+  </body>
+</html>

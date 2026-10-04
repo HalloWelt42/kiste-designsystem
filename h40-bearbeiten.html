@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="handy" data-thema="hell">
+  <head>
+    <!-- block:kopf-handy -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/regular.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/handy/40-masse.css" />
+    <link rel="stylesheet" href="stil/handy/41-grund.css" />
+    <link rel="stylesheet" href="stil/handy/42-huelle.css" />
+    <link rel="stylesheet" href="stil/handy/43-bausteine.css" />
+    <link rel="stylesheet" href="stil/handy/44-ansichten.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <!-- /block:kopf-handy -->
+    <title>Kiste - Bearbeiten</title>
+  </head>
+  <body data-seite="lager" data-leuchte="verbunden">
+    <div class="h-huelle vollflaeche">
+      <header class="h-kopf">
+        <a class="h-kopf-zurueck" href="h10-eintrag-verbrauchsgut.html"><i class="fa-solid fa-chevron-left"></i><span>Geschirrtabs</span></a>
+        <div class="h-kopf-titel">Bearbeiten</div>
+        <div class="h-kopf-aktionen">
+          <button class="h-symbolknopf aktiv" type="button" aria-label="Bearbeiten beenden"><i class="fa-solid fa-pen"></i></button>
+        </div>
+      </header>
+      <main class="h-rollfeld">
+        <div class="h-titelblock">
+          <h1>Geschirrtabs bearbeiten</h1>
+          <p class="h-titelblock-unter">Einrichten und Korrigieren. Der Alltag geht ohne diesen Modus.</p>
+        </div>
+        <div class="h-stapel">
+          <a class="h-bereich" href="#"><i class="fa-solid fa-font"></i><span class="h-bereich-text"><strong>Name und Beschreibung</strong><small>Geschirrtabs</small></span><i class="fa-solid fa-chevron-right"></i></a>
+          <a class="h-bereich" href="h41-erscheinungsbild.html"><i class="fa-solid fa-image"></i><span class="h-bereich-text"><strong>Erscheinungsbild</strong><small>Foto</small></span><i class="fa-solid fa-chevron-right"></i></a>
+          <a class="h-bereich" href="#"><i class="fa-solid fa-location-dot"></i><span class="h-bereich-text"><strong>Ort</strong><small>Wohnung, Küche, Spülenschrank</small></span><i class="fa-solid fa-chevron-right"></i></a>
+          <a class="h-bereich" href="#"><i class="fa-solid fa-tags"></i><span class="h-bereich-text"><strong>Kategorien</strong><small>Haushaltsmittel</small></span><i class="fa-solid fa-chevron-right"></i></a>
+          <a class="h-bereich" href="#"><i class="fa-solid fa-scale-balanced"></i><span class="h-bereich-text"><strong>Menge und Einheit</strong><small>Karton je 30 Tabs, mindestens 1 Karton</small></span><i class="fa-solid fa-chevron-right"></i></a>
+          <a class="h-bereich" href="#"><i class="fa-solid fa-boxes-stacked"></i><span class="h-bereich-text"><strong>Packungen</strong><small>1 Kauf vom 12.09.2026</small></span><i class="fa-solid fa-chevron-right"></i></a>
+          <a class="h-bereich" href="#"><i class="fa-solid fa-list-ul"></i><span class="h-bereich-text"><strong>Eigenschaften</strong><small>keine</small></span><i class="fa-solid fa-chevron-right"></i></a>
+          <a class="h-bereich" href="#"><i class="fa-solid fa-qrcode"></i><span class="h-bereich-text"><strong>Codes</strong><small>Etikett T9B5, 1 Strichcode</small></span><i class="fa-solid fa-chevron-right"></i></a>
+          <a class="h-bereich" href="#"><i class="fa-solid fa-camera"></i><span class="h-bereich-text"><strong>Fotos</strong><small>1 Foto</small></span><i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+        <hr class="h-trenner" />
+        <div class="h-stapel">
+          <button class="h-knopf breit" type="button"><i class="fa-solid fa-box-archive"></i> Archivieren</button>
+          <button class="h-knopf gefahr breit" type="button"><i class="fa-solid fa-trash-can"></i> Löschen</button>
+        </div>
+      </main>
+    </div>
+
+    <div class="h-schleier" id="schleier"></div>
+
+    <section class="h-blatt" id="blatt-menge" role="dialog" aria-modal="true" aria-labelledby="blatt-menge-titel">
+      <header class="h-blatt-kopf">
+        <h2 class="h-blatt-titel" id="blatt-menge-titel">Menge und Einheit</h2>
+        <button class="h-symbolknopf nackt" type="button" aria-label="Schließen" data-zeige="#schleier, #blatt-menge"><i class="fa-solid fa-xmark"></i></button>
+      </header>
+      <div class="h-blatt-rumpf">
+        <div class="h-wahlreihe" role="tablist" aria-label="Wie wird gezählt">
+          <button class="h-wahl" type="button" role="tab" aria-selected="false">Stück</button>
+          <button class="h-wahl aktiv" type="button" role="tab" aria-selected="true">Packung</button>
+          <button class="h-wahl" type="button" role="tab" aria-selected="false">Lose Menge</button>
+        </div>
+        <div class="h-feld">
+          <span class="h-feld-name">Packung heißt</span>
+          <button class="h-auswahl" type="button"><span>Karton</span><i class="fa-solid fa-chevron-down"></i></button>
+        </div>
+        <div class="h-feld">
+          <span class="h-feld-name">Inhalt je Karton</span>
+          <div class="h-mengenfeld">
+            <input class="h-eingabe zahl" type="text" inputmode="decimal" value="30" aria-label="Menge" />
+            <button class="h-einheit" type="button" aria-label="Einheit wählen, jetzt Tabs">Tabs <i class="fa-solid fa-chevron-down"></i></button>
+          </div>
+        </div>
+        <div class="h-feld">
+          <span class="h-feld-name">Mindestbestand</span>
+          <div class="h-reihe">
+            <div class="h-stufen">
+              <button type="button" aria-label="Einer weniger"><i class="fa-solid fa-minus"></i></button>
+              <span class="h-stufen-wert">1</span>
+              <button type="button" aria-label="Einer mehr"><i class="fa-solid fa-plus"></i></button>
+            </div>
+            <span>Karton</span>
+          </div>
+        </div>
+        <div class="h-hinweis hilfe"><i class="fa-solid fa-circle-info"></i><p>Gilt für künftige Käufe. Der Bestand bleibt, wie er ist.</p></div>
+      </div>
+      <footer class="h-blatt-fuss">
+        <button class="h-knopf primaer haupt" type="button" data-zeige="#schleier, #blatt-menge">Speichern</button>
+      </footer>
+    </section>
+  </body>
+</html>

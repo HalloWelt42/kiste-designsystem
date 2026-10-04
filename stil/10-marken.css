@@ -1,0 +1,173 @@
+/* Marken: Farben hell und dunkel, Schriften, Schatten, Rundungen. Einzige Stelle mit Farbwerten.
+   Geteilt von beiden Oberflächen; Maße, Abstände und Schriftgrade sind je Oberfläche eigene Marken
+   (handy/40-masse.css, rechner/30-masse.css). */
+@layer marken {
+  :root {
+    color-scheme: light;
+
+    /* Papier: Grund, Fläche, vertiefte Fläche, Linie */
+    --papier: #F5F0E3;
+    --papier-weich: #EDE6D3;
+    --papier-tief: #E2D9C2;
+    --papier-linie: #D4CDB8;
+    --raster-linie: #F0EBDD;
+
+    /* Tinte: Text, Nebentext, leiser Text (noch lesbar), blass (nur Linien und Zeichen) */
+    --tinte: #1A1814;
+    --tinte-weich: #4A433A;
+    --tinte-leise: #665D4F;
+    --tinte-blass: #A39878;
+    /* Rahmen von Feldern und Knöpfen: als Grenze eines Bedienelements erkennbar */
+    --feld-rand: #8C8266;
+
+    /* Messing: Füllung und Rahmen, lesbare Schrift, weicher Rahmen, getönte Fläche */
+    --messing: #A67C2E;
+    --messing-schrift: #755619;
+    --messing-weich: #D4B470;
+    --messing-flaeche: #EFE3C4;
+    --messing-auf-tinte: #D4B470;
+
+    /* Moos: gut, vorhanden, erledigt */
+    --moos: #4A5D3A;
+    --moos-weich: #8BA06E;
+    --moos-flaeche: #E1E7D1;
+
+    /* Ochsenblut: Gefahr, abgelaufen, Löschen */
+    --ochsenblut: #8B2E2E;
+    --ochsenblut-weich: #C67A7A;
+    --ochsenblut-flaeche: #F1DDD3;
+
+    /* Werte (blau und fett) und errechnete Werte */
+    --wert: #1F3E72;
+    --wert-errechnet: #8B2E2E;
+
+    /* Hilfe: das blaue i, Info-Modus */
+    --hilfe: #1B5FA8;
+    --hilfe-weich: #8FB3D9;
+    --hilfe-flaeche: #DCE7F0;
+
+    /* Schrift auf gefüllten Flächen */
+    --auf-tinte: #F5F0E3;
+    --auf-messing: #1A1814;
+    --auf-moos: #F5F0E3;
+    --auf-ochsenblut: #F5F0E3;
+    --auf-hilfe: #F7F9FC;
+
+    /* Etikett: gedruckte Codes stehen in beiden Themen dunkel auf Weiß */
+    --etikett: #FFFFFF;
+    --etikett-tinte: #14110D;
+
+    /* Nachtfläche des Scanners, in beiden Themen gleich */
+    --nacht: #14110D;
+    --nacht-weich: #26211B;
+    --nacht-linie: #4A4237;
+    --auf-nacht: #F0E8D6;
+    --auf-nacht-leise: #B5AA93;
+
+    /* Score-Marken: amtliche Ampelfarben, in beiden Themen gleich */
+    --nutri-a: #038141;
+    --nutri-b: #85BB2F;
+    --nutri-c: #FECB02;
+    --nutri-d: #EE8100;
+    --nutri-e: #E63E11;
+    --nova-1: #00AA00;
+    --nova-2: #FFCC00;
+    --nova-3: #FF6600;
+    --nova-4: #FF0000;
+    --auf-score-hell: #14110D;
+    --auf-score-dunkel: #FFFFFF;
+    --score-ruhe: #C9C2B0;
+
+    /* Schatten, Schleier, Fokus, Glanz */
+    --schatten-hub: 0 1px 0 rgba(26, 24, 20, 0.04), 0 2px 8px rgba(26, 24, 20, 0.06);
+    --schatten-karte: 0 1px 2px rgba(26, 24, 20, 0.05), 0 4px 16px rgba(26, 24, 20, 0.08);
+    --schatten-tief: 0 2px 4px rgba(26, 24, 20, 0.08), 0 12px 32px rgba(26, 24, 20, 0.14);
+    --schleier: rgba(26, 24, 20, 0.45);
+    --fokus: rgba(166, 124, 46, 0.3);
+    --glanz: rgba(255, 255, 255, 0.3);
+  }
+
+  :root[data-thema="dunkel"] {
+    color-scheme: dark;
+
+    --papier: #1B1714;
+    --papier-weich: #24201C;
+    --papier-tief: #2A2521;
+    --papier-linie: #3A342C;
+    --raster-linie: #201B18;
+
+    --tinte: #F0E8D6;
+    --tinte-weich: #D4C9B1;
+    --tinte-leise: #9F947E;
+    --tinte-blass: #6E6554;
+    --feld-rand: #786E5C;
+
+    --messing: #D4A85A;
+    --messing-schrift: #D4A85A;
+    --messing-weich: #80612B;
+    --messing-flaeche: #342A1A;
+    --messing-auf-tinte: #755619;
+
+    --moos: #8BA06E;
+    --moos-weich: #4A5D3A;
+    --moos-flaeche: #232B1D;
+
+    --ochsenblut: #C67A7A;
+    --ochsenblut-weich: #8B2E2E;
+    --ochsenblut-flaeche: #3A2220;
+
+    --wert: #A7C2E8;
+    --wert-errechnet: #E39090;
+
+    --hilfe: #7FB2F0;
+    --hilfe-weich: #3B5F8A;
+    --hilfe-flaeche: #1D2A3A;
+
+    --auf-tinte: #1B1714;
+    --auf-messing: #1B1714;
+    --auf-moos: #1B1714;
+    --auf-ochsenblut: #1B1714;
+    --auf-hilfe: #14110D;
+
+    --score-ruhe: #4A4237;
+
+    --schatten-hub: 0 1px 0 rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.4);
+    --schatten-karte: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.5);
+    --schatten-tief: 0 2px 4px rgba(0, 0, 0, 0.5), 0 12px 32px rgba(0, 0, 0, 0.7);
+    --schleier: rgba(0, 0, 0, 0.6);
+    --fokus: rgba(212, 168, 90, 0.35);
+    --glanz: rgba(255, 255, 255, 0.06);
+  }
+
+  :root {
+    /* Bedeutungen: zeigen auf die Farbfamilien, damit Bausteine nie eine Farbe selbst wählen */
+    --gut: var(--moos);
+    --gut-weich: var(--moos-weich);
+    --gut-flaeche: var(--moos-flaeche);
+    --warn: var(--messing-schrift);
+    --warn-weich: var(--messing-weich);
+    --warn-flaeche: var(--messing-flaeche);
+    --gefahr: var(--ochsenblut);
+    --gefahr-weich: var(--ochsenblut-weich);
+    --gefahr-flaeche: var(--ochsenblut-flaeche);
+
+    /* Schriften: als npm-Pakete eingebunden, nie von fremden Servern */
+    --schrift-titel: "Fraunces Variable", "Times New Roman", serif;
+    --schrift-text: "Work Sans Variable", system-ui, sans-serif;
+    --schrift-code: "JetBrains Mono Variable", "Courier New", monospace;
+    --titel-achsen: "SOFT" 30, "WONK" 0;
+
+    /* Rundungen */
+    --rund-1: 2px;
+    --rund-2: 4px;
+    --rund-3: 8px;
+    --rund-blatt: 24px;
+    --rund-voll: 999px;
+
+    /* Papier-Raster */
+    --raster-weite: 32px;
+
+    /* Übergänge */
+    --dauer: 0.15s;
+  }
+}

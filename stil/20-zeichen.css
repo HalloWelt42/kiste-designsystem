@@ -1,0 +1,173 @@
+/* Zeichen: die fünf reinen Anzeige-Bausteine, die beide Oberflächen teilen. Keine Anordnung, keine
+   Bedienung, keine eigene Größe: sie richten sich nach der Schriftgröße ihrer Umgebung. */
+@layer zeichen {
+  /* ---- Code-Stempel: sieht aus wie ein geprägtes Etikett, Messingrand rundum ---------------- */
+  .z-code {
+    display: inline-flex;
+    align-items: center;
+    flex: none;
+    font-family: var(--schrift-code);
+    font-size: 0.8em;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: var(--messing-schrift);
+    padding: 0.1em 0.5em 0.1em 0.65em;
+    border: 1px solid var(--messing);
+    border-radius: var(--rund-1);
+    background: linear-gradient(180deg, var(--papier-tief) 0%, var(--papier-weich) 100%);
+    box-shadow: inset 0 1px 0 var(--glanz);
+  }
+  .z-code.gross {
+    font-size: 1.6em;
+    letter-spacing: 0.22em;
+    padding: 0.15em 0.5em 0.15em 0.72em;
+  }
+  /* Auf dem weißen Etikett steht der Code wie gedruckt. */
+  .z-code.gedruckt {
+    color: var(--etikett-tinte);
+    border-color: var(--etikett-tinte);
+    background: var(--etikett);
+    box-shadow: none;
+  }
+
+  /* ---- Erscheinungsbild: Bild, Icon oder nichts; vier feste Farbtöne ------------------------ */
+  .z-erscheinung {
+    display: inline-grid;
+    place-items: center;
+    flex: none;
+    inline-size: var(--z-mass, 2.75em);
+    aspect-ratio: 1;
+    overflow: hidden;
+    border: 1px solid var(--papier-linie);
+    border-radius: var(--rund-2);
+    background: var(--papier);
+    color: var(--tinte-leise);
+    font-size: calc(var(--z-mass, 2.75em) * 0.42);
+    line-height: 1;
+  }
+  .z-erscheinung img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: contain;
+  }
+  .z-erscheinung[data-ton="messing"] {
+    background: var(--messing);
+    border-color: var(--messing-schrift);
+    color: var(--auf-messing);
+  }
+  .z-erscheinung[data-ton="moos"] {
+    background: var(--moos);
+    border-color: var(--moos);
+    color: var(--auf-moos);
+  }
+  .z-erscheinung[data-ton="ochsenblut"] {
+    background: var(--ochsenblut);
+    border-color: var(--ochsenblut);
+    color: var(--auf-ochsenblut);
+  }
+  .z-erscheinung[data-ton="tinte"] {
+    background: var(--tinte);
+    border-color: var(--tinte);
+    color: var(--auf-tinte);
+  }
+  .z-erscheinung.bild {
+    background: var(--papier-tief);
+  }
+
+  /* ---- Mengentext: Zahl und Einheit, immer mit Tabellenziffern ------------------------------ */
+  .z-menge {
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .z-menge b {
+    font-weight: 600;
+    color: var(--tinte);
+  }
+  .z-menge.leer,
+  .z-menge.leer b {
+    color: var(--tinte-leise);
+    font-weight: 500;
+  }
+
+  /* ---- Score-Marken: immer in der serifenlosen Schrift -------------------------------------- */
+  .z-score {
+    display: inline-flex;
+    align-items: center;
+    flex: none;
+    font-family: var(--schrift-text);
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  /* Nutri-Score: fünf Felder A bis E, das zutreffende ist größer und farbig. */
+  .z-score.nutri {
+    gap: 0.1em;
+    font-size: 0.8em;
+  }
+  .z-score.nutri span {
+    display: inline-grid;
+    place-items: center;
+    inline-size: 1.7em;
+    block-size: 1.7em;
+    border-radius: var(--rund-2);
+    background: var(--score-ruhe);
+    color: var(--tinte-leise);
+    font-weight: 600;
+  }
+  .z-score.nutri[data-stufe="a"] span:nth-child(1),
+  .z-score.nutri[data-stufe="b"] span:nth-child(2),
+  .z-score.nutri[data-stufe="c"] span:nth-child(3),
+  .z-score.nutri[data-stufe="d"] span:nth-child(4),
+  .z-score.nutri[data-stufe="e"] span:nth-child(5) {
+    inline-size: 2.2em;
+    block-size: 2.2em;
+    font-size: 1.15em;
+    font-weight: 800;
+  }
+  .z-score.nutri[data-stufe="a"] span:nth-child(1) { background: var(--nutri-a); color: var(--auf-score-dunkel); }
+  .z-score.nutri[data-stufe="b"] span:nth-child(2) { background: var(--nutri-b); color: var(--auf-score-hell); }
+  .z-score.nutri[data-stufe="c"] span:nth-child(3) { background: var(--nutri-c); color: var(--auf-score-hell); }
+  .z-score.nutri[data-stufe="d"] span:nth-child(4) { background: var(--nutri-d); color: var(--auf-score-hell); }
+  .z-score.nutri[data-stufe="e"] span:nth-child(5) { background: var(--nutri-e); color: var(--auf-score-hell); }
+
+  /* NOVA: ein Feld mit der Gruppe 1 bis 4. */
+  .z-score.nova {
+    gap: 0.4em;
+    font-size: 0.8em;
+    font-weight: 600;
+    color: var(--tinte-weich);
+  }
+  .z-score.nova b {
+    display: inline-grid;
+    place-items: center;
+    inline-size: 2.2em;
+    block-size: 2.2em;
+    border-radius: var(--rund-2);
+    font-size: 1.15em;
+    font-weight: 800;
+  }
+  .z-score.nova[data-stufe="1"] b { background: var(--nova-1); color: var(--auf-score-hell); }
+  .z-score.nova[data-stufe="2"] b { background: var(--nova-2); color: var(--auf-score-hell); }
+  .z-score.nova[data-stufe="3"] b { background: var(--nova-3); color: var(--auf-score-hell); }
+  .z-score.nova[data-stufe="4"] b { background: var(--nova-4); color: var(--auf-score-hell); }
+
+  /* ---- Markenzeichen: Zeichen im Rahmen und der Name in der Titelschrift -------------------- */
+  .z-marke {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45em;
+    font-family: var(--schrift-titel);
+    font-variation-settings: var(--titel-achsen);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    color: var(--tinte);
+    white-space: nowrap;
+  }
+  .z-marke i {
+    font-size: 0.9em;
+  }
+}

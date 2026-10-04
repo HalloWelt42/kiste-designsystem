@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="handy" data-thema="hell">
+  <head>
+    <!-- block:kopf-handy -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/regular.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/handy/40-masse.css" />
+    <link rel="stylesheet" href="stil/handy/41-grund.css" />
+    <link rel="stylesheet" href="stil/handy/42-huelle.css" />
+    <link rel="stylesheet" href="stil/handy/43-bausteine.css" />
+    <link rel="stylesheet" href="stil/handy/44-ansichten.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <!-- /block:kopf-handy -->
+    <title>Kiste - Vorgänge</title>
+    <style>
+      /* Nur Anordnung: der Ring des Fortschritts neben seinem Text; zwei Handlungen teilen sich die Breite. */
+      .s-knoepfe {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: var(--h-a2);
+      }
+    </style>
+  </head>
+  <body data-seite="mehr" data-leuchte="verbunden" data-vorgaenge="1">
+    <div class="h-huelle">
+      <header class="h-kopf">
+        <a class="h-kopf-zurueck" href="h48-mehr.html"><i class="fa-solid fa-chevron-left"></i><span>Mehr</span></a>
+        <div class="h-kopf-titel">Vorgänge</div>
+      </header>
+      <main class="h-rollfeld">
+        <div class="h-titelblock">
+          <h1>Vorgänge</h1>
+          <p class="h-titelblock-unter">1 läuft, 1 wartet</p>
+        </div>
+
+        <section class="h-abschnitt">
+          <div class="h-abschnitt-kopf"><h2>Läuft und wartet</h2><span class="h-abschnitt-zahl">2 Vorgänge</span></div>
+          <div class="h-karte">
+            <div class="h-reihe verteilt">
+              <strong>Foto erkennen: Sahne</strong>
+              <span class="h-zustand"><i class="fa-solid fa-rotate"></i> läuft</span>
+            </div>
+            <div class="h-fortschritt" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60" aria-label="Fortschritt 60 Prozent" style="--stand: 60">
+              <span class="h-fortschritt-text"><span>Schritt 2 von 3: Bild auswerten</span><small>60 Prozent, noch etwa 20 Sekunden</small></span>
+              <span class="h-fortschritt-balken"></span>
+            </div>
+            <button class="h-knopf" type="button">Abbrechen</button>
+          </div>
+          <div class="h-karte">
+            <div class="h-reihe verteilt">
+              <strong>Kategorie und Icon vorschlagen: Verlängerungskabel</strong>
+              <span class="h-zustand"><i class="fa-solid fa-hourglass-half"></i> wartet</span>
+            </div>
+            <div class="h-hinweis"><i class="fa-solid fa-brain"></i><p>Wartet auf den KI-Rechner. Läuft von selbst weiter, sobald er antwortet.</p></div>
+            <button class="h-knopf" type="button">Abbrechen</button>
+          </div>
+        </section>
+
+        <section class="h-abschnitt">
+          <div class="h-abschnitt-kopf"><h2>Beendet</h2><span class="h-abschnitt-zahl">2 Vorgänge</span></div>
+          <div class="h-karte">
+            <div class="h-reihe verteilt">
+              <strong>Abruf: Strichcode 4012345678901</strong>
+              <span class="h-zustand gut"><i class="fa-solid fa-check"></i> fertig</span>
+            </div>
+            <div class="h-reihe verteilt">
+              <span class="h-klein h-leise">vor 2 Minuten, Vorschlag liegt bereit</span>
+              <a class="h-link" href="h45-anreichern-vorschau.html">Vorschlag ansehen <i class="fa-solid fa-chevron-right"></i></a>
+            </div>
+          </div>
+          <div class="h-karte">
+            <div class="h-reihe verteilt">
+              <strong>Anreichern: Vitamin-Tabletten</strong>
+              <span class="h-zustand gefahr"><i class="fa-solid fa-triangle-exclamation"></i> gescheitert</span>
+            </div>
+            <p class="h-klein">Das Arzneiverzeichnis antwortet nicht.</p>
+            <div class="s-knoepfe">
+              <button class="h-knopf" type="button"><i class="fa-solid fa-rotate-right"></i> Wiederholen</button>
+              <button class="h-knopf" type="button"><i class="fa-solid fa-xmark"></i> Entfernen</button>
+            </div>
+          </div>
+        </section>
+      </main>
+      <!-- block:h-leiste -->
+      <nav class="h-leiste" aria-label="Hauptbereiche">
+        <a class="h-leiste-eintrag" data-seite="lager" href="h04-start.html"><i class="fa-solid fa-house"></i><span>Lager</span></a>
+        <a class="h-leiste-eintrag" data-seite="suche" href="h29-suche.html"><i class="fa-solid fa-magnifying-glass"></i><span>Suche</span></a>
+        <a class="h-leiste-scan" href="h17-scanner-einbuchen.html" aria-label="Scannen"><i class="fa-solid fa-qrcode"></i></a>
+        <a class="h-leiste-eintrag" data-seite="verbrauch" href="h30-verbrauch.html"><i class="fa-solid fa-circle-minus"></i><span>Verbrauch</span></a>
+        <a class="h-leiste-eintrag" data-seite="mehr" href="h48-mehr.html"><i class="fa-solid fa-ellipsis"></i><span>Mehr</span></a>
+      </nav>
+      <!-- /block:h-leiste -->
+    </div>
+  </body>
+</html>

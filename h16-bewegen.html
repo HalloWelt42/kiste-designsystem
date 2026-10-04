@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="handy" data-thema="hell">
+  <head>
+    <!-- block:kopf-handy -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/regular.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/handy/40-masse.css" />
+    <link rel="stylesheet" href="stil/handy/41-grund.css" />
+    <link rel="stylesheet" href="stil/handy/42-huelle.css" />
+    <link rel="stylesheet" href="stil/handy/43-bausteine.css" />
+    <link rel="stylesheet" href="stil/handy/44-ansichten.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <!-- /block:kopf-handy -->
+    <title>Kiste - Geschirrtabs bewegen</title>
+  </head>
+  <body data-seite="lager" data-leuchte="verbunden">
+    <div class="h-huelle">
+      <header class="h-kopf">
+        <a class="h-kopf-zurueck" href="#"><i class="fa-solid fa-chevron-left"></i><span>Spülenschrank</span></a>
+        <div class="h-kopf-titel">Geschirrtabs</div>
+        <div class="h-kopf-aktionen">
+          <button class="h-symbolknopf nackt hilfe" type="button" aria-label="Hilfe zu dieser Ansicht"><i class="fa-solid fa-circle-info"></i></button>
+          <a class="h-symbolknopf nackt" href="h40-bearbeiten.html" aria-label="Bearbeiten"><i class="fa-solid fa-pen"></i></a>
+        </div>
+      </header>
+      <main class="h-rollfeld">
+        <div class="h-titelblock">
+          <a class="h-pfad" href="h09-pfad-und-aktionen.html"><span>Wohnung</span><i class="fa-solid fa-chevron-right"></i><span>Küche</span><i class="fa-solid fa-chevron-right"></i><strong>Spülenschrank</strong></a>
+          <h1>Geschirrtabs</h1>
+          <div class="h-pillen">
+            <span class="z-code">T9B5</span>
+            <span class="h-pille">Haushaltsmittel</span>
+          </div>
+        </div>
+
+        <div class="h-mengenblock">
+          <div class="h-mengenblock-kopf">
+            <div class="h-mengenblock-menge"><b>89</b> Tabs</div>
+            <span class="h-zustand gut"><i class="fa-solid fa-check"></i> vorhanden</span>
+          </div>
+          <p class="h-mengenblock-unter">2 Karton ungeöffnet, 1 angebrochen mit 29 Tabs</p>
+          <div class="h-mengenblock-knoepfe">
+            <button class="h-mengenknopf primaer" type="button" aria-label="1 Tab verbrauchen"><i class="fa-solid fa-minus"></i><span>1 Tab</span></button>
+            <button class="h-mengenknopf" type="button" aria-label="1 Karton verbrauchen"><i class="fa-solid fa-minus"></i><span>1 Karton</span></button>
+            <button class="h-mengenknopf" type="button" aria-label="1 Karton einkaufen"><i class="fa-solid fa-plus"></i><span>1 Karton</span></button>
+          </div>
+          <div class="h-mengenblock-fuss">
+            <span>Mindestens 1 Karton</span>
+            <a class="h-link" href="#">Menge ändern <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </main>
+      <!-- block:h-leiste -->
+      <nav class="h-leiste" aria-label="Hauptbereiche">
+        <a class="h-leiste-eintrag" data-seite="lager" href="h04-start.html"><i class="fa-solid fa-house"></i><span>Lager</span></a>
+        <a class="h-leiste-eintrag" data-seite="suche" href="h29-suche.html"><i class="fa-solid fa-magnifying-glass"></i><span>Suche</span></a>
+        <a class="h-leiste-scan" href="h17-scanner-einbuchen.html" aria-label="Scannen"><i class="fa-solid fa-qrcode"></i></a>
+        <a class="h-leiste-eintrag" data-seite="verbrauch" href="h30-verbrauch.html"><i class="fa-solid fa-circle-minus"></i><span>Verbrauch</span></a>
+        <a class="h-leiste-eintrag" data-seite="mehr" href="h48-mehr.html"><i class="fa-solid fa-ellipsis"></i><span>Mehr</span></a>
+      </nav>
+      <!-- /block:h-leiste -->
+    </div>
+
+    <div class="h-schleier"></div>
+
+    <section class="h-blatt" role="dialog" aria-modal="true" aria-labelledby="blatt-bewegen-titel">
+      <header class="h-blatt-kopf">
+        <h2 class="h-blatt-titel" id="blatt-bewegen-titel">Geschirrtabs bewegen</h2>
+        <a class="h-symbolknopf nackt" href="h10-eintrag-verbrauchsgut.html" aria-label="Schließen"><i class="fa-solid fa-xmark"></i></a>
+        <p class="h-blatt-unter">Liegt jetzt in: Spülenschrank</p>
+      </header>
+      <div class="h-blatt-rumpf">
+        <div class="h-suchfeld">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input class="h-eingabe" type="search" placeholder="Ort suchen" aria-label="Ort suchen" />
+        </div>
+
+        <section class="h-abschnitt">
+          <div class="h-abschnitt-kopf"><h2>Zuletzt genutzt</h2></div>
+          <div class="h-liste">
+            <button class="h-zeile ziel" type="button" aria-pressed="true">
+              <span class="z-erscheinung"><i class="fa-solid fa-jar"></i></span>
+              <span class="h-zeile-text">
+                <span class="h-zeile-name">Vorratsschrank</span>
+                <span class="h-zeile-unter"><span class="z-code">V8N3</span><span>Wohnung, Küche</span></span>
+              </span>
+              <span class="h-zeile-ende"><span class="h-zeichen gut" role="img" aria-label="Als Ziel gewählt"><i class="fa-solid fa-check"></i></span></span>
+            </button>
+            <button class="h-zeile" type="button" aria-pressed="false">
+              <span class="z-erscheinung" data-ton="messing"><i class="fa-solid fa-snowflake"></i></span>
+              <span class="h-zeile-text">
+                <span class="h-zeile-name">Kühlschrank</span>
+                <span class="h-zeile-unter"><span class="z-code">R2D5</span><span>Wohnung, Küche</span></span>
+              </span>
+            </button>
+            <button class="h-zeile" type="button" aria-pressed="false">
+              <span class="z-erscheinung" data-ton="ochsenblut"><i class="fa-solid fa-kit-medical"></i></span>
+              <span class="h-zeile-text">
+                <span class="h-zeile-name">Hausapotheke</span>
+                <span class="h-zeile-unter"><span class="z-code">H5T9</span><span>Wohnung, Bad</span></span>
+              </span>
+            </button>
+          </div>
+        </section>
+
+        <section class="h-abschnitt">
+          <div class="h-abschnitt-kopf"><h2>Alle Orte</h2><span class="h-abschnitt-zahl">Ebene für Ebene</span></div>
+          <div>
+            <button class="h-pfadzeile" type="button"><i class="fa-solid fa-house"></i><span>Wohnung</span><i class="fa-solid fa-chevron-right"></i></button>
+            <button class="h-pfadzeile" type="button"><i class="fa-solid fa-warehouse"></i><span>Garage</span><i class="fa-solid fa-chevron-right"></i></button>
+            <button class="h-pfadzeile" type="button"><i class="fa-solid fa-car"></i><span>Auto</span><i class="fa-solid fa-chevron-right"></i></button>
+            <button class="h-pfadzeile" type="button"><i class="fa-solid fa-tree"></i><span>Garten</span><i class="fa-solid fa-chevron-right"></i></button>
+            <button class="h-pfadzeile" type="button"><i class="fa-solid fa-inbox"></i><span>Park-Bereich</span><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+        </section>
+      </div>
+      <footer class="h-blatt-fuss">
+        <a class="h-knopf primaer haupt" href="h10-eintrag-verbrauchsgut.html">In den Vorratsschrank bewegen</a>
+      </footer>
+    </section>
+  </body>
+</html>

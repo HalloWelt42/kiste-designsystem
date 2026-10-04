@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="handy" data-thema="hell">
+  <head>
+    <!-- block:kopf-handy -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/regular.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/handy/40-masse.css" />
+    <link rel="stylesheet" href="stil/handy/41-grund.css" />
+    <link rel="stylesheet" href="stil/handy/42-huelle.css" />
+    <link rel="stylesheet" href="stil/handy/43-bausteine.css" />
+    <link rel="stylesheet" href="stil/handy/44-ansichten.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <!-- /block:kopf-handy -->
+    <title>Kiste - Menge ändern</title>
+  </head>
+  <body data-seite="lager" data-leuchte="verbunden">
+    <div class="h-huelle">
+      <header class="h-kopf">
+        <a class="h-kopf-zurueck" href="h42-loeschen.html"><i class="fa-solid fa-chevron-left"></i><span>Spülenschrank</span></a>
+        <div class="h-kopf-titel">Geschirrtabs</div>
+        <div class="h-kopf-aktionen">
+          <a class="h-symbolknopf nackt" href="h40-bearbeiten.html" aria-label="Bearbeiten"><i class="fa-solid fa-pen"></i></a>
+        </div>
+      </header>
+      <main class="h-rollfeld">
+        <div class="h-titelblock">
+          <a class="h-pfad" href="h09-pfad-und-aktionen.html"><span>Wohnung</span><i class="fa-solid fa-chevron-right"></i><span>Küche</span><i class="fa-solid fa-chevron-right"></i><strong>Spülenschrank</strong></a>
+          <h1>Geschirrtabs</h1>
+          <div class="h-pillen">
+            <span class="z-code">T9B5</span>
+            <span class="h-pille">Haushaltsmittel</span>
+          </div>
+        </div>
+
+        <div class="h-mengenblock">
+          <div class="h-mengenblock-kopf">
+            <div class="h-mengenblock-menge"><b>89</b> Tabs</div>
+            <span class="h-zustand gut"><i class="fa-solid fa-check"></i> vorhanden</span>
+          </div>
+          <p class="h-mengenblock-unter">2 Karton ungeöffnet, 1 angebrochen mit 29 Tabs</p>
+          <div class="h-mengenblock-knoepfe">
+            <button class="h-mengenknopf primaer" type="button" aria-label="1 Tab verbrauchen"><i class="fa-solid fa-minus"></i><span>1 Tab</span></button>
+            <button class="h-mengenknopf" type="button" aria-label="1 Karton verbrauchen"><i class="fa-solid fa-minus"></i><span>1 Karton</span></button>
+            <button class="h-mengenknopf" type="button" aria-label="1 Karton einkaufen"><i class="fa-solid fa-plus"></i><span>1 Karton</span></button>
+          </div>
+          <div class="h-mengenblock-fuss">
+            <span>Mindestens 1 Karton</span>
+            <a class="h-link" href="h14-menge-einkaufen-zaehlen.html">Menge ändern <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </main>
+      <!-- block:h-leiste -->
+      <nav class="h-leiste" aria-label="Hauptbereiche">
+        <a class="h-leiste-eintrag" data-seite="lager" href="h04-start.html"><i class="fa-solid fa-house"></i><span>Lager</span></a>
+        <a class="h-leiste-eintrag" data-seite="suche" href="h29-suche.html"><i class="fa-solid fa-magnifying-glass"></i><span>Suche</span></a>
+        <a class="h-leiste-scan" href="h17-scanner-einbuchen.html" aria-label="Scannen"><i class="fa-solid fa-qrcode"></i></a>
+        <a class="h-leiste-eintrag" data-seite="verbrauch" href="h30-verbrauch.html"><i class="fa-solid fa-circle-minus"></i><span>Verbrauch</span></a>
+        <a class="h-leiste-eintrag" data-seite="mehr" href="h48-mehr.html"><i class="fa-solid fa-ellipsis"></i><span>Mehr</span></a>
+      </nav>
+      <!-- /block:h-leiste -->
+    </div>
+
+    <div class="h-schleier"></div>
+
+    <section class="h-blatt" id="blatt-zaehlen" role="dialog" aria-modal="true" aria-labelledby="blatt-zaehlen-titel">
+      <header class="h-blatt-kopf">
+        <h2 class="h-blatt-titel" id="blatt-zaehlen-titel">Menge ändern</h2>
+        <a class="h-symbolknopf nackt" href="h10-eintrag-verbrauchsgut.html" aria-label="Schließen"><i class="fa-solid fa-xmark"></i></a>
+      </header>
+      <div class="h-blatt-rumpf">
+        <div class="h-wahlreihe" role="tablist" aria-label="Was soll geschehen">
+          <button class="h-wahl" type="button" role="tab" aria-selected="false" data-zeige="#blatt-zaehlen, #blatt-einkaufen">Einkaufen</button>
+          <button class="h-wahl aktiv" type="button" role="tab" aria-selected="true">Zählen</button>
+        </div>
+        <div class="h-reihe verteilt">
+          <span>Ungeöffnete Karton</span>
+          <div class="h-stufen">
+            <button type="button" aria-label="Einer weniger"><i class="fa-solid fa-minus"></i></button>
+            <span class="h-stufen-wert">2</span>
+            <button type="button" aria-label="Einer mehr"><i class="fa-solid fa-plus"></i></button>
+          </div>
+        </div>
+        <div class="h-feld">
+          <span class="h-feld-name">Angebrochene: Karton vom 12.09.2026</span>
+          <div class="h-mengenfeld">
+            <input class="h-eingabe zahl" type="text" inputmode="decimal" value="29" aria-label="Inhalt des angebrochenen Kartons" />
+            <span class="h-einheit">Tabs</span>
+          </div>
+        </div>
+        <div class="h-feld" id="weiterer-karton" hidden>
+          <span class="h-feld-name">Weiterer angebrochener Karton</span>
+          <div class="h-mengenfeld">
+            <input class="h-eingabe zahl" type="text" inputmode="decimal" placeholder="0" aria-label="Inhalt des weiteren angebrochenen Kartons" />
+            <span class="h-einheit">Tabs</span>
+          </div>
+        </div>
+        <button class="h-knopf still breit" type="button" data-zeige="#weiterer-karton"><i class="fa-solid fa-plus"></i> Weiteren angebrochenen Karton</button>
+        <div class="h-hinweis hilfe"><i class="fa-solid fa-circle-info"></i><p>Zählen setzt den Bestand auf genau diese Werte. Auch ohne Abweichung wird festgehalten, dass gezählt wurde.</p></div>
+        <div class="h-reihe verteilt">
+          <span>Ergibt</span>
+          <span class="z-menge"><b>3</b> Karton, <b>89</b> Tabs</span>
+        </div>
+      </div>
+      <footer class="h-blatt-fuss">
+        <a class="h-knopf primaer haupt" href="h10-eintrag-verbrauchsgut.html">Bestand so festhalten</a>
+      </footer>
+    </section>
+
+    <section class="h-blatt" id="blatt-einkaufen" role="dialog" aria-modal="true" aria-labelledby="blatt-einkaufen-titel" hidden>
+      <header class="h-blatt-kopf">
+        <h2 class="h-blatt-titel" id="blatt-einkaufen-titel">Menge ändern</h2>
+        <a class="h-symbolknopf nackt" href="h10-eintrag-verbrauchsgut.html" aria-label="Schließen"><i class="fa-solid fa-xmark"></i></a>
+      </header>
+      <div class="h-blatt-rumpf">
+        <div class="h-wahlreihe" role="tablist" aria-label="Was soll geschehen">
+          <button class="h-wahl aktiv" type="button" role="tab" aria-selected="true">Einkaufen</button>
+          <button class="h-wahl" type="button" role="tab" aria-selected="false" data-zeige="#blatt-zaehlen, #blatt-einkaufen">Zählen</button>
+        </div>
+        <div class="h-reihe verteilt">
+          <span>Anzahl Karton</span>
+          <div class="h-stufen">
+            <button type="button" aria-label="Einer weniger"><i class="fa-solid fa-minus"></i></button>
+            <span class="h-stufen-wert">1</span>
+            <button type="button" aria-label="Einer mehr"><i class="fa-solid fa-plus"></i></button>
+          </div>
+        </div>
+        <div class="h-feld">
+          <span class="h-feld-name">Preis je Karton</span>
+          <div class="h-mengenfeld">
+            <input class="h-eingabe zahl" type="text" inputmode="decimal" value="5,49" aria-label="Preis je Karton" />
+            <span class="h-einheit">EUR</span>
+          </div>
+        </div>
+        <div class="h-feld">
+          <span class="h-feld-name">Gekauft am</span>
+          <a class="h-auswahl" href="h24-datumsfeld.html"><span>03.10.2026</span><i class="fa-solid fa-calendar-days"></i></a>
+          <span class="h-feld-deutung"><i class="fa-solid fa-check"></i> Samstag, 3. Oktober 2026, heute</span>
+        </div>
+        <button class="h-knopf still breit" type="button" data-zeige="#andere-groesse">Andere Packungsgröße nur für diesen Kauf <i class="fa-solid fa-chevron-down"></i></button>
+        <div class="h-feld" id="andere-groesse" hidden>
+          <span class="h-feld-name">Inhalt je Karton bei diesem Kauf</span>
+          <div class="h-mengenfeld">
+            <input class="h-eingabe zahl" type="text" inputmode="decimal" value="30" aria-label="Inhalt je Karton bei diesem Kauf" />
+            <span class="h-einheit">Tabs</span>
+          </div>
+        </div>
+      </div>
+      <footer class="h-blatt-fuss">
+        <a class="h-knopf primaer haupt" href="h10-eintrag-verbrauchsgut.html">1 Karton einkaufen</a>
+      </footer>
+    </section>
+  </body>
+</html>

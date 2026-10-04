@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="allgemein" data-thema="hell">
+  <head>
+    <!-- block:kopf-allgemein -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/regular.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/mock/90-mock.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <!-- /block:kopf-allgemein -->
+    <title>Kiste - Mockups</title>
+  </head>
+  <body>
+    <main class="m-seite">
+      <header class="m-kopf">
+        <div>
+          <span class="z-marke"><i class="fa-solid fa-table-cells-large"></i> Kiste</span>
+          <h1>Mockups</h1>
+          <p>Jede Seite ist echtes HTML mit dem Designsystem der Anwendung. Handy-Seiten öffnen sich im Geräterahmen und lassen sich genauso am Handy aufrufen. Gestaltung wird zuerst hier geändert, dann im Code.</p>
+        </div>
+        <span class="m-unter" data-fassung></span>
+      </header>
+      <div id="galerie" class="m-abschnitt"></div>
+    </main>
+    <!-- block:mock-leiste -->
+    <div class="m-leiste">
+      <a href="galerie.html" title="Galerie aller Seiten"><i class="fa-solid fa-grip"></i></a>
+      <button type="button" data-thema-knopf="hell" title="Helles Thema"><i class="fa-solid fa-sun"></i></button>
+      <button type="button" data-thema-knopf="dunkel" title="Dunkles Thema"><i class="fa-solid fa-moon"></i></button>
+    </div>
+    <!-- /block:mock-leiste -->
+    <script>
+      // Die Galerie: je Seite eine Karte mit lebender Vorschau, gruppiert nach Staffel und Oberfläche.
+      document.addEventListener("DOMContentLoaded", () => {
+        const ziel = document.getElementById("galerie");
+        const MASS = { handy: [430, 932], rechner: [1440, 900], allgemein: [1440, 900] };
+        const NAMEN = { allgemein: "Grundlagen", handy: "Handy", rechner: "Rechner" };
+        const staffeln = [...new Set(window.SEITEN.map((s) => s[5]))].sort();
+        const beobachter = new IntersectionObserver((treffer) => {
+          for (const t of treffer) {
+            if (!t.isIntersecting) continue;
+            const bild = t.target;
+            beobachter.unobserve(bild);
+            const rahmen = document.createElement("iframe");
+            const [breite, hoehe] = MASS[bild.dataset.oberflaeche];
+            rahmen.width = breite;
+            rahmen.height = hoehe;
+            rahmen.title = bild.dataset.titel;
+            rahmen.tabIndex = -1;
+            rahmen.src = bild.dataset.quelle;
+            rahmen.style.transform = `scale(${bild.clientWidth / breite})`;
+            bild.append(rahmen);
+          }
+        }, { rootMargin: "200px" });
+        const anpassen = new ResizeObserver((eintraege) => {
+          for (const e of eintraege) {
+            const rahmen = e.target.querySelector("iframe");
+            if (rahmen) rahmen.style.transform = `scale(${e.target.clientWidth / Number(rahmen.width)})`;
+          }
+        });
+
+        for (const staffel of staffeln) {
+          const kopf = document.createElement("h2");
+          kopf.textContent = (window.STAFFELN && window.STAFFELN[staffel]) || `Staffel ${staffel}`;
+          ziel.append(kopf);
+          for (const oberflaeche of ["allgemein", "handy", "rechner"]) {
+            const seiten = window.SEITEN.filter((s) => s[5] === staffel && s[4] === oberflaeche);
+            if (!seiten.length) continue;
+            const unter = document.createElement("span");
+            unter.className = "m-unter";
+            unter.textContent = `${NAMEN[oberflaeche]} - ${seiten.length} ${seiten.length === 1 ? "Seite" : "Seiten"}`;
+            const raster = document.createElement("div");
+            raster.className = oberflaeche === "handy" ? "m-galerie" : "m-galerie breit";
+            for (const [datei, nummer, titel, untertitel] of seiten) {
+              const karte = document.createElement("a");
+              karte.className = "m-karte";
+              karte.href = oberflaeche === "handy" ? `geraet.html?seite=${encodeURIComponent(datei)}` : `${datei}`;
+              const bild = document.createElement("div");
+              bild.className = `m-karte-bild ${oberflaeche === "handy" ? "handy" : "rechner"}`;
+              bild.dataset.oberflaeche = oberflaeche;
+              bild.dataset.titel = titel;
+              bild.dataset.quelle = `${datei}?roh=1`;
+              const text = document.createElement("div");
+              text.className = "m-karte-text";
+              for (const [klasse, inhalt] of [["m-karte-nummer", nummer], ["m-karte-titel", titel], ["m-karte-unter", untertitel]]) {
+                const zeile = document.createElement("span");
+                zeile.className = klasse;
+                zeile.textContent = inhalt;
+                text.append(zeile);
+              }
+              karte.append(bild, text);
+              raster.append(karte);
+              beobachter.observe(bild);
+              anpassen.observe(bild);
+            }
+            ziel.append(unter, raster);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

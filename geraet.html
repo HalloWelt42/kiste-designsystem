@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="allgemein" data-thema="hell">
+  <head>
+    <!-- block:kopf-allgemein -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/regular.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/mock/90-mock.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <!-- /block:kopf-allgemein -->
+    <title>Kiste - Geräteansicht</title>
+  </head>
+  <body>
+    <main class="m-buehne">
+      <div class="m-buehne-text">
+        <a class="m-knopf" href="galerie.html"><i class="fa-solid fa-grip"></i> Galerie</a>
+        <span class="m-unter" id="nummer"></span>
+        <h1 id="titel">Geräteansicht</h1>
+        <p id="unter"></p>
+        <div class="m-wahl">
+          <button class="m-knopf" type="button" id="zurueck"><i class="fa-solid fa-chevron-left"></i> Vorige</button>
+          <button class="m-knopf" type="button" id="weiter">Nächste <i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </div>
+      <div class="m-geraet mit-aussparung" id="geraet">
+        <iframe id="rahmen" title="Handy-Seite" width="430" height="932"></iframe>
+      </div>
+      <div class="m-buehne-text">
+        <span class="m-unter">Größe</span>
+        <div class="m-wahl" id="groessen">
+          <button class="m-knopf" type="button" data-breite="430" data-hoehe="932">430 x 932</button>
+          <button class="m-knopf" type="button" data-breite="393" data-hoehe="852">393 x 852</button>
+          <button class="m-knopf" type="button" data-breite="375" data-hoehe="667">375 x 667</button>
+          <button class="m-knopf" type="button" data-breite="320" data-hoehe="568">320 x 568</button>
+        </div>
+        <span class="m-unter">Thema</span>
+        <div class="m-wahl">
+          <button class="m-knopf" type="button" data-thema-knopf="hell"><i class="fa-solid fa-sun"></i> Hell</button>
+          <button class="m-knopf" type="button" data-thema-knopf="dunkel"><i class="fa-solid fa-moon"></i> Dunkel</button>
+        </div>
+        <span class="m-unter">Gerät</span>
+        <div class="m-wahl">
+          <button class="m-knopf" type="button" id="sicher">Aussparung und Wischleiste</button>
+          <a class="m-knopf" id="allein" href="#"><i class="fa-solid fa-up-right-from-square"></i> Seite allein</a>
+        </div>
+        <p>Die Seite im Rahmen ist dieselbe Datei, die sich am Handy öffnen lässt. Der Rahmen zeigt die Größe eines großen Handys, 430 mal 932 Punkte.</p>
+      </div>
+    </main>
+    <script>
+      // Die Geräteansicht: lädt eine Handy-Seite in den Rahmen, mit Größe, Thema und sicheren Bereichen.
+      document.addEventListener("DOMContentLoaded", () => {
+        const handy = window.SEITEN.filter((s) => s[4] === "handy");
+        const param = new URLSearchParams(location.search);
+        let datei = param.get("seite") || (handy[0] && handy[0][0]);
+        let breite = Number(param.get("breite")) || 430;
+        let hoehe = Number(param.get("hoehe")) || 932;
+        let sicher = param.get("sicher") !== "0";
+        const rahmen = document.getElementById("rahmen");
+        const geraet = document.getElementById("geraet");
+
+        const laden = () => {
+          const eintrag = handy.find((s) => s[0] === datei);
+          document.getElementById("nummer").textContent = eintrag ? eintrag[1] : "";
+          document.getElementById("titel").textContent = eintrag ? eintrag[2] : datei;
+          document.getElementById("unter").textContent = eintrag ? eintrag[3] : "";
+          rahmen.width = breite;
+          rahmen.height = hoehe;
+          geraet.classList.toggle("mit-aussparung", sicher && breite >= 390);
+          const thema = document.documentElement.dataset.thema;
+          rahmen.src = `${datei}?thema=${thema}${sicher && breite >= 390 ? "&sicher=1" : ""}`;
+          document.getElementById("allein").href = `${datei}?roh=1`;
+          document.querySelectorAll("#groessen [data-breite]").forEach((k) => k.classList.toggle("aktiv", Number(k.dataset.breite) === breite));
+          document.getElementById("sicher").classList.toggle("aktiv", sicher);
+          history.replaceState(null, "", `?seite=${encodeURIComponent(datei)}&breite=${breite}&hoehe=${hoehe}&sicher=${sicher ? 1 : 0}`);
+        };
+        const springen = (schritt) => {
+          const stelle = handy.findIndex((s) => s[0] === datei);
+          const neu = handy[(stelle + schritt + handy.length) % handy.length];
+          if (neu) { datei = neu[0]; laden(); }
+        };
+        document.getElementById("zurueck").addEventListener("click", () => springen(-1));
+        document.getElementById("weiter").addEventListener("click", () => springen(1));
+        document.querySelectorAll("#groessen [data-breite]").forEach((k) => k.addEventListener("click", () => {
+          breite = Number(k.dataset.breite); hoehe = Number(k.dataset.hoehe); laden();
+        }));
+        document.getElementById("sicher").addEventListener("click", () => { sicher = !sicher; laden(); });
+        document.addEventListener("thema", laden);
+        document.addEventListener("keydown", (ev) => {
+          if (ev.key === "ArrowLeft") springen(-1);
+          if (ev.key === "ArrowRight") springen(1);
+        });
+        laden();
+      });
+    </script>
+  </body>
+</html>

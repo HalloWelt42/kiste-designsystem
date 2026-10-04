@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="handy" data-thema="hell">
+  <head>
+    <!-- block:kopf-handy -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/regular.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/handy/40-masse.css" />
+    <link rel="stylesheet" href="stil/handy/41-grund.css" />
+    <link rel="stylesheet" href="stil/handy/42-huelle.css" />
+    <link rel="stylesheet" href="stil/handy/43-bausteine.css" />
+    <link rel="stylesheet" href="stil/handy/44-ansichten.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <!-- /block:kopf-handy -->
+    <title>Kiste - Bausteine Handy</title>
+  </head>
+  <body data-seite="lager" data-leuchte="verbunden">
+    <div class="h-huelle">
+      <header class="h-kopf">
+        <span class="z-marke h-kopf-marke"><i class="fa-solid fa-table-cells-large"></i> Kiste</span>
+        <div class="h-kopf-titel">Bausteine</div>
+        <div class="h-kopf-aktionen">
+          <button class="h-symbolknopf nackt hilfe" type="button" aria-label="Hilfe zu dieser Ansicht"><i class="fa-solid fa-circle-info"></i></button>
+          <button class="h-symbolknopf nackt" type="button" aria-label="Bearbeiten"><i class="fa-solid fa-pen"></i></button>
+        </div>
+      </header>
+
+      <div class="h-band fassung">
+        <i class="fa-solid fa-arrows-rotate"></i>
+        <span>Neue Fassung bereit</span>
+        <button class="h-band-knopf" type="button">Neu laden</button>
+      </div>
+
+      <div class="h-meldungen">
+        <div class="h-meldung" id="meldung">
+          <i class="fa-solid fa-check"></i>
+          <span>1 Tab verbraucht, 89 übrig</span>
+          <button class="h-meldung-knopf" type="button" data-zeige="#meldung">Rückgängig</button>
+        </div>
+      </div>
+
+      <main class="h-rollfeld">
+        <div class="h-titelblock">
+          <h1>Bausteine</h1>
+          <p class="h-titelblock-unter">Alle Bausteine der Handy-Oberfläche mit ihren Zuständen. Tippen, Halten und die Blätter lassen sich hier am Gerät ausprobieren.</p>
+        </div>
+
+        <!-- ================= Zeichen ================= -->
+        <section class="h-abschnitt">
+          <div class="h-abschnitt-kopf"><h2>Zeichen</h2><span class="h-abschnitt-zahl">geteilt mit dem Rechner</span></div>
+          <div class="h-reihe">
+            <span class="z-code">T9B5</span>
+            <span class="z-code">R4K2</span>
+            <span class="z-code gross">W7K2</span>
+          </div>
+          <div class="h-reihe">
+            <span class="z-erscheinung"><i class="fa-solid fa-box"></i></span>
+            <span class="z-erscheinung" data-ton="messing"><i class="fa-solid fa-snowflake"></i></span>
+            <span class="z-erscheinung" data-ton="moos"><i class="fa-solid fa-seedling"></i></span>
+            <span class="z-erscheinung" data-ton="ochsenblut"><i class="fa-solid fa-pills"></i></span>
+            <span class="z-erscheinung" data-ton="tinte"><i class="fa-solid fa-car"></i></span>
+            <span class="z-erscheinung bild"><img src="bilder/foto-geschirrtabs.svg" alt="" /></span>
+          </div>
+          <div class="h-reihe">
+            <span class="z-menge"><b>89</b> Tabs</span>
+            <span class="z-menge"><b>2,5</b> kg</span>
+            <span class="z-menge leer">leer</span>
+          </div>
+          <div class="h-reihe">
+            <span class="z-score nutri" data-stufe="b" role="img" aria-label="Nutri-Score B"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></span>
+            <span class="z-score nova" data-stufe="1" role="img" aria-label="NOVA-Gruppe 1"><b>1</b> NOVA</span>
+          </div>
+        </section>
+
+        <!-- ================= Knöpfe ================= -->
+        <section class="h-abschnitt">
+          <div class="h-abschnitt-kopf"><h2>Knöpfe</h2><span class="h-abschnitt-zahl">48 px hoch</span></div>
+          <div class="h-stapel">
+            <button class="h-knopf primaer breit" type="button"><i class="fa-solid fa-plus"></i> Eintrag anlegen</button>
+            <button class="h-knopf messing breit" type="button"><i class="fa-solid fa-qrcode"></i> Code zuweisen</button>
+            <button class="h-knopf breit" type="button"><i class="fa-solid fa-up-down-left-right"></i> Bewegen</button>
+            <button class="h-knopf still breit" type="button">Abbrechen</button>
+            <button class="h-knopf gefahr breit" type="button"><i class="fa-solid fa-trash-can"></i> Löschen</button>
+            <button class="h-knopf primaer breit gesperrt" type="button" disabled>Speichern</button>
+          </div>
+          <button class="h-knopf primaer haupt" type="button">Speichern</button>
+          <div class="h-reihe">
+            <button class="h-symbolknopf" type="button" aria-label="Mehr Aktionen"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+            <button class="h-symbolknopf aktiv" type="button" aria-label="Bearbeiten beenden"><i class="fa-solid fa-pen"></i></button>
+            <button class="h-symbolknopf ki" type="button" aria-label="Vorschläge der KI einschalten"><i class="fa-solid fa-brain"></i></button>
+            <button class="h-symbolknopf ki aktiv" type="button" aria-label="Vorschläge der KI ausschalten"><i class="fa-solid fa-brain"></i></button>
+            <button class="h-symbolknopf hilfe" type="button" aria-label="Hilfe"><i class="fa-solid fa-circle-info"></i></button>
+          </div>
+          <a class="h-link" href="#">Alle ansehen <i class="fa-solid fa-chevron-right"></i></a>
+          <div class="h-wahlreihe" role="tablist" aria-label="Was soll geschehen">
+            <button class="h-wahl aktiv" type="button" role="tab" aria-selected="true">Verbrauchen</button>
+            <button class="h-wahl" type="button" role="tab" aria-selected="false">Einkaufen</button>
+            <button class="h-wahl" type="button" role="tab" aria-selected="false">Zählen</button>
+          </div>
+          <div class="h-reihe verteilt">
+            <span>Tabletten je Einnahme</span>
+            <div class="h-stufen">
+              <button type="button" aria-label="Eine weniger"><i class="fa-solid fa-minus"></i></button>
+              <span class="h-stufen-wert">2</span>
+              <button type="button" aria-label="Eine mehr"><i class="fa-solid fa-plus"></i></button>
+            </div>
+          </div>
+          <button class="h-halten" type="button" style="--stand: 0"><span class="h-halten-ring"></span> Halten zum Löschen</button>
+          <button class="h-halten" type="button" style="--stand: 62"><span class="h-halten-ring"></span> Weiter halten</button>
+        </section>
+
+        <!-- ================= Felder ================= -->
+        <section class="h-abschnitt">
+          <div class="h-abschnitt-kopf"><h2>Felder</h2><span class="h-abschnitt-zahl">Schrift ab 16 px</span></div>
+          <label class="h-feld">
+            <span class="h-feld-name">Name</span>
+            <input class="h-eingabe gross" type="text" value="Geschirrtabs" autocomplete="off" />
+          </label>
+          <label class="h-feld">
+            <span class="h-feld-name">Beschreibung <button class="h-hilfepunkt" type="button" aria-label="Hilfe zur Beschreibung"><i class="fa-solid fa-circle-info"></i></button></span>
+            <textarea class="h-eingabe" placeholder="Was man später wissen möchte"></textarea>
+            <span class="h-feld-hinweis">Wird bei der Suche mit durchsucht.</span>
+          </label>
+          <div class="h-feld">
+            <span class="h-feld-name">Inhalt je Karton</span>
+            <div class="h-mengenfeld">
+              <input class="h-eingabe zahl" type="text" inputmode="decimal" value="30" aria-label="Menge" />
+              <button class="h-einheit" type="button" aria-label="Einheit wählen, jetzt Tabs">Tabs <i class="fa-solid fa-chevron-down"></i></button>
+            </div>
+          </div>
+          <div class="h-feld">
+            <span class="h-feld-name">Haltbar bis</span>
+            <button class="h-auswahl" type="button" data-zeige="#schleier, #blatt-datum"><span>10.10.2026</span><i class="fa-solid fa-calendar-days"></i></button>
+            <span class="h-feld-deutung"><i class="fa-solid fa-check"></i> Samstag, 10. Oktober 2026, in 7 Tagen</span>
+          </div>
+          <div class="h-feld">
+            <span class="h-feld-name">Kategorie</span>
+            <button class="h-auswahl" type="button" data-zeige="#schleier, #blatt-wahl"><span>Haushaltsmittel</span><i class="fa-solid fa-chevron-down"></i></button>
+          </div>
+          <div class="h-feld">
+            <span class="h-feld-name">Ort</span>
+            <button class="h-auswahl unbelegt" type="button"><span>Ort wählen</span><i class="fa-solid fa-chevron-down"></i></button>
+          </div>
+          <div class="h-feld fehler">
+            <span class="h-feld-name">Strichcode</span>
+            <input class="h-eingabe" type="text" inputmode="numeric" value="201234500012" aria-label="Strichcode" />
+            <span class="h-feld-fehler"><i class="fa-solid fa-circle-exclamation"></i> Eine Ziffer fehlt: 13 Stellen werden gebraucht.</span>
+          </div>
+          <div class="h-suchfeld">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input class="h-eingabe" type="search" value="Milch" aria-label="Im Lager suchen" />
+            <button class="h-suchfeld-leeren" type="button" aria-label="Suche leeren"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <div>
+            <button class="h-schalter an" type="button" role="switch" aria-checked="true">
+              <span class="h-schalter-text">An Haltbarkeit erinnern<small>7 Tage vor Ablauf</small></span>
+              <span class="h-schalter-bahn"></span>
+            </button>
+            <button class="h-schalter" type="button" role="switch" aria-checked="false">
+              <span class="h-schalter-text">Ton beim Scannen</span>
+              <span class="h-schalter-bahn"></span>
+            </button>
+            <button class="h-kaestchen an" type="button" role="checkbox" aria-checked="true">
+              <span class="h-kaestchen-feld"><i class="fa-solid fa-check"></i></span>
+              <span class="h-kaestchen-text">Als Produkt in den Katalog aufnehmen<small>Dann erkennt der Scanner die Packung wieder.</small></span>
+            </button>
+            <button class="h-kaestchen" type="button" role="checkbox" aria-checked="false">
+              <span class="h-kaestchen-feld"><i class="fa-solid fa-check"></i></span>
+              <span class="h-kaestchen-text">Etikett mit Code vergeben</span>
+            </button>
+          </div>
+          <div class="h-stapel" role="radiogroup" aria-label="Was ist das">
+            <button class="h-wahlkarte gewaehlt" type="button" role="radio" aria-checked="true">
+              <span class="h-wahlkarte-punkt"></span>
+              <span class="h-wahlkarte-text"><strong>Ein Ding</strong><small>Etwas, das irgendwo liegt: Milch, Jacke, Bohrmaschine.</small></span>
+            </button>
+            <button class="h-wahlkarte" type="button" role="radio" aria-checked="false">
+              <span class="h-wahlkarte-punkt"></span>
+              <span class="h-wahlkarte-text"><strong>Ein Behälter</strong><small>Etwas, in dem anderes liegt: Schrank, Kiste, Regal.</small></span>
+            </button>
+          </div>
+        </section>
+
+        <!-- ================= Pillen und Marken ================= -->
+        <section class="h-abschnitt">
+          <div class="h-abschnitt-kopf"><h2>Pillen und Marken</h2></div>
+          <div class="h-pillen">
+            <span class="h-pille messing">Behälter</span>
+            <span class="h-pille">Haushaltsmittel</span>
+            <span class="h-pille moos">Lebensmittel</span>
+            <span class="h-pille ochsenblut">Gefahrstoff</span>
+          </div>
+          <div class="h-pillen" role="group" aria-label="Nach Kategorie filtern">
+            <button class="h-pille wahl aktiv" type="button">Alle <span class="h-pille-zahl">50</span></button>
+            <button class="h-pille wahl" type="button">Bücher <span class="h-pille-zahl">30</span></button>
+            <button class="h-pille wahl" type="button">Magazine <span class="h-pille-zahl">20</span></button>
+          </div>
+          <div class="h-pillen">
+            <span class="h-zustand gut"><i class="fa-solid fa-check"></i> vorhanden</span>
+            <span class="h-zustand warn"><i class="fa-solid fa-hourglass-half"></i> läuft in 3 Tagen ab</span>
+            <span class="h-zustand gefahr"><i class="fa-solid fa-triangle-exclamation"></i> abgelaufen</span>
+            <span class="h-zustand">leer</span>
+          </div>
+          <div class="h-reihe">
+            <span class="h-leuchte verbunden" data-fest></span><span class="h-klein">verbunden</span>
+            <span class="h-leuchte last" data-fest></span><span class="h-klein">Last</span>
+            <span class="h-leuchte" data-fest></span><span class="h-klein">getrennt</span>
+          </div>
+        </section>
+
+        <!-- ================= Karten und Zeilen ================= -->
+        <section class="h-abschnitt">
+          <div class="h-abschnitt-kopf"><h2>Kacheln und Hinweise</h2></div>
+          <div class="h-kacheln">
+            <a class="h-kachel" href="#"><span class="h-kachel-zahl">4</span><span class="h-kachel-wort"><i class="fa-solid fa-cart-shopping"></i> Einkauf</span></a>
+            <a class="h-kachel warn" href="#"><span class="h-kachel-zahl">3</span><span class="h-kachel-wort"><i class="fa-solid fa-hourglass-half"></i> bald fällig</span></a>
+            <a class="h-kachel" href="#"><span class="h-kachel-zahl">3</span><span class="h-kachel-wort"><i class="fa-solid fa-inbox"></i> geparkt</span></a>
+          </div>
+          <div class="h-hinweis messing"><i class="fa-solid fa-hourglass-half"></i><p><strong>Joghurt</strong> läuft in 3 Tagen ab. <a class="h-link" href="#">Ansehen</a></p></div>
+          <div class="h-hinweis hilfe"><i class="fa-solid fa-circle-info"></i><p>Ein Behälter kann anderes enthalten. Ein Ding liegt nur irgendwo.</p></div>
+          <div class="h-hinweis gut"><i class="fa-solid fa-check"></i><p>Der Code ist frei und wird diesem Eintrag zugewiesen.</p></div>
+          <div class="h-hinweis gefahr"><i class="fa-solid fa-triangle-exclamation"></i><p><strong>Käse</strong> ist seit 2 Tagen abgelaufen.</p></div>
+          <div class="h-hinweis"><i class="fa-solid fa-location-dot"></i><p>Neues landet im Kühlschrank.</p></div>
+          <div class="h-fortschritt" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60" aria-label="Fortschritt 60 Prozent" style="--stand: 60">
+            <span class="h-fortschritt-text"><span>Schritt 2 von 3: Bild auswerten</span><small>60 Prozent, noch etwa 20 Sekunden</small></span>
+            <span class="h-fortschritt-balken"></span>
+          </div>
+        </section>
+
+        <section class="h-abschnitt">
+          <div class="h-abschnitt-kopf"><h2>Inhalt</h2><span class="h-abschnitt-zahl">5 Einträge</span></div>
+          <div class="h-liste">
+            <a class="h-zeile" href="#">
+              <span class="z-erscheinung" data-ton="messing"><i class="fa-solid fa-snowflake"></i></span>
+              <span class="h-zeile-text">
+                <span class="h-zeile-name">Kühlschrank</span>
+                <span class="h-zeile-unter"><span class="z-code">R2D5</span><span>5 Einträge, 10 Gegenstände</span></span>
+              </span>
+              <span class="h-zeile-ende"><i class="fa-solid fa-chevron-right"></i></span>
+            </a>
+            <a class="h-zeile" href="#">
+              <span class="z-erscheinung bild"><img src="bilder/foto-geschirrtabs.svg" alt="" /></span>
+              <span class="h-zeile-text">
+                <span class="h-zeile-name">Geschirrtabs</span>
+                <span class="h-zeile-unter"><span class="z-code">T9B5</span><span class="z-menge"><b>3</b> Karton, <b>89</b> Tabs</span></span>
+              </span>
+              <span class="h-zeile-ende"><i class="fa-solid fa-chevron-right"></i></span>
+            </a>
+            <a class="h-zeile" href="#">
+              <span class="z-erscheinung"><i class="fa-solid fa-cow"></i></span>
+              <span class="h-zeile-text">
+                <span class="h-zeile-name">Milch</span>
+                <span class="h-zeile-unter"><span class="z-code">M3T7</span><span class="z-menge"><b>3</b> Tetrapack, <b>2,8</b> l</span></span>
+              </span>
+              <span class="h-zeile-ende"><span class="h-zeichen warn" role="img" aria-label="Läuft in 7 Tagen ab"><i class="fa-solid fa-hourglass-half"></i></span><i class="fa-solid fa-chevron-right"></i></span>
+            </a>
+            <a class="h-zeile" href="#">
+              <span class="z-erscheinung"><i class="fa-solid fa-cheese"></i></span>
+              <span class="h-zeile-text">
+                <span class="h-zeile-name">Käse</span>
+                <span class="h-zeile-unter"><span class="z-code">C5R8</span><span class="z-menge"><b>1</b> Stück</span></span>
+              </span>
+              <span class="h-zeile-ende"><span class="h-zeichen gefahr" role="img" aria-label="Abgelaufen seit 2 Tagen"><i class="fa-solid fa-triangle-exclamation"></i></span><i class="fa-solid fa-chevron-right"></i></span>
+            </a>
+            <a class="h-zeile leer" href="#">
+              <span class="z-erscheinung"><i class="fa-solid fa-cube"></i></span>
+              <span class="h-zeile-text">
+                <span class="h-zeile-name">Butter</span>
+                <span class="h-zeile-unter"><span class="z-code">B6H2</span><span class="z-menge leer">leer</span></span>
+              </span>
+              <span class="h-zeile-ende"><i class="fa-solid fa-chevron-right"></i></span>
+            </a>
+            <a class="h-zeile gewaehlt" href="#">
+              <span class="z-erscheinung" data-ton="tinte"><i class="fa-solid fa-check"></i></span>
+              <span class="h-zeile-text">
+                <span class="h-zeile-name">Ein sehr langer Name, der nicht in eine Zeile passt und deshalb gekürzt wird</span>
+                <span class="h-zeile-unter"><span class="z-code">E9C4</span><span class="z-menge"><b>2</b> Schachteln, <b>16</b> Eier</span></span>
+              </span>
+              <span class="h-zeile-ende"><i class="fa-solid fa-chevron-right"></i></span>
+            </a>
+          </div>
+          <div class="h-mehr-fuss">
+            <span>25 von 64</span>
+            <button class="h-knopf" type="button">Weitere 25 laden</button>
+          </div>
+        </section>
+
+        <section class="h-abschnitt">
+          <div class="h-abschnitt-kopf"><h2>Menge</h2></div>
+          <div class="h-mengenblock">
+            <div class="h-mengenblock-kopf">
+              <div class="h-mengenblock-menge"><b>89</b> Tabs</div>
+              <span class="h-zustand gut"><i class="fa-solid fa-check"></i> vorhanden</span>
+            </div>
+            <p class="h-mengenblock-unter">2 Karton ungeöffnet, 1 angebrochen mit 29 Tabs</p>
+            <div class="h-mengenblock-knoepfe">
+              <button class="h-mengenknopf primaer" type="button" aria-label="1 Tab verbrauchen"><i class="fa-solid fa-minus"></i><span>1 Tab</span></button>
+              <button class="h-mengenknopf" type="button" aria-label="1 Karton verbrauchen"><i class="fa-solid fa-minus"></i><span>1 Karton</span></button>
+              <button class="h-mengenknopf" type="button" aria-label="1 Karton einkaufen"><i class="fa-solid fa-plus"></i><span>1 Karton</span></button>
+            </div>
+            <div class="h-mengenblock-fuss">
+              <span>Mindestens 1 Karton</span>
+              <a class="h-link" href="#">Menge ändern <i class="fa-solid fa-chevron-right"></i></a>
+            </div>
+          </div>
+        </section>
+
+        <section class="h-abschnitt">
+          <div class="h-abschnitt-kopf"><h2>Eigenschaften</h2><span class="h-abschnitt-zahl">5 Werte</span></div>
+          <dl class="h-eigenschaften">
+            <div class="h-eigenschaft"><dt>Bauart</dt><dd>Schlagbohrmaschine</dd></div>
+            <div class="h-eigenschaft"><dt>Leistung</dt><dd>750 W</dd></div>
+            <div class="h-eigenschaft"><dt>Gekauft am</dt><dd>14.03.2024</dd></div>
+            <div class="h-eigenschaft"><dt>Garantie noch</dt><dd class="errechnet">162 Tage</dd></div>
+            <div class="h-eigenschaft"><dt>Seriennummer</dt><dd>SB-2024-118734</dd></div>
+          </dl>
+        </section>
+
+        <section class="h-abschnitt">
+          <div class="h-abschnitt-kopf"><h2>Verlauf</h2><a class="h-link" href="#">Alle ansehen</a></div>
+          <div class="h-verlauf">
+            <div class="h-verlauf-zeile"><div class="h-verlauf-wann"><span>heute 09:58</span><span>Alex</span></div><p class="h-verlauf-was">1 Tab verbraucht, 89 übrig</p></div>
+            <div class="h-verlauf-zeile"><div class="h-verlauf-wann"><span>gestern 18:40</span><span>Alex</span></div><p class="h-verlauf-was">Bewegt: Arbeitszimmer <i class="fa-solid fa-arrow-right-long"></i> Schraubenregal</p></div>
+            <div class="h-verlauf-zeile"><div class="h-verlauf-wann"><span>12.09.2026</span><span>Mia</span></div><p class="h-verlauf-was">3 Karton eingekauft, 5,49 EUR je Karton</p></div>
+          </div>
+        </section>
+
+        <section class="h-abschnitt">
+          <div class="h-abschnitt-kopf"><h2>Bilder und Codes</h2></div>
+          <div class="h-bilder">
+            <figure class="h-bild"><img src="bilder/foto-bohrmaschine.svg" alt="Bohrmaschine auf der Werkbank" /></figure>
+            <figure class="h-bild"><img src="bilder/foto-geschirrtabs.svg" alt="Karton Geschirrtabs im Schrank" /></figure>
+          </div>
+          <div class="h-etikett">
+            <img src="bilder/qr-t9b5.svg" alt="QR-Code des Eintrags" />
+            <span class="z-code gross gedruckt">T9B5</span>
+            <img class="strichcode" src="bilder/strichcode-geschirrtabs.svg" alt="Strichcode 2012345000124" />
+          </div>
+          <a class="h-pfad" href="#"><span>Wohnung</span><i class="fa-solid fa-chevron-right"></i><span>Küche</span><i class="fa-solid fa-chevron-right"></i><strong>Spülenschrank</strong></a>
+        </section>
+
+        <section class="h-abschnitt">
+          <div class="h-abschnitt-kopf"><h2>Leer und Laden</h2></div>
+          <div class="h-leerzustand">
+            <i class="fa-solid fa-box-open"></i>
+            <h2>Hier liegt noch nichts</h2>
+            <p>Lege den ersten Eintrag in diesem Behälter an.</p>
+            <button class="h-knopf primaer" type="button"><i class="fa-solid fa-plus"></i> Eintrag anlegen</button>
+          </div>
+          <div class="h-stapel" aria-hidden="true">
+            <span class="h-skelett titel"></span>
+            <span class="h-skelett kurz"></span>
+            <span class="h-skelett zeile"></span>
+            <span class="h-skelett zeile"></span>
+          </div>
+        </section>
+
+        <!-- ================= Blätter ================= -->
+        <section class="h-abschnitt">
+          <div class="h-abschnitt-kopf"><h2>Blätter</h2><span class="h-abschnitt-zahl">statt Dialoge</span></div>
+          <div class="h-stapel">
+            <button class="h-knopf breit" type="button" data-zeige="#schleier, #blatt-halb">Halbblatt mit Feld und Fuß</button>
+            <button class="h-knopf breit" type="button" data-zeige="#schleier, #blatt-wahl">Wahl-Blatt</button>
+            <button class="h-knopf breit" type="button" data-zeige="#schleier, #blatt-aktion">Aktions-Blatt</button>
+            <button class="h-knopf breit" type="button" data-zeige="#schleier, #blatt-datum">Datums-Blatt</button>
+            <button class="h-knopf breit" type="button" data-zeige="#schleier, #blatt-frage">Rückfrage mit Halten</button>
+            <button class="h-knopf breit" type="button" data-zeige="#blatt-voll">Vollblatt</button>
+          </div>
+        </section>
+      </main>
+
+      <!-- block:h-leiste -->
+      <nav class="h-leiste" aria-label="Hauptbereiche">
+        <a class="h-leiste-eintrag" data-seite="lager" href="h04-start.html"><i class="fa-solid fa-house"></i><span>Lager</span></a>
+        <a class="h-leiste-eintrag" data-seite="suche" href="h29-suche.html"><i class="fa-solid fa-magnifying-glass"></i><span>Suche</span></a>
+        <a class="h-leiste-scan" href="h17-scanner-einbuchen.html" aria-label="Scannen"><i class="fa-solid fa-qrcode"></i></a>
+        <a class="h-leiste-eintrag" data-seite="verbrauch" href="h30-verbrauch.html"><i class="fa-solid fa-circle-minus"></i><span>Verbrauch</span></a>
+        <a class="h-leiste-eintrag" data-seite="mehr" href="h48-mehr.html"><i class="fa-solid fa-ellipsis"></i><span>Mehr</span></a>
+      </nav>
+      <!-- /block:h-leiste -->
+    </div>
+
+    <div class="h-schleier" id="schleier" hidden></div>
+
+    <section class="h-blatt" id="blatt-halb" role="dialog" aria-modal="true" aria-labelledby="blatt-halb-titel" hidden>
+      <header class="h-blatt-kopf">
+        <h2 class="h-blatt-titel" id="blatt-halb-titel">Umbenennen</h2>
+        <button class="h-symbolknopf nackt" type="button" aria-label="Schließen" data-zeige="#schleier, #blatt-halb"><i class="fa-solid fa-xmark"></i></button>
+      </header>
+      <div class="h-blatt-rumpf">
+        <label class="h-feld">
+          <span class="h-feld-name">Name</span>
+          <input class="h-eingabe gross" type="text" value="Geschirrtabs" autocomplete="off" />
+        </label>
+        <label class="h-feld">
+          <span class="h-feld-name">Beschreibung</span>
+          <textarea class="h-eingabe" placeholder="Was man später wissen möchte"></textarea>
+        </label>
+      </div>
+      <footer class="h-blatt-fuss">
+        <button class="h-knopf primaer haupt" type="button" data-zeige="#schleier, #blatt-halb">Speichern</button>
+      </footer>
+    </section>
+
+    <section class="h-blatt" id="blatt-wahl" role="dialog" aria-modal="true" aria-labelledby="blatt-wahl-titel" hidden>
+      <header class="h-blatt-kopf">
+        <h2 class="h-blatt-titel" id="blatt-wahl-titel">Kategorie</h2>
+        <button class="h-symbolknopf nackt" type="button" aria-label="Schließen" data-zeige="#schleier, #blatt-wahl"><i class="fa-solid fa-xmark"></i></button>
+      </header>
+      <div class="h-blatt-rumpf">
+        <div class="h-suchfeld">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input class="h-eingabe" type="search" placeholder="Kategorie suchen" aria-label="Kategorie suchen" />
+        </div>
+        <div>
+          <button class="h-wahlzeile gewaehlt" type="button"><i class="fa-solid fa-spray-can-sparkles"></i><span class="h-wahlzeile-text">Haushaltsmittel<small>verbrauchbar, mit Mindestbestand</small></span><i class="fa-solid fa-check h-wahlzeile-haken"></i></button>
+          <button class="h-wahlzeile" type="button"><i class="fa-solid fa-cow"></i><span class="h-wahlzeile-text">Milchprodukt<small>Lebensmittel, mit Haltbarkeit</small></span><i class="fa-solid fa-check h-wahlzeile-haken"></i></button>
+          <button class="h-wahlzeile" type="button"><i class="fa-solid fa-bottle-water"></i><span class="h-wahlzeile-text">Getränk<small>Lebensmittel, mit Haltbarkeit</small></span><i class="fa-solid fa-check h-wahlzeile-haken"></i></button>
+          <button class="h-wahlzeile" type="button"><i class="fa-solid fa-pills"></i><span class="h-wahlzeile-text">Medikament<small>mit Haltbarkeit und Einnahmeplan</small></span><i class="fa-solid fa-check h-wahlzeile-haken"></i></button>
+          <button class="h-wahlzeile" type="button"><i class="fa-solid fa-screwdriver-wrench"></i><span class="h-wahlzeile-text">Werkzeug<small>Einzelstück, verleihbar</small></span><i class="fa-solid fa-check h-wahlzeile-haken"></i></button>
+          <button class="h-wahlzeile" type="button"><i class="fa-solid fa-book"></i><span class="h-wahlzeile-text">Buch<small>Einzelstück</small></span><i class="fa-solid fa-check h-wahlzeile-haken"></i></button>
+        </div>
+      </div>
+      <footer class="h-blatt-fuss">
+        <button class="h-knopf primaer haupt" type="button" data-zeige="#schleier, #blatt-wahl">Übernehmen</button>
+      </footer>
+    </section>
+
+    <section class="h-blatt" id="blatt-aktion" role="dialog" aria-modal="true" aria-labelledby="blatt-aktion-titel" hidden>
+      <header class="h-blatt-kopf">
+        <h2 class="h-blatt-titel" id="blatt-aktion-titel">Geschirrtabs</h2>
+        <button class="h-symbolknopf nackt" type="button" aria-label="Schließen" data-zeige="#schleier, #blatt-aktion"><i class="fa-solid fa-xmark"></i></button>
+      </header>
+      <div class="h-blatt-rumpf">
+        <div>
+          <button class="h-aktion" type="button"><i class="fa-solid fa-up-down-left-right"></i> Bewegen</button>
+          <button class="h-aktion" type="button"><i class="fa-solid fa-pen"></i> Bearbeiten</button>
+          <button class="h-aktion" type="button"><i class="fa-solid fa-check-double"></i> Mehrere auswählen</button>
+          <button class="h-aktion gefahr" type="button"><i class="fa-solid fa-trash-can"></i> Löschen</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="h-blatt" id="blatt-datum" role="dialog" aria-modal="true" aria-labelledby="blatt-datum-titel" hidden>
+      <header class="h-blatt-kopf">
+        <h2 class="h-blatt-titel" id="blatt-datum-titel">Haltbar bis</h2>
+        <button class="h-symbolknopf nackt" type="button" aria-label="Schließen" data-zeige="#schleier, #blatt-datum"><i class="fa-solid fa-xmark"></i></button>
+      </header>
+      <div class="h-blatt-rumpf">
+        <div class="h-feld">
+          <input class="h-eingabe gross" type="text" value="10.10.26" readonly aria-label="Datum, getippt" />
+          <span class="h-feld-deutung"><i class="fa-solid fa-check"></i> Samstag, 10. Oktober 2026, in 7 Tagen</span>
+        </div>
+        <div class="h-kalender">
+          <div class="h-kalender-kopf">
+            <button class="h-symbolknopf nackt" type="button" aria-label="Voriger Monat"><i class="fa-solid fa-chevron-left"></i></button>
+            <span class="h-kalender-monat">Oktober 2026</span>
+            <button class="h-symbolknopf nackt" type="button" aria-label="Nächster Monat"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+          <div class="h-kalender-tage">
+            <span class="h-kalender-wochentag">Mo</span><span class="h-kalender-wochentag">Di</span><span class="h-kalender-wochentag">Mi</span><span class="h-kalender-wochentag">Do</span><span class="h-kalender-wochentag">Fr</span><span class="h-kalender-wochentag">Sa</span><span class="h-kalender-wochentag">So</span>
+            <button class="h-tag fremd" type="button">28</button><button class="h-tag fremd" type="button">29</button><button class="h-tag fremd" type="button">30</button><button class="h-tag" type="button">1</button><button class="h-tag" type="button">2</button><button class="h-tag heute" type="button" aria-label="3, heute">3</button><button class="h-tag" type="button">4</button>
+            <button class="h-tag" type="button">5</button><button class="h-tag" type="button">6</button><button class="h-tag" type="button">7</button><button class="h-tag" type="button">8</button><button class="h-tag" type="button">9</button><button class="h-tag gewaehlt" type="button" aria-pressed="true">10</button><button class="h-tag" type="button">11</button>
+            <button class="h-tag" type="button">12</button><button class="h-tag" type="button">13</button><button class="h-tag" type="button">14</button><button class="h-tag" type="button">15</button><button class="h-tag" type="button">16</button><button class="h-tag" type="button">17</button><button class="h-tag" type="button">18</button>
+            <button class="h-tag" type="button">19</button><button class="h-tag" type="button">20</button><button class="h-tag" type="button">21</button><button class="h-tag" type="button">22</button><button class="h-tag" type="button">23</button><button class="h-tag" type="button">24</button><button class="h-tag" type="button">25</button>
+            <button class="h-tag" type="button">26</button><button class="h-tag" type="button">27</button><button class="h-tag" type="button">28</button><button class="h-tag" type="button">29</button><button class="h-tag" type="button">30</button><button class="h-tag" type="button">31</button><button class="h-tag fremd" type="button">1</button>
+          </div>
+        </div>
+        <div class="h-ziffern">
+          <button class="h-ziffer" type="button">1</button><button class="h-ziffer" type="button">2</button><button class="h-ziffer" type="button">3</button>
+          <button class="h-ziffer" type="button">4</button><button class="h-ziffer" type="button">5</button><button class="h-ziffer" type="button">6</button>
+          <button class="h-ziffer" type="button">7</button><button class="h-ziffer" type="button">8</button><button class="h-ziffer" type="button">9</button>
+          <button class="h-ziffer neben" type="button" aria-label="Punkt">.</button><button class="h-ziffer" type="button">0</button><button class="h-ziffer neben" type="button" aria-label="Letzte Ziffer löschen"><i class="fa-solid fa-delete-left"></i></button>
+        </div>
+      </div>
+      <footer class="h-blatt-fuss zweigeteilt">
+        <button class="h-knopf" type="button" data-zeige="#schleier, #blatt-datum">Kein Datum</button>
+        <button class="h-knopf primaer" type="button" data-zeige="#schleier, #blatt-datum">Übernehmen</button>
+      </footer>
+    </section>
+
+    <section class="h-blatt" id="blatt-frage" role="alertdialog" aria-modal="true" aria-labelledby="blatt-frage-titel" hidden>
+      <header class="h-blatt-kopf">
+        <h2 class="h-blatt-titel" id="blatt-frage-titel">Spülenschrank löschen</h2>
+        <button class="h-symbolknopf nackt" type="button" aria-label="Schließen" data-zeige="#schleier, #blatt-frage"><i class="fa-solid fa-xmark"></i></button>
+      </header>
+      <div class="h-blatt-rumpf">
+        <p>Im Spülenschrank liegen 2 Einträge. Was soll mit ihnen geschehen?</p>
+        <div class="h-stapel" role="radiogroup" aria-label="Was mit dem Inhalt geschieht">
+          <button class="h-wahlkarte gewaehlt" type="button" role="radio" aria-checked="true">
+            <span class="h-wahlkarte-punkt"></span>
+            <span class="h-wahlkarte-text"><strong>Inhalt in den Park-Bereich</strong><small>Die 2 Einträge bleiben erhalten und warten dort auf einen neuen Ort.</small></span>
+          </button>
+          <button class="h-wahlkarte" type="button" role="radio" aria-checked="false">
+            <span class="h-wahlkarte-punkt"></span>
+            <span class="h-wahlkarte-text"><strong>Samt Inhalt löschen</strong><small>Auch die 2 Einträge werden gelöscht.</small></span>
+          </button>
+        </div>
+      </div>
+      <footer class="h-blatt-fuss">
+        <button class="h-halten" type="button" style="--stand: 0"><span class="h-halten-ring"></span> Halten zum Löschen</button>
+        <button class="h-knopf still breit" type="button" data-zeige="#schleier, #blatt-frage">Abbrechen</button>
+      </footer>
+    </section>
+
+    <section class="h-blatt voll" id="blatt-voll" role="dialog" aria-modal="true" aria-labelledby="blatt-voll-titel" hidden>
+      <header class="h-blatt-kopf">
+        <h2 class="h-blatt-titel" id="blatt-voll-titel">Neuer Eintrag</h2>
+        <button class="h-symbolknopf nackt" type="button" aria-label="Schließen" data-zeige="#blatt-voll"><i class="fa-solid fa-xmark"></i></button>
+        <p class="h-blatt-unter">Wird abgelegt in: Spülenschrank</p>
+      </header>
+      <div class="h-blatt-rumpf">
+        <label class="h-feld">
+          <span class="h-feld-name">Name</span>
+          <input class="h-eingabe gross" type="text" placeholder="Wie heißt es?" autocomplete="off" />
+        </label>
+        <div class="h-feld">
+          <span class="h-feld-name">Menge</span>
+          <div class="h-mengenfeld">
+            <input class="h-eingabe zahl" type="text" inputmode="decimal" value="1" aria-label="Menge" />
+            <button class="h-einheit" type="button" aria-label="Einheit wählen, jetzt Stück">Stück <i class="fa-solid fa-chevron-down"></i></button>
+          </div>
+        </div>
+        <label class="h-feld">
+          <span class="h-feld-name">Beschreibung</span>
+          <textarea class="h-eingabe" placeholder="Was man später wissen möchte"></textarea>
+        </label>
+        <label class="h-feld">
+          <span class="h-feld-name">Seriennummer</span>
+          <input class="h-eingabe" type="text" autocomplete="off" />
+        </label>
+        <label class="h-feld">
+          <span class="h-feld-name">Notiz</span>
+          <input class="h-eingabe" type="text" autocomplete="off" />
+        </label>
+      </div>
+      <footer class="h-blatt-fuss zweigeteilt">
+        <button class="h-knopf" type="button" data-zeige="#blatt-voll">Speichern und nächstes</button>
+        <button class="h-knopf primaer" type="button" data-zeige="#blatt-voll">Speichern</button>
+      </footer>
+    </section>
+  </body>
+</html>

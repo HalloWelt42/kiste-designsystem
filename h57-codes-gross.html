@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="handy" data-thema="hell">
+  <head>
+    <!-- block:kopf-handy -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/regular.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/handy/40-masse.css" />
+    <link rel="stylesheet" href="stil/handy/41-grund.css" />
+    <link rel="stylesheet" href="stil/handy/42-huelle.css" />
+    <link rel="stylesheet" href="stil/handy/43-bausteine.css" />
+    <link rel="stylesheet" href="stil/handy/44-ansichten.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <!-- /block:kopf-handy -->
+    <title>Kiste - Codes groß</title>
+    <style>
+      /* Nur Anordnung: zum Abscannen darf der Code so breit werden, wie das Handy es zulässt. */
+      .s-gross img {
+        inline-size: min(100%, 320px);
+      }
+    </style>
+  </head>
+  <body data-seite="lager" data-leuchte="verbunden">
+    <div class="h-huelle vollflaeche">
+      <header class="h-kopf">
+        <a class="h-kopf-zurueck" href="h10-eintrag-verbrauchsgut.html"><i class="fa-solid fa-chevron-left"></i><span>Geschirrtabs</span></a>
+        <div class="h-kopf-titel">Codes</div>
+      </header>
+      <main class="h-rollfeld">
+        <div class="h-titelblock">
+          <h1>Codes</h1>
+          <p class="h-titelblock-unter">Geschirrtabs im Spülenschrank</p>
+        </div>
+
+        <div class="h-wahlreihe" role="tablist" aria-label="Welcher Code">
+          <button class="h-wahl aktiv" type="button" role="tab" aria-selected="true"><i class="fa-solid fa-qrcode"></i> QR-Code</button>
+          <button class="h-wahl" type="button" role="tab" aria-selected="false"><i class="fa-solid fa-barcode"></i> Strichcode</button>
+        </div>
+
+        <div class="h-etikett s-gross">
+          <img src="bilder/qr-t9b5.svg" alt="QR-Code des Eintrags Geschirrtabs" />
+          <span class="z-code gross gedruckt">T9B5</span>
+        </div>
+
+        <div class="h-hinweis hilfe"><i class="fa-solid fa-circle-info"></i><p>Zum Abscannen vom Bildschirm oder zum Abschreiben.</p></div>
+        <button class="h-knopf gefahr breit" type="button" data-zeige="#schleier, #blatt-entfernen"><i class="fa-solid fa-trash-can"></i> Etikett entfernen</button>
+      </main>
+      <footer class="h-fuss">
+        <button class="h-knopf primaer haupt" type="button"><i class="fa-solid fa-download"></i> Als Bild sichern</button>
+      </footer>
+    </div>
+
+    <div class="h-schleier" id="schleier" hidden></div>
+
+    <section class="h-blatt" id="blatt-entfernen" role="alertdialog" aria-modal="true" aria-labelledby="blatt-entfernen-titel" hidden>
+      <header class="h-blatt-kopf">
+        <h2 class="h-blatt-titel" id="blatt-entfernen-titel">Etikett entfernen?</h2>
+        <button class="h-symbolknopf nackt" type="button" aria-label="Schließen" data-zeige="#schleier, #blatt-entfernen"><i class="fa-solid fa-xmark"></i></button>
+      </header>
+      <div class="h-blatt-rumpf">
+        <p>Der Code <span class="z-code">T9B5</span> gehört dann zu keinem Eintrag mehr. Ein aufgeklebtes Etikett führt beim Scannen ins Leere.</p>
+      </div>
+      <footer class="h-blatt-fuss">
+        <button class="h-halten" type="button" style="--stand: 0"><span class="h-halten-ring"></span> Halten zum Entfernen</button>
+        <button class="h-knopf still breit" type="button" data-zeige="#schleier, #blatt-entfernen">Abbrechen</button>
+      </footer>
+    </section>
+  </body>
+</html>

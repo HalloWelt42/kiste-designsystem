@@ -1,0 +1,7 @@
+/* Reihenfolge der Schichten: eine spätere schlägt jede frühere, gleich wie genau der Selektor ist.
+   Jede Stildatei schreibt in genau ihre Schicht. Die Icon-Schrift liegt ganz unten, damit Bausteine
+   ihre Vorgaben überstimmen können. */
+@layer icons, marken, zeichen,
+       h-grund, h-huelle, h-bausteine, h-ansichten,
+       r-grund, r-huelle, r-bausteine, r-ansichten, r-verwaltung,
+       mock;

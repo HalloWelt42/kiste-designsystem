@@ -1,0 +1,1584 @@
+/* Rechner: Bausteine. Jeder Baustein hat genau einen Ort; Ansichten ordnen nur an.
+   Bausteine sind Substantive, Zustände Adjektive, und ein Zustand wird nur im Verbund gestaltet. */
+@layer r-bausteine {
+  /* ==== Knöpfe: eine Höhe für die ganze Reihe ================================================= */
+  .r-knopf {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--r-a2);
+    flex: none;
+    block-size: var(--r-knopf);
+    padding-inline: var(--r-a4);
+    border: 1px solid var(--feld-rand);
+    border-radius: var(--rund-2);
+    background: var(--papier);
+    color: var(--tinte);
+    font-size: var(--r-schrift-klein);
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+    transition: background-color var(--dauer), border-color var(--dauer), color var(--dauer);
+  }
+  .r-knopf i {
+    font-size: var(--r-icon);
+  }
+  .r-knopf:hover {
+    background: var(--papier-weich);
+  }
+  .r-knopf.primaer {
+    border-color: var(--tinte);
+    background: var(--tinte);
+    color: var(--auf-tinte);
+  }
+  .r-knopf.primaer:hover {
+    border-color: var(--tinte-weich);
+    background: var(--tinte-weich);
+  }
+  .r-knopf.messing {
+    border-color: var(--messing-schrift);
+    background: var(--messing);
+    color: var(--auf-messing);
+  }
+  .r-knopf.still {
+    border-color: transparent;
+    background: transparent;
+    color: var(--tinte-weich);
+  }
+  .r-knopf.still:hover {
+    background: var(--papier-tief);
+    color: var(--tinte);
+  }
+  .r-knopf.gefahr {
+    border-color: var(--ochsenblut);
+    color: var(--ochsenblut);
+  }
+  .r-knopf.gefahr:hover {
+    background: var(--ochsenblut-flaeche);
+  }
+  .r-knopf.klein {
+    block-size: var(--r-knopf-klein);
+    padding-inline: var(--r-a3);
+  }
+  .r-knopf.gesperrt,
+  .r-knopf:disabled {
+    opacity: 0.45;
+    cursor: default;
+  }
+
+  /* Symbolknopf: nur ein Icon, immer mit title. */
+  .r-symbolknopf {
+    display: inline-grid;
+    place-items: center;
+    flex: none;
+    inline-size: var(--r-knopf);
+    block-size: var(--r-knopf);
+    border: 1px solid var(--papier-linie);
+    border-radius: var(--rund-2);
+    background: var(--papier-weich);
+    color: var(--tinte-weich);
+    font-size: var(--r-icon);
+    transition: background-color var(--dauer), color var(--dauer);
+  }
+  .r-symbolknopf:hover {
+    background: var(--papier-tief);
+    color: var(--tinte);
+  }
+  .r-symbolknopf.nackt {
+    border-color: transparent;
+    background: transparent;
+  }
+  .r-symbolknopf.nackt:hover {
+    background: var(--papier-tief);
+  }
+  .r-symbolknopf.klein {
+    inline-size: var(--r-knopf-klein);
+    block-size: var(--r-knopf-klein);
+  }
+  .r-symbolknopf.aktiv {
+    border-color: var(--tinte);
+    background: var(--tinte);
+    color: var(--auf-tinte);
+  }
+  /* Gehirn-Schalter an: die KI schlägt mit vor. */
+  .r-symbolknopf.ki.aktiv {
+    border-color: var(--messing-schrift);
+    background: var(--messing);
+    color: var(--auf-messing);
+  }
+  .r-symbolknopf.hilfe {
+    color: var(--hilfe);
+  }
+
+  /* Verweis im Text oder am Ende eines Abschnitts. */
+  .r-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--r-a2);
+    font-size: var(--r-schrift-klein);
+    font-weight: 600;
+    color: var(--messing-schrift);
+  }
+  .r-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* Wahlreihe: wenige Werte nebeneinander, genau einer ist aktiv. */
+  .r-wahlreihe {
+    display: inline-grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+    gap: 2px;
+    padding: 2px;
+    border: 1px solid var(--papier-linie);
+    border-radius: var(--rund-2);
+    background: var(--papier-weich);
+  }
+  .r-wahl {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--r-a2);
+    block-size: var(--r-knopf-klein);
+    padding-inline: var(--r-a3);
+    border-radius: var(--rund-1);
+    font-size: var(--r-schrift-klein);
+    font-weight: 500;
+    color: var(--tinte-weich);
+    white-space: nowrap;
+  }
+  .r-wahl:hover {
+    background: var(--papier-tief);
+  }
+  .r-wahl.aktiv {
+    background: var(--tinte);
+    color: var(--auf-tinte);
+  }
+
+  /* Stufenknöpfe: kleiner Zahlenbereich statt eines breiten Felds. */
+  .r-stufen {
+    display: inline-grid;
+    grid-template-columns: var(--r-knopf) minmax(48px, auto) var(--r-knopf);
+    align-items: center;
+    block-size: var(--r-knopf);
+    border: 1px solid var(--feld-rand);
+    border-radius: var(--rund-2);
+    background: var(--papier);
+  }
+  .r-stufen button {
+    display: grid;
+    place-items: center;
+    block-size: 100%;
+    color: var(--tinte-weich);
+    font-size: var(--r-icon-klein);
+  }
+  .r-stufen button:hover {
+    background: var(--papier-weich);
+  }
+  .r-stufen-wert {
+    padding-inline: var(--r-a2);
+    text-align: center;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Halten-Knopf: Folgenreiches braucht Drücken und Halten; der Ring füllt sich dabei (--stand 0 bis 100). */
+  .r-halten {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--r-a2);
+    flex: none;
+    block-size: var(--r-knopf);
+    padding-inline: var(--r-a4);
+    border: 1px solid var(--ochsenblut);
+    border-radius: var(--rund-2);
+    background: var(--ochsenblut);
+    color: var(--auf-ochsenblut);
+    font-size: var(--r-schrift-klein);
+    font-weight: 600;
+    user-select: none;
+  }
+  .r-halten-ring {
+    flex: none;
+    inline-size: 16px;
+    block-size: 16px;
+    border-radius: 50%;
+    background: conic-gradient(currentColor calc(var(--stand, 0) * 1%), color-mix(in srgb, currentColor 28%, transparent) 0);
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), var(--etikett-tinte) calc(100% - 3px));
+    mask: radial-gradient(farthest-side, transparent calc(100% - 4px), var(--etikett-tinte) calc(100% - 3px));
+  }
+
+  /* ==== Felder ================================================================================ */
+  /* Formular: Beschriftung links, Feld rechts; alle Felder schließen rechts bündig ab. */
+  .r-formular {
+    display: grid;
+    grid-template-columns: minmax(120px, 180px) minmax(0, 1fr);
+    align-items: start;
+    gap: var(--r-a3) var(--r-a4);
+  }
+  .r-formular > .r-feld {
+    display: contents;
+  }
+  .r-formular > .r-feld > .r-feld-name {
+    min-block-size: var(--r-knopf);
+  }
+  /* In einer schmalen Spalte steht die Beschriftung über dem Feld. */
+  @container (max-width: 520px) {
+    .r-formular {
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--r-a1);
+    }
+    .r-formular > .r-feld > .r-feld-name {
+      min-block-size: 0;
+      margin-block-start: var(--r-a2);
+    }
+  }
+  .r-formular-rumpf {
+    display: grid;
+    gap: var(--r-a1);
+    min-inline-size: 0;
+  }
+  .r-feld {
+    display: grid;
+    gap: var(--r-a1);
+    min-inline-size: 0;
+  }
+  .r-feld-name {
+    display: flex;
+    align-items: center;
+    gap: var(--r-a2);
+    font-size: var(--r-schrift-winzig);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--tinte-leise);
+  }
+  .r-eingabe {
+    display: block;
+    inline-size: 100%;
+    block-size: var(--r-knopf);
+    padding-inline: var(--r-a3);
+    border: 1px solid var(--feld-rand);
+    border-radius: var(--rund-2);
+    background: var(--papier);
+    color: var(--tinte);
+    font-size: var(--r-schrift);
+  }
+  .r-eingabe::placeholder {
+    color: var(--tinte-leise);
+    opacity: 1;
+  }
+  .r-eingabe:focus {
+    outline: none;
+    border-color: var(--messing);
+    box-shadow: 0 0 0 3px var(--fokus);
+  }
+  textarea.r-eingabe {
+    block-size: auto;
+    min-block-size: 84px;
+    padding-block: var(--r-a2);
+    line-height: 1.45;
+    resize: vertical;
+  }
+  /* Der Name eines Eintrags steht groß in der Titelschrift. */
+  .r-eingabe.gross {
+    block-size: 44px;
+    font-family: var(--schrift-titel);
+    font-variation-settings: var(--titel-achsen);
+    font-size: var(--r-titel-2);
+  }
+  .r-eingabe.zahl {
+    text-align: end;
+    font-variant-numeric: tabular-nums;
+  }
+  .r-eingabe:disabled {
+    background: var(--papier-tief);
+    color: var(--tinte-leise);
+  }
+  .r-eingabe.schmal {
+    inline-size: 112px;
+  }
+  .r-feld-hinweis {
+    font-size: var(--r-schrift-klein);
+    color: var(--tinte-leise);
+  }
+  .r-feld-deutung {
+    display: flex;
+    align-items: center;
+    gap: var(--r-a2);
+    font-size: var(--r-schrift-klein);
+    font-weight: 500;
+    color: var(--moos);
+  }
+  .r-feld-fehler {
+    display: flex;
+    align-items: center;
+    gap: var(--r-a2);
+    font-size: var(--r-schrift-klein);
+    font-weight: 500;
+    color: var(--ochsenblut);
+  }
+  .r-feld.fehler .r-eingabe,
+  .r-feld.fehler .r-auswahl {
+    border-color: var(--ochsenblut);
+  }
+
+  /* Mengenfeld: Zahl und Einheit als ein Baustein. */
+  .r-mengenfeld {
+    display: inline-grid;
+    grid-template-columns: 112px auto;
+    gap: var(--r-a2);
+  }
+
+  /* Auswahl: eigene Liste statt der des Browsers. */
+  .r-auswahl {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--r-a3);
+    inline-size: 100%;
+    block-size: var(--r-knopf);
+    padding-inline: var(--r-a3) var(--r-a2);
+    border: 1px solid var(--feld-rand);
+    border-radius: var(--rund-2);
+    background: var(--papier);
+    font-size: var(--r-schrift);
+    text-align: start;
+  }
+  .r-auswahl span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .r-auswahl i {
+    flex: none;
+    font-size: var(--r-icon-klein);
+    color: var(--tinte-leise);
+  }
+  .r-auswahl.schmal {
+    inline-size: auto;
+    min-inline-size: 112px;
+  }
+  .r-auswahl.unbelegt span {
+    color: var(--tinte-leise);
+  }
+  .r-auswahl.offen {
+    border-color: var(--messing);
+    box-shadow: 0 0 0 3px var(--fokus);
+  }
+  /* Die Liste liegt in der obersten Ebene, damit nichts sie abschneidet. */
+  .r-auswahlliste {
+    display: grid;
+    max-block-size: 280px;
+    padding: var(--r-a1);
+    overflow-y: auto;
+    border: 1px solid var(--papier-linie);
+    border-radius: var(--rund-2);
+    background: var(--papier);
+    box-shadow: var(--schatten-karte);
+  }
+  .r-option {
+    display: grid;
+    grid-template-columns: 20px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--r-a2);
+    min-block-size: var(--r-knopf);
+    padding-inline: var(--r-a2);
+    border-radius: var(--rund-1);
+    text-align: start;
+  }
+  .r-option i {
+    text-align: center;
+    font-size: var(--r-icon);
+    color: var(--tinte-leise);
+  }
+  .r-option span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .r-option small {
+    font-size: var(--r-schrift-klein);
+    color: var(--tinte-leise);
+  }
+  .r-option:hover,
+  .r-option.aktiv {
+    background: var(--papier-tief);
+  }
+  .r-option.gewaehlt {
+    font-weight: 600;
+  }
+
+  /* Suchfeld: Lupe vorn, Leeren hinten. */
+  .r-suchfeld {
+    position: relative;
+    display: grid;
+    min-inline-size: 0;
+  }
+  .r-suchfeld .r-eingabe {
+    padding-inline: var(--r-a6) var(--r-a6);
+  }
+  .r-suchfeld > i {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: var(--r-a3);
+    display: grid;
+    place-items: center;
+    font-size: var(--r-icon);
+    color: var(--tinte-leise);
+    pointer-events: none;
+  }
+  .r-suchfeld-leeren {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-end: 0;
+    display: grid;
+    place-items: center;
+    inline-size: var(--r-knopf);
+    font-size: var(--r-icon-klein);
+    color: var(--tinte-leise);
+  }
+
+  /* Datumsfeld: tippen oder aus dem Kalender wählen; nie das Feld des Browsers. */
+  .r-datumsfeld {
+    position: relative;
+    display: inline-grid;
+    inline-size: 168px;
+  }
+  .r-datumsfeld .r-eingabe {
+    padding-inline-end: var(--r-a6);
+    font-variant-numeric: tabular-nums;
+  }
+  .r-datumsfeld button {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-end: 0;
+    display: grid;
+    place-items: center;
+    inline-size: var(--r-knopf);
+    font-size: var(--r-icon);
+    color: var(--tinte-leise);
+  }
+  .r-kalender {
+    display: grid;
+    gap: var(--r-a2);
+    inline-size: 280px;
+    padding: var(--r-a3);
+    border: 1px solid var(--papier-linie);
+    border-radius: var(--rund-2);
+    background: var(--papier);
+    box-shadow: var(--schatten-karte);
+  }
+  .r-kalender-kopf {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+  }
+  .r-kalender-monat {
+    text-align: center;
+    font-family: var(--schrift-titel);
+    font-variation-settings: var(--titel-achsen);
+    font-size: var(--r-titel-3);
+  }
+  .r-kalender-tage {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 2px;
+  }
+  .r-kalender-wochentag {
+    display: grid;
+    place-items: center;
+    block-size: 24px;
+    font-family: var(--schrift-code);
+    font-size: var(--r-schrift-winzig);
+    text-transform: uppercase;
+    color: var(--tinte-leise);
+  }
+  .r-tag {
+    display: grid;
+    place-items: center;
+    block-size: 32px;
+    border: 1px solid transparent;
+    border-radius: var(--rund-2);
+    font-size: var(--r-schrift-klein);
+    font-variant-numeric: tabular-nums;
+  }
+  .r-tag:hover {
+    background: var(--papier-tief);
+  }
+  .r-tag.fremd {
+    color: var(--tinte-blass);
+  }
+  .r-tag.heute {
+    border-color: var(--messing);
+    color: var(--messing-schrift);
+    font-weight: 600;
+  }
+  .r-tag.gewaehlt {
+    border-color: var(--tinte);
+    background: var(--tinte);
+    color: var(--auf-tinte);
+    font-weight: 600;
+  }
+
+  /* Schalter und Kästchen. Verschiedene Bedeutung, verschiedene Form: der Schalter wirkt sofort,
+     das Kästchen erst mit dem Speichern. */
+  .r-schalter,
+  .r-kaestchen {
+    display: inline-grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: var(--r-a3);
+    min-block-size: var(--r-knopf-klein);
+    text-align: start;
+  }
+  .r-schalter-text small,
+  .r-kaestchen-text small {
+    display: block;
+    font-size: var(--r-schrift-klein);
+    color: var(--tinte-leise);
+  }
+  .r-schalter-bahn {
+    position: relative;
+    inline-size: 36px;
+    block-size: 20px;
+    border: 1px solid var(--feld-rand);
+    border-radius: var(--rund-voll);
+    background: var(--papier-tief);
+    transition: background-color var(--dauer);
+  }
+  .r-schalter-bahn::after {
+    content: "";
+    position: absolute;
+    inset-block-start: 2px;
+    inset-inline-start: 2px;
+    inline-size: 14px;
+    block-size: 14px;
+    border-radius: 50%;
+    background: var(--tinte-leise);
+    transition: transform var(--dauer);
+  }
+  .r-schalter.an .r-schalter-bahn {
+    border-color: var(--moos);
+    background: var(--moos);
+  }
+  .r-schalter.an .r-schalter-bahn::after {
+    transform: translateX(16px);
+    background: var(--auf-moos);
+  }
+  .r-kaestchen-feld {
+    display: grid;
+    place-items: center;
+    inline-size: 18px;
+    block-size: 18px;
+    border: 1px solid var(--feld-rand);
+    border-radius: var(--rund-1);
+    background: var(--papier);
+    color: transparent;
+    font-size: var(--r-icon-klein);
+  }
+  .r-kaestchen.an .r-kaestchen-feld {
+    border-color: var(--tinte);
+    background: var(--tinte);
+    color: var(--auf-tinte);
+  }
+  /* Dreiwertiger Schalter der Kategorien: an, aus, nicht gesetzt (erbt). */
+  .r-dreiwahl {
+    display: inline-grid;
+    grid-auto-flow: column;
+    gap: 2px;
+    padding: 2px;
+    border: 1px solid var(--papier-linie);
+    border-radius: var(--rund-2);
+    background: var(--papier-weich);
+  }
+
+  /* Wahlkarte: eine von wenigen Möglichkeiten, mit einem Satz Erklärung. */
+  .r-wahlkarte {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+    gap: var(--r-a3);
+    padding: var(--r-a3) var(--r-a4);
+    border: 1px solid var(--papier-linie);
+    border-radius: var(--rund-2);
+    background: var(--papier-weich);
+    text-align: start;
+  }
+  .r-wahlkarte:hover {
+    border-color: var(--feld-rand);
+  }
+  .r-wahlkarte-punkt {
+    inline-size: 18px;
+    block-size: 18px;
+    margin-block-start: 2px;
+    border: 1px solid var(--feld-rand);
+    border-radius: 50%;
+    background: var(--papier);
+  }
+  .r-wahlkarte-text {
+    display: grid;
+    gap: 2px;
+  }
+  .r-wahlkarte-text strong {
+    font-weight: 600;
+  }
+  .r-wahlkarte-text small {
+    font-size: var(--r-schrift-klein);
+    color: var(--tinte-leise);
+  }
+  .r-wahlkarte.gewaehlt {
+    border-color: var(--tinte);
+    background: var(--papier);
+    box-shadow: inset 0 0 0 1px var(--tinte);
+  }
+  .r-wahlkarte.gewaehlt .r-wahlkarte-punkt {
+    border-color: var(--tinte);
+    box-shadow: inset 0 0 0 4px var(--tinte);
+  }
+
+  /* Hilfepunkt: das blaue i, immer hinter der Beschriftung. */
+  .r-hilfepunkt {
+    display: inline-grid;
+    place-items: center;
+    flex: none;
+    inline-size: 18px;
+    block-size: 18px;
+    border-radius: 50%;
+    color: var(--hilfe);
+    font-size: var(--r-icon);
+  }
+  .r-hilfepunkt:hover {
+    background: var(--hilfe-flaeche);
+  }
+
+  /* ==== Baum ================================================================================== */
+  .r-baum {
+    font-size: var(--r-schrift);
+  }
+  .r-baumkinder {
+    display: none;
+    margin-inline-start: var(--r-a4);
+    padding-inline-start: var(--r-a2);
+    border-inline-start: 1px dashed var(--papier-linie);
+  }
+  .r-baum > .r-baumkinder {
+    display: block;
+    margin-inline-start: 0;
+    padding-inline-start: 0;
+    border-inline-start: 0;
+  }
+  .r-baumknoten.offen > .r-baumkinder {
+    display: block;
+  }
+  .r-baumzeile {
+    display: grid;
+    grid-template-columns: 20px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--r-a1);
+    min-block-size: 32px;
+    padding-inline: var(--r-a1) var(--r-a2);
+    border: 1px solid transparent;
+    border-radius: var(--rund-2);
+  }
+  .r-baumzeile:hover {
+    background: var(--papier-weich);
+  }
+  .r-baumgriff {
+    display: grid;
+    place-items: center;
+    inline-size: 20px;
+    block-size: 24px;
+    border-radius: var(--rund-1);
+    font-size: var(--r-icon-klein);
+    color: var(--tinte-leise);
+    transition: transform var(--dauer);
+  }
+  .r-baumknoten.offen > .r-baumzeile .r-baumgriff {
+    transform: rotate(90deg);
+  }
+  .r-baumziel {
+    display: flex;
+    align-items: center;
+    gap: var(--r-a2);
+    min-inline-size: 0;
+    min-block-size: 30px;
+  }
+  .r-baumziel i {
+    flex: none;
+    inline-size: 18px;
+    text-align: center;
+    font-size: var(--r-icon);
+    color: var(--tinte-leise);
+  }
+  .r-baumziel span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .r-baumzahl {
+    font-family: var(--schrift-code);
+    font-size: var(--r-schrift-klein);
+    font-variant-numeric: tabular-nums;
+    color: var(--tinte-leise);
+  }
+  .r-baumzeile.aktiv {
+    background: var(--tinte);
+    color: var(--auf-tinte);
+  }
+  .r-baumzeile.aktiv i,
+  .r-baumzeile.aktiv .r-baumzahl,
+  .r-baumzeile.aktiv .r-baumgriff {
+    color: var(--auf-tinte);
+  }
+  /* Ziehziel: Rahmen rundum und getönte Fläche. */
+  .r-baumzeile.ziel {
+    border-color: var(--messing);
+    background: var(--messing-flaeche);
+  }
+  .r-baumzeile.gezogen {
+    opacity: 0.45;
+  }
+  .r-baumzeile.leer .r-baumziel {
+    color: var(--tinte-leise);
+  }
+  .r-baumzeile mark {
+    border-radius: var(--rund-1);
+    background: var(--messing-flaeche);
+    color: inherit;
+    box-shadow: 0 0 0 1px var(--messing-weich);
+  }
+  /* Anlegezeile im Baum: Name, Plus, Gehirn-Schalter. */
+  .r-baumneu {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    gap: var(--r-a1);
+    padding: var(--r-a1) var(--r-a1) var(--r-a2);
+  }
+
+  /* ==== Karten, Zeilen, Listen ================================================================ */
+  .r-flaeche {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--r-a3);
+    padding: var(--r-a4);
+    border: 1px solid var(--papier-linie);
+    border-radius: var(--rund-2);
+    background: var(--papier-weich);
+    box-shadow: var(--schatten-hub);
+  }
+  .r-flaeche-titel {
+    font-family: var(--schrift-code);
+    font-size: var(--r-schrift-winzig);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--tinte-leise);
+  }
+
+  /* Eintragskarte: Icon, Name, Menge, Code; immer gleich hoch. */
+  .r-karten {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(208px, 1fr));
+    gap: var(--r-a3);
+  }
+  .r-karte {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    align-items: center;
+    gap: var(--r-a2) var(--r-a3);
+    padding: var(--r-a3);
+    border: 1px solid var(--papier-linie);
+    border-radius: var(--rund-2);
+    background: var(--papier-weich);
+    box-shadow: var(--schatten-hub);
+    text-align: start;
+  }
+  .r-karte:hover {
+    border-color: var(--feld-rand);
+  }
+  /* Name und Unterzeile stehen untereinander rechts vom Erscheinungsbild. */
+  .r-karte-text {
+    display: grid;
+    min-inline-size: 0;
+  }
+  .r-karte-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+  .r-karte-unter {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: var(--r-schrift-klein);
+    color: var(--tinte-leise);
+  }
+  .r-karte-fuss {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--r-a2);
+    min-block-size: 24px;
+    font-size: var(--r-schrift-klein);
+  }
+  .r-karte.leer {
+    background: var(--papier);
+    box-shadow: none;
+  }
+  .r-karte.leer .r-karte-name {
+    color: var(--tinte-leise);
+  }
+  .r-karte.leer .z-erscheinung {
+    opacity: 0.55;
+  }
+  .r-karte.gewaehlt {
+    border-color: var(--tinte);
+    box-shadow: inset 0 0 0 1px var(--tinte);
+  }
+
+  /* Eintragszeile: die Liste als Tabelle mit haftendem Kopf. Ist sie zu breit, rollt nur ihr Feld. */
+  .r-tabellenfeld {
+    overflow-x: auto;
+  }
+  .r-tabelle {
+    inline-size: 100%;
+    border-collapse: collapse;
+    font-size: var(--r-schrift);
+  }
+  .r-tabelle th,
+  .r-tabelle td {
+    padding: var(--r-a2) var(--r-a3);
+    border-block-end: 1px solid var(--papier-linie);
+    text-align: start;
+    vertical-align: middle;
+  }
+  .r-tabelle th {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 1;
+    background: var(--papier);
+    font-family: var(--schrift-code);
+    font-size: var(--r-schrift-winzig);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--tinte-leise);
+    white-space: nowrap;
+  }
+  .r-tabelle td.zahl,
+  .r-tabelle th.zahl {
+    text-align: end;
+    font-variant-numeric: tabular-nums;
+  }
+  .r-tabelle tbody tr:hover {
+    background: var(--papier-weich);
+  }
+  .r-tabelle tr.leer td {
+    color: var(--tinte-leise);
+  }
+  .r-tabelle tr.gewaehlt {
+    background: var(--papier-tief);
+  }
+  .r-tabelle-name {
+    display: flex;
+    align-items: center;
+    gap: var(--r-a3);
+    min-inline-size: 0;
+    font-weight: 500;
+  }
+
+  /* Kennzahl-Kachel: eine Zahl, ein Wort, führt zur Liste. */
+  .r-kachel {
+    display: grid;
+    align-content: space-between;
+    gap: var(--r-a3);
+    min-block-size: 108px;
+    padding: var(--r-a4);
+    border: 1px solid var(--papier-linie);
+    border-radius: var(--rund-2);
+    background: var(--papier-weich);
+    box-shadow: var(--schatten-hub);
+  }
+  .r-kachel:hover {
+    border-color: var(--feld-rand);
+  }
+  .r-kachel-zahl {
+    font-family: var(--schrift-titel);
+    font-variation-settings: var(--titel-achsen);
+    font-size: var(--r-zahl);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+  .r-kachel-wort {
+    display: flex;
+    align-items: center;
+    gap: var(--r-a2);
+    font-size: var(--r-schrift-klein);
+    font-weight: 500;
+    color: var(--tinte-weich);
+  }
+  .r-kachel.warn {
+    border-color: var(--warn-weich);
+    background: var(--warn-flaeche);
+  }
+  .r-kachel.warn .r-kachel-wort i {
+    color: var(--warn);
+  }
+
+  /* Hinweis: Rahmen rundum, getönte Fläche, höchstens zwei Zeilen Text. */
+  .r-hinweis {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--r-a3);
+    padding: var(--r-a3) var(--r-a4);
+    border: 1px solid var(--papier-linie);
+    border-radius: var(--rund-2);
+    background: var(--papier-tief);
+    color: var(--tinte-weich);
+    font-size: var(--r-schrift-klein);
+  }
+  .r-hinweis > i {
+    font-size: var(--r-icon);
+  }
+  .r-hinweis strong {
+    color: var(--tinte);
+    font-weight: 600;
+  }
+  .r-hinweis.messing {
+    border-color: var(--messing-weich);
+    background: var(--messing-flaeche);
+    color: var(--tinte);
+  }
+  .r-hinweis.messing > i {
+    color: var(--messing-schrift);
+  }
+  .r-hinweis.hilfe {
+    border-color: var(--hilfe-weich);
+    background: var(--hilfe-flaeche);
+    color: var(--tinte);
+  }
+  .r-hinweis.hilfe > i {
+    color: var(--hilfe);
+  }
+  .r-hinweis.gut {
+    border-color: var(--gut-weich);
+    background: var(--gut-flaeche);
+    color: var(--tinte);
+  }
+  .r-hinweis.gut > i {
+    color: var(--gut);
+  }
+  .r-hinweis.gefahr {
+    border-color: var(--gefahr-weich);
+    background: var(--gefahr-flaeche);
+    color: var(--tinte);
+  }
+  .r-hinweis.gefahr > i {
+    color: var(--gefahr);
+  }
+
+  /* Leerzustand: ein Bild, ein Satz, genau eine Handlung. */
+  .r-leerzustand {
+    display: grid;
+    justify-items: center;
+    gap: var(--r-a3);
+    padding: var(--r-a7) var(--r-a5);
+    text-align: center;
+  }
+  .r-leerzustand > i {
+    font-size: var(--r-icon-riesig);
+    color: var(--tinte-blass);
+  }
+  .r-leerzustand h2 {
+    font-size: var(--r-titel-2);
+  }
+  .r-leerzustand p {
+    max-inline-size: 44ch;
+    color: var(--tinte-leise);
+  }
+
+  /* Abschnitt mit Kopfzeile: Titel links, Handlung rechts, darunter eine Linie. */
+  .r-abschnitt {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--r-a3);
+  }
+  .r-abschnitt-kopf {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--r-a3);
+    min-block-size: var(--r-knopf);
+    padding-block-end: var(--r-a2);
+    border-block-end: 1px solid var(--papier-linie);
+  }
+  .r-abschnitt-kopf h2 {
+    font-size: var(--r-titel-2);
+    font-weight: 500;
+  }
+  .r-abschnitt-zahl {
+    font-family: var(--schrift-code);
+    font-size: var(--r-schrift-winzig);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--tinte-leise);
+  }
+
+  /* ==== Pillen und Marken ===================================================================== */
+  .r-pillen {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--r-a2);
+  }
+  .r-pille {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--r-a1);
+    block-size: 24px;
+    padding-inline: var(--r-a3);
+    border: 1px solid var(--papier-linie);
+    border-radius: var(--rund-voll);
+    background: var(--papier);
+    color: var(--tinte-weich);
+    font-size: var(--r-schrift-klein);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .r-pille.messing {
+    border-color: var(--messing-weich);
+    color: var(--messing-schrift);
+  }
+  .r-pille.moos {
+    border-color: var(--moos-weich);
+    color: var(--moos);
+  }
+  .r-pille.ochsenblut {
+    border-color: var(--ochsenblut-weich);
+    color: var(--ochsenblut);
+  }
+  .r-pille.wahl {
+    block-size: var(--r-knopf-klein);
+  }
+  .r-pille.wahl:hover {
+    border-color: var(--feld-rand);
+  }
+  .r-pille.wahl.aktiv {
+    border-color: var(--tinte);
+    background: var(--tinte);
+    color: var(--auf-tinte);
+  }
+  .r-pille-zahl {
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    opacity: 0.8;
+  }
+  .r-pille button {
+    display: grid;
+    place-items: center;
+    inline-size: 16px;
+    block-size: 16px;
+    margin-inline-end: calc(var(--r-a1) * -1);
+    border-radius: 50%;
+    font-size: var(--r-icon-klein);
+    color: var(--tinte-leise);
+  }
+  .r-pille button:hover {
+    background: var(--papier-tief);
+    color: var(--tinte);
+  }
+
+  .r-zustand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--r-a2);
+    block-size: 24px;
+    padding-inline: var(--r-a2);
+    border: 1px solid var(--papier-linie);
+    border-radius: var(--rund-2);
+    background: var(--papier);
+    color: var(--tinte-weich);
+    font-size: var(--r-schrift-klein);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .r-zustand i {
+    font-size: var(--r-icon-klein);
+  }
+  .r-zustand.gut {
+    border-color: var(--gut-weich);
+    background: var(--gut-flaeche);
+    color: var(--gut);
+  }
+  .r-zustand.warn {
+    border-color: var(--warn-weich);
+    background: var(--warn-flaeche);
+    color: var(--warn);
+  }
+  .r-zustand.gefahr {
+    border-color: var(--gefahr-weich);
+    background: var(--gefahr-flaeche);
+    color: var(--gefahr);
+  }
+
+  /* Zustandsleuchte neben der Fassung: grün verbunden, gelb Last, grau getrennt. */
+  .r-leuchte {
+    display: inline-block;
+    flex: none;
+    inline-size: 9px;
+    block-size: 9px;
+    border-radius: 50%;
+    background: var(--tinte-leise);
+  }
+  .r-leuchte.verbunden {
+    background: var(--moos);
+  }
+  .r-leuchte.last {
+    background: var(--messing);
+  }
+
+  /* ==== Mengenblock: die Menge groß, daneben die Alltagsknöpfe ================================ */
+  .r-mengenblock {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--r-a3) var(--r-a5);
+    padding: var(--r-a4);
+    border: 1px solid var(--papier-linie);
+    border-radius: var(--rund-2);
+    background: var(--papier-weich);
+    box-shadow: var(--schatten-hub);
+  }
+  .r-mengenblock-menge {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 var(--r-a2);
+    font-size: var(--r-schrift-gross);
+    color: var(--tinte-weich);
+  }
+  .r-mengenblock-menge b {
+    font-family: var(--schrift-titel);
+    font-variation-settings: var(--titel-achsen);
+    font-size: var(--r-zahl);
+    font-weight: 400;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    color: var(--tinte);
+  }
+  .r-mengenblock-unter {
+    font-size: var(--r-schrift-klein);
+    color: var(--tinte-leise);
+  }
+  .r-mengenblock-knoepfe {
+    display: flex;
+    align-items: center;
+    gap: var(--r-a2);
+  }
+  /* In einer schmalen Spalte stehen die Knöpfe unter der Menge. */
+  @container (max-width: 560px) {
+    .r-mengenblock {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  .r-mengenblock-fuss {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--r-a3);
+    padding-block-start: var(--r-a3);
+    border-block-start: 1px dashed var(--papier-linie);
+    font-size: var(--r-schrift-klein);
+    color: var(--tinte-leise);
+  }
+
+  /* ==== Bilder: immer vollständig, nie beschnitten ============================================ */
+  .r-bilder {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: var(--r-a3);
+  }
+  .r-bild {
+    position: relative;
+    display: grid;
+    place-items: center;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border: 1px solid var(--papier-linie);
+    border-radius: var(--rund-2);
+    background: var(--papier-tief);
+  }
+  .r-bild img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: contain;
+  }
+  .r-bild.titel {
+    border-color: var(--messing);
+    box-shadow: 0 0 0 1px var(--messing);
+  }
+  .r-bild-marke {
+    position: absolute;
+    inset-block-start: var(--r-a2);
+    inset-inline-start: var(--r-a2);
+  }
+
+  /* Fortschritt eines Vorgangs: Schritt und Restzeit in Worten, darunter der Balken. --stand ist der Anteil in Prozent. */
+  .r-fortschritt {
+    display: grid;
+    gap: var(--r-a2);
+  }
+  .r-fortschritt-text {
+    display: grid;
+    gap: 2px;
+  }
+  .r-fortschritt-text small {
+    font-size: var(--r-schrift-klein);
+    color: var(--tinte-leise);
+  }
+  .r-fortschritt-balken {
+    block-size: 8px;
+    border-radius: var(--rund-voll);
+    background: linear-gradient(to right, var(--tinte) calc(var(--stand, 0) * 1%), var(--papier-tief) 0);
+  }
+
+  /* Bildkachel im Bearbeiten: das Bild, darunter seine Handlungen. */
+  .r-bildkachel {
+    display: grid;
+    align-content: start;
+    gap: var(--r-a2);
+  }
+  .r-bildkachel-knoepfe {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--r-a1);
+  }
+  /* Das ganze Bild ist die Fläche zum Großansehen; es bleibt dabei vollständig eingepasst. */
+  .r-bild > a,
+  .r-bild > button {
+    position: absolute;
+    inset: 0;
+    cursor: zoom-in;
+  }
+
+  /* ==== Eigenschaften: Schlüssel und Wert nebeneinander, Werte blau und fett, kein Hover ====== */
+  .r-eigenschaften {
+    display: grid;
+  }
+  .r-eigenschaft {
+    display: grid;
+    grid-template-columns: minmax(96px, 40%) minmax(0, 1fr);
+    align-items: baseline;
+    gap: var(--r-a3);
+    padding-block: var(--r-a2);
+    border-block-end: 1px dashed var(--papier-linie);
+  }
+  .r-eigenschaft:last-child {
+    border-block-end: 0;
+  }
+  .r-eigenschaft dt {
+    font-family: var(--schrift-code);
+    font-size: var(--r-schrift-winzig);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--tinte-leise);
+  }
+  .r-eigenschaft dd {
+    overflow-wrap: anywhere;
+    font-weight: 600;
+    color: var(--wert);
+  }
+  .r-eigenschaft dd.errechnet {
+    color: var(--wert-errechnet);
+  }
+
+  /* ==== Verlauf: wann, was, wer, in klarer Sprache ============================================ */
+  .r-verlauf {
+    display: grid;
+  }
+  .r-verlauf-zeile {
+    display: grid;
+    grid-template-columns: 112px minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: var(--r-a4);
+    padding-block: var(--r-a2);
+    border-block-end: 1px dashed var(--papier-linie);
+  }
+  .r-verlauf-zeile:last-child {
+    border-block-end: 0;
+  }
+  .r-verlauf-wann,
+  .r-verlauf-wer {
+    font-family: var(--schrift-code);
+    font-size: var(--r-schrift-klein);
+    color: var(--tinte-leise);
+  }
+  .r-verlauf-was i {
+    margin-inline: var(--r-a1);
+    font-size: var(--r-icon-klein);
+    color: var(--tinte-leise);
+  }
+
+  /* ==== Codes: gedruckt wirkt nur Dunkel auf Weiß, in beiden Themen =========================== */
+  .r-etikett {
+    display: grid;
+    justify-items: center;
+    gap: var(--r-a3);
+    padding: var(--r-a4);
+    border: 1px solid var(--papier-linie);
+    border-radius: var(--rund-2);
+    background: var(--etikett);
+    color: var(--etikett-tinte);
+  }
+  .r-etikett img {
+    inline-size: min(100%, 168px);
+    block-size: auto;
+  }
+  .r-etikett img.strichcode {
+    inline-size: min(100%, 220px);
+  }
+
+  /* ==== Meldung: bestätigt eine Buchung und bietet Rückgängig ================================= */
+  .r-meldung {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--r-a3);
+    min-block-size: 44px;
+    padding: var(--r-a1) var(--r-a1) var(--r-a1) var(--r-a4);
+    border: 1px solid var(--tinte);
+    border-radius: var(--rund-2);
+    background: var(--tinte);
+    color: var(--auf-tinte);
+    font-size: var(--r-schrift-klein);
+    box-shadow: var(--schatten-tief);
+  }
+  .r-meldung-knopf {
+    block-size: var(--r-knopf);
+    padding-inline: var(--r-a3);
+    border-radius: var(--rund-2);
+    font-weight: 600;
+    color: var(--messing-auf-tinte);
+  }
+  .r-meldung.fehler {
+    border-color: var(--ochsenblut);
+    background: var(--ochsenblut-flaeche);
+    color: var(--tinte);
+  }
+  .r-meldung.fehler > i,
+  .r-meldung.fehler .r-meldung-knopf {
+    color: var(--ochsenblut);
+  }
+
+  /* ==== Reiter: Bereiche einer Ansicht ======================================================== */
+  .r-reiter {
+    display: flex;
+    align-items: center;
+    gap: var(--r-a1);
+  }
+  .r-reiter-eintrag {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--r-a2);
+    block-size: var(--r-knopf);
+    padding-inline: var(--r-a3);
+    border: 1px solid transparent;
+    border-radius: var(--rund-2);
+    font-size: var(--r-schrift-klein);
+    font-weight: 500;
+    color: var(--tinte-leise);
+  }
+  .r-reiter-eintrag:hover {
+    background: var(--papier-weich);
+    color: var(--tinte);
+  }
+  .r-reiter-eintrag.aktiv {
+    border-color: var(--papier-linie);
+    background: var(--papier-tief);
+    color: var(--tinte);
+    font-weight: 600;
+  }
+
+  /* ==== Auswahlleiste: erscheint bei Mehrfachauswahl über dem Inhalt ========================== */
+  .r-auswahlleiste {
+    display: flex;
+    align-items: center;
+    gap: var(--r-a2);
+    padding: var(--r-a2) var(--r-a2) var(--r-a2) var(--r-a4);
+    border: 1px solid var(--tinte);
+    border-radius: var(--rund-2);
+    background: var(--tinte);
+    color: var(--auf-tinte);
+    font-size: var(--r-schrift-klein);
+  }
+  .r-auswahlleiste strong {
+    flex: 1;
+    font-weight: 600;
+  }
+  .r-auswahlleiste .r-knopf {
+    border-color: var(--auf-tinte);
+    background: transparent;
+    color: var(--auf-tinte);
+  }
+
+  /* ==== Erscheinungsbild wählen =============================================================== */
+  .r-toene {
+    display: flex;
+    gap: var(--r-a2);
+  }
+  .r-ton {
+    display: grid;
+    place-items: center;
+    inline-size: var(--r-knopf);
+    block-size: var(--r-knopf);
+    border: 1px solid var(--papier-linie);
+    border-radius: var(--rund-2);
+    background: var(--papier);
+    color: var(--tinte-leise);
+    font-size: var(--r-icon);
+  }
+  .r-ton[data-ton="messing"] {
+    border-color: var(--messing-schrift);
+    background: var(--messing);
+    color: var(--auf-messing);
+  }
+  .r-ton[data-ton="moos"] {
+    border-color: var(--moos);
+    background: var(--moos);
+    color: var(--auf-moos);
+  }
+  .r-ton[data-ton="ochsenblut"] {
+    border-color: var(--ochsenblut);
+    background: var(--ochsenblut);
+    color: var(--auf-ochsenblut);
+  }
+  .r-ton[data-ton="tinte"] {
+    border-color: var(--tinte);
+    background: var(--tinte);
+    color: var(--auf-tinte);
+  }
+  .r-ton i {
+    visibility: hidden;
+  }
+  /* Kein Farbton: das Verbotszeichen steht immer da. */
+  .r-ton:not([data-ton]) i {
+    visibility: visible;
+  }
+  .r-ton.gewaehlt {
+    box-shadow: 0 0 0 3px var(--fokus);
+  }
+  .r-ton.gewaehlt i {
+    visibility: visible;
+  }
+  .r-iconraster {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--r-knopf), 1fr));
+    gap: var(--r-a1);
+  }
+  .r-iconwahl {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 1;
+    border: 1px solid var(--papier-linie);
+    border-radius: var(--rund-2);
+    background: var(--papier-weich);
+    color: var(--tinte-weich);
+    font-size: var(--r-icon);
+  }
+  .r-iconwahl:hover {
+    border-color: var(--feld-rand);
+  }
+  .r-iconwahl.gewaehlt {
+    border-color: var(--tinte);
+    background: var(--tinte);
+    color: var(--auf-tinte);
+  }
+
+  /* ==== Fuß einer langen Liste, Skelett, kleine Helfer ======================================== */
+  .r-mehr-fuss {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--r-a3);
+    padding-block: var(--r-a2);
+    font-size: var(--r-schrift-klein);
+    color: var(--tinte-leise);
+    font-variant-numeric: tabular-nums;
+  }
+  .r-skelett {
+    display: block;
+    block-size: 14px;
+    border-radius: var(--rund-2);
+    background: var(--papier-tief);
+    animation: r-skelett-puls 1.4s ease-in-out infinite;
+  }
+  .r-skelett.titel {
+    block-size: 38px;
+    inline-size: 40%;
+  }
+  .r-skelett.kurz {
+    inline-size: 30%;
+  }
+  .r-skelett.karte {
+    block-size: 84px;
+  }
+  @keyframes r-skelett-puls {
+    50% {
+      opacity: 0.55;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .r-skelett {
+      animation: none;
+    }
+  }
+  /* Schwebehinweis: liegt in der obersten Ebene und öffnet am rechten Rand nach links. */
+  .r-schwebehinweis {
+    display: inline-block;
+    max-inline-size: 280px;
+    padding: var(--r-a2) var(--r-a3);
+    border-radius: var(--rund-2);
+    background: var(--tinte);
+    color: var(--auf-tinte);
+    font-size: var(--r-schrift-klein);
+    line-height: 1.4;
+    box-shadow: var(--schatten-karte);
+  }
+  .r-trenner {
+    block-size: 1px;
+    border: 0;
+    background: var(--papier-linie);
+  }
+  .r-leise {
+    color: var(--tinte-leise);
+  }
+  .r-klein {
+    font-size: var(--r-schrift-klein);
+  }
+  .r-stapel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--r-a3);
+  }
+  .r-reihe {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--r-a2);
+    min-inline-size: 0;
+  }
+  .r-reihe.verteilt {
+    justify-content: space-between;
+  }
+  .r-luecke {
+    flex: 1;
+  }
+}

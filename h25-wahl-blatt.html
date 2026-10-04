@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="handy" data-thema="hell">
+  <head>
+    <!-- block:kopf-handy -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/regular.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/handy/40-masse.css" />
+    <link rel="stylesheet" href="stil/handy/41-grund.css" />
+    <link rel="stylesheet" href="stil/handy/42-huelle.css" />
+    <link rel="stylesheet" href="stil/handy/43-bausteine.css" />
+    <link rel="stylesheet" href="stil/handy/44-ansichten.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <!-- /block:kopf-handy -->
+    <title>Kiste - Kategorien wählen</title>
+  </head>
+  <body data-leuchte="verbunden">
+    <div class="h-huelle">
+      <header class="h-kopf">
+        <a class="h-kopf-zurueck" href="h06-behaelter.html"><i class="fa-solid fa-xmark"></i><span>Abbrechen</span></a>
+        <div class="h-kopf-titel">Neuer Eintrag</div>
+        <div class="h-kopf-aktionen">
+          <button class="h-symbolknopf ki aktiv" type="button" aria-label="Vorschläge der KI ausschalten"><i class="fa-solid fa-brain"></i></button>
+        </div>
+      </header>
+      <main class="h-rollfeld">
+        <div class="h-titelblock">
+          <h1>Neuer Eintrag</h1>
+        </div>
+        <label class="h-feld">
+          <span class="h-feld-name">Name</span>
+          <input class="h-eingabe gross" type="text" value="Sahne" autocomplete="off" />
+        </label>
+        <div class="h-feld">
+          <span class="h-feld-name">Kategorie</span>
+          <a class="h-auswahl" href="h25-wahl-blatt.html"><span>Milchprodukt</span><i class="fa-solid fa-chevron-down"></i></a>
+        </div>
+      </main>
+      <footer class="h-fuss zweigeteilt">
+        <button class="h-knopf" type="button">Speichern und nächstes</button>
+        <a class="h-knopf primaer" href="h06-behaelter.html">Speichern</a>
+      </footer>
+    </div>
+
+    <div class="h-schleier"></div>
+
+    <section class="h-blatt" role="dialog" aria-modal="true" aria-labelledby="blatt-wahl-titel">
+      <header class="h-blatt-kopf">
+        <h2 class="h-blatt-titel" id="blatt-wahl-titel">Kategorien</h2>
+        <a class="h-symbolknopf nackt" href="h23-anlegen-mit-feldern.html" aria-label="Schließen"><i class="fa-solid fa-xmark"></i></a>
+        <p class="h-blatt-unter">Mehrere möglich</p>
+      </header>
+      <div class="h-blatt-rumpf">
+        <div class="h-suchfeld">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input class="h-eingabe" type="search" placeholder="Kategorie suchen" aria-label="Kategorie suchen" />
+        </div>
+        <div>
+          <button class="h-wahlzeile gewaehlt" type="button" aria-pressed="true"><i class="fa-solid fa-cow"></i><span class="h-wahlzeile-text">Milchprodukt<small>Lebensmittel, mit Haltbarkeit</small></span><i class="fa-solid fa-check h-wahlzeile-haken"></i></button>
+          <button class="h-wahlzeile gewaehlt" type="button" aria-pressed="true"><i class="fa-solid fa-utensils"></i><span class="h-wahlzeile-text">Lebensmittel<small>mit Haltbarkeit, verbrauchbar</small></span><i class="fa-solid fa-check h-wahlzeile-haken"></i></button>
+          <button class="h-wahlzeile" type="button" aria-pressed="false"><i class="fa-solid fa-bottle-water"></i><span class="h-wahlzeile-text">Getränk<small>Lebensmittel, mit Haltbarkeit</small></span><i class="fa-solid fa-check h-wahlzeile-haken"></i></button>
+          <button class="h-wahlzeile" type="button" aria-pressed="false"><i class="fa-solid fa-wheat-awn"></i><span class="h-wahlzeile-text">Backzutat<small>Lebensmittel, lose nach Gewicht</small></span><i class="fa-solid fa-check h-wahlzeile-haken"></i></button>
+          <button class="h-wahlzeile" type="button" aria-pressed="false"><i class="fa-solid fa-spray-can-sparkles"></i><span class="h-wahlzeile-text">Haushaltsmittel<small>verbrauchbar, mit Mindestbestand</small></span><i class="fa-solid fa-check h-wahlzeile-haken"></i></button>
+          <button class="h-wahlzeile" type="button" aria-pressed="false"><i class="fa-solid fa-pills"></i><span class="h-wahlzeile-text">Medikament<small>mit Haltbarkeit und Einnahmeplan</small></span><i class="fa-solid fa-check h-wahlzeile-haken"></i></button>
+          <button class="h-wahlzeile" type="button" aria-pressed="false"><i class="fa-solid fa-screwdriver-wrench"></i><span class="h-wahlzeile-text">Werkzeug<small>Einzelstück, verleihbar</small></span><i class="fa-solid fa-check h-wahlzeile-haken"></i></button>
+          <button class="h-wahlzeile" type="button" aria-pressed="false"><i class="fa-solid fa-book"></i><span class="h-wahlzeile-text">Buch<small>Einzelstück</small></span><i class="fa-solid fa-check h-wahlzeile-haken"></i></button>
+        </div>
+        <div>
+          <a class="h-link" href="#"><i class="fa-solid fa-plus"></i> Neue Kategorie anlegen</a>
+        </div>
+      </div>
+      <footer class="h-blatt-fuss">
+        <a class="h-knopf primaer haupt" href="h23-anlegen-mit-feldern.html">2 Kategorien übernehmen</a>
+      </footer>
+    </section>
+  </body>
+</html>

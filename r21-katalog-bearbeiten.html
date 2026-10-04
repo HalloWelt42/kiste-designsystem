@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="rechner" data-thema="hell">
+  <head>
+    <!-- block:kopf-rechner -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/regular.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/rechner/30-masse.css" />
+    <link rel="stylesheet" href="stil/rechner/31-grund.css" />
+    <link rel="stylesheet" href="stil/rechner/32-huelle.css" />
+    <link rel="stylesheet" href="stil/rechner/33-bausteine.css" />
+    <link rel="stylesheet" href="stil/rechner/34-ansichten.css" />
+    <link rel="stylesheet" href="stil/mock/90-mock.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <!-- /block:kopf-rechner -->
+    <title>Kiste - Katalog bearbeiten</title>
+    <style>
+      /* Nur Anordnung: in einer schmalen Inhaltsspalte steht die Seitenspalte unter dem Hauptteil,
+         und die Handlungen im Seitenkopf dürfen umbrechen. */
+      @container (max-width: 760px) {
+        .s-detail { grid-template-columns: minmax(0, 1fr); }
+      }
+      .s-links { justify-self: start; }
+      .s-mitte { align-items: center; }
+      .s-marke { inline-size: 220px; }
+      .s-ende { text-align: end; }
+      /* Zeile zum Hinzufügen eines Strichcodes: Code, Menge, Einheit, Knopf. */
+      .s-codeneu { display: flex; flex-wrap: wrap; align-items: center; gap: var(--r-a2); }
+      .s-code { flex: 1 1 240px; inline-size: auto; }
+      .s-zahl { flex: none; inline-size: 64px; }
+      /* Kopf der Mittelspalte mit zwei Teilen: das Suchfeld nimmt den ganzen Rest, sein Text reicht bis zum Rand. */
+      .s-kopf { grid-template-columns: minmax(0, 1fr) auto; }
+      .s-suche { padding-inline-end: var(--r-a3); }
+    </style>
+  </head>
+  <body data-seite="katalog" data-leuchte="verbunden">
+    <!-- block:r-zu-schmal -->
+    <div class="r-zu-schmal">
+      <i class="fa-solid fa-display"></i>
+      <strong>Das Fenster ist zu schmal für die Rechner-Ansicht.</strong>
+      <p>Kiste am Rechner braucht mindestens 1024 Pixel Breite. Vergrößere das Fenster oder wechsle zur Handy-Ansicht.</p>
+      <a class="r-knopf primaer" href="h04-start.html"><i class="fa-solid fa-mobile-screen"></i> Zur Handy-Ansicht</a>
+    </div>
+    <!-- /block:r-zu-schmal -->
+    <div class="r-huelle">
+      <!-- block:r-seitenleiste -->
+      <aside class="r-seitenleiste">
+        <div class="r-seitenleiste-kopf">
+          <a class="z-marke" href="r03-lager-start.html"><i class="fa-solid fa-table-cells-large"></i><span>Kiste</span></a>
+          <button class="r-symbolknopf nackt klein" type="button" title="Seitenleiste einklappen" data-schalte=".r-huelle" data-klasse="eingeklappt"><i class="fa-solid fa-angles-left"></i></button>
+        </div>
+        <nav class="r-nav" aria-label="Bereiche">
+          <a class="r-nav-eintrag" data-seite="lager" href="r03-lager-start.html" title="Lager"><i class="fa-solid fa-house"></i><span>Lager</span></a>
+          <a class="r-nav-eintrag" data-seite="suche" href="r19-suche.html" title="Suche"><i class="fa-solid fa-magnifying-glass"></i><span>Suche</span></a>
+          <a class="r-nav-eintrag" data-seite="einkauf" href="r23-einkaufsliste.html" title="Einkauf: 4 Einträge fehlen"><i class="fa-solid fa-cart-shopping"></i><span>Einkauf</span><span class="r-nav-zahl">4</span></a>
+          <a class="r-nav-eintrag" data-seite="haltbarkeit" href="r24-haltbarkeit.html" title="Haltbarkeit: 3 Einträge sind bald fällig"><i class="fa-solid fa-hourglass-half"></i><span>Haltbarkeit</span><span class="r-nav-zahl">3</span></a>
+          <a class="r-nav-eintrag" data-seite="erinnerungen" href="#" title="Erinnerungen"><i class="fa-solid fa-bell"></i><span>Erinnerungen</span></a>
+          <a class="r-nav-eintrag" data-seite="park" href="#" title="Park-Bereich: 3 Einträge warten auf einen Ort"><i class="fa-solid fa-inbox"></i><span>Park-Bereich</span><span class="r-nav-zahl">3</span></a>
+          <a class="r-nav-eintrag" data-seite="verlauf" href="#" title="Zuletzt bewegt"><i class="fa-solid fa-clock-rotate-left"></i><span>Zuletzt bewegt</span></a>
+          <span class="r-nav-gruppe">Stammdaten</span>
+          <a class="r-nav-eintrag" data-seite="katalog" href="r20-katalog.html" title="Katalog der Produkte"><i class="fa-solid fa-book-open"></i><span>Katalog</span></a>
+          <a class="r-nav-eintrag" data-seite="kategorien" href="r29-kategorien.html" title="Kategorien und ihr Verhalten"><i class="fa-solid fa-shapes"></i><span>Kategorien</span></a>
+          <a class="r-nav-eintrag" data-seite="etiketten" href="#" title="Etiketten drucken"><i class="fa-solid fa-qrcode"></i><span>Etiketten</span></a>
+        </nav>
+        <div class="r-seitenfuss">
+          <a class="r-nav-eintrag" data-seite="vorgaenge" href="#" title="Vorgänge: 1 läuft"><i class="fa-solid fa-list-check"></i><span>Vorgänge</span><span class="r-nav-zahl">1</span></a>
+          <a class="r-nav-eintrag" data-seite="hilfe" href="#" title="Hilfe öffnen"><i class="fa-solid fa-circle-info"></i><span>Hilfe</span></a>
+          <a class="r-nav-eintrag" data-seite="einstellungen" href="#" title="Einstellungen"><i class="fa-solid fa-gear"></i><span>Einstellungen</span></a>
+          <a class="r-nav-eintrag" data-seite="verwaltung" href="#" title="Verwaltung: Konten, Anbindungen, Sicherungen"><i class="fa-solid fa-screwdriver-wrench"></i><span>Verwaltung</span></a>
+          <div class="r-nutzer">
+            <span class="r-nutzer-bild">M</span>
+            <span class="r-nutzer-text"><strong>Alex</strong><small>Haushalt Zuhause</small></span>
+            <button class="r-symbolknopf nackt klein" type="button" title="Abmelden"><i class="fa-solid fa-right-from-bracket"></i></button>
+          </div>
+          <div class="r-fassung">
+            <span class="r-leuchte verbunden" title="Verbunden mit dem Dienst"></span>
+            <span data-fassung></span>
+            <button class="r-symbolknopf nackt klein" type="button" title="Zwischen hellem und dunklem Thema wechseln" data-thema-wechsel><i class="fa-solid fa-circle-half-stroke"></i></button>
+          </div>
+        </div>
+      </aside>
+      <!-- /block:r-seitenleiste -->
+      <div class="r-anfasser" title="Breite der Seitenleiste ziehen"></div>
+      <aside class="r-mitte">
+        <div class="r-mitte-kopf s-kopf">
+          <div class="r-suchfeld">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input class="r-eingabe s-suche" type="search" placeholder="Produkt oder Strichcode" aria-label="Produkt oder Strichcode" title="Nach Name, Marke oder Strichcode suchen" />
+          </div>
+          <button class="r-symbolknopf aktiv" type="button" title="Neues Produkt anlegen"><i class="fa-solid fa-plus"></i></button>
+        </div>
+        <nav class="r-mitte-rumpf r-baum" aria-label="Produkte">
+          <ul class="r-baumkinder">
+            <li class="r-baumknoten">
+              <div class="r-baumzeile aktiv"><span></span><a class="r-baumziel" href="r20-katalog.html"><i class="fa-solid fa-cow"></i><span>Milch</span></a><span class="r-baumzahl" title="Liegt an 2 Orten im Lager">2 Orte</span></div>
+            </li>
+            <li class="r-baumknoten">
+              <div class="r-baumzeile"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-cow"></i><span>H-Milch</span></a><span class="r-baumzahl" title="Liegt an 1 Ort im Lager">1 Ort</span></div>
+            </li>
+            <li class="r-baumknoten">
+              <div class="r-baumzeile"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-bottle-water"></i><span>Apfelsaft</span></a><span class="r-baumzahl" title="Liegt an 1 Ort im Lager">1 Ort</span></div>
+            </li>
+            <li class="r-baumknoten">
+              <div class="r-baumzeile"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-box"></i><span>Geschirrtabs</span></a><span class="r-baumzahl" title="Liegt an 1 Ort im Lager">1 Ort</span></div>
+            </li>
+            <li class="r-baumknoten">
+              <div class="r-baumzeile"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-bowl-food"></i><span>Nudeln</span></a><span class="r-baumzahl" title="Liegt an 1 Ort im Lager">1 Ort</span></div>
+            </li>
+            <li class="r-baumknoten">
+              <div class="r-baumzeile"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-jar"></i><span>Kondensmilch</span></a><span class="r-baumzahl" title="Liegt an 1 Ort im Lager">1 Ort</span></div>
+            </li>
+            <li class="r-baumknoten">
+              <div class="r-baumzeile leer"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-cube"></i><span>Butter</span></a><span class="r-baumzahl">nicht im Lager</span></div>
+            </li>
+          </ul>
+          <div class="r-mehr-fuss"><span>7 von 12</span><button class="r-knopf klein" type="button">Weitere zeigen</button></div>
+        </nav>
+      </aside>
+      <div class="r-anfasser" title="Breite der Produktliste ziehen"></div>
+      <section class="r-inhalt">
+        <header class="r-seitenkopf">
+          <div class="r-titelzeile bearbeiten">
+            <input class="r-eingabe gross" type="text" value="Milch" aria-label="Name des Produkts" autocomplete="off" />
+            <div class="r-seitenkopf-aktionen">
+              <button class="r-knopf gefahr gesperrt" type="button" disabled title="Milch liegt noch 2 Mal im Lager. Erst lösen oder die Einträge löschen."><i class="fa-solid fa-trash-can"></i> Löschen</button>
+              <div class="r-seitenkopf-fest">
+                <a class="r-symbolknopf aktiv" href="r20-katalog.html" title="Bearbeiten beenden"><i class="fa-solid fa-pen"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="r-titelunter">
+            <label for="p-marke">Marke</label>
+            <input class="r-eingabe s-marke" id="p-marke" type="text" value="Hofgut" autocomplete="off" />
+            <span class="r-pille">Milchprodukt <button type="button" title="Kategorie Milchprodukt entfernen"><i class="fa-solid fa-xmark"></i></button></span>
+            <span class="r-pille moos">Lebensmittel</span>
+            <a class="r-link" href="#" title="Eine weitere Kategorie zuordnen; sie bringt ihre Felder mit"><i class="fa-solid fa-plus"></i> Kategorie hinzufügen</a>
+          </div>
+        </header>
+        <div class="r-rollfeld">
+          <div class="r-detail r-breite s-detail">
+            <div class="r-detail-haupt">
+              <section class="r-abschnitt">
+                <div class="r-abschnitt-kopf"><h2>Zählweise</h2></div>
+                <div class="r-formular">
+                  <div class="r-feld">
+                    <span class="r-feld-name">Mengenart</span>
+                    <div class="r-formular-rumpf">
+                      <div class="r-wahlreihe s-links" role="radiogroup" aria-label="Mengenart">
+                        <button class="r-wahl" type="button" role="radio" aria-checked="false" title="Gezählt wird in einzelnen Stücken">Stück</button>
+                        <button class="r-wahl aktiv" type="button" role="radio" aria-checked="true" title="Gezählt wird in Packungen mit Inhalt">Packung</button>
+                        <button class="r-wahl" type="button" role="radio" aria-checked="false" title="Gemessen wird eine lose Menge, etwa nach Gewicht">Lose Menge</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="r-feld">
+                    <span class="r-feld-name">Packung heißt</span>
+                    <div class="r-formular-rumpf">
+                      <button class="r-auswahl" type="button" title="Wie die Packung genannt wird"><span>Tetrapack</span><i class="fa-solid fa-chevron-down"></i></button>
+                    </div>
+                  </div>
+                  <div class="r-feld">
+                    <span class="r-feld-name">Inhalt je Tetrapack</span>
+                    <div class="r-formular-rumpf">
+                      <div class="r-mengenfeld">
+                        <input class="r-eingabe zahl" type="text" inputmode="decimal" value="1" aria-label="Inhalt je Tetrapack" title="Wie viel in einer Packung ist" />
+                        <button class="r-auswahl schmal" type="button" title="Einheit des Inhalts wählen"><span>l</span><i class="fa-solid fa-chevron-down"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="r-feld">
+                    <span class="r-feld-name">Schritt beim Verbrauchen</span>
+                    <div class="r-formular-rumpf">
+                      <div class="r-mengenfeld">
+                        <input class="r-eingabe zahl" type="text" inputmode="decimal" value="200" aria-label="Schritt beim Verbrauchen" title="So viel zieht der schnelle Verbrauchsknopf jedes Mal ab" />
+                        <button class="r-auswahl schmal" type="button" title="Einheit des Schritts wählen"><span>ml</span><i class="fa-solid fa-chevron-down"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="r-feld">
+                    <span class="r-feld-name">Mindestbestand</span>
+                    <div class="r-formular-rumpf">
+                      <div class="r-reihe">
+                        <div class="r-stufen" title="Unter diesem Bestand kommt das Produkt auf die Einkaufsliste">
+                          <button type="button" title="Einen weniger"><i class="fa-solid fa-minus"></i></button>
+                          <span class="r-stufen-wert">2</span>
+                          <button type="button" title="Einen mehr"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                        <span>Tetrapack über alle Orte</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="r-feld">
+                    <label class="r-feld-name" for="p-haltbar">Haltbarkeit in Tagen</label>
+                    <div class="r-formular-rumpf">
+                      <input class="r-eingabe zahl schmal" id="p-haltbar" type="text" inputmode="numeric" value="10" title="Fehlt beim Einkaufen das Datum, wird es aus dem Kauftag und dieser Zahl geschätzt" />
+                    </div>
+                  </div>
+                </div>
+                <div class="r-hinweis hilfe"><i class="fa-solid fa-circle-info"></i><p>Eine geänderte Packungsgröße gilt für künftige Käufe. Der Bestand bleibt, wie er ist.</p></div>
+              </section>
+
+              <section class="r-abschnitt">
+                <div class="r-abschnitt-kopf"><h2>Strichcodes</h2><span class="r-abschnitt-zahl">2 Strichcodes</span></div>
+                <div class="r-tabellenfeld"><table class="r-tabelle">
+                  <thead><tr><th>Strichcode</th><th>bucht</th><th></th></tr></thead>
+                  <tbody>
+                    <tr><td><span class="z-code">4001234567891</span></td><td><span class="z-menge"><b>1</b> Tetrapack</span></td><td class="s-ende"><button class="r-symbolknopf nackt klein" type="button" title="Strichcode 4001234567891 entfernen"><i class="fa-solid fa-trash-can"></i></button></td></tr>
+                    <tr><td><span class="z-code">4001234500010</span></td><td><span class="z-menge"><b>6</b> Tetrapack</span> <span class="r-leise">(Gebinde)</span></td><td class="s-ende"><button class="r-symbolknopf nackt klein" type="button" title="Strichcode 4001234500010 entfernen"><i class="fa-solid fa-trash-can"></i></button></td></tr>
+                  </tbody>
+                </table></div>
+                <div class="s-codeneu">
+                  <input class="r-eingabe s-code" type="text" inputmode="numeric" placeholder="Strichcode von der Packung" aria-label="Strichcode von der Packung" title="Strichcode tippen oder mit dem Handscanner einlesen" autocomplete="off" />
+                  <input class="r-eingabe zahl s-zahl" type="text" inputmode="numeric" value="1" aria-label="bucht" title="Wie viele Tetrapack ein Scan dieses Strichcodes bucht" />
+                  <span>Tetrapack</span>
+                  <button class="r-knopf" type="button" title="Fügt den Strichcode dem Produkt hinzu">Hinzufügen</button>
+                </div>
+              </section>
+
+              <section class="r-abschnitt">
+                <div class="r-abschnitt-kopf"><h2>Eigenschaften</h2><span class="r-abschnitt-zahl">2 Eigenschaften</span></div>
+                <div class="r-formular">
+                  <div class="r-feld">
+                    <label class="r-feld-name" for="p-fett">Fettgehalt</label>
+                    <div class="r-formular-rumpf">
+                      <div class="r-mengenfeld s-mitte">
+                        <input class="r-eingabe zahl" id="p-fett" type="text" inputmode="decimal" value="3,5" title="Fettgehalt in Prozent, eine Nachkommastelle" />
+                        <span>%</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="r-feld">
+                    <span class="r-feld-name">Bio</span>
+                    <div class="r-formular-rumpf">
+                      <div class="r-wahlreihe s-links" role="radiogroup" aria-label="Bio">
+                        <button class="r-wahl" type="button" role="radio" aria-checked="false">ja</button>
+                        <button class="r-wahl aktiv" type="button" role="radio" aria-checked="true">nein</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <aside class="r-detail-seite">
+              <div class="r-flaeche">
+                <span class="r-flaeche-titel">Im Lager</span>
+                <dl class="r-eigenschaften">
+                  <div class="r-eigenschaft"><dt>Kühlschrank</dt><dd>3 Tetrapack, 2,8 l</dd></div>
+                  <div class="r-eigenschaft"><dt>Garage</dt><dd>2 Tetrapack</dd></div>
+                  <div class="r-eigenschaft"><dt>Summe</dt><dd class="errechnet">5 Tetrapack an 2 Orten</dd></div>
+                </dl>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- block:mock-leiste -->
+    <div class="m-leiste">
+      <a href="galerie.html" title="Galerie aller Seiten"><i class="fa-solid fa-grip"></i></a>
+      <button type="button" data-thema-knopf="hell" title="Helles Thema"><i class="fa-solid fa-sun"></i></button>
+      <button type="button" data-thema-knopf="dunkel" title="Dunkles Thema"><i class="fa-solid fa-moon"></i></button>
+    </div>
+    <!-- /block:mock-leiste -->
+  </body>
+</html>

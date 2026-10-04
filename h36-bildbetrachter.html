@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="handy" data-thema="hell">
+  <head>
+    <!-- block:kopf-handy -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/regular.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/handy/40-masse.css" />
+    <link rel="stylesheet" href="stil/handy/41-grund.css" />
+    <link rel="stylesheet" href="stil/handy/42-huelle.css" />
+    <link rel="stylesheet" href="stil/handy/43-bausteine.css" />
+    <link rel="stylesheet" href="stil/handy/44-ansichten.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <!-- /block:kopf-handy -->
+    <title>Kiste - Bildbetrachter</title>
+  </head>
+  <body data-leuchte="verbunden">
+    <div class="h-betrachter">
+      <header class="h-betrachter-kopf">
+        <a class="h-betrachter-knopf" href="h37-eintrag-foto-hinzufuegen.html" aria-label="Bildbetrachter schließen"><i class="fa-solid fa-xmark"></i></a>
+        <h1>Bohrmaschine</h1>
+        <button class="h-betrachter-knopf" type="button" aria-label="Bild um eine Vierteldrehung nach rechts drehen"><i class="fa-solid fa-rotate-right"></i></button>
+      </header>
+      <div class="h-betrachter-bild">
+        <img src="bilder/foto-bohrmaschine.svg" alt="Bohrmaschine auf der Werkbank" />
+      </div>
+      <footer class="h-betrachter-fuss">
+        <button class="h-betrachter-knopf" type="button" aria-label="Voriges Bild" disabled><i class="fa-solid fa-chevron-left"></i></button>
+        <p>1 von 2, Titelbild</p>
+        <button class="h-betrachter-knopf" type="button" aria-label="Nächstes Bild"><i class="fa-solid fa-chevron-right"></i></button>
+      </footer>
+    </div>
+  </body>
+</html>

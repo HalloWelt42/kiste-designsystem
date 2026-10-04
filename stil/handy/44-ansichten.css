@@ -1,0 +1,426 @@
+/* Handy: Ansichten. Hier steht nur Anordnung, die mehrere Seiten teilen; Bausteine stehen in
+   43-bausteine.css. */
+@layer h-ansichten {
+  /* Titelblock: der große Titel der Ansicht, einmal, oben im Rollfeld. */
+  .h-titelblock {
+    display: grid;
+    gap: var(--h-a2);
+  }
+  .h-titelblock h1 {
+    overflow-wrap: anywhere;
+    font-size: var(--h-titel);
+  }
+  .h-titelblock-unter {
+    font-size: var(--h-schrift);
+    color: var(--tinte-leise);
+  }
+  .h-titelblock-unter b {
+    font-weight: 600;
+    color: var(--tinte-weich);
+  }
+
+  /* Haftende Zeile: Suche und Filter einer langen Liste bleiben oben stehen. */
+  .h-haftend {
+    position: sticky;
+    inset-block-start: calc(var(--h-a4) * -1);
+    z-index: 2;
+    display: grid;
+    gap: var(--h-a2);
+    margin-inline: calc(var(--h-rand) * -1);
+    padding: var(--h-a2) var(--h-rand);
+    border-block-end: 1px solid var(--papier-linie);
+    background: var(--papier);
+  }
+
+  /* Start: drei Kennzahlen nebeneinander. */
+  .h-kacheln {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--h-a2);
+  }
+
+  /* Neu-Streifen im Behälter: Neu, daneben der Gehirn-Schalter, daneben Foto. */
+  .h-neustreifen {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    gap: var(--h-a2);
+  }
+
+  /* Anmeldung: Marke oben, Formular darunter, alles in einer Spalte. */
+  .h-anmeldung {
+    display: grid;
+    gap: var(--h-a6);
+    inline-size: 100%;
+    max-inline-size: 420px;
+    margin-inline: auto;
+  }
+  .h-anmeldung-marke {
+    display: grid;
+    justify-items: center;
+    gap: var(--h-a2);
+    text-align: center;
+  }
+  .h-anmeldung-marke .z-marke {
+    font-size: var(--h-zahl);
+  }
+  .h-anmeldung-formular {
+    display: grid;
+    gap: var(--h-a4);
+  }
+
+  /* Code-Eingabe des zweiten Schritts: sechs Ziffern in großer Schrift. */
+  .h-eingabe.code {
+    font-family: var(--schrift-code);
+    font-size: var(--h-titel-2);
+    letter-spacing: 0.4em;
+    text-align: center;
+  }
+
+  /* Auswahlleiste: steht bei Mehrfachauswahl im Fuß. */
+  .h-auswahlleiste {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    align-items: center;
+    gap: var(--h-a2);
+  }
+  .h-auswahlleiste strong {
+    font-weight: 600;
+  }
+
+  /* Vorschau des Erscheinungsbilds: so sieht der Eintrag in Listen aus. */
+  .h-vorschau {
+    display: grid;
+    gap: var(--h-a2);
+    padding: var(--h-a3);
+    border: 1px dashed var(--tinte-blass);
+    border-radius: var(--rund-2);
+  }
+
+  /* ==== Scanner: eine dunkle Vollfläche in beiden Themen, damit das Kamerabild ruhig steht ========
+     Zeilen von oben: Kopf, Wahl des Modus, Zielort, Sucher, Ergebnis und Protokoll, Fuß. Der Scanner bleibt
+     offen; was ein Scan bewirkt hat, steht im Ergebnis und wandert danach ins Protokoll. */
+  .h-scanner {
+    position: fixed;
+    inset: 0 0 var(--h-tastatur) 0;
+    z-index: 15;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto minmax(0, 1fr) auto auto;
+    padding: var(--h-sicher-oben) var(--h-sicher-rechts) var(--h-sicher-unten) var(--h-sicher-links);
+    background: var(--nacht);
+    color: var(--auf-nacht);
+  }
+  /* Jeder Teil hat seine feste Zeile: fehlt der Zielort, rutscht nichts nach oben. */
+  .h-scanner-kopf {
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--h-a2);
+    min-block-size: var(--h-kopf-hoehe);
+    padding: var(--h-a1) var(--h-a2);
+  }
+  .h-scanner-kopf h1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: var(--h-schrift-gross);
+    color: var(--auf-nacht);
+  }
+  .h-scanner-knopf {
+    display: inline-grid;
+    place-items: center;
+    inline-size: var(--h-griff);
+    block-size: var(--h-griff);
+    border-radius: var(--rund-2);
+    color: var(--auf-nacht);
+    font-size: var(--h-icon);
+  }
+  /* Wahl des Modus: Einbuchen, Verbrauchen, Nachschlagen. */
+  .h-scanner-modi {
+    grid-row: 2;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+    gap: var(--h-a1);
+    margin-inline: var(--h-rand);
+    padding: var(--h-a1);
+    border: 1px solid var(--nacht-linie);
+    border-radius: var(--rund-3);
+    background: var(--nacht-weich);
+  }
+  .h-scanner-modus {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--h-a2);
+    min-block-size: var(--h-griff-klein);
+    padding-inline: var(--h-a1);
+    border-radius: var(--rund-2);
+    font-size: var(--h-schrift-klein);
+    font-weight: 500;
+    color: var(--auf-nacht-leise);
+  }
+  .h-scanner-modus.aktiv {
+    background: var(--auf-nacht);
+    color: var(--nacht);
+    font-weight: 600;
+  }
+  /* Zielort: wohin Neues kommt. Ein gescannter Behälter setzt ihn. */
+  .h-scanner-ziel {
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--h-a3);
+    min-block-size: var(--h-griff);
+    margin: var(--h-a2) var(--h-rand) 0;
+    padding: var(--h-a1) var(--h-a1) var(--h-a1) var(--h-a3);
+    border: 1px solid var(--nacht-linie);
+    border-radius: var(--rund-2);
+    font-size: var(--h-schrift-klein);
+    color: var(--auf-nacht-leise);
+  }
+  .h-scanner-ziel strong {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: var(--h-schrift);
+    font-weight: 600;
+    color: var(--auf-nacht);
+  }
+  .h-scanner-ziel > span {
+    display: grid;
+    min-inline-size: 0;
+  }
+  .h-scanner-link {
+    min-block-size: var(--h-griff-klein);
+    padding-inline: var(--h-a3);
+    border-radius: var(--rund-2);
+    font-weight: 600;
+    color: var(--messing-auf-tinte);
+  }
+  /* Sucher: das Kamerabild mit dem Rahmen, in den der Code gehört. */
+  .h-scanner-sucher {
+    grid-row: 4;
+    position: relative;
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    justify-items: center;
+    align-items: center;
+    gap: var(--h-a3);
+    min-block-size: 120px;
+    overflow: hidden;
+    margin: var(--h-a3) var(--h-rand);
+    padding: var(--h-a3);
+    border: 1px solid var(--nacht-linie);
+    border-radius: var(--rund-3);
+    background: var(--nacht-weich);
+    text-align: center;
+  }
+  .h-scanner-sucher video,
+  .h-scanner-sucher img {
+    position: absolute;
+    inset: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+  /* Der Rahmen richtet sich nach der Höhe, die der Sucher gerade hat, und bleibt quadratisch. */
+  .h-scanner-rahmen {
+    position: relative;
+    block-size: 100%;
+    max-block-size: 240px;
+    max-inline-size: 100%;
+    aspect-ratio: 1;
+    border: 3px solid var(--auf-nacht);
+    border-radius: var(--rund-3);
+  }
+  /* Farbblitz statt Vibration: der Rahmen zeigt kurz, ob der Scan saß. */
+  .h-scanner-rahmen.gut {
+    border-color: var(--gut);
+    background: color-mix(in srgb, var(--gut) 22%, transparent);
+  }
+  .h-scanner-rahmen.gefahr {
+    border-color: var(--gefahr);
+    background: color-mix(in srgb, var(--gefahr) 22%, transparent);
+  }
+  .h-scanner-hinweis {
+    position: relative;
+    max-inline-size: 30ch;
+    padding-inline: var(--h-a4);
+    font-size: var(--h-schrift-klein);
+    color: var(--auf-nacht-leise);
+  }
+  .h-scanner-hinweis strong {
+    display: block;
+    font-size: var(--h-schrift);
+    color: var(--auf-nacht);
+  }
+  /* Ergebnis des letzten Scans: eine helle Karte, damit sie im Dunkeln sofort auffällt. */
+  /* Unter dem Sucher: Ergebnis und Protokoll teilen sich eine Zeile und rollen gemeinsam, wenn es eng wird. */
+  .h-scanner-unten {
+    grid-row: 5;
+    display: grid;
+    align-content: start;
+    gap: var(--h-a2);
+    max-block-size: 44dvh;
+    overflow-y: auto;
+  }
+  .h-scanner-ergebnis {
+    display: grid;
+    gap: var(--h-a3);
+    margin-inline: var(--h-rand);
+    padding: var(--h-a4);
+    border: 1px solid var(--papier-linie);
+    border-radius: var(--rund-3);
+    background: var(--papier);
+    color: var(--tinte);
+    box-shadow: var(--schatten-tief);
+  }
+  .h-scanner-ergebnis-kopf {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: var(--h-a3);
+  }
+  /* Die Handlung zum Ergebnis steht unter dem Text, damit der Name auch auf schmalen Geräten ganz bleibt. */
+  .h-scanner-ergebnis > .h-knopf {
+    justify-self: start;
+  }
+  .h-scanner-ergebnis-text {
+    display: grid;
+    gap: 2px;
+    min-inline-size: 0;
+  }
+  .h-scanner-ergebnis-text strong {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: var(--h-schrift-gross);
+  }
+  .h-scanner-ergebnis-text small {
+    font-size: var(--h-schrift-klein);
+    color: var(--tinte-leise);
+  }
+  /* Protokoll: was dieser Scanner zuletzt gebucht hat, das Jüngste oben. */
+  .h-scanner-protokoll {
+    display: grid;
+    align-content: start;
+    margin-inline: var(--h-rand);
+    font-size: var(--h-schrift-klein);
+  }
+  .h-scanner-protokoll-zeile {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--h-a3);
+    min-block-size: var(--h-griff-klein);
+    border-block-end: 1px solid var(--nacht-linie);
+    color: var(--auf-nacht-leise);
+  }
+  .h-scanner-protokoll-zeile:last-child {
+    border-block-end: 0;
+  }
+  /* Leise: der Scan hat nichts gebucht. */
+  .h-scanner-protokoll-zeile.leise strong {
+    font-weight: 400;
+    color: var(--auf-nacht-leise);
+  }
+  .h-scanner-protokoll-zeile strong {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 500;
+    color: var(--auf-nacht);
+  }
+  .h-scanner-fuss {
+    grid-row: 6;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--h-a2);
+    padding: var(--h-a3) var(--h-rand);
+  }
+  .h-scanner-fuss .h-knopf {
+    border-color: var(--nacht-linie);
+    background: var(--nacht-weich);
+    color: var(--auf-nacht);
+  }
+  .h-scanner-fuss .h-knopf.primaer {
+    border-color: var(--auf-nacht);
+    background: var(--auf-nacht);
+    color: var(--nacht);
+  }
+
+  /* ---- Bildbetrachter: dunkle Vollfläche, das Bild immer ganz, nie beschnitten ------------------ */
+  .h-betrachter {
+    position: fixed;
+    inset: 0;
+    z-index: 15;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    padding: var(--h-sicher-oben) var(--h-sicher-rechts) var(--h-sicher-unten) var(--h-sicher-links);
+    background: var(--nacht);
+    color: var(--auf-nacht);
+  }
+  .h-betrachter-kopf {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--h-a2);
+    min-block-size: var(--h-kopf-hoehe);
+    padding: var(--h-a1) var(--h-a2);
+  }
+  .h-betrachter-kopf h1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+    font-size: var(--h-schrift-gross);
+    font-variant-numeric: tabular-nums;
+    color: var(--auf-nacht);
+  }
+  .h-betrachter-knopf {
+    display: inline-grid;
+    place-items: center;
+    inline-size: var(--h-griff);
+    block-size: var(--h-griff);
+    border-radius: var(--rund-2);
+    color: var(--auf-nacht);
+    font-size: var(--h-icon);
+  }
+  .h-betrachter-knopf:disabled {
+    opacity: 0.35;
+  }
+  .h-betrachter-bild {
+    position: relative;
+    min-block-size: 0;
+    overflow: hidden;
+  }
+  /* Das Bild füllt die Fläche des Betrachters und wird darin ganz eingepasst. */
+  .h-betrachter-bild img {
+    position: absolute;
+    inset: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: contain;
+  }
+  .h-betrachter-fuss {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--h-a2);
+    padding: var(--h-a2) var(--h-a2) var(--h-a3);
+  }
+  .h-betrachter-fuss p {
+    text-align: center;
+    font-size: var(--h-schrift-klein);
+    color: var(--auf-nacht-leise);
+  }
+
+  /* Was der Dienst als ausgeblendet meldet, zeichnet nichts. */
+  :root[data-oberflaeche="handy"] [hidden] {
+    display: none;
+  }
+}

@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="rechner" data-thema="hell">
+  <head>
+    <!-- block:kopf-rechner -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/regular.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/rechner/30-masse.css" />
+    <link rel="stylesheet" href="stil/rechner/31-grund.css" />
+    <link rel="stylesheet" href="stil/rechner/32-huelle.css" />
+    <link rel="stylesheet" href="stil/rechner/33-bausteine.css" />
+    <link rel="stylesheet" href="stil/rechner/34-ansichten.css" />
+    <link rel="stylesheet" href="stil/mock/90-mock.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <!-- /block:kopf-rechner -->
+    <title>Kiste - Etiketten</title>
+    <style>
+      /* Nur Anordnung: in einer schmalen Inhaltsspalte stehen die Einstellungen unter der Vorschau,
+         und die Handlungen im Seitenkopf dürfen umbrechen. */
+      @container (max-width: 760px) {
+        .s-detail { grid-template-columns: minmax(0, 1fr); }
+      }
+      .s-kopfzeile { flex-wrap: wrap; }
+      .s-aktionen { flex: 1 1 auto; flex-wrap: wrap; justify-content: flex-end; }
+      /* Kopf der Mittelspalte: Suchfeld und Auswahl aufheben. */
+      .s-kopf { grid-template-columns: minmax(0, 1fr) auto; }
+      .s-liste { gap: var(--r-a1); padding-inline: var(--r-a2); }
+      /* Der Bogen: 3 Spalten, 8 Zeilen, im Seitenverhältnis des Papiers. */
+      .s-bogen {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-rows: repeat(8, minmax(0, 1fr));
+        gap: var(--r-a1);
+        justify-items: stretch;
+        inline-size: 100%;
+        max-inline-size: 560px;
+        aspect-ratio: 210 / 297;
+        padding: var(--r-a3);
+      }
+      /* Ein Etikett: links der QR-Code, rechts Code und Name. */
+      .s-feld { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: var(--r-a2); min-block-size: 0; padding: var(--r-a1) var(--r-a2); }
+      .s-feld img { inline-size: 44px; block-size: 44px; }
+      .s-feldtext { display: grid; justify-items: start; gap: 2px; min-inline-size: 0; }
+      .s-feldtext span:last-child { max-inline-size: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .s-links { justify-self: start; }
+      /* Die Wahl des Inhalts nimmt die volle Breite; jede Wahl so breit wie ihr Text. */
+      .s-wahl { grid-auto-columns: auto; }
+    </style>
+  </head>
+  <body data-seite="etiketten" data-leuchte="verbunden">
+    <!-- block:r-zu-schmal -->
+    <div class="r-zu-schmal">
+      <i class="fa-solid fa-display"></i>
+      <strong>Das Fenster ist zu schmal für die Rechner-Ansicht.</strong>
+      <p>Kiste am Rechner braucht mindestens 1024 Pixel Breite. Vergrößere das Fenster oder wechsle zur Handy-Ansicht.</p>
+      <a class="r-knopf primaer" href="h04-start.html"><i class="fa-solid fa-mobile-screen"></i> Zur Handy-Ansicht</a>
+    </div>
+    <!-- /block:r-zu-schmal -->
+    <div class="r-huelle">
+      <!-- block:r-seitenleiste -->
+      <aside class="r-seitenleiste">
+        <div class="r-seitenleiste-kopf">
+          <a class="z-marke" href="r03-lager-start.html"><i class="fa-solid fa-table-cells-large"></i><span>Kiste</span></a>
+          <button class="r-symbolknopf nackt klein" type="button" title="Seitenleiste einklappen" data-schalte=".r-huelle" data-klasse="eingeklappt"><i class="fa-solid fa-angles-left"></i></button>
+        </div>
+        <nav class="r-nav" aria-label="Bereiche">
+          <a class="r-nav-eintrag" data-seite="lager" href="r03-lager-start.html" title="Lager"><i class="fa-solid fa-house"></i><span>Lager</span></a>
+          <a class="r-nav-eintrag" data-seite="suche" href="r19-suche.html" title="Suche"><i class="fa-solid fa-magnifying-glass"></i><span>Suche</span></a>
+          <a class="r-nav-eintrag" data-seite="einkauf" href="r23-einkaufsliste.html" title="Einkauf: 4 Einträge fehlen"><i class="fa-solid fa-cart-shopping"></i><span>Einkauf</span><span class="r-nav-zahl">4</span></a>
+          <a class="r-nav-eintrag" data-seite="haltbarkeit" href="r24-haltbarkeit.html" title="Haltbarkeit: 3 Einträge sind bald fällig"><i class="fa-solid fa-hourglass-half"></i><span>Haltbarkeit</span><span class="r-nav-zahl">3</span></a>
+          <a class="r-nav-eintrag" data-seite="erinnerungen" href="#" title="Erinnerungen"><i class="fa-solid fa-bell"></i><span>Erinnerungen</span></a>
+          <a class="r-nav-eintrag" data-seite="park" href="#" title="Park-Bereich: 3 Einträge warten auf einen Ort"><i class="fa-solid fa-inbox"></i><span>Park-Bereich</span><span class="r-nav-zahl">3</span></a>
+          <a class="r-nav-eintrag" data-seite="verlauf" href="#" title="Zuletzt bewegt"><i class="fa-solid fa-clock-rotate-left"></i><span>Zuletzt bewegt</span></a>
+          <span class="r-nav-gruppe">Stammdaten</span>
+          <a class="r-nav-eintrag" data-seite="katalog" href="r20-katalog.html" title="Katalog der Produkte"><i class="fa-solid fa-book-open"></i><span>Katalog</span></a>
+          <a class="r-nav-eintrag" data-seite="kategorien" href="r29-kategorien.html" title="Kategorien und ihr Verhalten"><i class="fa-solid fa-shapes"></i><span>Kategorien</span></a>
+          <a class="r-nav-eintrag" data-seite="etiketten" href="#" title="Etiketten drucken"><i class="fa-solid fa-qrcode"></i><span>Etiketten</span></a>
+        </nav>
+        <div class="r-seitenfuss">
+          <a class="r-nav-eintrag" data-seite="vorgaenge" href="#" title="Vorgänge: 1 läuft"><i class="fa-solid fa-list-check"></i><span>Vorgänge</span><span class="r-nav-zahl">1</span></a>
+          <a class="r-nav-eintrag" data-seite="hilfe" href="#" title="Hilfe öffnen"><i class="fa-solid fa-circle-info"></i><span>Hilfe</span></a>
+          <a class="r-nav-eintrag" data-seite="einstellungen" href="#" title="Einstellungen"><i class="fa-solid fa-gear"></i><span>Einstellungen</span></a>
+          <a class="r-nav-eintrag" data-seite="verwaltung" href="#" title="Verwaltung: Konten, Anbindungen, Sicherungen"><i class="fa-solid fa-screwdriver-wrench"></i><span>Verwaltung</span></a>
+          <div class="r-nutzer">
+            <span class="r-nutzer-bild">M</span>
+            <span class="r-nutzer-text"><strong>Alex</strong><small>Haushalt Zuhause</small></span>
+            <button class="r-symbolknopf nackt klein" type="button" title="Abmelden"><i class="fa-solid fa-right-from-bracket"></i></button>
+          </div>
+          <div class="r-fassung">
+            <span class="r-leuchte verbunden" title="Verbunden mit dem Dienst"></span>
+            <span data-fassung></span>
+            <button class="r-symbolknopf nackt klein" type="button" title="Zwischen hellem und dunklem Thema wechseln" data-thema-wechsel><i class="fa-solid fa-circle-half-stroke"></i></button>
+          </div>
+        </div>
+      </aside>
+      <!-- /block:r-seitenleiste -->
+      <div class="r-anfasser" title="Breite der Seitenleiste ziehen"></div>
+      <aside class="r-mitte">
+        <div class="r-mitte-kopf s-kopf">
+          <div class="r-suchfeld">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input class="r-eingabe" type="search" placeholder="Behälter suchen" aria-label="Behälter suchen" />
+          </div>
+          <button class="r-symbolknopf" type="button" title="Alle Kästchen leeren; der Bogen wird wieder leer"><i class="fa-solid fa-square-minus"></i></button>
+        </div>
+        <nav class="r-mitte-rumpf" aria-label="Behälter für Etiketten">
+          <div class="r-stapel s-liste">
+            <p class="r-nav-gruppe">Wohnung</p>
+            <button class="r-kaestchen" type="button" role="checkbox" aria-checked="false" title="Etikett für die Garderobe drucken"><span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span><span class="r-kaestchen-text">Garderobe<small>G5D1, Flur</small></span></button>
+            <button class="r-kaestchen an" type="button" role="checkbox" aria-checked="true" title="Etikett für den Kühlschrank drucken"><span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span><span class="r-kaestchen-text">Kühlschrank<small>R2D5, Küche</small></span></button>
+            <button class="r-kaestchen an" type="button" role="checkbox" aria-checked="true" title="Etikett für den Vorratsschrank drucken"><span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span><span class="r-kaestchen-text">Vorratsschrank<small>V8N3, Küche</small></span></button>
+            <button class="r-kaestchen an" type="button" role="checkbox" aria-checked="true" title="Etikett für den Spülenschrank drucken"><span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span><span class="r-kaestchen-text">Spülenschrank<small>S6P1, Küche</small></span></button>
+            <button class="r-kaestchen an" type="button" role="checkbox" aria-checked="true" title="Etikett für das Bücherregal drucken"><span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span><span class="r-kaestchen-text">Bücherregal<small>B3R7, Wohnzimmer</small></span></button>
+            <button class="r-kaestchen an" type="button" role="checkbox" aria-checked="true" title="Etikett für die Hausapotheke drucken"><span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span><span class="r-kaestchen-text">Hausapotheke<small>H5T9, Bad</small></span></button>
+            <button class="r-kaestchen" type="button" role="checkbox" aria-checked="false" title="Etikett für den Kleiderschrank drucken"><span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span><span class="r-kaestchen-text">Kleiderschrank<small>Q7F2, Schlafzimmer</small></span></button>
+            <p class="r-nav-gruppe">Garage</p>
+            <button class="r-kaestchen an" type="button" role="checkbox" aria-checked="true" title="Etikett für die Werkbank drucken"><span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span><span class="r-kaestchen-text">Werkbank<small>Y6C8, Garage</small></span></button>
+            <button class="r-kaestchen" type="button" role="checkbox" aria-checked="false" title="Etikett für das Schraubenregal drucken"><span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span><span class="r-kaestchen-text">Schraubenregal<small>R4K2, Werkbank</small></span></button>
+            <button class="r-kaestchen" type="button" role="checkbox" aria-checked="false" title="Etikett für den Werkzeugkoffer drucken"><span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span><span class="r-kaestchen-text">Werkzeugkoffer<small>V2HN, Schraubenregal</small></span></button>
+          </div>
+        </nav>
+      </aside>
+      <div class="r-anfasser" title="Breite der Behälterliste ziehen"></div>
+      <section class="r-inhalt">
+        <header class="r-seitenkopf">
+          <div class="r-titelzeile s-kopfzeile">
+            <h1>Etiketten</h1>
+            <div class="r-seitenkopf-aktionen s-aktionen">
+              <button class="r-knopf" type="button" title="Den Bogen als Datei zum Drucken speichern"><i class="fa-solid fa-download"></i> Als Datei</button>
+              <button class="r-knopf primaer" type="button" title="Den Bogen mit 6 Etiketten an den Drucker schicken"><i class="fa-solid fa-print"></i> Drucken</button>
+              <div class="r-seitenkopf-fest">
+                <button class="r-symbolknopf nackt hilfe" type="button" title="Info-Modus: Bedienelemente erklären sich beim Anklicken"><i class="fa-solid fa-circle-info"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="r-titelunter">
+            <span><b>6</b> Behälter gewählt</span>
+            <span>Bogen mit <b>24</b> Etiketten</span>
+            <span><b>18</b> bleiben frei</span>
+          </div>
+        </header>
+        <div class="r-rollfeld">
+          <div class="r-detail r-breite s-detail">
+            <div class="r-detail-haupt">
+              <section class="r-abschnitt">
+                <div class="r-abschnitt-kopf"><h2>Vorschau</h2><span class="r-abschnitt-zahl">Seite 1 von 1</span></div>
+                <div class="r-etikett s-bogen" role="img" aria-label="Bogen mit 6 gefüllten und 18 freien Etiketten">
+                  <div class="r-vorschau s-feld"><img src="bilder/qr-r2d5.svg" alt="" /><span class="s-feldtext"><span class="z-code gedruckt">R2D5</span><span class="r-klein">Kühlschrank</span></span></div>
+                  <div class="r-vorschau s-feld"><img src="bilder/qr-r2d5.svg" alt="" /><span class="s-feldtext"><span class="z-code gedruckt">V8N3</span><span class="r-klein">Vorratsschrank</span></span></div>
+                  <div class="r-vorschau s-feld"><img src="bilder/qr-r2d5.svg" alt="" /><span class="s-feldtext"><span class="z-code gedruckt">S6P1</span><span class="r-klein">Spülenschrank</span></span></div>
+                  <div class="r-vorschau s-feld"><img src="bilder/qr-b3r7.svg" alt="" /><span class="s-feldtext"><span class="z-code gedruckt">B3R7</span><span class="r-klein">Bücherregal</span></span></div>
+                  <div class="r-vorschau s-feld"><img src="bilder/qr-r2d5.svg" alt="" /><span class="s-feldtext"><span class="z-code gedruckt">H5T9</span><span class="r-klein">Hausapotheke</span></span></div>
+                  <div class="r-vorschau s-feld"><img src="bilder/qr-r2d5.svg" alt="" /><span class="s-feldtext"><span class="z-code gedruckt">Y6C8</span><span class="r-klein">Werkbank</span></span></div>
+                  <div class="r-vorschau"></div><div class="r-vorschau"></div><div class="r-vorschau"></div>
+                  <div class="r-vorschau"></div><div class="r-vorschau"></div><div class="r-vorschau"></div>
+                  <div class="r-vorschau"></div><div class="r-vorschau"></div><div class="r-vorschau"></div>
+                  <div class="r-vorschau"></div><div class="r-vorschau"></div><div class="r-vorschau"></div>
+                  <div class="r-vorschau"></div><div class="r-vorschau"></div><div class="r-vorschau"></div>
+                  <div class="r-vorschau"></div><div class="r-vorschau"></div><div class="r-vorschau"></div>
+                </div>
+              </section>
+            </div>
+            <aside class="r-detail-seite">
+              <div class="r-flaeche">
+                <span class="r-flaeche-titel">Einstellungen</span>
+                <div class="r-feld">
+                  <span class="r-feld-name">Bogen</span>
+                  <button class="r-auswahl" type="button" title="Bogen wählen; Spalten und Zeilen bestimmen die Größe eines Etiketts"><span>3 Spalten, 8 Zeilen</span><i class="fa-solid fa-chevron-down"></i></button>
+                  <span class="r-feld-hinweis">24 Etiketten je Bogen</span>
+                </div>
+                <div class="r-feld">
+                  <span class="r-feld-name">Erstes freies Etikett</span>
+                  <div class="r-stufen s-links" title="Auf einem angebrauchten Bogen die schon benutzten Etiketten überspringen">
+                    <button type="button" title="Ein Etikett früher beginnen"><i class="fa-solid fa-minus"></i></button>
+                    <span class="r-stufen-wert">1</span>
+                    <button type="button" title="Ein Etikett später beginnen"><i class="fa-solid fa-plus"></i></button>
+                  </div>
+                  <span class="r-feld-hinweis">Zeile 1, Spalte 1</span>
+                </div>
+                <div class="r-feld">
+                  <span class="r-feld-name">Inhalt des Etiketts</span>
+                  <div class="r-wahlreihe s-wahl" role="tablist" aria-label="Inhalt des Etiketts">
+                    <button class="r-wahl aktiv" type="button" role="tab" aria-selected="true" title="QR-Code, Code und Name drucken">QR-Code und Code</button>
+                    <button class="r-wahl" type="button" role="tab" aria-selected="false" title="Nur Code und Name drucken, ohne QR-Code">nur Code</button>
+                  </div>
+                </div>
+              </div>
+              <div class="r-hinweis hilfe"><i class="fa-solid fa-circle-info"></i><p>Ein Probedruck auf Normalpapier zeigt, ob der Bogen passt.</p></div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- block:mock-leiste -->
+    <div class="m-leiste">
+      <a href="galerie.html" title="Galerie aller Seiten"><i class="fa-solid fa-grip"></i></a>
+      <button type="button" data-thema-knopf="hell" title="Helles Thema"><i class="fa-solid fa-sun"></i></button>
+      <button type="button" data-thema-knopf="dunkel" title="Dunkles Thema"><i class="fa-solid fa-moon"></i></button>
+    </div>
+    <!-- /block:mock-leiste -->
+  </body>
+</html>

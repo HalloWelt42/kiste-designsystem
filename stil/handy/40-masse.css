@@ -1,0 +1,60 @@
+/* Handy: Maße, Abstände und Schriftgrade. Eigene Marken, nichts davon gilt am Rechner. */
+@layer marken {
+  :root[data-oberflaeche="handy"] {
+    /* Abstände */
+    --h-a1: 4px;
+    --h-a2: 8px;
+    --h-a3: 12px;
+    --h-a4: 16px;
+    --h-a5: 20px;
+    --h-a6: 24px;
+    --h-a7: 32px;
+    --h-a8: 40px;
+    --h-rand: 16px;
+
+    /* Berührflächen: nie unter 44 px */
+    --h-griff: 48px;
+    --h-griff-klein: 44px;
+    --h-haupt: 56px;
+
+    /* Hülle */
+    --h-kopf-hoehe: 52px;
+    --h-leiste-hoehe: 60px;
+    --h-scan-knopf: 64px;
+    --h-luft-unten: 48px;
+
+    /* Schriftgrade: Felder nie unter 16 px, sonst springt die Ansicht beim Tippen */
+    --h-schrift-winzig: 12px;
+    --h-schrift-klein: 14px;
+    --h-schrift: 16px;
+    --h-schrift-feld: 16px;
+    --h-schrift-gross: 18px;
+    --h-titel-3: 18px;
+    --h-titel-2: 22px;
+    --h-titel: 32px;
+    --h-zahl: 34px;
+
+    /* Icon-Größen */
+    --h-icon-klein: 16px;
+    --h-icon: 20px;
+    --h-icon-gross: 24px;
+    --h-icon-riesig: 40px;
+
+    /* Sichere Bereiche des Geräts (Aussparung, Wischleiste) */
+    --h-sicher-oben: env(safe-area-inset-top, 0px);
+    --h-sicher-unten: env(safe-area-inset-bottom, 0px);
+    --h-sicher-links: env(safe-area-inset-left, 0px);
+    --h-sicher-rechts: env(safe-area-inset-right, 0px);
+
+    /* Höhe, die die Bildschirmtastatur gerade verdeckt; setzt kern/geraet/tastatur, sonst 0 */
+    --h-tastatur: 0px;
+
+    /* Größe des Erscheinungsbilds in Zeilen */
+    --z-mass: 44px;
+  }
+
+  /* Solange die Tastatur offen ist, liegt die Wischleiste darunter: kein Polster nötig. */
+  :root[data-oberflaeche="handy"].tastatur-offen {
+    --h-sicher-unten: 0px;
+  }
+}

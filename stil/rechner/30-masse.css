@@ -1,0 +1,43 @@
+/* Rechner: Maße, Abstände und Schriftgrade. Eigene Marken, nichts davon gilt am Handy. */
+@layer marken {
+  :root[data-oberflaeche="rechner"] {
+    /* Abstände */
+    --r-a1: 4px;
+    --r-a2: 8px;
+    --r-a3: 12px;
+    --r-a4: 16px;
+    --r-a5: 24px;
+    --r-a6: 32px;
+    --r-a7: 48px;
+
+    /* Bedienelemente: eine Höhe für alle Knöpfe und Felder einer Reihe */
+    --r-knopf: 34px;
+    --r-knopf-klein: 28px;
+
+    /* Hülle: die Breiten stellt der Anfasser, die Werte hier sind die Vorgabe */
+    --r-leiste: 208px;
+    --r-leiste-zu: 56px;
+    --r-mitte: 300px;
+    --r-anfasser: 7px;
+    --r-seite: 280px;
+
+    /* Schriftgrade */
+    --r-schrift-winzig: 11px;
+    --r-schrift-klein: 13px;
+    --r-schrift: 15px;
+    --r-schrift-gross: 17px;
+    --r-titel-3: 17px;
+    --r-titel-2: 21px;
+    --r-titel: 38px;
+    --r-zahl: 32px;
+
+    /* Icon-Größen */
+    --r-icon-klein: 12px;
+    --r-icon: 14px;
+    --r-icon-gross: 18px;
+    --r-icon-riesig: 36px;
+
+    /* Größe des Erscheinungsbilds in Zeilen und Karten */
+    --z-mass: 34px;
+  }
+}

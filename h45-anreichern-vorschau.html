@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="handy" data-thema="hell">
+  <head>
+    <!-- block:kopf-handy -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/regular.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/handy/40-masse.css" />
+    <link rel="stylesheet" href="stil/handy/41-grund.css" />
+    <link rel="stylesheet" href="stil/handy/42-huelle.css" />
+    <link rel="stylesheet" href="stil/handy/43-bausteine.css" />
+    <link rel="stylesheet" href="stil/handy/44-ansichten.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <!-- /block:kopf-handy -->
+    <title>Kiste - Anreichern: Vorschau je Feld</title>
+    <style>
+      /* Nur Anordnung: "Jetzt" und "Vorschlag" untereinander, je mit Wert und Herkunft; Bild neben seinem Text. */
+      .s-wert {
+        display: grid;
+        justify-items: start;
+        gap: 2px;
+      }
+      .s-bildzeile {
+        display: flex;
+        align-items: center;
+        gap: var(--h-a3);
+      }
+    </style>
+  </head>
+  <body data-seite="lager" data-leuchte="verbunden">
+    <div class="h-huelle vollflaeche">
+      <header class="h-kopf">
+        <a class="h-kopf-zurueck" href="h44-anreichern-suche.html"><i class="fa-solid fa-chevron-left"></i><span>Treffer</span></a>
+        <div class="h-kopf-titel">Vorschau</div>
+      </header>
+      <main class="h-rollfeld">
+        <div class="h-titelblock">
+          <h1>Vorschau</h1>
+          <p class="h-titelblock-unter">Apfelsaft, Vorschläge aus der Lebensmitteldatenbank</p>
+          <div class="h-pillen">
+            <span class="z-code">A5S8</span>
+            <span class="h-pille">Strichcode 4001234500027</span>
+          </div>
+        </div>
+
+        <div class="h-karte">
+          <button class="h-kaestchen" type="button" role="checkbox" aria-checked="false">
+            <span class="h-kaestchen-feld"><i class="fa-solid fa-check"></i></span>
+            <span class="h-kaestchen-text">Name</span>
+          </button>
+          <div class="s-wert">
+            <span class="h-feld-name">Jetzt</span>
+            <span>Apfelsaft</span>
+            <span class="h-klein h-leise">von Hand</span>
+          </div>
+          <div class="s-wert">
+            <span class="h-feld-name">Vorschlag</span>
+            <strong>Apfelsaft naturtrüb</strong>
+            <span class="h-klein h-leise">Lebensmitteldatenbank, 03.10.2026</span>
+          </div>
+        </div>
+
+        <div class="h-karte">
+          <button class="h-kaestchen an" type="button" role="checkbox" aria-checked="true">
+            <span class="h-kaestchen-feld"><i class="fa-solid fa-check"></i></span>
+            <span class="h-kaestchen-text">Marke</span>
+          </button>
+          <div class="s-wert">
+            <span class="h-feld-name">Jetzt</span>
+            <span class="h-leise">leer</span>
+          </div>
+          <div class="s-wert">
+            <span class="h-feld-name">Vorschlag</span>
+            <strong>Hofgut</strong>
+            <span class="h-klein h-leise">Lebensmitteldatenbank, 03.10.2026</span>
+          </div>
+        </div>
+
+        <div class="h-karte">
+          <div class="h-reihe verteilt">
+            <strong>Inhalt</strong>
+            <span class="h-zustand gut"><i class="fa-solid fa-check"></i> stimmt schon überein</span>
+          </div>
+          <div class="s-wert">
+            <span class="h-feld-name">Jetzt und Vorschlag</span>
+            <span>1 l</span>
+          </div>
+        </div>
+
+        <div class="h-karte">
+          <button class="h-kaestchen an" type="button" role="checkbox" aria-checked="true">
+            <span class="h-kaestchen-feld"><i class="fa-solid fa-check"></i></span>
+            <span class="h-kaestchen-text">Nutri-Score</span>
+          </button>
+          <div class="s-wert">
+            <span class="h-feld-name">Jetzt</span>
+            <span class="h-leise">leer</span>
+          </div>
+          <div class="s-wert">
+            <span class="h-feld-name">Vorschlag</span>
+            <span class="z-score nutri" data-stufe="c" role="img" aria-label="Nutri-Score C"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></span>
+            <span class="h-klein h-leise">Lebensmitteldatenbank, 03.10.2026</span>
+          </div>
+        </div>
+
+        <div class="h-karte">
+          <button class="h-kaestchen an" type="button" role="checkbox" aria-checked="true">
+            <span class="h-kaestchen-feld"><i class="fa-solid fa-check"></i></span>
+            <span class="h-kaestchen-text">Zutaten</span>
+          </button>
+          <div class="s-wert">
+            <span class="h-feld-name">Jetzt</span>
+            <span class="h-leise">leer</span>
+          </div>
+          <div class="s-wert">
+            <span class="h-feld-name">Vorschlag</span>
+            <strong>Apfelsaft aus Direktsaft</strong>
+            <span class="h-klein h-leise">Lebensmitteldatenbank, 03.10.2026</span>
+          </div>
+        </div>
+
+        <div class="h-karte">
+          <button class="h-kaestchen an" type="button" role="checkbox" aria-checked="true">
+            <span class="h-kaestchen-feld"><i class="fa-solid fa-check"></i></span>
+            <span class="h-kaestchen-text">Titelbild</span>
+          </button>
+          <div class="s-wert">
+            <span class="h-feld-name">Jetzt</span>
+            <span class="h-leise">kein Bild</span>
+          </div>
+          <div class="s-wert">
+            <span class="h-feld-name">Vorschlag</span>
+            <span class="s-bildzeile">
+              <span class="z-erscheinung"><i class="fa-solid fa-image"></i></span>
+              <strong>Bild aus der Lebensmitteldatenbank</strong>
+            </span>
+            <span class="h-klein h-leise">Lebensmitteldatenbank, 03.10.2026</span>
+          </div>
+        </div>
+      </main>
+      <footer class="h-fuss">
+        <button class="h-knopf primaer haupt" type="button">4 Felder übernehmen</button>
+        <a class="h-knopf still breit" href="h44-anreichern-suche.html">Verwerfen</a>
+      </footer>
+    </div>
+  </body>
+</html>

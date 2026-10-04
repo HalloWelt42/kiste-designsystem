@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="allgemein" data-thema="hell">
+  <head>
+    <!-- block:kopf-allgemein -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/regular.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/mock/90-mock.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <!-- /block:kopf-allgemein -->
+    <title>Kiste - Zeichen</title>
+  </head>
+  <body>
+    <main class="m-seite">
+      <header class="m-kopf">
+        <div>
+          <span class="m-unter">G02</span>
+          <h1>Zeichen</h1>
+          <p>Die fünf reinen Anzeige-Bausteine, die Handy und Rechner teilen. Sie ordnen nichts an und lassen sich nicht bedienen; ihre Größe folgt der Schrift ihrer Umgebung.</p>
+        </div>
+      </header>
+
+      <section class="m-abschnitt">
+        <h2>Code-Stempel</h2>
+        <p>Vier Stellen, höchstens sechs, ohne die verwechselbaren Buchstaben I, L, O und U. Der Messingrand läuft rundum.</p>
+        <div class="m-flaeche"><div class="m-reihe"><span class="z-code">T9B5</span><span class="z-code">R4K2</span><span class="z-code">W7K2A</span><span class="z-code gross">M3T7</span><span class="z-code gross gedruckt">M3T7</span></div></div>
+      </section>
+
+      <section class="m-abschnitt">
+        <h2>Erscheinungsbild</h2>
+        <p>Bild, Icon oder nichts. Vier feste Farbtöne; ein Bild wird immer vollständig eingepasst, nie beschnitten.</p>
+        <div class="m-flaeche"><div class="m-reihe">
+          <span class="z-erscheinung"><i class="fa-solid fa-box"></i></span>
+          <span class="z-erscheinung" data-ton="messing"><i class="fa-solid fa-snowflake"></i></span>
+          <span class="z-erscheinung" data-ton="moos"><i class="fa-solid fa-seedling"></i></span>
+          <span class="z-erscheinung" data-ton="ochsenblut"><i class="fa-solid fa-pills"></i></span>
+          <span class="z-erscheinung" data-ton="tinte"><i class="fa-solid fa-car"></i></span>
+          <span class="z-erscheinung bild"><img src="bilder/foto-geschirrtabs.svg" alt="" /></span>
+          <span class="z-erscheinung bild"><img src="bilder/foto-bohrmaschine.svg" alt="" /></span>
+        </div></div>
+      </section>
+
+      <section class="m-abschnitt">
+        <h2>Mengentext</h2>
+        <p>Den Text liefert der Dienst fertig: Zahl und Einheit, in der nächsten sinnvollen Einheit. Die Oberfläche rechnet nichts.</p>
+        <div class="m-flaeche"><div class="m-reihe">
+          <span class="z-menge"><b>3</b> Karton, <b>89</b> Tabs</span>
+          <span class="z-menge"><b>3</b> Tetrapack, <b>2,8</b> l</span>
+          <span class="z-menge"><b>2,5</b> kg</span>
+          <span class="z-menge"><b>359</b> Tabletten</span>
+          <span class="z-menge leer">leer</span>
+        </div></div>
+      </section>
+
+      <section class="m-abschnitt">
+        <h2>Score-Marken</h2>
+        <p>Nur für Lebensmittel, immer in der serifenlosen Schrift, mit den amtlichen Ampelfarben.</p>
+        <div class="m-flaeche"><div class="m-reihe">
+          <span class="z-score nutri" data-stufe="a" role="img" aria-label="Nutri-Score A"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></span>
+          <span class="z-score nutri" data-stufe="b" role="img" aria-label="Nutri-Score B"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></span>
+          <span class="z-score nutri" data-stufe="c" role="img" aria-label="Nutri-Score C"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></span>
+          <span class="z-score nutri" data-stufe="d" role="img" aria-label="Nutri-Score D"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></span>
+          <span class="z-score nutri" data-stufe="e" role="img" aria-label="Nutri-Score E"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></span>
+        </div><div class="m-reihe">
+          <span class="z-score nova" data-stufe="1" role="img" aria-label="NOVA-Gruppe 1"><b>1</b> NOVA</span>
+          <span class="z-score nova" data-stufe="2" role="img" aria-label="NOVA-Gruppe 2"><b>2</b> NOVA</span>
+          <span class="z-score nova" data-stufe="3" role="img" aria-label="NOVA-Gruppe 3"><b>3</b> NOVA</span>
+          <span class="z-score nova" data-stufe="4" role="img" aria-label="NOVA-Gruppe 4"><b>4</b> NOVA</span>
+        </div></div>
+      </section>
+
+      <section class="m-abschnitt">
+        <h2>Markenzeichen</h2>
+        <div class="m-flaeche"><div class="m-reihe"><span class="z-marke"><i class="fa-solid fa-table-cells-large"></i> Kiste</span></div></div>
+      </section>
+    </main>
+    <!-- block:mock-leiste -->
+    <div class="m-leiste">
+      <a href="galerie.html" title="Galerie aller Seiten"><i class="fa-solid fa-grip"></i></a>
+      <button type="button" data-thema-knopf="hell" title="Helles Thema"><i class="fa-solid fa-sun"></i></button>
+      <button type="button" data-thema-knopf="dunkel" title="Dunkles Thema"><i class="fa-solid fa-moon"></i></button>
+    </div>
+    <!-- /block:mock-leiste -->
+  </body>
+</html>

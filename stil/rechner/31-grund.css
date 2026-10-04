@@ -1,0 +1,100 @@
+/* Rechner: Grundregeln. Alles hängt am Wurzelmerkmal, damit nie beide Stilsätze zugleich wirken. */
+@layer r-grund {
+  :root[data-oberflaeche="rechner"] {
+    block-size: 100%;
+    overflow: hidden;
+    background: var(--papier);
+  }
+
+  :root[data-oberflaeche="rechner"] *,
+  :root[data-oberflaeche="rechner"] *::before,
+  :root[data-oberflaeche="rechner"] *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Die Seite rollt nie; gerollt wird in den Rollfeldern der Hülle. */
+  :root[data-oberflaeche="rechner"] body {
+    block-size: 100%;
+    overflow: hidden;
+    font-family: var(--schrift-text);
+    font-size: var(--r-schrift);
+    line-height: 1.5;
+    color: var(--tinte);
+    background: var(--papier);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  :root[data-oberflaeche="rechner"] h1,
+  :root[data-oberflaeche="rechner"] h2,
+  :root[data-oberflaeche="rechner"] h3,
+  :root[data-oberflaeche="rechner"] h4 {
+    font-family: var(--schrift-titel);
+    font-variation-settings: var(--titel-achsen);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+
+  :root[data-oberflaeche="rechner"] button,
+  :root[data-oberflaeche="rechner"] input,
+  :root[data-oberflaeche="rechner"] textarea {
+    font: inherit;
+    color: inherit;
+    letter-spacing: inherit;
+  }
+
+  :root[data-oberflaeche="rechner"] button {
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+
+  :root[data-oberflaeche="rechner"] a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  :root[data-oberflaeche="rechner"] img,
+  :root[data-oberflaeche="rechner"] svg {
+    display: block;
+    max-inline-size: 100%;
+  }
+
+  :root[data-oberflaeche="rechner"] ul,
+  :root[data-oberflaeche="rechner"] ol {
+    list-style: none;
+  }
+
+  /* Das Suchfeld bringt sein eigenes Leeren mit; das des Browsers bleibt aus. */
+  :root[data-oberflaeche="rechner"] input[type="search"]::-webkit-search-cancel-button,
+  :root[data-oberflaeche="rechner"] input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  :root[data-oberflaeche="rechner"] :focus-visible {
+    outline: 2px solid var(--messing);
+    outline-offset: 2px;
+  }
+
+  :root[data-oberflaeche="rechner"] ::-webkit-scrollbar {
+    inline-size: 10px;
+    block-size: 10px;
+  }
+  :root[data-oberflaeche="rechner"] ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  :root[data-oberflaeche="rechner"] ::-webkit-scrollbar-thumb {
+    border: 2px solid transparent;
+    border-radius: var(--rund-voll);
+    background: var(--papier-linie);
+    background-clip: content-box;
+  }
+  :root[data-oberflaeche="rechner"] ::-webkit-scrollbar-thumb:hover {
+    background: var(--tinte-blass);
+    background-clip: content-box;
+  }
+}

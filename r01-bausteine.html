@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="rechner" data-thema="hell">
+  <head>
+    <!-- block:kopf-rechner -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/regular.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/rechner/30-masse.css" />
+    <link rel="stylesheet" href="stil/rechner/31-grund.css" />
+    <link rel="stylesheet" href="stil/rechner/32-huelle.css" />
+    <link rel="stylesheet" href="stil/rechner/33-bausteine.css" />
+    <link rel="stylesheet" href="stil/rechner/34-ansichten.css" />
+    <link rel="stylesheet" href="stil/mock/90-mock.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <!-- /block:kopf-rechner -->
+    <title>Kiste - Bausteine Rechner</title>
+    <style>
+      /* Nur Anordnung des Katalogs. */
+      .s-muster { display: grid; gap: var(--r-a3); }
+      .s-spalten { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--r-a6); }
+      .s-schwebend { position: relative; display: inline-grid; justify-items: start; gap: var(--r-a1); }
+    </style>
+  </head>
+  <body data-seite="lager" data-baum="S6P1" data-leuchte="verbunden">
+    <!-- block:r-zu-schmal -->
+    <div class="r-zu-schmal">
+      <i class="fa-solid fa-display"></i>
+      <strong>Das Fenster ist zu schmal für die Rechner-Ansicht.</strong>
+      <p>Kiste am Rechner braucht mindestens 1024 Pixel Breite. Vergrößere das Fenster oder wechsle zur Handy-Ansicht.</p>
+      <a class="r-knopf primaer" href="h04-start.html"><i class="fa-solid fa-mobile-screen"></i> Zur Handy-Ansicht</a>
+    </div>
+    <!-- /block:r-zu-schmal -->
+    <div class="r-huelle">
+      <!-- block:r-seitenleiste -->
+      <aside class="r-seitenleiste">
+        <div class="r-seitenleiste-kopf">
+          <a class="z-marke" href="r03-lager-start.html"><i class="fa-solid fa-table-cells-large"></i><span>Kiste</span></a>
+          <button class="r-symbolknopf nackt klein" type="button" title="Seitenleiste einklappen" data-schalte=".r-huelle" data-klasse="eingeklappt"><i class="fa-solid fa-angles-left"></i></button>
+        </div>
+        <nav class="r-nav" aria-label="Bereiche">
+          <a class="r-nav-eintrag" data-seite="lager" href="r03-lager-start.html" title="Lager"><i class="fa-solid fa-house"></i><span>Lager</span></a>
+          <a class="r-nav-eintrag" data-seite="suche" href="r19-suche.html" title="Suche"><i class="fa-solid fa-magnifying-glass"></i><span>Suche</span></a>
+          <a class="r-nav-eintrag" data-seite="einkauf" href="r23-einkaufsliste.html" title="Einkauf: 4 Einträge fehlen"><i class="fa-solid fa-cart-shopping"></i><span>Einkauf</span><span class="r-nav-zahl">4</span></a>
+          <a class="r-nav-eintrag" data-seite="haltbarkeit" href="r24-haltbarkeit.html" title="Haltbarkeit: 3 Einträge sind bald fällig"><i class="fa-solid fa-hourglass-half"></i><span>Haltbarkeit</span><span class="r-nav-zahl">3</span></a>
+          <a class="r-nav-eintrag" data-seite="erinnerungen" href="#" title="Erinnerungen"><i class="fa-solid fa-bell"></i><span>Erinnerungen</span></a>
+          <a class="r-nav-eintrag" data-seite="park" href="#" title="Park-Bereich: 3 Einträge warten auf einen Ort"><i class="fa-solid fa-inbox"></i><span>Park-Bereich</span><span class="r-nav-zahl">3</span></a>
+          <a class="r-nav-eintrag" data-seite="verlauf" href="#" title="Zuletzt bewegt"><i class="fa-solid fa-clock-rotate-left"></i><span>Zuletzt bewegt</span></a>
+          <span class="r-nav-gruppe">Stammdaten</span>
+          <a class="r-nav-eintrag" data-seite="katalog" href="r20-katalog.html" title="Katalog der Produkte"><i class="fa-solid fa-book-open"></i><span>Katalog</span></a>
+          <a class="r-nav-eintrag" data-seite="kategorien" href="r29-kategorien.html" title="Kategorien und ihr Verhalten"><i class="fa-solid fa-shapes"></i><span>Kategorien</span></a>
+          <a class="r-nav-eintrag" data-seite="etiketten" href="#" title="Etiketten drucken"><i class="fa-solid fa-qrcode"></i><span>Etiketten</span></a>
+        </nav>
+        <div class="r-seitenfuss">
+          <a class="r-nav-eintrag" data-seite="vorgaenge" href="#" title="Vorgänge: 1 läuft"><i class="fa-solid fa-list-check"></i><span>Vorgänge</span><span class="r-nav-zahl">1</span></a>
+          <a class="r-nav-eintrag" data-seite="hilfe" href="#" title="Hilfe öffnen"><i class="fa-solid fa-circle-info"></i><span>Hilfe</span></a>
+          <a class="r-nav-eintrag" data-seite="einstellungen" href="#" title="Einstellungen"><i class="fa-solid fa-gear"></i><span>Einstellungen</span></a>
+          <a class="r-nav-eintrag" data-seite="verwaltung" href="#" title="Verwaltung: Konten, Anbindungen, Sicherungen"><i class="fa-solid fa-screwdriver-wrench"></i><span>Verwaltung</span></a>
+          <div class="r-nutzer">
+            <span class="r-nutzer-bild">M</span>
+            <span class="r-nutzer-text"><strong>Alex</strong><small>Haushalt Zuhause</small></span>
+            <button class="r-symbolknopf nackt klein" type="button" title="Abmelden"><i class="fa-solid fa-right-from-bracket"></i></button>
+          </div>
+          <div class="r-fassung">
+            <span class="r-leuchte verbunden" title="Verbunden mit dem Dienst"></span>
+            <span data-fassung></span>
+            <button class="r-symbolknopf nackt klein" type="button" title="Zwischen hellem und dunklem Thema wechseln" data-thema-wechsel><i class="fa-solid fa-circle-half-stroke"></i></button>
+          </div>
+        </div>
+      </aside>
+      <!-- /block:r-seitenleiste -->
+      <div class="r-anfasser" title="Breite der Seitenleiste ziehen"></div>
+      <!-- block:r-baum -->
+      <aside class="r-mitte">
+        <div class="r-mitte-kopf">
+          <div class="r-suchfeld">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input class="r-eingabe" type="search" placeholder="Im Lager suchen" aria-label="Im Lager suchen" />
+          </div>
+          <button class="r-symbolknopf ki" type="button" title="Vorschläge für Kategorie und Icon beim Anlegen einschalten"><i class="fa-solid fa-brain"></i></button>
+          <button class="r-symbolknopf aktiv" type="button" title="Neuen Eintrag am aktuellen Ort anlegen"><i class="fa-solid fa-plus"></i></button>
+        </div>
+        <nav class="r-mitte-rumpf r-baum" aria-label="Lager">
+          <ul class="r-baumkinder">
+            <li class="r-baumknoten" id="baum-w7k2">
+              <div class="r-baumzeile" data-code="W7K2"><button class="r-baumgriff" type="button" title="Wohnung auf- oder zuklappen" data-schalte="#baum-w7k2" data-klasse="offen"><i class="fa-solid fa-chevron-right"></i></button><a class="r-baumziel" href="#"><i class="fa-solid fa-house"></i><span>Wohnung</span></a><span class="r-baumzahl">148</span></div>
+              <ul class="r-baumkinder">
+                <li class="r-baumknoten" id="baum-f3n8">
+                  <div class="r-baumzeile" data-code="F3N8"><button class="r-baumgriff" type="button" title="Flur auf- oder zuklappen" data-schalte="#baum-f3n8" data-klasse="offen"><i class="fa-solid fa-chevron-right"></i></button><a class="r-baumziel" href="#"><i class="fa-solid fa-door-open"></i><span>Flur</span></a><span class="r-baumzahl">9</span></div>
+                  <ul class="r-baumkinder">
+                    <li class="r-baumknoten" id="baum-g5d1">
+                      <div class="r-baumzeile" data-code="G5D1"><button class="r-baumgriff" type="button" title="Garderobe auf- oder zuklappen" data-schalte="#baum-g5d1" data-klasse="offen"><i class="fa-solid fa-chevron-right"></i></button><a class="r-baumziel" href="#"><i class="fa-solid fa-box-archive"></i><span>Garderobe</span></a><span class="r-baumzahl">8</span></div>
+                      <ul class="r-baumkinder">
+                        <li class="r-baumknoten" id="baum-j8p4">
+                          <div class="r-baumzeile" data-code="J8P4"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-shirt"></i><span>Winterjacke</span></a></div>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="r-baumknoten" id="baum-k4m8">
+                  <div class="r-baumzeile" data-code="K4M8"><button class="r-baumgriff" type="button" title="Küche auf- oder zuklappen" data-schalte="#baum-k4m8" data-klasse="offen"><i class="fa-solid fa-chevron-right"></i></button><a class="r-baumziel" href="#"><i class="fa-solid fa-kitchen-set"></i><span>Küche</span></a><span class="r-baumzahl">34</span></div>
+                  <ul class="r-baumkinder">
+                    <li class="r-baumknoten" id="baum-r2d5">
+                      <div class="r-baumzeile" data-code="R2D5"><button class="r-baumgriff" type="button" title="Kühlschrank auf- oder zuklappen" data-schalte="#baum-r2d5" data-klasse="offen"><i class="fa-solid fa-chevron-right"></i></button><a class="r-baumziel" href="#"><i class="fa-solid fa-snowflake"></i><span>Kühlschrank</span></a><span class="r-baumzahl">10</span></div>
+                      <ul class="r-baumkinder">
+                        <li class="r-baumknoten" id="baum-m3t7">
+                          <div class="r-baumzeile" data-code="M3T7"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-cow"></i><span>Milch</span></a></div>
+                        </li>
+                        <li class="r-baumknoten" id="baum-b6h2">
+                          <div class="r-baumzeile leer" data-code="B6H2"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-cube"></i><span>Butter</span></a></div>
+                        </li>
+                        <li class="r-baumknoten" id="baum-e9c4">
+                          <div class="r-baumzeile" data-code="E9C4"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-egg"></i><span>Eier</span></a></div>
+                        </li>
+                        <li class="r-baumknoten" id="baum-y2g6">
+                          <div class="r-baumzeile" data-code="Y2G6"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-jar"></i><span>Joghurt</span></a></div>
+                        </li>
+                        <li class="r-baumknoten" id="baum-c5r8">
+                          <div class="r-baumzeile" data-code="C5R8"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-cheese"></i><span>Käse</span></a></div>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="r-baumknoten" id="baum-v8n3">
+                      <div class="r-baumzeile" data-code="V8N3"><button class="r-baumgriff" type="button" title="Vorratsschrank auf- oder zuklappen" data-schalte="#baum-v8n3" data-klasse="offen"><i class="fa-solid fa-chevron-right"></i></button><a class="r-baumziel" href="#"><i class="fa-solid fa-box-archive"></i><span>Vorratsschrank</span></a><span class="r-baumzahl">17</span></div>
+                      <ul class="r-baumkinder">
+                        <li class="r-baumknoten" id="baum-x6n2">
+                          <div class="r-baumzeile" data-code="X6N2"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-wheat-awn"></i><span>Mehl</span></a></div>
+                        </li>
+                        <li class="r-baumknoten" id="baum-d7y3">
+                          <div class="r-baumzeile" data-code="D7Y3"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-jar"></i><span>Kondensmilch</span></a></div>
+                        </li>
+                        <li class="r-baumknoten" id="baum-h4q9">
+                          <div class="r-baumzeile" data-code="H4Q9"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-cow"></i><span>H-Milch</span></a></div>
+                        </li>
+                        <li class="r-baumknoten" id="baum-a5s8">
+                          <div class="r-baumzeile" data-code="A5S8"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-bottle-water"></i><span>Apfelsaft</span></a></div>
+                        </li>
+                        <li class="r-baumknoten" id="baum-n6z2">
+                          <div class="r-baumzeile" data-code="N6Z2"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-bowl-food"></i><span>Nudeln</span></a></div>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="r-baumknoten" id="baum-s6p1">
+                      <div class="r-baumzeile" data-code="S6P1"><button class="r-baumgriff" type="button" title="Spülenschrank auf- oder zuklappen" data-schalte="#baum-s6p1" data-klasse="offen"><i class="fa-solid fa-chevron-right"></i></button><a class="r-baumziel" href="#"><i class="fa-solid fa-sink"></i><span>Spülenschrank</span></a><span class="r-baumzahl">4</span></div>
+                      <ul class="r-baumkinder">
+                        <li class="r-baumknoten" id="baum-t9b5">
+                          <div class="r-baumzeile" data-code="T9B5"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-box"></i><span>Geschirrtabs</span></a></div>
+                        </li>
+                        <li class="r-baumknoten" id="baum-p3w7">
+                          <div class="r-baumzeile" data-code="P3W7"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-pump-soap"></i><span>Spülmittel</span></a></div>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="r-baumknoten" id="baum-z8h6">
+                  <div class="r-baumzeile" data-code="Z8H6"><button class="r-baumgriff" type="button" title="Wohnzimmer auf- oder zuklappen" data-schalte="#baum-z8h6" data-klasse="offen"><i class="fa-solid fa-chevron-right"></i></button><a class="r-baumziel" href="#"><i class="fa-solid fa-couch"></i><span>Wohnzimmer</span></a><span class="r-baumzahl">51</span></div>
+                  <ul class="r-baumkinder">
+                    <li class="r-baumknoten" id="baum-b3r7">
+                      <div class="r-baumzeile" data-code="B3R7"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-book"></i><span>Bücherregal</span></a><span class="r-baumzahl">50</span></div>
+                    </li>
+                  </ul>
+                </li>
+                <li class="r-baumknoten" id="baum-d2v5">
+                  <div class="r-baumzeile" data-code="D2V5"><button class="r-baumgriff" type="button" title="Bad auf- oder zuklappen" data-schalte="#baum-d2v5" data-klasse="offen"><i class="fa-solid fa-chevron-right"></i></button><a class="r-baumziel" href="#"><i class="fa-solid fa-bath"></i><span>Bad</span></a><span class="r-baumzahl">14</span></div>
+                  <ul class="r-baumkinder">
+                    <li class="r-baumknoten" id="baum-h5t9">
+                      <div class="r-baumzeile" data-code="H5T9"><button class="r-baumgriff" type="button" title="Hausapotheke auf- oder zuklappen" data-schalte="#baum-h5t9" data-klasse="offen"><i class="fa-solid fa-chevron-right"></i></button><a class="r-baumziel" href="#"><i class="fa-solid fa-kit-medical"></i><span>Hausapotheke</span></a><span class="r-baumzahl">5</span></div>
+                      <ul class="r-baumkinder">
+                        <li class="r-baumknoten" id="baum-c8k3">
+                          <div class="r-baumzeile" data-code="C8K3"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-pills"></i><span>Vitamin-Tabletten</span></a></div>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="r-baumknoten" id="baum-s4j9">
+                  <div class="r-baumzeile" data-code="S4J9"><button class="r-baumgriff" type="button" title="Schlafzimmer auf- oder zuklappen" data-schalte="#baum-s4j9" data-klasse="offen"><i class="fa-solid fa-chevron-right"></i></button><a class="r-baumziel" href="#"><i class="fa-solid fa-bed"></i><span>Schlafzimmer</span></a><span class="r-baumzahl">28</span></div>
+                  <ul class="r-baumkinder">
+                    <li class="r-baumknoten" id="baum-q7f2">
+                      <div class="r-baumzeile" data-code="Q7F2"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-shirt"></i><span>Kleiderschrank</span></a><span class="r-baumzahl">27</span></div>
+                    </li>
+                  </ul>
+                </li>
+                <li class="r-baumknoten" id="baum-x5m3">
+                  <div class="r-baumzeile" data-code="X5M3"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-laptop"></i><span>Arbeitszimmer</span></a><span class="r-baumzahl">12</span></div>
+                </li>
+              </ul>
+            </li>
+            <li class="r-baumknoten" id="baum-g1f4">
+              <div class="r-baumzeile" data-code="G1F4"><button class="r-baumgriff" type="button" title="Garage auf- oder zuklappen" data-schalte="#baum-g1f4" data-klasse="offen"><i class="fa-solid fa-chevron-right"></i></button><a class="r-baumziel" href="#"><i class="fa-solid fa-warehouse"></i><span>Garage</span></a><span class="r-baumzahl">62</span></div>
+              <ul class="r-baumkinder">
+                <li class="r-baumknoten" id="baum-y6c8">
+                  <div class="r-baumzeile" data-code="Y6C8"><button class="r-baumgriff" type="button" title="Werkbank auf- oder zuklappen" data-schalte="#baum-y6c8" data-klasse="offen"><i class="fa-solid fa-chevron-right"></i></button><a class="r-baumziel" href="#"><i class="fa-solid fa-hammer"></i><span>Werkbank</span></a><span class="r-baumzahl">59</span></div>
+                  <ul class="r-baumkinder">
+                    <li class="r-baumknoten" id="baum-r4k2">
+                      <div class="r-baumzeile" data-code="R4K2"><button class="r-baumgriff" type="button" title="Schraubenregal auf- oder zuklappen" data-schalte="#baum-r4k2" data-klasse="offen"><i class="fa-solid fa-chevron-right"></i></button><a class="r-baumziel" href="#"><i class="fa-solid fa-layer-group"></i><span>Schraubenregal</span></a><span class="r-baumzahl">57</span></div>
+                      <ul class="r-baumkinder">
+                        <li class="r-baumknoten" id="baum-f7md">
+                          <div class="r-baumzeile" data-code="F7MD"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-screwdriver"></i><span>Schrauben M5 Inbus</span></a></div>
+                        </li>
+                        <li class="r-baumknoten" id="baum-q3jb">
+                          <div class="r-baumzeile" data-code="Q3JB"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-screwdriver"></i><span>Schrauben M6 Senkkopf</span></a></div>
+                        </li>
+                        <li class="r-baumknoten" id="baum-x8pv">
+                          <div class="r-baumzeile" data-code="X8PV"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-gear"></i><span>Muttern M8</span></a></div>
+                        </li>
+                        <li class="r-baumknoten" id="baum-v2hn">
+                          <div class="r-baumzeile" data-code="V2HN"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-toolbox"></i><span>Werkzeugkoffer</span></a><span class="r-baumzahl">14</span></div>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="r-baumknoten" id="baum-n4t6">
+                      <div class="r-baumzeile" data-code="N4T6"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-screwdriver-wrench"></i><span>Bohrmaschine</span></a></div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="r-baumknoten" id="baum-a9c6">
+              <div class="r-baumzeile" data-code="A9C6"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-car"></i><span>Auto</span></a><span class="r-baumzahl">5</span></div>
+            </li>
+            <li class="r-baumknoten" id="baum-n2h7">
+              <div class="r-baumzeile" data-code="N2H7"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-seedling"></i><span>Garten</span></a><span class="r-baumzahl">9</span></div>
+            </li>
+            <li class="r-baumknoten">
+              <div class="r-baumzeile" data-code="PARK"><span></span><a class="r-baumziel" href="#"><i class="fa-solid fa-inbox"></i><span>Park-Bereich</span></a><span class="r-baumzahl">3</span></div>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <!-- /block:r-baum -->
+      <div class="r-anfasser" title="Breite des Baums ziehen"></div>
+      <section class="r-inhalt">
+        <header class="r-seitenkopf">
+          <nav class="r-brotkrumen" aria-label="Pfad">
+            <a href="#">Wohnung</a><i class="fa-solid fa-chevron-right"></i><a href="#">Küche</a><i class="fa-solid fa-chevron-right"></i><strong>Spülenschrank</strong>
+          </nav>
+          <div class="r-titelzeile">
+            <h1>Bausteine</h1>
+            <div class="r-seitenkopf-aktionen">
+              <button class="r-knopf" type="button"><i class="fa-solid fa-up-down-left-right"></i> Bewegen</button>
+              <button class="r-knopf primaer" type="button"><i class="fa-solid fa-plus"></i> Hinzufügen</button>
+              <div class="r-seitenkopf-fest">
+                <button class="r-symbolknopf nackt hilfe" type="button" title="Info-Modus: Bedienelemente erklären sich beim Anklicken"><i class="fa-solid fa-circle-info"></i></button>
+                <button class="r-symbolknopf nackt" type="button" title="Bearbeiten: Einrichten und Korrigieren einschalten"><i class="fa-solid fa-pen"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="r-titelunter">
+            <span class="z-code">S6P1</span>
+            <span class="r-pille messing">Behälter</span>
+            <span class="r-pille">Schrank</span>
+            <span><b>2</b> Einträge, <b>4</b> Gegenstände</span>
+          </div>
+        </header>
+
+        <div class="r-rollfeld">
+          <div class="r-breite s-spalten">
+            <!-- ================= linke Spalte ================= -->
+            <div class="r-stapel">
+              <section class="r-abschnitt">
+                <div class="r-abschnitt-kopf"><h2>Zeichen</h2><span class="r-abschnitt-zahl">geteilt mit dem Handy</span></div>
+                <div class="r-reihe">
+                  <span class="z-code">T9B5</span>
+                  <span class="z-code">R4K2</span>
+                  <span class="z-code gross">W7K2</span>
+                </div>
+                <div class="r-reihe">
+                  <span class="z-erscheinung"><i class="fa-solid fa-box"></i></span>
+                  <span class="z-erscheinung" data-ton="messing"><i class="fa-solid fa-snowflake"></i></span>
+                  <span class="z-erscheinung" data-ton="moos"><i class="fa-solid fa-seedling"></i></span>
+                  <span class="z-erscheinung" data-ton="ochsenblut"><i class="fa-solid fa-pills"></i></span>
+                  <span class="z-erscheinung" data-ton="tinte"><i class="fa-solid fa-car"></i></span>
+                  <span class="z-erscheinung bild"><img src="bilder/foto-geschirrtabs.svg" alt="" /></span>
+                  <span class="z-menge"><b>89</b> Tabs</span>
+                  <span class="z-menge"><b>2,5</b> kg</span>
+                  <span class="z-menge leer">leer</span>
+                </div>
+                <div class="r-reihe">
+                  <span class="z-score nutri" data-stufe="b" role="img" aria-label="Nutri-Score B"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></span>
+                  <span class="z-score nova" data-stufe="1" role="img" aria-label="NOVA-Gruppe 1"><b>1</b> NOVA</span>
+                </div>
+              </section>
+
+              <section class="r-abschnitt">
+                <div class="r-abschnitt-kopf"><h2>Knöpfe</h2><span class="r-abschnitt-zahl">eine Höhe je Reihe</span></div>
+                <div class="r-reihe">
+                  <button class="r-knopf primaer" type="button"><i class="fa-solid fa-plus"></i> Hinzufügen</button>
+                  <button class="r-knopf messing" type="button"><i class="fa-solid fa-qrcode"></i> Code zuweisen</button>
+                  <button class="r-knopf" type="button"><i class="fa-solid fa-up-down-left-right"></i> Bewegen</button>
+                  <button class="r-knopf still" type="button">Abbrechen</button>
+                  <button class="r-knopf gefahr" type="button"><i class="fa-solid fa-trash-can"></i> Löschen</button>
+                  <button class="r-knopf primaer gesperrt" type="button" disabled title="Erst einen Namen eingeben">Speichern</button>
+                </div>
+                <div class="r-reihe">
+                  <button class="r-knopf klein" type="button">Klein</button>
+                  <button class="r-symbolknopf" type="button" title="Mehr Handlungen"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                  <button class="r-symbolknopf aktiv" type="button" title="Bearbeiten beenden"><i class="fa-solid fa-pen"></i></button>
+                  <button class="r-symbolknopf ki" type="button" title="Vorschläge der KI einschalten"><i class="fa-solid fa-brain"></i></button>
+                  <button class="r-symbolknopf ki aktiv" type="button" title="Vorschläge der KI ausschalten"><i class="fa-solid fa-brain"></i></button>
+                  <button class="r-symbolknopf hilfe" type="button" title="Hilfe öffnen"><i class="fa-solid fa-circle-info"></i></button>
+                  <button class="r-symbolknopf nackt" type="button" title="Schließen"><i class="fa-solid fa-xmark"></i></button>
+                  <a class="r-link" href="#">Alle ansehen <i class="fa-solid fa-chevron-right"></i></a>
+                </div>
+                <div class="r-reihe">
+                  <div class="r-wahlreihe" role="tablist" aria-label="Ansicht des Inhalts">
+                    <button class="r-wahl aktiv" type="button" role="tab" aria-selected="true" title="Als Karten zeigen"><i class="fa-solid fa-grip"></i> Karten</button>
+                    <button class="r-wahl" type="button" role="tab" aria-selected="false" title="Als Liste zeigen"><i class="fa-solid fa-list"></i> Liste</button>
+                    <button class="r-wahl" type="button" role="tab" aria-selected="false" title="Dicht gepackt zeigen"><i class="fa-solid fa-bars"></i> Kompakt</button>
+                  </div>
+                  <div class="r-stufen" title="Tabletten je Einnahme, 1 bis 10">
+                    <button type="button" title="Eine weniger"><i class="fa-solid fa-minus"></i></button>
+                    <span class="r-stufen-wert">2</span>
+                    <button type="button" title="Eine mehr"><i class="fa-solid fa-plus"></i></button>
+                  </div>
+                  <button class="r-halten" type="button" style="--stand: 0" title="Gedrückt halten, bis der Ring voll ist"><span class="r-halten-ring"></span> Halten zum Löschen</button>
+                  <button class="r-halten" type="button" style="--stand: 62"><span class="r-halten-ring"></span> Weiter halten</button>
+                </div>
+              </section>
+
+              <section class="r-abschnitt">
+                <div class="r-abschnitt-kopf"><h2>Felder</h2><span class="r-abschnitt-zahl">rechts bündig</span></div>
+                <div class="r-formular">
+                  <div class="r-feld">
+                    <label class="r-feld-name" for="f-name">Name</label>
+                    <div class="r-formular-rumpf"><input class="r-eingabe gross" id="f-name" type="text" value="Geschirrtabs" autocomplete="off" /></div>
+                  </div>
+                  <div class="r-feld">
+                    <label class="r-feld-name" for="f-text">Beschreibung <button class="r-hilfepunkt" type="button" title="Hilfe zur Beschreibung"><i class="fa-solid fa-circle-info"></i></button></label>
+                    <div class="r-formular-rumpf">
+                      <textarea class="r-eingabe" id="f-text" placeholder="Was man später wissen möchte"></textarea>
+                      <span class="r-feld-hinweis">Wird bei der Suche mit durchsucht.</span>
+                    </div>
+                  </div>
+                  <div class="r-feld">
+                    <span class="r-feld-name">Inhalt je Karton</span>
+                    <div class="r-formular-rumpf">
+                      <div class="r-mengenfeld">
+                        <input class="r-eingabe zahl" type="text" inputmode="decimal" value="30" aria-label="Menge" title="Wie viel in einer Packung ist" />
+                        <button class="r-auswahl schmal" type="button" title="Einheit wählen"><span>Tabs</span><i class="fa-solid fa-chevron-down"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="r-feld">
+                    <label class="r-feld-name" for="f-datum">Haltbar bis</label>
+                    <div class="r-formular-rumpf">
+                      <div class="r-datumsfeld">
+                        <input class="r-eingabe" id="f-datum" type="text" value="10.10.2026" title="Datum tippen, auch kurz: 101026 oder 10.2026" />
+                        <button type="button" title="Kalender öffnen"><i class="fa-solid fa-calendar-days"></i></button>
+                      </div>
+                      <span class="r-feld-deutung"><i class="fa-solid fa-check"></i> Samstag, 10. Oktober 2026, in 7 Tagen</span>
+                    </div>
+                  </div>
+                  <div class="r-feld">
+                    <span class="r-feld-name">Kategorie</span>
+                    <div class="r-formular-rumpf">
+                      <button class="r-auswahl offen" type="button" title="Kategorie wählen"><span>Haushaltsmittel</span><i class="fa-solid fa-chevron-down"></i></button>
+                      <div class="r-auswahlliste" role="listbox" aria-label="Kategorie">
+                        <button class="r-option gewaehlt" type="button" role="option" aria-selected="true"><i class="fa-solid fa-spray-can-sparkles"></i><span>Haushaltsmittel</span><i class="fa-solid fa-check"></i></button>
+                        <button class="r-option aktiv" type="button" role="option" aria-selected="false"><i class="fa-solid fa-cow"></i><span>Milchprodukt</span><small>Lebensmittel</small></button>
+                        <button class="r-option" type="button" role="option" aria-selected="false"><i class="fa-solid fa-bottle-water"></i><span>Getränk</span><small>Lebensmittel</small></button>
+                        <button class="r-option" type="button" role="option" aria-selected="false"><i class="fa-solid fa-pills"></i><span>Medikament</span></button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="r-feld fehler">
+                    <label class="r-feld-name" for="f-code">Strichcode</label>
+                    <div class="r-formular-rumpf">
+                      <input class="r-eingabe" id="f-code" type="text" inputmode="numeric" value="201234500012" />
+                      <span class="r-feld-fehler"><i class="fa-solid fa-circle-exclamation"></i> Eine Ziffer fehlt: 13 Stellen werden gebraucht.</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="r-reihe">
+                  <div class="r-suchfeld">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input class="r-eingabe" type="search" value="Milch" aria-label="Im Lager suchen" />
+                    <button class="r-suchfeld-leeren" type="button" title="Suche leeren"><i class="fa-solid fa-xmark"></i></button>
+                  </div>
+                </div>
+                <div class="r-stapel">
+                  <button class="r-schalter an" type="button" role="switch" aria-checked="true" title="Wirkt sofort: 7 Tage vor Ablauf erscheint eine Erinnerung">
+                    <span class="r-schalter-bahn"></span>
+                    <span class="r-schalter-text">An Haltbarkeit erinnern<small>7 Tage vor Ablauf</small></span>
+                  </button>
+                  <button class="r-schalter" type="button" role="switch" aria-checked="false" title="Wirkt sofort: ein kurzer Ton bestätigt jeden Scan">
+                    <span class="r-schalter-bahn"></span>
+                    <span class="r-schalter-text">Ton beim Scannen</span>
+                  </button>
+                  <button class="r-kaestchen an" type="button" role="checkbox" aria-checked="true" title="Wird beim Speichern übernommen">
+                    <span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span>
+                    <span class="r-kaestchen-text">Als Produkt in den Katalog aufnehmen<small>Dann erkennt der Scanner die Packung wieder.</small></span>
+                  </button>
+                  <button class="r-kaestchen" type="button" role="checkbox" aria-checked="false" title="Wird beim Speichern übernommen">
+                    <span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span>
+                    <span class="r-kaestchen-text">Etikett mit Code vergeben</span>
+                  </button>
+                </div>
+                <div class="r-zwei" role="radiogroup" aria-label="Was ist das">
+                  <button class="r-wahlkarte gewaehlt" type="button" role="radio" aria-checked="true">
+                    <span class="r-wahlkarte-punkt"></span>
+                    <span class="r-wahlkarte-text"><strong>Ein Ding</strong><small>Etwas, das irgendwo liegt: Milch, Jacke, Bohrmaschine.</small></span>
+                  </button>
+                  <button class="r-wahlkarte" type="button" role="radio" aria-checked="false">
+                    <span class="r-wahlkarte-punkt"></span>
+                    <span class="r-wahlkarte-text"><strong>Ein Behälter</strong><small>Etwas, in dem anderes liegt: Schrank, Kiste, Regal.</small></span>
+                  </button>
+                </div>
+                <div class="r-kalender">
+                  <div class="r-kalender-kopf">
+                    <button class="r-symbolknopf nackt klein" type="button" title="Voriger Monat"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span class="r-kalender-monat">Oktober 2026</span>
+                    <button class="r-symbolknopf nackt klein" type="button" title="Nächster Monat"><i class="fa-solid fa-chevron-right"></i></button>
+                  </div>
+                  <div class="r-kalender-tage">
+                    <span class="r-kalender-wochentag">Mo</span><span class="r-kalender-wochentag">Di</span><span class="r-kalender-wochentag">Mi</span><span class="r-kalender-wochentag">Do</span><span class="r-kalender-wochentag">Fr</span><span class="r-kalender-wochentag">Sa</span><span class="r-kalender-wochentag">So</span>
+                    <button class="r-tag fremd" type="button">28</button><button class="r-tag fremd" type="button">29</button><button class="r-tag fremd" type="button">30</button><button class="r-tag" type="button">1</button><button class="r-tag" type="button">2</button><button class="r-tag heute" type="button" title="Heute">3</button><button class="r-tag" type="button">4</button>
+                    <button class="r-tag" type="button">5</button><button class="r-tag" type="button">6</button><button class="r-tag" type="button">7</button><button class="r-tag" type="button">8</button><button class="r-tag" type="button">9</button><button class="r-tag gewaehlt" type="button" aria-pressed="true">10</button><button class="r-tag" type="button">11</button>
+                    <button class="r-tag" type="button">12</button><button class="r-tag" type="button">13</button><button class="r-tag" type="button">14</button><button class="r-tag" type="button">15</button><button class="r-tag" type="button">16</button><button class="r-tag" type="button">17</button><button class="r-tag" type="button">18</button>
+                    <button class="r-tag" type="button">19</button><button class="r-tag" type="button">20</button><button class="r-tag" type="button">21</button><button class="r-tag" type="button">22</button><button class="r-tag" type="button">23</button><button class="r-tag" type="button">24</button><button class="r-tag" type="button">25</button>
+                    <button class="r-tag" type="button">26</button><button class="r-tag" type="button">27</button><button class="r-tag" type="button">28</button><button class="r-tag" type="button">29</button><button class="r-tag" type="button">30</button><button class="r-tag" type="button">31</button><button class="r-tag fremd" type="button">1</button>
+                  </div>
+                </div>
+              </section>
+
+              <section class="r-abschnitt">
+                <div class="r-abschnitt-kopf"><h2>Pillen, Marken, Reiter</h2></div>
+                <div class="r-pillen">
+                  <span class="r-pille messing">Behälter</span>
+                  <span class="r-pille">Haushaltsmittel <button type="button" title="Kategorie entfernen"><i class="fa-solid fa-xmark"></i></button></span>
+                  <span class="r-pille moos">Lebensmittel</span>
+                  <span class="r-pille ochsenblut">Gefahrstoff</span>
+                  <button class="r-pille wahl aktiv" type="button">Alle <span class="r-pille-zahl">50</span></button>
+                  <button class="r-pille wahl" type="button">Bücher <span class="r-pille-zahl">30</span></button>
+                  <button class="r-pille wahl" type="button">Magazine <span class="r-pille-zahl">20</span></button>
+                </div>
+                <div class="r-pillen">
+                  <span class="r-zustand gut"><i class="fa-solid fa-check"></i> vorhanden</span>
+                  <span class="r-zustand warn"><i class="fa-solid fa-hourglass-half"></i> läuft in 3 Tagen ab</span>
+                  <span class="r-zustand gefahr"><i class="fa-solid fa-triangle-exclamation"></i> abgelaufen</span>
+                  <span class="r-zustand">leer</span>
+                  <span class="r-leuchte verbunden" data-fest title="verbunden"></span>
+                  <span class="r-leuchte last" data-fest title="Last"></span>
+                  <span class="r-leuchte" data-fest title="getrennt"></span>
+                </div>
+                <nav class="r-reiter" aria-label="Bereiche des Eintrags">
+                  <a class="r-reiter-eintrag aktiv" href="#">Übersicht</a>
+                  <a class="r-reiter-eintrag" href="#">Packungen</a>
+                  <a class="r-reiter-eintrag" href="#">Verlauf</a>
+                </nav>
+                <div class="s-schwebend">
+                  <button class="r-knopf" type="button">Mit Schwebehinweis</button>
+                  <span class="r-schwebehinweis" role="tooltip">Öffnet das Fenster zum Anlegen mit allen Feldern der Kategorie.</span>
+                </div>
+              </section>
+            </div>
+
+            <!-- ================= rechte Spalte ================= -->
+            <div class="r-stapel">
+              <section class="r-abschnitt">
+                <div class="r-abschnitt-kopf"><h2>Kacheln und Hinweise</h2></div>
+                <div class="r-kacheln">
+                  <a class="r-kachel" href="#"><span class="r-kachel-zahl">4</span><span class="r-kachel-wort"><i class="fa-solid fa-cart-shopping"></i> Einkauf</span></a>
+                  <a class="r-kachel warn" href="#"><span class="r-kachel-zahl">3</span><span class="r-kachel-wort"><i class="fa-solid fa-hourglass-half"></i> bald fällig</span></a>
+                  <a class="r-kachel" href="#"><span class="r-kachel-zahl">3</span><span class="r-kachel-wort"><i class="fa-solid fa-inbox"></i> geparkt</span></a>
+                </div>
+                <div class="r-hinweis messing"><i class="fa-solid fa-hourglass-half"></i><p><strong>Joghurt</strong> läuft in 3 Tagen ab.</p><a class="r-link" href="#">Ansehen</a></div>
+                <div class="r-hinweis hilfe"><i class="fa-solid fa-circle-info"></i><p>Ein Behälter kann anderes enthalten. Ein Ding liegt nur irgendwo.</p></div>
+                <div class="r-hinweis gut"><i class="fa-solid fa-check"></i><p>Der Code ist frei und wird diesem Eintrag zugewiesen.</p></div>
+                <div class="r-hinweis gefahr"><i class="fa-solid fa-triangle-exclamation"></i><p><strong>Käse</strong> ist seit 2 Tagen abgelaufen.</p></div>
+                <div class="r-hinweis"><i class="fa-solid fa-location-dot"></i><p>Neues landet im Spülenschrank.</p></div>
+                <div class="r-fortschritt" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60" aria-label="Fortschritt 60 Prozent" style="--stand: 60">
+                  <span class="r-fortschritt-text"><span>Schritt 2 von 3: Bild auswerten</span><small>60 Prozent, noch etwa 20 Sekunden</small></span>
+                  <span class="r-fortschritt-balken"></span>
+                </div>
+              </section>
+
+              <section class="r-abschnitt">
+                <div class="r-abschnitt-kopf"><h2>Inhalt</h2><span class="r-abschnitt-zahl">2 Einträge</span></div>
+                <div class="r-karten">
+                  <a class="r-karte" href="#">
+                    <span class="z-erscheinung bild"><img src="bilder/foto-geschirrtabs.svg" alt="" /></span>
+                    <span class="r-karte-name">Geschirrtabs</span>
+                    <span class="r-karte-fuss"><span class="z-code">T9B5</span><span class="z-menge"><b>3</b> Karton, <b>89</b> Tabs</span></span>
+                  </a>
+                  <a class="r-karte" href="#">
+                    <span class="z-erscheinung"><i class="fa-solid fa-pump-soap"></i></span>
+                    <span class="r-karte-name">Spülmittel</span>
+                    <span class="r-karte-fuss"><span class="z-code">P3W7</span><span class="z-menge"><b>1</b> Flasche, <b>320</b> ml</span></span>
+                  </a>
+                  <a class="r-karte leer" href="#">
+                    <span class="z-erscheinung"><i class="fa-solid fa-cube"></i></span>
+                    <span class="r-karte-name">Butter</span>
+                    <span class="r-karte-fuss"><span class="z-code">B6H2</span><span class="z-menge leer">leer</span></span>
+                  </a>
+                  <a class="r-karte gewaehlt" href="#">
+                    <span class="z-erscheinung" data-ton="tinte"><i class="fa-solid fa-check"></i></span>
+                    <span class="r-karte-name">Ein sehr langer Name, der nicht in eine Zeile passt</span>
+                    <span class="r-karte-fuss"><span class="z-code">E9C4</span><span class="z-menge"><b>2</b> Schachteln, <b>16</b> Eier</span></span>
+                  </a>
+                </div>
+                <div class="r-tabellenfeld"><table class="r-tabelle">
+                  <thead><tr><th>Name</th><th>Code</th><th class="zahl">Menge</th><th>Haltbar bis</th></tr></thead>
+                  <tbody>
+                    <tr><td><span class="r-tabelle-name"><span class="z-erscheinung"><i class="fa-solid fa-cow"></i></span> Milch</span></td><td><span class="z-code">M3T7</span></td><td class="zahl"><span class="z-menge"><b>3</b> Tetrapack, <b>2,8</b> l</span></td><td><span class="r-zustand warn"><i class="fa-solid fa-hourglass-half"></i> 10.10.2026</span></td></tr>
+                    <tr><td><span class="r-tabelle-name"><span class="z-erscheinung"><i class="fa-solid fa-cheese"></i></span> Käse</span></td><td><span class="z-code">C5R8</span></td><td class="zahl"><span class="z-menge"><b>1</b> Stück</span></td><td><span class="r-zustand gefahr"><i class="fa-solid fa-triangle-exclamation"></i> 01.10.2026</span></td></tr>
+                    <tr class="leer"><td><span class="r-tabelle-name"><span class="z-erscheinung"><i class="fa-solid fa-cube"></i></span> Butter</span></td><td><span class="z-code">B6H2</span></td><td class="zahl"><span class="z-menge leer">leer</span></td><td></td></tr>
+                  </tbody>
+                </table></div>
+                <div class="r-mehr-fuss"><span>25 von 64</span><button class="r-knopf klein" type="button">Weitere 25 laden</button></div>
+                <div class="r-auswahlleiste"><strong>2 ausgewählt</strong><button class="r-knopf klein" type="button"><i class="fa-solid fa-up-down-left-right"></i> Bewegen</button><button class="r-knopf klein" type="button">Auswahl aufheben</button></div>
+              </section>
+
+              <section class="r-abschnitt">
+                <div class="r-abschnitt-kopf"><h2>Menge</h2></div>
+                <div class="r-mengenblock">
+                  <div>
+                    <div class="r-mengenblock-menge"><b>89</b> Tabs <span class="r-zustand gut"><i class="fa-solid fa-check"></i> vorhanden</span></div>
+                    <p class="r-mengenblock-unter">2 Karton ungeöffnet, 1 angebrochen mit 29 Tabs</p>
+                  </div>
+                  <div class="r-mengenblock-knoepfe">
+                    <button class="r-knopf primaer" type="button" title="1 Tab verbrauchen"><i class="fa-solid fa-minus"></i> 1 Tab</button>
+                    <button class="r-knopf" type="button" title="1 Karton verbrauchen: trifft zuerst den angebrochenen"><i class="fa-solid fa-minus"></i> 1 Karton</button>
+                    <button class="r-knopf" type="button" title="1 Karton einkaufen"><i class="fa-solid fa-plus"></i> 1 Karton</button>
+                  </div>
+                  <div class="r-mengenblock-fuss"><span>Mindestens 1 Karton, gekauft am 12.09.2026 für 5,49 EUR je Karton</span><a class="r-link" href="#">Menge ändern <i class="fa-solid fa-chevron-right"></i></a></div>
+                </div>
+              </section>
+
+              <section class="r-abschnitt">
+                <div class="r-abschnitt-kopf"><h2>Eigenschaften, Codes, Bilder</h2></div>
+                <div class="r-zwei">
+                  <div class="r-flaeche">
+                    <span class="r-flaeche-titel">Eigenschaften</span>
+                    <dl class="r-eigenschaften">
+                      <div class="r-eigenschaft"><dt>Bauart</dt><dd>Schlagbohrmaschine</dd></div>
+                      <div class="r-eigenschaft"><dt>Leistung</dt><dd>750 W</dd></div>
+                      <div class="r-eigenschaft"><dt>Gekauft am</dt><dd>14.03.2024</dd></div>
+                      <div class="r-eigenschaft"><dt>Garantie noch</dt><dd class="errechnet">162 Tage</dd></div>
+                    </dl>
+                  </div>
+                  <div class="r-etikett">
+                    <img src="bilder/qr-t9b5.svg" alt="QR-Code des Eintrags" />
+                    <span class="z-code gross gedruckt">T9B5</span>
+                    <img class="strichcode" src="bilder/strichcode-geschirrtabs.svg" alt="Strichcode 2012345000124" />
+                  </div>
+                </div>
+                <div class="r-bilder">
+                  <figure class="r-bild titel"><img src="bilder/foto-bohrmaschine.svg" alt="Bohrmaschine auf der Werkbank" /><span class="r-zustand r-bild-marke">Titelbild</span></figure>
+                  <figure class="r-bild"><img src="bilder/foto-typenschild.svg" alt="Typenschild der Bohrmaschine" /></figure>
+                  <figure class="r-bild"><img src="bilder/foto-geschirrtabs.svg" alt="Karton Geschirrtabs im Schrank" /></figure>
+                </div>
+              </section>
+
+              <section class="r-abschnitt">
+                <div class="r-abschnitt-kopf"><h2>Verlauf</h2><a class="r-link" href="#">Alle ansehen</a></div>
+                <div class="r-verlauf">
+                  <div class="r-verlauf-zeile"><span class="r-verlauf-wann">heute 09:58</span><span class="r-verlauf-was">1 Tab verbraucht, 89 übrig</span><span class="r-verlauf-wer">Alex</span></div>
+                  <div class="r-verlauf-zeile"><span class="r-verlauf-wann">gestern 18:40</span><span class="r-verlauf-was">Bewegt: Arbeitszimmer <i class="fa-solid fa-arrow-right-long"></i> Schraubenregal</span><span class="r-verlauf-wer">Alex</span></div>
+                  <div class="r-verlauf-zeile"><span class="r-verlauf-wann">12.09.2026</span><span class="r-verlauf-was">3 Karton eingekauft, 5,49 EUR je Karton</span><span class="r-verlauf-wer">Mia</span></div>
+                </div>
+              </section>
+
+              <section class="r-abschnitt">
+                <div class="r-abschnitt-kopf"><h2>Leer und Laden</h2></div>
+                <div class="r-leerzustand">
+                  <i class="fa-solid fa-box-open"></i>
+                  <h2>Hier liegt noch nichts</h2>
+                  <p>Lege den ersten Eintrag in diesem Behälter an.</p>
+                  <button class="r-knopf primaer" type="button"><i class="fa-solid fa-plus"></i> Eintrag anlegen</button>
+                </div>
+                <div class="r-stapel" aria-hidden="true">
+                  <span class="r-skelett titel"></span>
+                  <span class="r-skelett kurz"></span>
+                  <span class="r-skelett karte"></span>
+                </div>
+              </section>
+
+              <section class="r-abschnitt">
+                <div class="r-abschnitt-kopf"><h2>Fenster und Meldungen</h2></div>
+                <div class="r-reihe">
+                  <button class="r-knopf" type="button" data-zeige="#fenster">Fenster öffnen</button>
+                  <button class="r-knopf" type="button" data-zeige="#frage">Rückfrage öffnen</button>
+                  <button class="r-knopf" type="button" data-zeige="#meldungen">Meldungen zeigen</button>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="r-meldungen" id="meldungen" hidden>
+      <div class="r-meldung"><i class="fa-solid fa-check"></i><span>1 Tab verbraucht, 89 übrig</span><button class="r-meldung-knopf" type="button">Rückgängig</button></div>
+      <div class="r-meldung fehler"><i class="fa-solid fa-triangle-exclamation"></i><span>Nicht gespeichert: Der Dienst ist nicht erreichbar.</span><button class="r-meldung-knopf" type="button">Erneut versuchen</button></div>
+    </div>
+
+    <div class="r-schleier" id="fenster" hidden>
+      <section class="r-fenster" role="dialog" aria-modal="true" aria-labelledby="fenster-titel">
+        <header class="r-fenster-kopf">
+          <h2 id="fenster-titel">Neuer Eintrag</h2>
+          <button class="r-symbolknopf nackt" type="button" title="Schließen" data-zeige="#fenster"><i class="fa-solid fa-xmark"></i></button>
+          <p class="r-fenster-unter">Wird abgelegt in: Wohnung, Küche, Spülenschrank</p>
+        </header>
+        <div class="r-fenster-rumpf">
+          <div class="r-formular">
+            <div class="r-feld">
+              <label class="r-feld-name" for="n-name">Name</label>
+              <div class="r-formular-rumpf"><input class="r-eingabe gross" id="n-name" type="text" placeholder="Wie heißt es?" autocomplete="off" /></div>
+            </div>
+            <div class="r-feld">
+              <span class="r-feld-name">Menge</span>
+              <div class="r-formular-rumpf">
+                <div class="r-mengenfeld">
+                  <input class="r-eingabe zahl" type="text" inputmode="decimal" value="1" aria-label="Menge" />
+                  <button class="r-auswahl schmal" type="button" title="Einheit wählen"><span>Stück</span><i class="fa-solid fa-chevron-down"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="r-feld">
+              <label class="r-feld-name" for="n-text">Beschreibung</label>
+              <div class="r-formular-rumpf"><textarea class="r-eingabe" id="n-text" placeholder="Was man später wissen möchte"></textarea></div>
+            </div>
+          </div>
+        </div>
+        <footer class="r-fenster-fuss">
+          <button class="r-knopf still" type="button" data-zeige="#fenster">Abbrechen</button>
+          <button class="r-knopf" type="button">Speichern und nächstes</button>
+          <button class="r-knopf primaer" type="button" data-zeige="#fenster">Speichern</button>
+        </footer>
+      </section>
+    </div>
+
+    <div class="r-schleier" id="frage" hidden>
+      <section class="r-fenster schmal" role="alertdialog" aria-modal="true" aria-labelledby="frage-titel">
+        <header class="r-fenster-kopf">
+          <h2 id="frage-titel">Spülenschrank löschen</h2>
+          <button class="r-symbolknopf nackt" type="button" title="Schließen" data-zeige="#frage"><i class="fa-solid fa-xmark"></i></button>
+        </header>
+        <div class="r-fenster-rumpf">
+          <p>Im Spülenschrank liegen 2 Einträge. Was soll mit ihnen geschehen?</p>
+          <div class="r-stapel" role="radiogroup" aria-label="Was mit dem Inhalt geschieht">
+            <button class="r-wahlkarte gewaehlt" type="button" role="radio" aria-checked="true">
+              <span class="r-wahlkarte-punkt"></span>
+              <span class="r-wahlkarte-text"><strong>Inhalt in den Park-Bereich</strong><small>Die 2 Einträge bleiben erhalten und warten dort auf einen neuen Ort.</small></span>
+            </button>
+            <button class="r-wahlkarte" type="button" role="radio" aria-checked="false">
+              <span class="r-wahlkarte-punkt"></span>
+              <span class="r-wahlkarte-text"><strong>Samt Inhalt löschen</strong><small>Auch die 2 Einträge werden gelöscht.</small></span>
+            </button>
+          </div>
+        </div>
+        <footer class="r-fenster-fuss">
+          <button class="r-knopf still" type="button" data-zeige="#frage">Abbrechen</button>
+          <button class="r-halten" type="button" style="--stand: 0" title="Gedrückt halten, bis der Ring voll ist"><span class="r-halten-ring"></span> Halten zum Löschen</button>
+        </footer>
+      </section>
+    </div>
+
+    <!-- block:mock-leiste -->
+    <div class="m-leiste">
+      <a href="galerie.html" title="Galerie aller Seiten"><i class="fa-solid fa-grip"></i></a>
+      <button type="button" data-thema-knopf="hell" title="Helles Thema"><i class="fa-solid fa-sun"></i></button>
+      <button type="button" data-thema-knopf="dunkel" title="Dunkles Thema"><i class="fa-solid fa-moon"></i></button>
+    </div>
+    <!-- /block:mock-leiste -->
+  </body>
+</html>

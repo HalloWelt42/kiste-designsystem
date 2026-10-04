@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="handy" data-thema="hell">
+  <head>
+    <!-- block:kopf-handy -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/regular.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/handy/40-masse.css" />
+    <link rel="stylesheet" href="stil/handy/41-grund.css" />
+    <link rel="stylesheet" href="stil/handy/42-huelle.css" />
+    <link rel="stylesheet" href="stil/handy/43-bausteine.css" />
+    <link rel="stylesheet" href="stil/handy/44-ansichten.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <!-- /block:kopf-handy -->
+    <title>Kiste - Datumsfeld</title>
+  </head>
+  <body data-leuchte="verbunden">
+    <div class="h-huelle">
+      <header class="h-kopf">
+        <a class="h-kopf-zurueck" href="h06-behaelter.html"><i class="fa-solid fa-xmark"></i><span>Abbrechen</span></a>
+        <div class="h-kopf-titel">Neuer Eintrag</div>
+        <div class="h-kopf-aktionen">
+          <button class="h-symbolknopf ki aktiv" type="button" aria-label="Vorschläge der KI ausschalten"><i class="fa-solid fa-brain"></i></button>
+        </div>
+      </header>
+      <main class="h-rollfeld">
+        <div class="h-titelblock">
+          <h1>Neuer Eintrag</h1>
+        </div>
+        <label class="h-feld">
+          <span class="h-feld-name">Name</span>
+          <input class="h-eingabe gross" type="text" value="Sahne" autocomplete="off" />
+        </label>
+        <div class="h-feld">
+          <span class="h-feld-name">Haltbar bis</span>
+          <a class="h-auswahl" href="h24-datumsfeld.html"><span>12.10.2026</span><i class="fa-solid fa-calendar-days"></i></a>
+          <span class="h-feld-deutung"><i class="fa-solid fa-check"></i> Montag, 12. Oktober 2026, in 9 Tagen</span>
+        </div>
+      </main>
+      <footer class="h-fuss zweigeteilt">
+        <button class="h-knopf" type="button">Speichern und nächstes</button>
+        <a class="h-knopf primaer" href="h06-behaelter.html">Speichern</a>
+      </footer>
+    </div>
+
+    <div class="h-schleier"></div>
+
+    <section class="h-blatt" role="dialog" aria-modal="true" aria-labelledby="blatt-datum-titel">
+      <header class="h-blatt-kopf">
+        <h2 class="h-blatt-titel" id="blatt-datum-titel">Haltbar bis</h2>
+        <a class="h-symbolknopf nackt" href="h23-anlegen-mit-feldern.html" aria-label="Schließen"><i class="fa-solid fa-xmark"></i></a>
+      </header>
+      <div class="h-blatt-rumpf">
+        <div class="h-wahlreihe" role="tablist" aria-label="Wie das Datum eingegeben wird">
+          <button class="h-wahl aktiv" type="button" role="tab" aria-selected="true">Tippen</button>
+          <button class="h-wahl" type="button" role="tab" aria-selected="false">Kalender</button>
+        </div>
+        <div class="h-feld">
+          <input class="h-eingabe gross" type="text" value="121026" readonly aria-label="Datum, getippt" />
+          <span class="h-feld-deutung"><i class="fa-solid fa-check"></i> Montag, 12. Oktober 2026, in 9 Tagen</span>
+        </div>
+        <div class="h-pillen" role="group" aria-label="Kurzwahl">
+          <button class="h-pille wahl" type="button">in 1 Woche</button>
+          <button class="h-pille wahl" type="button">in 1 Monat</button>
+          <button class="h-pille wahl" type="button">in 1 Jahr</button>
+        </div>
+        <div class="h-ziffern">
+          <button class="h-ziffer" type="button">1</button><button class="h-ziffer" type="button">2</button><button class="h-ziffer" type="button">3</button>
+          <button class="h-ziffer" type="button">4</button><button class="h-ziffer" type="button">5</button><button class="h-ziffer" type="button">6</button>
+          <button class="h-ziffer" type="button">7</button><button class="h-ziffer" type="button">8</button><button class="h-ziffer" type="button">9</button>
+          <button class="h-ziffer neben" type="button" aria-label="Punkt">.</button><button class="h-ziffer" type="button">0</button><button class="h-ziffer neben" type="button" aria-label="Letzte Ziffer löschen"><i class="fa-solid fa-delete-left"></i></button>
+        </div>
+      </div>
+      <footer class="h-blatt-fuss zweigeteilt">
+        <a class="h-knopf" href="h23-anlegen-mit-feldern.html">Kein Datum</a>
+        <a class="h-knopf primaer" href="h23-anlegen-mit-feldern.html">Übernehmen</a>
+      </footer>
+    </section>
+  </body>
+</html>

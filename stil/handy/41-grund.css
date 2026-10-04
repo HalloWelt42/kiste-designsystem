@@ -1,0 +1,91 @@
+/* Handy: Grundregeln. Alles hängt am Wurzelmerkmal, damit nie beide Stilsätze zugleich wirken. */
+@layer h-grund {
+  :root[data-oberflaeche="handy"] {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    block-size: 100%;
+    overflow: hidden;
+    background: var(--papier);
+  }
+
+  :root[data-oberflaeche="handy"] *,
+  :root[data-oberflaeche="handy"] *::before,
+  :root[data-oberflaeche="handy"] *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Dokument und Körper rollen nie; gerollt wird nur im Rollfeld der Hülle. */
+  :root[data-oberflaeche="handy"] body {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    overscroll-behavior: none;
+    font-family: var(--schrift-text);
+    font-size: var(--h-schrift);
+    line-height: 1.45;
+    color: var(--tinte);
+    background: var(--papier);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  :root[data-oberflaeche="handy"] h1,
+  :root[data-oberflaeche="handy"] h2,
+  :root[data-oberflaeche="handy"] h3,
+  :root[data-oberflaeche="handy"] h4 {
+    font-family: var(--schrift-titel);
+    font-variation-settings: var(--titel-achsen);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+
+  :root[data-oberflaeche="handy"] button,
+  :root[data-oberflaeche="handy"] input,
+  :root[data-oberflaeche="handy"] textarea {
+    font: inherit;
+    color: inherit;
+    letter-spacing: inherit;
+  }
+
+  :root[data-oberflaeche="handy"] button {
+    border: 0;
+    background: none;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  :root[data-oberflaeche="handy"] input,
+  :root[data-oberflaeche="handy"] textarea {
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 0;
+  }
+
+  :root[data-oberflaeche="handy"] a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  :root[data-oberflaeche="handy"] img,
+  :root[data-oberflaeche="handy"] svg {
+    display: block;
+    max-inline-size: 100%;
+  }
+
+  :root[data-oberflaeche="handy"] ul,
+  :root[data-oberflaeche="handy"] ol {
+    list-style: none;
+  }
+
+  :root[data-oberflaeche="handy"] :focus-visible {
+    outline: 3px solid var(--fokus);
+    outline-offset: 2px;
+  }
+}

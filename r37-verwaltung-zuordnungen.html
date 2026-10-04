@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="rechner" data-thema="hell">
+  <head>
+    <!-- block:kopf-rechner -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/regular.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/rechner/30-masse.css" />
+    <link rel="stylesheet" href="stil/rechner/31-grund.css" />
+    <link rel="stylesheet" href="stil/rechner/32-huelle.css" />
+    <link rel="stylesheet" href="stil/rechner/33-bausteine.css" />
+    <link rel="stylesheet" href="stil/rechner/34-ansichten.css" />
+    <link rel="stylesheet" href="stil/mock/90-mock.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <!-- /block:kopf-rechner -->
+    <title>Kiste - Verwaltung: Zuordnungen und Formate</title>
+    <style>
+      /* Nur Anordnung: die Handlungen im Seitenkopf dürfen umbrechen. */
+      .s-kopfzeile { flex-wrap: wrap; }
+      .s-aktionen { flex: 1 1 auto; flex-wrap: wrap; justify-content: flex-end; }
+      /* Kopf der Mittelspalte: nur der Titel des Bereichs. */
+      .s-kopf { grid-template-columns: minmax(0, 1fr); }
+      /* Schmale Spalten: Pfeil und Entfernen. */
+      .s-rechts { inline-size: 1%; white-space: nowrap; }
+      /* Die Auswahlen in der Tabelle haben eine feste Breite. */
+      .s-ziel { inline-size: 170px; }
+      .s-wahl { inline-size: 250px; }
+      .s-wahl-breit { inline-size: 280px; }
+      /* Wahl der Quelle: Beschriftung und Auswahl in einer Zeile. */
+      .s-quelle { display: flex; align-items: center; gap: var(--r-a3); }
+      .s-links { justify-self: start; }
+    </style>
+  </head>
+  <body data-seite="verwaltung" data-leuchte="verbunden">
+    <!-- block:r-zu-schmal -->
+    <div class="r-zu-schmal">
+      <i class="fa-solid fa-display"></i>
+      <strong>Das Fenster ist zu schmal für die Rechner-Ansicht.</strong>
+      <p>Kiste am Rechner braucht mindestens 1024 Pixel Breite. Vergrößere das Fenster oder wechsle zur Handy-Ansicht.</p>
+      <a class="r-knopf primaer" href="h04-start.html"><i class="fa-solid fa-mobile-screen"></i> Zur Handy-Ansicht</a>
+    </div>
+    <!-- /block:r-zu-schmal -->
+    <div class="r-huelle">
+      <!-- block:r-seitenleiste -->
+      <aside class="r-seitenleiste">
+        <div class="r-seitenleiste-kopf">
+          <a class="z-marke" href="r03-lager-start.html"><i class="fa-solid fa-table-cells-large"></i><span>Kiste</span></a>
+          <button class="r-symbolknopf nackt klein" type="button" title="Seitenleiste einklappen" data-schalte=".r-huelle" data-klasse="eingeklappt"><i class="fa-solid fa-angles-left"></i></button>
+        </div>
+        <nav class="r-nav" aria-label="Bereiche">
+          <a class="r-nav-eintrag" data-seite="lager" href="r03-lager-start.html" title="Lager"><i class="fa-solid fa-house"></i><span>Lager</span></a>
+          <a class="r-nav-eintrag" data-seite="suche" href="r19-suche.html" title="Suche"><i class="fa-solid fa-magnifying-glass"></i><span>Suche</span></a>
+          <a class="r-nav-eintrag" data-seite="einkauf" href="r23-einkaufsliste.html" title="Einkauf: 4 Einträge fehlen"><i class="fa-solid fa-cart-shopping"></i><span>Einkauf</span><span class="r-nav-zahl">4</span></a>
+          <a class="r-nav-eintrag" data-seite="haltbarkeit" href="r24-haltbarkeit.html" title="Haltbarkeit: 3 Einträge sind bald fällig"><i class="fa-solid fa-hourglass-half"></i><span>Haltbarkeit</span><span class="r-nav-zahl">3</span></a>
+          <a class="r-nav-eintrag" data-seite="erinnerungen" href="#" title="Erinnerungen"><i class="fa-solid fa-bell"></i><span>Erinnerungen</span></a>
+          <a class="r-nav-eintrag" data-seite="park" href="#" title="Park-Bereich: 3 Einträge warten auf einen Ort"><i class="fa-solid fa-inbox"></i><span>Park-Bereich</span><span class="r-nav-zahl">3</span></a>
+          <a class="r-nav-eintrag" data-seite="verlauf" href="#" title="Zuletzt bewegt"><i class="fa-solid fa-clock-rotate-left"></i><span>Zuletzt bewegt</span></a>
+          <span class="r-nav-gruppe">Stammdaten</span>
+          <a class="r-nav-eintrag" data-seite="katalog" href="r20-katalog.html" title="Katalog der Produkte"><i class="fa-solid fa-book-open"></i><span>Katalog</span></a>
+          <a class="r-nav-eintrag" data-seite="kategorien" href="r29-kategorien.html" title="Kategorien und ihr Verhalten"><i class="fa-solid fa-shapes"></i><span>Kategorien</span></a>
+          <a class="r-nav-eintrag" data-seite="etiketten" href="#" title="Etiketten drucken"><i class="fa-solid fa-qrcode"></i><span>Etiketten</span></a>
+        </nav>
+        <div class="r-seitenfuss">
+          <a class="r-nav-eintrag" data-seite="vorgaenge" href="#" title="Vorgänge: 1 läuft"><i class="fa-solid fa-list-check"></i><span>Vorgänge</span><span class="r-nav-zahl">1</span></a>
+          <a class="r-nav-eintrag" data-seite="hilfe" href="#" title="Hilfe öffnen"><i class="fa-solid fa-circle-info"></i><span>Hilfe</span></a>
+          <a class="r-nav-eintrag" data-seite="einstellungen" href="#" title="Einstellungen"><i class="fa-solid fa-gear"></i><span>Einstellungen</span></a>
+          <a class="r-nav-eintrag" data-seite="verwaltung" href="#" title="Verwaltung: Konten, Anbindungen, Sicherungen"><i class="fa-solid fa-screwdriver-wrench"></i><span>Verwaltung</span></a>
+          <div class="r-nutzer">
+            <span class="r-nutzer-bild">M</span>
+            <span class="r-nutzer-text"><strong>Alex</strong><small>Haushalt Zuhause</small></span>
+            <button class="r-symbolknopf nackt klein" type="button" title="Abmelden"><i class="fa-solid fa-right-from-bracket"></i></button>
+          </div>
+          <div class="r-fassung">
+            <span class="r-leuchte verbunden" title="Verbunden mit dem Dienst"></span>
+            <span data-fassung></span>
+            <button class="r-symbolknopf nackt klein" type="button" title="Zwischen hellem und dunklem Thema wechseln" data-thema-wechsel><i class="fa-solid fa-circle-half-stroke"></i></button>
+          </div>
+        </div>
+      </aside>
+      <!-- /block:r-seitenleiste -->
+      <div class="r-anfasser" title="Breite der Seitenleiste ziehen"></div>
+      <aside class="r-mitte">
+        <div class="r-mitte-kopf s-kopf">
+          <h2>Verwaltung</h2>
+        </div>
+        <nav class="r-mitte-rumpf r-baum" aria-label="Verwaltung">
+          <p class="r-nav-gruppe">Zugang</p>
+          <ul class="r-baumkinder">
+            <li class="r-baumknoten"><div class="r-baumzeile"><span></span><a class="r-baumziel" href="r34-verwaltung-konten.html"><i class="fa-solid fa-users"></i><span>Konten</span></a><span class="r-baumzahl">3</span></div></li>
+          </ul>
+          <p class="r-nav-gruppe">Dienst</p>
+          <ul class="r-baumkinder">
+            <li class="r-baumknoten"><div class="r-baumzeile"><span></span><a class="r-baumziel" href="r35-verwaltung-anbindungen.html"><i class="fa-solid fa-plug"></i><span>Anbindungen</span></a><span class="r-zustand warn" title="Das Arzneiverzeichnis antwortet seit 10:22 nicht"><i class="fa-solid fa-triangle-exclamation"></i> 1</span></div></li>
+            <li class="r-baumknoten"><div class="r-baumzeile"><span></span><a class="r-baumziel" href="r36-verwaltung-protokoll.html"><i class="fa-solid fa-file-lines"></i><span>Protokoll</span></a><span class="r-baumzahl">1.812</span></div></li>
+            <li class="r-baumknoten"><div class="r-baumzeile aktiv"><span></span><a class="r-baumziel" href="r37-verwaltung-zuordnungen.html"><i class="fa-solid fa-right-left"></i><span>Zuordnungen und Formate</span></a></div></li>
+          </ul>
+          <p class="r-nav-gruppe">Daten</p>
+          <ul class="r-baumkinder">
+            <li class="r-baumknoten"><div class="r-baumzeile"><span></span><a class="r-baumziel" href="r38-verwaltung-sicherungen.html"><i class="fa-solid fa-shield-halved"></i><span>Sicherungen</span></a><span class="r-baumzahl">7</span></div></li>
+          </ul>
+        </nav>
+      </aside>
+      <div class="r-anfasser" title="Breite der Verwaltungsliste ziehen"></div>
+      <section class="r-inhalt">
+        <header class="r-seitenkopf">
+          <div class="r-titelzeile s-kopfzeile">
+            <h1>Zuordnungen und Formate</h1>
+            <div class="r-seitenkopf-aktionen s-aktionen">
+              <button class="r-knopf primaer" type="button" title="Übernimmt die geänderten Zuordnungen und Formate; sie gelten ab dem nächsten Abruf">Speichern</button>
+              <div class="r-seitenkopf-fest">
+                <button class="r-symbolknopf nackt hilfe" type="button" title="Info-Modus: Bedienelemente erklären sich beim Anklicken"><i class="fa-solid fa-circle-info"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="r-titelunter">
+            <span>Welches Feld einer Quelle in welches Feld der Kiste kommt, und wie Werte erscheinen</span>
+          </div>
+        </header>
+        <div class="r-rollfeld">
+          <div class="r-breite r-stapel">
+            <section class="r-abschnitt">
+              <div class="r-abschnitt-kopf"><h2>Zuordnungen</h2><span class="r-abschnitt-zahl">5 Zuordnungen</span></div>
+              <div class="s-quelle">
+                <span class="r-feld-name">Quelle</span>
+                <button class="r-auswahl s-wahl-breit" type="button" title="Quelle wählen, deren Zuordnungen hier stehen"><span>Lebensmitteldatenbank</span><i class="fa-solid fa-chevron-down"></i></button>
+                <span class="r-leise r-klein">Beispiele aus dem letzten Abruf: Apfelsaft, 03.10.2026</span>
+              </div>
+              <div class="r-tabellenfeld"><table class="r-tabelle">
+                <thead><tr><th>Quellfeld</th><th class="s-rechts"><span class="r-leise">wird</span></th><th>Zielfeld</th><th>Normalisierung</th><th>Beispiel</th><th class="s-rechts"><span class="r-leise">Entfernen</span></th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Produktname</strong></td>
+                    <td class="s-rechts"><i class="fa-solid fa-arrow-right r-leise"></i></td>
+                    <td><button class="r-auswahl s-ziel" type="button" title="Zielfeld für den Produktnamen wählen"><span>Name</span><i class="fa-solid fa-chevron-down"></i></button></td>
+                    <td><button class="r-auswahl s-wahl" type="button" title="Wie der Wert vor dem Übernehmen bereinigt wird"><span>unverändert</span><i class="fa-solid fa-chevron-down"></i></button></td>
+                    <td>Apfelsaft naturtrüb</td>
+                    <td class="s-rechts"><button class="r-symbolknopf nackt klein" type="button" title="Diese Zuordnung entfernen; der Produktname wird dann nicht mehr übernommen"><i class="fa-solid fa-trash-can"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Marke</strong></td>
+                    <td class="s-rechts"><i class="fa-solid fa-arrow-right r-leise"></i></td>
+                    <td><button class="r-auswahl s-ziel" type="button" title="Zielfeld für die Marke wählen"><span>Marke</span><i class="fa-solid fa-chevron-down"></i></button></td>
+                    <td><button class="r-auswahl s-wahl" type="button" title="Wie der Wert vor dem Übernehmen bereinigt wird"><span>unverändert</span><i class="fa-solid fa-chevron-down"></i></button></td>
+                    <td>Hofgut</td>
+                    <td class="s-rechts"><button class="r-symbolknopf nackt klein" type="button" title="Diese Zuordnung entfernen; die Marke wird dann nicht mehr übernommen"><i class="fa-solid fa-trash-can"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Menge</strong></td>
+                    <td class="s-rechts"><i class="fa-solid fa-arrow-right r-leise"></i></td>
+                    <td><button class="r-auswahl s-ziel" type="button" title="Zielfeld für die Menge wählen"><span>Inhalt</span><i class="fa-solid fa-chevron-down"></i></button></td>
+                    <td><button class="r-auswahl s-wahl" type="button" title="Wie der Wert vor dem Übernehmen bereinigt wird"><span>Zahl und Einheit trennen</span><i class="fa-solid fa-chevron-down"></i></button></td>
+                    <td>1L <i class="fa-solid fa-arrow-right r-leise"></i> 1 l</td>
+                    <td class="s-rechts"><button class="r-symbolknopf nackt klein" type="button" title="Diese Zuordnung entfernen; die Menge wird dann nicht mehr übernommen"><i class="fa-solid fa-trash-can"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Nutri-Score</strong></td>
+                    <td class="s-rechts"><i class="fa-solid fa-arrow-right r-leise"></i></td>
+                    <td><button class="r-auswahl s-ziel" type="button" title="Zielfeld für den Nutri-Score wählen"><span>Nutri-Score</span><i class="fa-solid fa-chevron-down"></i></button></td>
+                    <td><button class="r-auswahl s-wahl" type="button" title="Wie der Wert vor dem Übernehmen bereinigt wird"><span>Großbuchstabe</span><i class="fa-solid fa-chevron-down"></i></button></td>
+                    <td>c <i class="fa-solid fa-arrow-right r-leise"></i> C</td>
+                    <td class="s-rechts"><button class="r-symbolknopf nackt klein" type="button" title="Diese Zuordnung entfernen; der Nutri-Score wird dann nicht mehr übernommen"><i class="fa-solid fa-trash-can"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Zutaten</strong></td>
+                    <td class="s-rechts"><i class="fa-solid fa-arrow-right r-leise"></i></td>
+                    <td><button class="r-auswahl s-ziel" type="button" title="Zielfeld für die Zutaten wählen"><span>Zutaten</span><i class="fa-solid fa-chevron-down"></i></button></td>
+                    <td><button class="r-auswahl s-wahl" type="button" title="Wie der Wert vor dem Übernehmen bereinigt wird"><span>unverändert</span><i class="fa-solid fa-chevron-down"></i></button></td>
+                    <td>Apfelsaft aus Direktsaft</td>
+                    <td class="s-rechts"><button class="r-symbolknopf nackt klein" type="button" title="Diese Zuordnung entfernen; die Zutaten werden dann nicht mehr übernommen"><i class="fa-solid fa-trash-can"></i></button></td>
+                  </tr>
+                </tbody>
+              </table></div>
+              <a class="r-link s-links" href="#" title="Eine weitere Zeile anfügen: ein Feld der Lebensmitteldatenbank einem Feld der Kiste zuordnen"><i class="fa-solid fa-plus"></i> Zuordnung hinzufügen</a>
+            </section>
+
+            <section class="r-abschnitt">
+              <div class="r-abschnitt-kopf"><h2>Formate</h2><span class="r-abschnitt-zahl">gelten für alle Seiten</span></div>
+              <div class="r-tabellenfeld"><table class="r-tabelle">
+                <thead><tr><th>Art</th><th>Anzeige</th><th>Beispiel</th><th>Regel</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Datum</strong></td>
+                    <td><button class="r-auswahl s-wahl-breit" type="button" title="Wie ein Datum angezeigt wird"><span>Tag, Monat, Jahr mit Punkten</span><i class="fa-solid fa-chevron-down"></i></button></td>
+                    <td>03.10.2026</td>
+                    <td><span class="r-leise">Uhrzeit mit Doppelpunkt: 10:24</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Zahl</strong></td>
+                    <td><button class="r-auswahl s-wahl-breit" type="button" title="Wie Tausender und Nachkommastellen getrennt werden"><span>Punkt für Tausender, Komma</span><i class="fa-solid fa-chevron-down"></i></button></td>
+                    <td>1.234,56</td>
+                    <td><span class="r-leise">höchstens zwei Nachkommastellen</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Geld</strong></td>
+                    <td><button class="r-auswahl s-wahl-breit" type="button" title="Wie Beträge angezeigt werden"><span>Betrag, dahinter EUR</span><i class="fa-solid fa-chevron-down"></i></button></td>
+                    <td>1.234,56 EUR</td>
+                    <td><span class="r-leise">immer zwei Nachkommastellen</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Menge</strong></td>
+                    <td><button class="r-auswahl s-wahl-breit" type="button" title="Wie Mengen mit Einheit angezeigt werden"><span>Zahl, Leerzeichen, Einheit</span><i class="fa-solid fa-chevron-down"></i></button></td>
+                    <td>2,5 kg</td>
+                    <td><span class="r-leise">ab 1.000 g in kg, ab 1.000 ml in l</span></td>
+                  </tr>
+                </tbody>
+              </table></div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- block:mock-leiste -->
+    <div class="m-leiste">
+      <a href="galerie.html" title="Galerie aller Seiten"><i class="fa-solid fa-grip"></i></a>
+      <button type="button" data-thema-knopf="hell" title="Helles Thema"><i class="fa-solid fa-sun"></i></button>
+      <button type="button" data-thema-knopf="dunkel" title="Dunkles Thema"><i class="fa-solid fa-moon"></i></button>
+    </div>
+    <!-- /block:mock-leiste -->
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="handy" data-thema="hell">
+  <head>
+    <!-- block:kopf-handy -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/regular.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/handy/40-masse.css" />
+    <link rel="stylesheet" href="stil/handy/41-grund.css" />
+    <link rel="stylesheet" href="stil/handy/42-huelle.css" />
+    <link rel="stylesheet" href="stil/handy/43-bausteine.css" />
+    <link rel="stylesheet" href="stil/handy/44-ansichten.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <!-- /block:kopf-handy -->
+    <title>Kiste - Anmeldung</title>
+    <style>
+      /* Dienstzeile unter dem Hauptknopf: mittig. */
+      .s-dienst {
+        justify-content: center;
+        padding-block-start: var(--h-a1);
+      }
+    </style>
+  </head>
+  <body data-leuchte="verbunden">
+    <div class="h-huelle vollflaeche">
+      <main class="h-rollfeld mittig">
+        <div class="h-anmeldung">
+          <div class="h-anmeldung-marke">
+            <h1 class="z-marke"><i class="fa-solid fa-table-cells-large"></i> Kiste</h1>
+            <p class="h-titelblock-unter">Was liegt wo, und wie viel davon</p>
+          </div>
+          <div class="h-anmeldung-formular">
+            <label class="h-feld">
+              <span class="h-feld-name">Adresse</span>
+              <input class="h-eingabe" type="email" inputmode="email" value="alex@zuhause.example" autocomplete="username" />
+            </label>
+            <label class="h-feld">
+              <span class="h-feld-name">Kennwort</span>
+              <input class="h-eingabe" type="password" autocomplete="current-password" />
+            </label>
+          </div>
+        </div>
+      </main>
+      <footer class="h-fuss">
+        <a class="h-knopf primaer haupt" href="h03-anmeldung-zweiter-schritt.html">Anmelden</a>
+        <div class="h-reihe s-dienst">
+          <span class="h-leuchte"></span>
+          <span class="h-klein">kiste.example:8480</span>
+          <span class="h-klein" data-fassung></span>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

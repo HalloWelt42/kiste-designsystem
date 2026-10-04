@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" role="img" aria-label="Winterjacke an der Garderobe">
+  <defs>
+    <linearGradient id="wand" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d8d2c4"/><stop offset="1" stop-color="#c2baa6"/></linearGradient>
+    <linearGradient id="jacke" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3b4a63"/><stop offset="0.5" stop-color="#47597a"/><stop offset="1" stop-color="#33415a"/></linearGradient>
+  </defs>
+  <rect width="600" height="800" fill="url(#wand)"/>
+  <rect x="60" y="110" width="480" height="22" rx="6" fill="#7d6243"/>
+  <path d="M300 132 q-10 34 -60 52" fill="none" stroke="#9a9a9a" stroke-width="8" stroke-linecap="round"/>
+  <path d="M300 132 q10 34 60 52" fill="none" stroke="#9a9a9a" stroke-width="8" stroke-linecap="round"/>
+  <path d="M230 180 q70 -30 140 0 l96 60 q26 18 30 60 l22 300 l-74 10 l-18 -230 l-6 330 h-240 l-6 -330 l-18 230 l-74 -10 l22 -300 q4 -42 30 -60 Z" fill="url(#jacke)"/>
+  <path d="M300 172 v538" stroke="#263247" stroke-width="6"/>
+  <g stroke="#2c394f" stroke-width="5" opacity="0.8">
+    <line x1="184" y1="320" x2="416" y2="320"/><line x1="182" y1="410" x2="418" y2="410"/><line x1="180" y1="500" x2="420" y2="500"/><line x1="180" y1="590" x2="420" y2="590"/>
+  </g>
+  <path d="M236 178 q64 44 128 0 q-12 46 -64 50 q-52 -4 -64 -50 Z" fill="#8a6d4a"/>
+  <rect x="330" y="540" width="60" height="70" rx="8" fill="#33415a" stroke="#263247" stroke-width="4"/>
+  <rect x="210" y="540" width="60" height="70" rx="8" fill="#33415a" stroke="#263247" stroke-width="4"/>
+</svg>

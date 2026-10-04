@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="handy" data-thema="hell">
+  <head>
+    <!-- block:kopf-handy -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/regular.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/handy/40-masse.css" />
+    <link rel="stylesheet" href="stil/handy/41-grund.css" />
+    <link rel="stylesheet" href="stil/handy/42-huelle.css" />
+    <link rel="stylesheet" href="stil/handy/43-bausteine.css" />
+    <link rel="stylesheet" href="stil/handy/44-ansichten.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <!-- /block:kopf-handy -->
+    <title>Kiste - Scanner: Auswahl und fremdes Etikett</title>
+  </head>
+  <body data-leuchte="verbunden">
+    <div class="h-scanner">
+      <header class="h-scanner-kopf">
+        <a class="h-scanner-knopf" href="h06-behaelter.html" aria-label="Scanner schließen"><i class="fa-solid fa-xmark"></i></a>
+        <h1>Scanner</h1>
+        <button class="h-scanner-knopf" type="button" aria-label="Leuchte einschalten"><i class="fa-solid fa-bolt"></i></button>
+      </header>
+
+      <div class="h-scanner-modi" role="tablist" aria-label="Was der Scan tut">
+        <button class="h-scanner-modus" type="button" role="tab" aria-selected="false">Einbuchen</button>
+        <button class="h-scanner-modus aktiv" type="button" role="tab" aria-selected="true">Verbrauchen</button>
+        <button class="h-scanner-modus" type="button" role="tab" aria-selected="false">Nachschlagen</button>
+      </div>
+
+      <div class="h-scanner-sucher">
+        <div class="h-scanner-rahmen"></div>
+        <p class="h-scanner-hinweis"><strong>Code in den Rahmen halten</strong>Etikett, Strichcode oder Buchnummer</p>
+      </div>
+
+      <footer class="h-scanner-fuss">
+        <a class="h-knopf" href="h21-scanner-code-tippen.html">Code tippen</a>
+        <a class="h-knopf primaer" href="h06-behaelter.html">Fertig</a>
+      </footer>
+    </div>
+
+    <div class="h-schleier" id="schleier"></div>
+
+    <!-- Zustand 1: das Produkt liegt an zwei Orten. "Abbrechen" führt im Mockup zum zweiten Zustand. -->
+    <section class="h-blatt" id="blatt-orte" role="dialog" aria-modal="true" aria-labelledby="blatt-orte-titel">
+      <header class="h-blatt-kopf">
+        <h2 class="h-blatt-titel" id="blatt-orte-titel">Welche Milch?</h2>
+        <button class="h-symbolknopf nackt" type="button" aria-label="Schließen" data-zeige="#schleier, #blatt-orte"><i class="fa-solid fa-xmark"></i></button>
+        <p class="h-blatt-unter">Milch liegt an mehreren Orten</p>
+      </header>
+      <div class="h-blatt-rumpf">
+        <div class="h-liste">
+          <button class="h-zeile" type="button" data-zeige="#schleier, #blatt-orte">
+            <span class="z-erscheinung"><i class="fa-solid fa-cow"></i></span>
+            <span class="h-zeile-text">
+              <span class="h-zeile-name">Im Kühlschrank</span>
+              <span class="h-zeile-unter"><span class="z-code">M3T7</span><span class="z-menge"><b>3</b> Tetrapack, <b>2,8</b> l</span></span>
+            </span>
+            <span class="h-zeile-ende"><i class="fa-solid fa-chevron-right"></i></span>
+          </button>
+          <button class="h-zeile" type="button" data-zeige="#schleier, #blatt-orte">
+            <span class="z-erscheinung"><i class="fa-solid fa-cow"></i></span>
+            <span class="h-zeile-text">
+              <span class="h-zeile-name">In der Garage</span>
+              <span class="h-zeile-unter"><span class="z-code">K2P9</span><span class="z-menge"><b>2</b> Tetrapack</span></span>
+            </span>
+            <span class="h-zeile-ende"><i class="fa-solid fa-chevron-right"></i></span>
+          </button>
+        </div>
+      </div>
+      <footer class="h-blatt-fuss">
+        <button class="h-knopf still breit" type="button" data-zeige="#blatt-orte, #blatt-fremd">Abbrechen</button>
+      </footer>
+    </section>
+
+    <!-- Zustand 2: das Etikett gehört einem anderen Haushalt. -->
+    <section class="h-blatt" id="blatt-fremd" role="alertdialog" aria-modal="true" aria-labelledby="blatt-fremd-titel" aria-describedby="blatt-fremd-text" hidden>
+      <header class="h-blatt-kopf">
+        <h2 class="h-blatt-titel" id="blatt-fremd-titel">Gehört anderem Konto.</h2>
+      </header>
+      <div class="h-blatt-rumpf">
+        <p id="blatt-fremd-text">Dieses Etikett ist in einem anderen Haushalt vergeben.</p>
+      </div>
+      <footer class="h-blatt-fuss">
+        <button class="h-knopf primaer haupt" type="button" data-zeige="#schleier, #blatt-fremd">Verstanden</button>
+      </footer>
+    </section>
+  </body>
+</html>

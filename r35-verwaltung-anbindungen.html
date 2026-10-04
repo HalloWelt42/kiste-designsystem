@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="rechner" data-thema="hell">
+  <head>
+    <!-- block:kopf-rechner -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/regular.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/rechner/30-masse.css" />
+    <link rel="stylesheet" href="stil/rechner/31-grund.css" />
+    <link rel="stylesheet" href="stil/rechner/32-huelle.css" />
+    <link rel="stylesheet" href="stil/rechner/33-bausteine.css" />
+    <link rel="stylesheet" href="stil/rechner/34-ansichten.css" />
+    <link rel="stylesheet" href="stil/mock/90-mock.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <!-- /block:kopf-rechner -->
+    <title>Kiste - Verwaltung: Anbindungen</title>
+    <style>
+      /* Nur Anordnung: die Handlungen im Seitenkopf dürfen umbrechen. */
+      .s-kopfzeile { flex-wrap: wrap; }
+      .s-aktionen { flex: 1 1 auto; flex-wrap: wrap; justify-content: flex-end; }
+      /* Kopf der Mittelspalte: nur der Titel des Bereichs. */
+      .s-kopf { grid-template-columns: minmax(0, 1fr); }
+      /* Die Spalte der Handlungen bleibt so schmal wie ihre Knöpfe. */
+      .s-rechts { inline-size: 1%; white-space: nowrap; }
+      /* Das Modell je Aufgabe: die Auswahl hat eine feste Breite. */
+      .s-modell { inline-size: 260px; }
+      /* Zahl und Einheit bleiben in einer Zeile. */
+      .s-fest { white-space: nowrap; }
+      /* Zelle mit zwei Zeilen: oben der Wert, darunter die Ergänzung. */
+      .s-zelle { display: grid; justify-items: start; gap: 2px; min-inline-size: 0; }
+    </style>
+  </head>
+  <body data-seite="verwaltung" data-leuchte="verbunden">
+    <!-- block:r-zu-schmal -->
+    <div class="r-zu-schmal">
+      <i class="fa-solid fa-display"></i>
+      <strong>Das Fenster ist zu schmal für die Rechner-Ansicht.</strong>
+      <p>Kiste am Rechner braucht mindestens 1024 Pixel Breite. Vergrößere das Fenster oder wechsle zur Handy-Ansicht.</p>
+      <a class="r-knopf primaer" href="h04-start.html"><i class="fa-solid fa-mobile-screen"></i> Zur Handy-Ansicht</a>
+    </div>
+    <!-- /block:r-zu-schmal -->
+    <div class="r-huelle">
+      <!-- block:r-seitenleiste -->
+      <aside class="r-seitenleiste">
+        <div class="r-seitenleiste-kopf">
+          <a class="z-marke" href="r03-lager-start.html"><i class="fa-solid fa-table-cells-large"></i><span>Kiste</span></a>
+          <button class="r-symbolknopf nackt klein" type="button" title="Seitenleiste einklappen" data-schalte=".r-huelle" data-klasse="eingeklappt"><i class="fa-solid fa-angles-left"></i></button>
+        </div>
+        <nav class="r-nav" aria-label="Bereiche">
+          <a class="r-nav-eintrag" data-seite="lager" href="r03-lager-start.html" title="Lager"><i class="fa-solid fa-house"></i><span>Lager</span></a>
+          <a class="r-nav-eintrag" data-seite="suche" href="r19-suche.html" title="Suche"><i class="fa-solid fa-magnifying-glass"></i><span>Suche</span></a>
+          <a class="r-nav-eintrag" data-seite="einkauf" href="r23-einkaufsliste.html" title="Einkauf: 4 Einträge fehlen"><i class="fa-solid fa-cart-shopping"></i><span>Einkauf</span><span class="r-nav-zahl">4</span></a>
+          <a class="r-nav-eintrag" data-seite="haltbarkeit" href="r24-haltbarkeit.html" title="Haltbarkeit: 3 Einträge sind bald fällig"><i class="fa-solid fa-hourglass-half"></i><span>Haltbarkeit</span><span class="r-nav-zahl">3</span></a>
+          <a class="r-nav-eintrag" data-seite="erinnerungen" href="#" title="Erinnerungen"><i class="fa-solid fa-bell"></i><span>Erinnerungen</span></a>
+          <a class="r-nav-eintrag" data-seite="park" href="#" title="Park-Bereich: 3 Einträge warten auf einen Ort"><i class="fa-solid fa-inbox"></i><span>Park-Bereich</span><span class="r-nav-zahl">3</span></a>
+          <a class="r-nav-eintrag" data-seite="verlauf" href="#" title="Zuletzt bewegt"><i class="fa-solid fa-clock-rotate-left"></i><span>Zuletzt bewegt</span></a>
+          <span class="r-nav-gruppe">Stammdaten</span>
+          <a class="r-nav-eintrag" data-seite="katalog" href="r20-katalog.html" title="Katalog der Produkte"><i class="fa-solid fa-book-open"></i><span>Katalog</span></a>
+          <a class="r-nav-eintrag" data-seite="kategorien" href="r29-kategorien.html" title="Kategorien und ihr Verhalten"><i class="fa-solid fa-shapes"></i><span>Kategorien</span></a>
+          <a class="r-nav-eintrag" data-seite="etiketten" href="#" title="Etiketten drucken"><i class="fa-solid fa-qrcode"></i><span>Etiketten</span></a>
+        </nav>
+        <div class="r-seitenfuss">
+          <a class="r-nav-eintrag" data-seite="vorgaenge" href="#" title="Vorgänge: 1 läuft"><i class="fa-solid fa-list-check"></i><span>Vorgänge</span><span class="r-nav-zahl">1</span></a>
+          <a class="r-nav-eintrag" data-seite="hilfe" href="#" title="Hilfe öffnen"><i class="fa-solid fa-circle-info"></i><span>Hilfe</span></a>
+          <a class="r-nav-eintrag" data-seite="einstellungen" href="#" title="Einstellungen"><i class="fa-solid fa-gear"></i><span>Einstellungen</span></a>
+          <a class="r-nav-eintrag" data-seite="verwaltung" href="#" title="Verwaltung: Konten, Anbindungen, Sicherungen"><i class="fa-solid fa-screwdriver-wrench"></i><span>Verwaltung</span></a>
+          <div class="r-nutzer">
+            <span class="r-nutzer-bild">M</span>
+            <span class="r-nutzer-text"><strong>Alex</strong><small>Haushalt Zuhause</small></span>
+            <button class="r-symbolknopf nackt klein" type="button" title="Abmelden"><i class="fa-solid fa-right-from-bracket"></i></button>
+          </div>
+          <div class="r-fassung">
+            <span class="r-leuchte verbunden" title="Verbunden mit dem Dienst"></span>
+            <span data-fassung></span>
+            <button class="r-symbolknopf nackt klein" type="button" title="Zwischen hellem und dunklem Thema wechseln" data-thema-wechsel><i class="fa-solid fa-circle-half-stroke"></i></button>
+          </div>
+        </div>
+      </aside>
+      <!-- /block:r-seitenleiste -->
+      <div class="r-anfasser" title="Breite der Seitenleiste ziehen"></div>
+      <aside class="r-mitte">
+        <div class="r-mitte-kopf s-kopf">
+          <h2>Verwaltung</h2>
+        </div>
+        <nav class="r-mitte-rumpf r-baum" aria-label="Verwaltung">
+          <p class="r-nav-gruppe">Zugang</p>
+          <ul class="r-baumkinder">
+            <li class="r-baumknoten"><div class="r-baumzeile"><span></span><a class="r-baumziel" href="r34-verwaltung-konten.html"><i class="fa-solid fa-users"></i><span>Konten</span></a><span class="r-baumzahl">3</span></div></li>
+          </ul>
+          <p class="r-nav-gruppe">Dienst</p>
+          <ul class="r-baumkinder">
+            <li class="r-baumknoten"><div class="r-baumzeile aktiv"><span></span><a class="r-baumziel" href="r35-verwaltung-anbindungen.html"><i class="fa-solid fa-plug"></i><span>Anbindungen</span></a><span class="r-zustand warn" title="Das Arzneiverzeichnis antwortet seit 10:22 nicht"><i class="fa-solid fa-triangle-exclamation"></i> 1</span></div></li>
+            <li class="r-baumknoten"><div class="r-baumzeile"><span></span><a class="r-baumziel" href="r36-verwaltung-protokoll.html"><i class="fa-solid fa-file-lines"></i><span>Protokoll</span></a><span class="r-baumzahl">1.812</span></div></li>
+            <li class="r-baumknoten"><div class="r-baumzeile"><span></span><a class="r-baumziel" href="r37-verwaltung-zuordnungen.html"><i class="fa-solid fa-right-left"></i><span>Zuordnungen und Formate</span></a></div></li>
+          </ul>
+          <p class="r-nav-gruppe">Daten</p>
+          <ul class="r-baumkinder">
+            <li class="r-baumknoten"><div class="r-baumzeile"><span></span><a class="r-baumziel" href="r38-verwaltung-sicherungen.html"><i class="fa-solid fa-shield-halved"></i><span>Sicherungen</span></a><span class="r-baumzahl">7</span></div></li>
+          </ul>
+        </nav>
+      </aside>
+      <div class="r-anfasser" title="Breite der Verwaltungsliste ziehen"></div>
+      <section class="r-inhalt">
+        <header class="r-seitenkopf">
+          <div class="r-titelzeile s-kopfzeile">
+            <h1>Anbindungen</h1>
+            <div class="r-seitenkopf-aktionen s-aktionen">
+              <button class="r-knopf" type="button" title="Jede eingeschaltete Quelle und den KI-Rechner einmal zur Probe fragen"><i class="fa-solid fa-arrows-rotate"></i> Alle prüfen</button>
+              <button class="r-knopf primaer" type="button" title="Übernimmt die Kästchen der Quellen und die Wahl der Modelle">Speichern</button>
+              <div class="r-seitenkopf-fest">
+                <button class="r-symbolknopf nackt hilfe" type="button" title="Info-Modus: Bedienelemente erklären sich beim Anklicken"><i class="fa-solid fa-circle-info"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="r-titelunter">
+            <span><b>7</b> Quellen</span>
+            <span><b>6</b> eingeschaltet</span>
+            <span class="r-zustand gefahr"><i class="fa-solid fa-triangle-exclamation"></i> 1 antwortet nicht</span>
+          </div>
+        </header>
+        <div class="r-rollfeld">
+          <div class="r-breite r-stapel">
+            <section class="r-abschnitt">
+              <div class="r-abschnitt-kopf"><h2>Quellen</h2><span class="r-abschnitt-zahl">Zahlen der letzten 30 Tage</span></div>
+              <div class="r-tabellenfeld"><table class="r-tabelle">
+                <thead><tr><th class="s-rechts"><span class="r-leise">An</span></th><th>Quelle, Bereich und Reihenfolge</th><th class="zahl">Abrufe</th><th class="zahl">Fehlerquote</th><th class="zahl">Antwortzeit</th><th>Zustand</th><th class="s-rechts"><span class="r-leise">Prüfen</span></th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td><button class="r-kaestchen an" type="button" role="checkbox" aria-checked="true" title="Lebensmitteldatenbank ausschalten; gilt nach dem Speichern"><span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span></button></td>
+                    <td><span class="s-zelle"><strong>Lebensmitteldatenbank</strong><span class="r-leise r-klein">Lebensmittel, wird als 1. gefragt</span></span></td>
+                    <td class="zahl s-fest">412</td>
+                    <td class="zahl s-fest">2 Prozent</td>
+                    <td class="zahl s-fest">380 ms</td>
+                    <td><span class="r-zustand gut"><i class="fa-solid fa-check"></i> antwortet</span></td>
+                    <td class="s-rechts"><button class="r-knopf klein" type="button" title="Einen Probeabruf an die Lebensmitteldatenbank senden und die Antwortzeit messen">Prüfen</button></td>
+                  </tr>
+                  <tr>
+                    <td><button class="r-kaestchen an" type="button" role="checkbox" aria-checked="true" title="Kosmetik- und Haushaltsdatenbank ausschalten; gilt nach dem Speichern"><span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span></button></td>
+                    <td><span class="s-zelle"><strong>Kosmetik- und Haushaltsdatenbank</strong><span class="r-leise r-klein">Produkt, wird als 1. gefragt</span></span></td>
+                    <td class="zahl s-fest">96</td>
+                    <td class="zahl s-fest">3 Prozent</td>
+                    <td class="zahl s-fest">420 ms</td>
+                    <td><span class="r-zustand gut"><i class="fa-solid fa-check"></i> antwortet</span></td>
+                    <td class="s-rechts"><button class="r-knopf klein" type="button" title="Einen Probeabruf an die Kosmetik- und Haushaltsdatenbank senden und die Antwortzeit messen">Prüfen</button></td>
+                  </tr>
+                  <tr>
+                    <td><button class="r-kaestchen an" type="button" role="checkbox" aria-checked="true" title="Nationalbibliothek ausschalten; gilt nach dem Speichern"><span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span></button></td>
+                    <td><span class="s-zelle"><strong>Nationalbibliothek</strong><span class="r-leise r-klein">Buch, wird als 1. gefragt</span></span></td>
+                    <td class="zahl s-fest">58</td>
+                    <td class="zahl s-fest">0 Prozent</td>
+                    <td class="zahl s-fest">610 ms</td>
+                    <td><span class="r-zustand gut"><i class="fa-solid fa-check"></i> antwortet</span></td>
+                    <td class="s-rechts"><button class="r-knopf klein" type="button" title="Einen Probeabruf an die Nationalbibliothek senden und die Antwortzeit messen">Prüfen</button></td>
+                  </tr>
+                  <tr>
+                    <td><button class="r-kaestchen an" type="button" role="checkbox" aria-checked="true" title="Bibliotheksverbund ausschalten; gilt nach dem Speichern"><span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span></button></td>
+                    <td><span class="s-zelle"><strong>Bibliotheksverbund</strong><span class="r-leise r-klein">Buch, wird als 2. gefragt</span></span></td>
+                    <td class="zahl s-fest">21</td>
+                    <td class="zahl s-fest">5 Prozent</td>
+                    <td class="zahl s-fest">890 ms</td>
+                    <td><span class="r-zustand gut"><i class="fa-solid fa-check"></i> antwortet</span></td>
+                    <td class="s-rechts"><button class="r-knopf klein" type="button" title="Einen Probeabruf an den Bibliotheksverbund senden und die Antwortzeit messen">Prüfen</button></td>
+                  </tr>
+                  <tr>
+                    <td><button class="r-kaestchen an" type="button" role="checkbox" aria-checked="true" title="Offenen Buchkatalog ausschalten; gilt nach dem Speichern"><span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span></button></td>
+                    <td><span class="s-zelle"><strong>Offener Buchkatalog</strong><span class="r-leise r-klein">Buch, wird als 3. gefragt</span></span></td>
+                    <td class="zahl s-fest">14</td>
+                    <td class="zahl s-fest">7 Prozent</td>
+                    <td class="zahl s-fest">1,1 s</td>
+                    <td><span class="r-zustand gut"><i class="fa-solid fa-check"></i> antwortet</span></td>
+                    <td class="s-rechts"><button class="r-knopf klein" type="button" title="Einen Probeabruf an den Offenen Buchkatalog senden und die Antwortzeit messen">Prüfen</button></td>
+                  </tr>
+                  <tr>
+                    <td><button class="r-kaestchen an" type="button" role="checkbox" aria-checked="true" title="Arzneiverzeichnis ausschalten; gilt nach dem Speichern"><span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span></button></td>
+                    <td><span class="s-zelle"><strong>Arzneiverzeichnis</strong><span class="r-leise r-klein">Medizin, wird als 1. gefragt</span></span></td>
+                    <td class="zahl s-fest">37</td>
+                    <td class="zahl s-fest"><b>19 Prozent</b></td>
+                    <td class="zahl s-fest"><b>2,4 s</b></td>
+                    <td><span class="s-zelle"><span class="r-zustand gefahr"><i class="fa-solid fa-triangle-exclamation"></i> keine Antwort</span><span class="r-leise r-klein">seit 10:22</span></span></td>
+                    <td class="s-rechts"><button class="r-knopf klein" type="button" title="Einen Probeabruf an das Arzneiverzeichnis senden und die Antwortzeit messen">Prüfen</button></td>
+                  </tr>
+                  <tr class="leer">
+                    <td><button class="r-kaestchen" type="button" role="checkbox" aria-checked="false" title="Wissensdatenbank einschalten; gilt nach dem Speichern"><span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span></button></td>
+                    <td><span class="s-zelle"><strong>Wissensdatenbank</strong><span class="r-leise r-klein">Produkt, wird als 2. gefragt</span></span></td>
+                    <td class="zahl s-fest">0</td>
+                    <td class="zahl s-fest"><span class="r-leise">keine</span></td>
+                    <td class="zahl s-fest"><span class="r-leise">keine</span></td>
+                    <td><span class="r-zustand">ausgeschaltet</span></td>
+                    <td class="s-rechts"><button class="r-knopf klein" type="button" title="Einen Probeabruf an die Wissensdatenbank senden, auch wenn sie ausgeschaltet ist">Prüfen</button></td>
+                  </tr>
+                </tbody>
+              </table></div>
+            </section>
+
+            <section class="r-abschnitt">
+              <div class="r-abschnitt-kopf"><h2>KI-Rechner</h2><span class="r-zustand gut"><i class="fa-solid fa-check"></i> erreichbar</span></div>
+              <div class="r-hinweis"><i class="fa-solid fa-microchip"></i><p>Erreichbar über <strong>rechner.example</strong>, zuletzt geprüft heute 10:20. Er rechnet nur auf Anfrage.</p><button class="r-knopf klein" type="button" title="Den KI-Rechner einmal zur Probe fragen und die Antwortzeit messen">Prüfen</button></div>
+              <div class="r-tabellenfeld"><table class="r-tabelle">
+                <thead><tr><th>Aufgabe</th><th>Gewähltes Modell</th><th>Zustand</th><th class="s-rechts"><span class="r-leise">Prüfen</span></th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td><span class="s-zelle"><strong>Text</strong><span class="r-leise r-klein">Kategorie und Icon, Beschreibungen</span></span></td>
+                    <td><button class="r-auswahl s-modell" type="button" title="Modell für Textaufgaben wählen; gilt nach dem Speichern"><span>großes Sprachmodell</span><i class="fa-solid fa-chevron-down"></i></button></td>
+                    <td><span class="s-zelle"><span class="r-zustand warn"><i class="fa-solid fa-hourglass-half"></i> 1 Auftrag wartet</span><span class="r-leise r-klein">läuft, sobald das Bild fertig ist</span></span></td>
+                    <td class="s-rechts"><button class="r-knopf klein" type="button" title="Eine kurze Probeaufgabe an das Sprachmodell senden">Prüfen</button></td>
+                  </tr>
+                  <tr>
+                    <td><span class="s-zelle"><strong>Bild</strong><span class="r-leise r-klein">Fotos erkennen, Deckel lesen</span></span></td>
+                    <td><button class="r-auswahl s-modell" type="button" title="Modell für Bildaufgaben wählen; gilt nach dem Speichern"><span>Bildmodell</span><i class="fa-solid fa-chevron-down"></i></button></td>
+                    <td><span class="s-zelle"><span class="r-zustand gut"><i class="fa-solid fa-gears"></i> arbeitet</span><span class="r-leise r-klein">Foto erkennen: Sahne</span></span></td>
+                    <td class="s-rechts"><button class="r-knopf klein" type="button" title="Ein Probebild an das Bildmodell senden">Prüfen</button></td>
+                  </tr>
+                  <tr>
+                    <td><span class="s-zelle"><strong>Einbettung</strong><span class="r-leise r-klein">ähnliche Einträge finden</span></span></td>
+                    <td><button class="r-auswahl s-modell" type="button" title="Modell für Einbettungen wählen; gilt nach dem Speichern"><span>Einbettungsmodell</span><i class="fa-solid fa-chevron-down"></i></button></td>
+                    <td><span class="r-zustand gut"><i class="fa-solid fa-check"></i> bereit</span></td>
+                    <td class="s-rechts"><button class="r-knopf klein" type="button" title="Einen Probetext an das Einbettungsmodell senden">Prüfen</button></td>
+                  </tr>
+                </tbody>
+              </table></div>
+            </section>
+
+            <section class="r-abschnitt">
+              <div class="r-abschnitt-kopf"><h2>Zwischenspeicher</h2><span class="r-abschnitt-zahl">Antworten der Quellen</span></div>
+              <div class="r-hinweis"><i class="fa-solid fa-database"></i><p><strong>1.284</strong> Antworten gespeichert, Treffer 90 Tage, Fehlanzeigen 7 Tage</p><button class="r-knopf klein gefahr" type="button" title="Löscht alle gespeicherten Antworten; die Quellen werden danach wieder frisch gefragt"><i class="fa-solid fa-broom"></i> Zwischenspeicher leeren</button></div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- block:mock-leiste -->
+    <div class="m-leiste">
+      <a href="galerie.html" title="Galerie aller Seiten"><i class="fa-solid fa-grip"></i></a>
+      <button type="button" data-thema-knopf="hell" title="Helles Thema"><i class="fa-solid fa-sun"></i></button>
+      <button type="button" data-thema-knopf="dunkel" title="Dunkles Thema"><i class="fa-solid fa-moon"></i></button>
+    </div>
+    <!-- /block:mock-leiste -->
+  </body>
+</html>

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="handy" data-thema="hell">
+  <head>
+    <!-- block:kopf-handy -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/regular.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/handy/40-masse.css" />
+    <link rel="stylesheet" href="stil/handy/41-grund.css" />
+    <link rel="stylesheet" href="stil/handy/42-huelle.css" />
+    <link rel="stylesheet" href="stil/handy/43-bausteine.css" />
+    <link rel="stylesheet" href="stil/handy/44-ansichten.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <!-- /block:kopf-handy -->
+    <title>Kiste - Verbrauch</title>
+    <style>
+      /* Nur Anordnung: Text links, der eine Mengenknopf rechts, in jeder Karte gleich breit. */
+      .s-verbrauch {
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+      }
+      .s-text {
+        display: grid;
+        gap: var(--h-a1);
+        min-inline-size: 0;
+      }
+      .s-knopf {
+        inline-size: 104px;
+      }
+      /* Die Meldung schwebt über dem Rollfeld; der Titel beginnt darunter, damit er lesbar bleibt. */
+      .s-unter-meldung {
+        padding-block-start: calc(var(--h-griff) + var(--h-a5));
+      }
+    </style>
+  </head>
+  <body data-seite="verbrauch" data-leuchte="verbunden">
+    <div class="h-huelle">
+      <header class="h-kopf">
+        <span class="z-marke h-kopf-marke"><i class="fa-solid fa-table-cells-large"></i> Kiste</span>
+        <div class="h-kopf-titel">Verbrauch</div>
+      </header>
+
+      <div class="h-meldungen">
+        <div class="h-meldung" id="meldung">
+          <i class="fa-solid fa-check"></i>
+          <span>200 ml Milch verbraucht</span>
+          <button class="h-meldung-knopf" type="button" data-zeige="#meldung">Rückgängig</button>
+        </div>
+      </div>
+
+      <main class="h-rollfeld s-unter-meldung">
+        <div class="h-titelblock">
+          <h1>Verbrauch</h1>
+          <p class="h-titelblock-unter">Was sich verbrauchen lässt, mit einem Tipp</p>
+        </div>
+
+        <div class="h-liste">
+          <div class="h-karte s-verbrauch">
+            <div class="s-text">
+              <strong>Milch</strong>
+              <span class="h-klein h-leise">Kühlschrank</span>
+              <span class="z-menge"><b>2,8</b> l</span>
+            </div>
+            <button class="h-mengenknopf primaer s-knopf" type="button" aria-label="200 ml Milch verbrauchen"><i class="fa-solid fa-minus"></i><span>200 ml</span></button>
+          </div>
+          <div class="h-karte s-verbrauch">
+            <div class="s-text">
+              <strong>Geschirrtabs</strong>
+              <span class="h-klein h-leise">Spülenschrank</span>
+              <span class="z-menge"><b>89</b> Tabs</span>
+            </div>
+            <button class="h-mengenknopf primaer s-knopf" type="button" aria-label="1 Tab Geschirrtabs verbrauchen"><i class="fa-solid fa-minus"></i><span>1 Tab</span></button>
+          </div>
+          <div class="h-karte s-verbrauch">
+            <div class="s-text">
+              <strong>Joghurt</strong>
+              <span class="h-klein h-leise">Kühlschrank</span>
+              <span class="z-menge"><b>4</b> Becher</span>
+            </div>
+            <button class="h-mengenknopf primaer s-knopf" type="button" aria-label="1 Becher Joghurt verbrauchen"><i class="fa-solid fa-minus"></i><span>1 Becher</span></button>
+          </div>
+          <div class="h-karte s-verbrauch">
+            <div class="s-text">
+              <strong>Vitamin-Tabletten</strong>
+              <span class="h-klein h-leise">Hausapotheke</span>
+              <span class="z-menge"><b>359</b> Tabletten</span>
+            </div>
+            <button class="h-mengenknopf primaer s-knopf" type="button" aria-label="2 Vitamin-Tabletten verbrauchen"><i class="fa-solid fa-minus"></i><span>2 Tabletten</span></button>
+          </div>
+          <div class="h-karte s-verbrauch">
+            <div class="s-text">
+              <strong>Apfelsaft</strong>
+              <span class="h-klein h-leise">Vorratsschrank</span>
+              <span class="z-menge"><b>6</b> Flaschen</span>
+            </div>
+            <button class="h-mengenknopf primaer s-knopf" type="button" aria-label="1 Flasche Apfelsaft verbrauchen"><i class="fa-solid fa-minus"></i><span>1 Flasche</span></button>
+          </div>
+          <div class="h-karte s-verbrauch">
+            <div class="s-text">
+              <strong class="h-leise">Butter</strong>
+              <span class="h-klein h-leise">Kühlschrank</span>
+              <span class="z-menge leer">leer</span>
+            </div>
+            <button class="h-mengenknopf s-knopf" type="button" disabled aria-label="Butter ist leer, nichts zu verbrauchen"><i class="fa-solid fa-minus"></i><span>1 Stück</span></button>
+          </div>
+        </div>
+      </main>
+      <!-- block:h-leiste -->
+      <nav class="h-leiste" aria-label="Hauptbereiche">
+        <a class="h-leiste-eintrag" data-seite="lager" href="h04-start.html"><i class="fa-solid fa-house"></i><span>Lager</span></a>
+        <a class="h-leiste-eintrag" data-seite="suche" href="h29-suche.html"><i class="fa-solid fa-magnifying-glass"></i><span>Suche</span></a>
+        <a class="h-leiste-scan" href="h17-scanner-einbuchen.html" aria-label="Scannen"><i class="fa-solid fa-qrcode"></i></a>
+        <a class="h-leiste-eintrag" data-seite="verbrauch" href="h30-verbrauch.html"><i class="fa-solid fa-circle-minus"></i><span>Verbrauch</span></a>
+        <a class="h-leiste-eintrag" data-seite="mehr" href="h48-mehr.html"><i class="fa-solid fa-ellipsis"></i><span>Mehr</span></a>
+      </nav>
+      <!-- /block:h-leiste -->
+    </div>
+  </body>
+</html>

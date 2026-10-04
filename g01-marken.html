@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="allgemein" data-thema="hell">
+  <head>
+    <!-- block:kopf-allgemein -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/regular.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/mock/90-mock.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <!-- /block:kopf-allgemein -->
+    <title>Kiste - Marken</title>
+  </head>
+  <body>
+    <main class="m-seite">
+      <header class="m-kopf">
+        <div>
+          <span class="m-unter">G01</span>
+          <h1>Marken</h1>
+          <p>Farben, Schriften, Schatten und Rundungen. Beide Oberflächen teilen genau diese Marken; Maße und Schriftgrade hat jede für sich. Die Werte liest die Seite aus dem Designsystem, die Kontraste misst das Werkzeug.</p>
+        </div>
+      </header>
+
+      <section class="m-abschnitt">
+        <h2>Farben</h2>
+        <p>Papier trägt, Tinte schreibt, Messing zeichnet aus, Moos heißt gut, Ochsenblut heißt Gefahr. Blau gibt es zweimal: dunkel für Werte, heller für die Hilfe.</p>
+        <div class="m-farben" id="farben"></div>
+      </section>
+
+      <section class="m-abschnitt">
+        <h2>Schriften</h2>
+        <div class="m-zwei">
+          <div class="m-flaeche">
+            <span class="m-unter">Titel</span>
+            <h1>Schraubenregal</h1>
+            <h2>Was liegt wo, und wie viel davon</h2>
+            <p>Fraunces mit weichen Formen, für Titel und große Zahlen.</p>
+          </div>
+          <div class="m-flaeche">
+            <span class="m-unter">Text</span>
+            <p>Work Sans für alles, was gelesen und bedient wird: 3 Karton, 89 Tabs, haltbar bis 10.10.2026.</p>
+            <span class="m-unter">Codes und Beschriftungen</span>
+            <div class="m-reihe"><span class="z-code gross">T9B5</span><span class="m-farbe-name">JetBrains Mono 0123456789</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="m-abschnitt">
+        <h2>Akzent ohne einseitige Ränder</h2>
+        <p>Die Ursprungs-Entwürfe hoben mit einem Messingstreifen am linken Rand hervor. Hier trägt ein Rahmen rundum mit getönter Fläche dieselbe Aufgabe.</p>
+        <div class="m-zwei" id="akzente"></div>
+      </section>
+
+      <section class="m-abschnitt">
+        <h2>Gemessene Kontraste</h2>
+        <p>Text braucht 4,5 zu 1, Rahmen und Zeichen 3 zu 1. Die leise Tinte und das Messing als Schrift sind gegenüber den Ursprungs-Entwürfen dunkler, damit sie bestehen.</p>
+        <table class="m-tabelle">
+          <thead><tr><th>Vordergrund</th><th>Hintergrund</th><th>Zweck</th><th>Soll</th><th>hell</th><th>dunkel</th></tr></thead>
+          <tbody id="kontraste"></tbody>
+        </table>
+      </section>
+    </main>
+    <!-- block:mock-leiste -->
+    <div class="m-leiste">
+      <a href="galerie.html" title="Galerie aller Seiten"><i class="fa-solid fa-grip"></i></a>
+      <button type="button" data-thema-knopf="hell" title="Helles Thema"><i class="fa-solid fa-sun"></i></button>
+      <button type="button" data-thema-knopf="dunkel" title="Dunkles Thema"><i class="fa-solid fa-moon"></i></button>
+    </div>
+    <!-- /block:mock-leiste -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const NAMEN = ["papier", "papier-weich", "papier-tief", "papier-linie", "tinte", "tinte-weich", "tinte-leise", "tinte-blass", "feld-rand",
+          "messing", "messing-schrift", "messing-weich", "messing-flaeche", "moos", "moos-weich", "moos-flaeche",
+          "ochsenblut", "ochsenblut-weich", "ochsenblut-flaeche", "wert", "wert-errechnet", "hilfe", "hilfe-weich", "hilfe-flaeche", "nacht", "etikett"];
+        const zeichnen = () => {
+          const stil = getComputedStyle(document.documentElement);
+          const ziel = document.getElementById("farben");
+          ziel.replaceChildren(...NAMEN.map((name) => {
+            const karte = document.createElement("div");
+            karte.className = "m-farbe";
+            const feld = document.createElement("div");
+            feld.className = "m-farbe-feld";
+            feld.style.setProperty("background", `var(--${name})`);
+            const titel = document.createElement("span");
+            titel.className = "m-farbe-name";
+            titel.textContent = "--" + name;
+            const wert = document.createElement("span");
+            wert.className = "m-farbe-wert";
+            wert.textContent = stil.getPropertyValue("--" + name).trim().toUpperCase();
+            karte.append(feld, titel, wert);
+            return karte;
+          }));
+        };
+        zeichnen();
+        document.addEventListener("thema", zeichnen);
+
+        const akzente = document.getElementById("akzente");
+        for (const [familie, text] of [["messing", "Hinweis: Joghurt läuft in 3 Tagen ab."], ["hilfe", "Hilfe: Ein Behälter kann anderes enthalten."], ["moos", "Gut: Der Code ist frei."], ["ochsenblut", "Gefahr: Käse ist abgelaufen."]]) {
+          const feld = document.createElement("div");
+          feld.className = "m-flaeche";
+          feld.style.setProperty("background", `var(--${familie}-flaeche)`);
+          feld.style.setProperty("border-color", `var(--${familie}-weich)`);
+          feld.textContent = text;
+          akzente.append(feld);
+        }
+
+        fetch("_kontrast.json").then((r) => r.json()).then((zeilen) => {
+          const rumpf = document.getElementById("kontraste");
+          for (const z of zeilen) {
+            const tr = document.createElement("tr");
+            const zelle = (inhalt, klasse) => { const td = document.createElement("td"); td.textContent = inhalt; if (klasse) td.className = klasse; tr.append(td); };
+            zelle("--" + z.vorder); zelle("--" + z.hinter); zelle(z.zweck); zelle(String(z.mindest).replace(".", ","));
+            for (const thema of ["hell", "dunkel"]) zelle(z[thema].toFixed(2).replace(".", ","), z[thema] >= z.mindest ? "m-gut" : "m-schlecht");
+            rumpf.append(tr);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

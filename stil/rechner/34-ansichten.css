@@ -1,0 +1,185 @@
+/* Rechner: Ansichten. Hier steht nur Anordnung, die mehrere Seiten teilen; Bausteine stehen in
+   33-bausteine.css. Angepasst wird über Container und auto-fill, nie über die Fensterbreite. */
+@layer r-ansichten {
+  /* Detail: links der Inhalt, rechts die schmale Spalte mit Eigenschaften und Codes. */
+  .r-detail {
+    container-type: inline-size;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) var(--r-seite);
+    align-items: start;
+    gap: var(--r-a6);
+  }
+  .r-detail-haupt,
+  .r-detail-seite {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+    gap: var(--r-a6);
+    min-inline-size: 0;
+  }
+  /* Der Hauptteil ist selbst Maß für seine Bausteine (Formular, Mengenblock). */
+  .r-detail-haupt {
+    container-type: inline-size;
+  }
+  /* Wird die Inhaltsspalte schmal, rutscht die Seitenspalte unter den Hauptteil. */
+  @container (max-width: 760px) {
+    .r-detail {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  .r-detail-seite {
+    gap: var(--r-a4);
+  }
+
+  /* Kennzahlen am Start. */
+  .r-kacheln {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--r-a3);
+  }
+
+  /* Zwei gleich breite Spalten für Gegenüberstellungen. */
+  .r-zwei {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: var(--r-a5);
+  }
+
+  /* Anmeldung: eine Karte in der Mitte, ohne Hülle. */
+  .r-anmeldung {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: var(--r-a6);
+    overflow-y: auto;
+    background-color: var(--papier);
+    background-image:
+      linear-gradient(var(--raster-linie) 1px, transparent 1px),
+      linear-gradient(90deg, var(--raster-linie) 1px, transparent 1px);
+    background-size: var(--raster-weite) var(--raster-weite);
+  }
+  .r-anmeldung-karte {
+    display: grid;
+    gap: var(--r-a5);
+    inline-size: min(420px, 100%);
+    padding: var(--r-a6);
+    border: 1px solid var(--papier-linie);
+    border-radius: var(--rund-3);
+    background: var(--papier-weich);
+    box-shadow: var(--schatten-karte);
+  }
+  .r-anmeldung-karte .z-marke {
+    font-size: var(--r-zahl);
+  }
+  .r-anmeldung-karte h1 {
+    font-size: var(--r-titel-2);
+  }
+  .r-eingabe.code {
+    font-family: var(--schrift-code);
+    font-size: var(--r-titel-2);
+    letter-spacing: 0.4em;
+    text-align: center;
+    block-size: 48px;
+  }
+
+  /* Vorschau des Erscheinungsbilds: so sieht der Eintrag in Baum und Karten aus. */
+  .r-vorschau {
+    display: grid;
+    gap: var(--r-a2);
+    padding: var(--r-a3);
+    border: 1px dashed var(--tinte-blass);
+    border-radius: var(--rund-2);
+  }
+
+  /* Der Inhalt hat eine angenehme größte Breite; breiter wird nur Luft. */
+  .r-breite {
+    inline-size: 100%;
+    max-inline-size: 1180px;
+  }
+
+  /* ---- Bildbetrachter: dunkle Vollfläche über allem, das Bild immer ganz ------------------------ */
+  .r-betrachter {
+    position: fixed;
+    inset: 0;
+    z-index: 22;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    background: var(--nacht);
+    color: var(--auf-nacht);
+  }
+  .r-betrachter-kopf {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--r-a3);
+    padding: var(--r-a3) var(--r-a4);
+  }
+  .r-betrachter-kopf h2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: var(--r-schrift-gross);
+    color: var(--auf-nacht);
+  }
+  .r-betrachter-kopf small {
+    margin-inline-start: var(--r-a2);
+    font-family: var(--schrift-text);
+    font-size: var(--r-schrift-klein);
+    font-variant-numeric: tabular-nums;
+    color: var(--auf-nacht-leise);
+  }
+  .r-betrachter-knopf {
+    display: inline-grid;
+    place-items: center;
+    align-self: center;
+    inline-size: 44px;
+    block-size: 44px;
+    margin-inline: var(--r-a3);
+    border-radius: var(--rund-2);
+    color: var(--auf-nacht);
+    font-size: var(--r-icon-gross);
+  }
+  .r-betrachter-knopf:hover {
+    background: var(--nacht-weich);
+  }
+  .r-betrachter-knopf:disabled {
+    opacity: 0.35;
+  }
+  .r-betrachter-bild {
+    position: relative;
+    min-inline-size: 0;
+    min-block-size: 0;
+    overflow: hidden;
+  }
+  /* Das Bild füllt die Fläche des Betrachters und wird darin ganz eingepasst. */
+  .r-betrachter-bild img {
+    position: absolute;
+    inset: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: contain;
+  }
+  .r-betrachter-fuss {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--r-a2);
+    padding: var(--r-a3) var(--r-a4) var(--r-a4);
+  }
+  .r-betrachter-fuss .r-knopf {
+    border-color: var(--nacht-linie);
+    background: var(--nacht-weich);
+    color: var(--auf-nacht);
+  }
+
+  /* Was der Dienst als ausgeblendet meldet, zeichnet nichts. */
+  :root[data-oberflaeche="rechner"] [hidden] {
+    display: none;
+  }
+}

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Bohrmaschine auf der Werkbank">
+  <defs>
+    <linearGradient id="wand" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9aa19a"/><stop offset="1" stop-color="#7d857e"/></linearGradient>
+    <linearGradient id="bank" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a98557"/><stop offset="1" stop-color="#7f6240"/></linearGradient>
+    <linearGradient id="gehaeuse" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3f7a52"/><stop offset="1" stop-color="#2c5a3b"/></linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#wand)"/>
+  <g stroke="#6b736c" stroke-width="3" opacity="0.6">
+    <line x1="0" y1="120" x2="800" y2="120"/><line x1="0" y1="240" x2="800" y2="240"/>
+    <line x1="200" y1="0" x2="200" y2="430"/><line x1="400" y1="0" x2="400" y2="430"/><line x1="600" y1="0" x2="600" y2="430"/>
+  </g>
+  <rect y="430" width="800" height="170" fill="url(#bank)"/>
+  <rect y="430" width="800" height="12" fill="#c29c6b"/>
+  <ellipse cx="400" cy="462" rx="270" ry="20" fill="#2e2114" opacity="0.4"/>
+  <rect x="80" y="300" width="130" height="16" rx="3" fill="#b9bdc0"/>
+  <rect x="200" y="286" width="70" height="44" rx="6" fill="#2a2d2f"/>
+  <path d="M260 250 H520 a40 40 0 0 1 40 40 v40 a40 40 0 0 1 -40 40 H260 Z" fill="url(#gehaeuse)"/>
+  <rect x="290" y="270" width="200" height="14" rx="5" fill="#2c5a3b"/>
+  <rect x="290" y="296" width="200" height="14" rx="5" fill="#2c5a3b"/>
+  <rect x="290" y="322" width="200" height="14" rx="5" fill="#2c5a3b"/>
+  <path d="M430 360 h100 l30 100 h-100 Z" fill="#2a2d2f"/>
+  <rect x="440" y="376" width="34" height="46" rx="6" fill="#c0392b"/>
+  <path d="M560 300 q90 10 150 120" fill="none" stroke="#1d1f20" stroke-width="12" stroke-linecap="round"/>
+  <rect x="540" y="270" width="26" height="60" rx="6" fill="#2a2d2f"/>
+</svg>

@@ -1,0 +1,466 @@
+[
+ {
+  "vorder": "tinte",
+  "hinter": "papier",
+  "mindest": 4.5,
+  "zweck": "Text",
+  "hell": 15.58,
+  "dunkel": 14.6
+ },
+ {
+  "vorder": "tinte",
+  "hinter": "papier-weich",
+  "mindest": 4.5,
+  "zweck": "Text",
+  "hell": 14.23,
+  "dunkel": 13.26
+ },
+ {
+  "vorder": "tinte",
+  "hinter": "papier-tief",
+  "mindest": 4.5,
+  "zweck": "Text",
+  "hell": 12.61,
+  "dunkel": 12.43
+ },
+ {
+  "vorder": "tinte-weich",
+  "hinter": "papier",
+  "mindest": 4.5,
+  "zweck": "Nebentext",
+  "hell": 8.56,
+  "dunkel": 10.84
+ },
+ {
+  "vorder": "tinte-weich",
+  "hinter": "papier-weich",
+  "mindest": 4.5,
+  "zweck": "Nebentext",
+  "hell": 7.82,
+  "dunkel": 9.85
+ },
+ {
+  "vorder": "tinte-weich",
+  "hinter": "papier-tief",
+  "mindest": 4.5,
+  "zweck": "Nebentext",
+  "hell": 6.93,
+  "dunkel": 9.23
+ },
+ {
+  "vorder": "tinte-leise",
+  "hinter": "papier",
+  "mindest": 4.5,
+  "zweck": "leiser Text, Beschriftung",
+  "hell": 5.69,
+  "dunkel": 5.95
+ },
+ {
+  "vorder": "tinte-leise",
+  "hinter": "papier-weich",
+  "mindest": 4.5,
+  "zweck": "leiser Text, Beschriftung",
+  "hell": 5.2,
+  "dunkel": 5.4
+ },
+ {
+  "vorder": "tinte-leise",
+  "hinter": "papier-tief",
+  "mindest": 4.5,
+  "zweck": "leiser Text, Beschriftung",
+  "hell": 4.61,
+  "dunkel": 5.06
+ },
+ {
+  "vorder": "messing-schrift",
+  "hinter": "papier",
+  "mindest": 4.5,
+  "zweck": "Code-Stempel, Verweis",
+  "hell": 5.95,
+  "dunkel": 8.1
+ },
+ {
+  "vorder": "messing-schrift",
+  "hinter": "papier-weich",
+  "mindest": 4.5,
+  "zweck": "Code-Stempel, Verweis",
+  "hell": 5.44,
+  "dunkel": 7.35
+ },
+ {
+  "vorder": "messing-schrift",
+  "hinter": "papier-tief",
+  "mindest": 4.5,
+  "zweck": "Code-Stempel, Verweis",
+  "hell": 4.82,
+  "dunkel": 6.89
+ },
+ {
+  "vorder": "messing-schrift",
+  "hinter": "messing-flaeche",
+  "mindest": 4.5,
+  "zweck": "Code-Stempel, Verweis",
+  "hell": 5.31,
+  "dunkel": 6.4
+ },
+ {
+  "vorder": "moos",
+  "hinter": "papier",
+  "mindest": 4.5,
+  "zweck": "gut als Text",
+  "hell": 6.32,
+  "dunkel": 6.23
+ },
+ {
+  "vorder": "moos",
+  "hinter": "papier-weich",
+  "mindest": 4.5,
+  "zweck": "gut als Text",
+  "hell": 5.78,
+  "dunkel": 5.66
+ },
+ {
+  "vorder": "moos",
+  "hinter": "moos-flaeche",
+  "mindest": 4.5,
+  "zweck": "gut als Text",
+  "hell": 5.67,
+  "dunkel": 5.12
+ },
+ {
+  "vorder": "ochsenblut",
+  "hinter": "papier",
+  "mindest": 4.5,
+  "zweck": "Gefahr als Text",
+  "hell": 7.3,
+  "dunkel": 5.48
+ },
+ {
+  "vorder": "ochsenblut",
+  "hinter": "papier-weich",
+  "mindest": 4.5,
+  "zweck": "Gefahr als Text",
+  "hell": 6.67,
+  "dunkel": 4.98
+ },
+ {
+  "vorder": "ochsenblut",
+  "hinter": "ochsenblut-flaeche",
+  "mindest": 4.5,
+  "zweck": "Gefahr als Text",
+  "hell": 6.34,
+  "dunkel": 4.52
+ },
+ {
+  "vorder": "wert",
+  "hinter": "papier",
+  "mindest": 4.5,
+  "zweck": "Wert einer Eigenschaft",
+  "hell": 9.27,
+  "dunkel": 9.77
+ },
+ {
+  "vorder": "wert",
+  "hinter": "papier-weich",
+  "mindest": 4.5,
+  "zweck": "Wert einer Eigenschaft",
+  "hell": 8.47,
+  "dunkel": 8.88
+ },
+ {
+  "vorder": "wert-errechnet",
+  "hinter": "papier",
+  "mindest": 4.5,
+  "zweck": "errechneter Wert",
+  "hell": 7.3,
+  "dunkel": 7.34
+ },
+ {
+  "vorder": "wert-errechnet",
+  "hinter": "papier-weich",
+  "mindest": 4.5,
+  "zweck": "errechneter Wert",
+  "hell": 6.67,
+  "dunkel": 6.67
+ },
+ {
+  "vorder": "hilfe",
+  "hinter": "papier",
+  "mindest": 4.5,
+  "zweck": "Hilfepunkt, Info-Modus",
+  "hell": 5.68,
+  "dunkel": 8.08
+ },
+ {
+  "vorder": "hilfe",
+  "hinter": "papier-weich",
+  "mindest": 4.5,
+  "zweck": "Hilfepunkt, Info-Modus",
+  "hell": 5.19,
+  "dunkel": 7.34
+ },
+ {
+  "vorder": "hilfe",
+  "hinter": "hilfe-flaeche",
+  "mindest": 4.5,
+  "zweck": "Hilfepunkt, Info-Modus",
+  "hell": 5.15,
+  "dunkel": 6.6
+ },
+ {
+  "vorder": "tinte",
+  "hinter": "messing-flaeche",
+  "mindest": 4.5,
+  "zweck": "Text auf getönter Fläche",
+  "hell": 13.89,
+  "dunkel": 11.54
+ },
+ {
+  "vorder": "tinte",
+  "hinter": "moos-flaeche",
+  "mindest": 4.5,
+  "zweck": "Text auf getönter Fläche",
+  "hell": 13.97,
+  "dunkel": 12.0
+ },
+ {
+  "vorder": "tinte",
+  "hinter": "ochsenblut-flaeche",
+  "mindest": 4.5,
+  "zweck": "Text auf getönter Fläche",
+  "hell": 13.53,
+  "dunkel": 12.04
+ },
+ {
+  "vorder": "tinte",
+  "hinter": "hilfe-flaeche",
+  "mindest": 4.5,
+  "zweck": "Text auf getönter Fläche",
+  "hell": 14.12,
+  "dunkel": 11.92
+ },
+ {
+  "vorder": "auf-tinte",
+  "hinter": "tinte",
+  "mindest": 4.5,
+  "zweck": "Schrift auf dem Hauptknopf",
+  "hell": 15.58,
+  "dunkel": 14.6
+ },
+ {
+  "vorder": "auf-messing",
+  "hinter": "messing",
+  "mindest": 4.5,
+  "zweck": "Schrift auf dem Messing-Knopf",
+  "hell": 4.68,
+  "dunkel": 8.1
+ },
+ {
+  "vorder": "auf-moos",
+  "hinter": "moos",
+  "mindest": 4.5,
+  "zweck": "Schrift auf Moos",
+  "hell": 6.32,
+  "dunkel": 6.23
+ },
+ {
+  "vorder": "auf-ochsenblut",
+  "hinter": "ochsenblut",
+  "mindest": 4.5,
+  "zweck": "Schrift auf dem Halten-Knopf",
+  "hell": 7.3,
+  "dunkel": 5.48
+ },
+ {
+  "vorder": "auf-hilfe",
+  "hinter": "hilfe",
+  "mindest": 4.5,
+  "zweck": "Schrift auf Hilfe",
+  "hell": 6.13,
+  "dunkel": 8.54
+ },
+ {
+  "vorder": "messing-auf-tinte",
+  "hinter": "tinte",
+  "mindest": 4.5,
+  "zweck": "Rückgängig in der Meldung",
+  "hell": 8.92,
+  "dunkel": 5.55
+ },
+ {
+  "vorder": "etikett-tinte",
+  "hinter": "etikett",
+  "mindest": 4.5,
+  "zweck": "gedruckter Code",
+  "hell": 18.82,
+  "dunkel": 18.82
+ },
+ {
+  "vorder": "auf-nacht",
+  "hinter": "nacht",
+  "mindest": 4.5,
+  "zweck": "Schrift im Scanner",
+  "hell": 15.43,
+  "dunkel": 15.43
+ },
+ {
+  "vorder": "auf-nacht",
+  "hinter": "nacht-weich",
+  "mindest": 4.5,
+  "zweck": "Schrift im Scanner auf Fläche",
+  "hell": 13.09,
+  "dunkel": 13.09
+ },
+ {
+  "vorder": "auf-nacht-leise",
+  "hinter": "nacht",
+  "mindest": 4.5,
+  "zweck": "Nebentext im Scanner",
+  "hell": 8.19,
+  "dunkel": 8.19
+ },
+ {
+  "vorder": "auf-score-dunkel",
+  "hinter": "nutri-a",
+  "mindest": 4.5,
+  "zweck": "Nutri-Score A",
+  "hell": 4.98,
+  "dunkel": 4.98
+ },
+ {
+  "vorder": "auf-score-hell",
+  "hinter": "nutri-b",
+  "mindest": 4.5,
+  "zweck": "Nutri-Score B",
+  "hell": 8.2,
+  "dunkel": 8.2
+ },
+ {
+  "vorder": "auf-score-hell",
+  "hinter": "nutri-c",
+  "mindest": 4.5,
+  "zweck": "Nutri-Score C",
+  "hell": 12.33,
+  "dunkel": 12.33
+ },
+ {
+  "vorder": "auf-score-hell",
+  "hinter": "nutri-d",
+  "mindest": 4.5,
+  "zweck": "Nutri-Score D",
+  "hell": 6.97,
+  "dunkel": 6.97
+ },
+ {
+  "vorder": "auf-score-hell",
+  "hinter": "nutri-e",
+  "mindest": 4.5,
+  "zweck": "Nutri-Score E",
+  "hell": 4.54,
+  "dunkel": 4.54
+ },
+ {
+  "vorder": "auf-score-hell",
+  "hinter": "nova-1",
+  "mindest": 4.5,
+  "zweck": "NOVA 1",
+  "hell": 6.05,
+  "dunkel": 6.05
+ },
+ {
+  "vorder": "auf-score-hell",
+  "hinter": "nova-2",
+  "mindest": 4.5,
+  "zweck": "NOVA 2",
+  "hell": 12.45,
+  "dunkel": 12.45
+ },
+ {
+  "vorder": "auf-score-hell",
+  "hinter": "nova-3",
+  "mindest": 4.5,
+  "zweck": "NOVA 3",
+  "hell": 6.41,
+  "dunkel": 6.41
+ },
+ {
+  "vorder": "auf-score-hell",
+  "hinter": "nova-4",
+  "mindest": 4.5,
+  "zweck": "NOVA 4",
+  "hell": 4.71,
+  "dunkel": 4.71
+ },
+ {
+  "vorder": "tinte-leise",
+  "hinter": "score-ruhe",
+  "mindest": 3.0,
+  "zweck": "ruhende Felder des Nutri-Score",
+  "hell": 3.65,
+  "dunkel": 3.3
+ },
+ {
+  "vorder": "messing",
+  "hinter": "papier",
+  "mindest": 3.0,
+  "zweck": "Rahmen des Code-Stempels, Fokus",
+  "hell": 3.33,
+  "dunkel": 8.1
+ },
+ {
+  "vorder": "messing",
+  "hinter": "papier-weich",
+  "mindest": 3.0,
+  "zweck": "Rahmen des Code-Stempels, Fokus",
+  "hell": 3.04,
+  "dunkel": 7.35
+ },
+ {
+  "vorder": "feld-rand",
+  "hinter": "papier",
+  "mindest": 3.0,
+  "zweck": "Rahmen von Feldern und Knöpfen",
+  "hell": 3.36,
+  "dunkel": 3.55
+ },
+ {
+  "vorder": "feld-rand",
+  "hinter": "papier-weich",
+  "mindest": 3.0,
+  "zweck": "Rahmen von Feldern und Knöpfen",
+  "hell": 3.07,
+  "dunkel": 3.22
+ },
+ {
+  "vorder": "moos",
+  "hinter": "papier",
+  "mindest": 3.0,
+  "zweck": "Leuchte verbunden, Schalter an",
+  "hell": 6.32,
+  "dunkel": 6.23
+ },
+ {
+  "vorder": "moos",
+  "hinter": "papier-weich",
+  "mindest": 3.0,
+  "zweck": "Leuchte verbunden, Schalter an",
+  "hell": 5.78,
+  "dunkel": 5.66
+ },
+ {
+  "vorder": "tinte-leise",
+  "hinter": "papier",
+  "mindest": 3.0,
+  "zweck": "Leuchte getrennt",
+  "hell": 5.69,
+  "dunkel": 5.95
+ },
+ {
+  "vorder": "tinte-leise",
+  "hinter": "papier-weich",
+  "mindest": 3.0,
+  "zweck": "Leuchte getrennt",
+  "hell": 5.2,
+  "dunkel": 5.4
+ }
+]

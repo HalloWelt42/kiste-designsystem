@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="handy" data-thema="hell">
+  <head>
+    <!-- block:kopf-handy -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/regular.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/handy/40-masse.css" />
+    <link rel="stylesheet" href="stil/handy/41-grund.css" />
+    <link rel="stylesheet" href="stil/handy/42-huelle.css" />
+    <link rel="stylesheet" href="stil/handy/43-bausteine.css" />
+    <link rel="stylesheet" href="stil/handy/44-ansichten.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <!-- /block:kopf-handy -->
+    <title>Kiste - Anreichern: Bereich und Treffer</title>
+    <style>
+      /* Nur Anordnung: Erscheinungsbild neben dem Titel; der Gehirn-Schalter neben seiner Beschriftung. */
+      .s-titelzeile {
+        display: flex;
+        align-items: center;
+        gap: var(--h-a3);
+        min-inline-size: 0;
+      }
+      .s-kizeile {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        align-items: center;
+        gap: var(--h-a3);
+      }
+      .s-kizeile-text {
+        display: grid;
+        gap: 2px;
+      }
+    </style>
+  </head>
+  <body data-seite="lager" data-leuchte="verbunden">
+    <div class="h-huelle">
+      <header class="h-kopf">
+        <a class="h-kopf-zurueck" href="#"><i class="fa-solid fa-chevron-left"></i><span>Vorratsschrank</span></a>
+        <div class="h-kopf-titel">Apfelsaft</div>
+        <div class="h-kopf-aktionen">
+          <button class="h-symbolknopf nackt hilfe" type="button" aria-label="Hilfe zu dieser Ansicht"><i class="fa-solid fa-circle-info"></i></button>
+          <a class="h-symbolknopf nackt" href="h40-bearbeiten.html" aria-label="Bearbeiten"><i class="fa-solid fa-pen"></i></a>
+        </div>
+      </header>
+      <main class="h-rollfeld">
+        <div class="h-titelblock">
+          <a class="h-pfad" href="h09-pfad-und-aktionen.html"><span>Wohnung</span><i class="fa-solid fa-chevron-right"></i><span>Küche</span><i class="fa-solid fa-chevron-right"></i><strong>Vorratsschrank</strong></a>
+          <div class="s-titelzeile">
+            <span class="z-erscheinung" style="--z-mass: 64px"><i class="fa-solid fa-bottle-water"></i></span>
+            <h1>Apfelsaft</h1>
+          </div>
+          <div class="h-pillen">
+            <span class="z-code">A5S8</span>
+            <span class="h-pille">Getränk</span>
+            <span class="h-pille moos">Lebensmittel</span>
+          </div>
+        </div>
+
+        <div class="h-mengenblock">
+          <div class="h-mengenblock-kopf">
+            <div class="h-mengenblock-menge"><b>6</b> Flaschen</div>
+            <span class="h-zustand gut"><i class="fa-solid fa-check"></i> vorhanden</span>
+          </div>
+          <p class="h-mengenblock-unter">6 Flaschen ungeöffnet, zusammen 6 l</p>
+          <div class="h-mengenblock-knoepfe">
+            <button class="h-mengenknopf primaer" type="button" aria-label="1 Flasche verbrauchen"><i class="fa-solid fa-minus"></i><span>1 Flasche</span></button>
+            <button class="h-mengenknopf" type="button" aria-label="1 Flasche einkaufen"><i class="fa-solid fa-plus"></i><span>1 Flasche</span></button>
+          </div>
+          <div class="h-mengenblock-fuss">
+            <span>1 l je Flasche</span>
+            <a class="h-link" href="#">Menge ändern <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+        </div>
+
+        <section class="h-abschnitt">
+          <div class="h-abschnitt-kopf"><h2>Verlauf</h2><a class="h-link" href="#">Alle ansehen</a></div>
+          <div class="h-verlauf">
+            <div class="h-verlauf-zeile"><div class="h-verlauf-wann"><span>01.10.2026</span><span>Mia</span></div><p class="h-verlauf-was">6 Flaschen eingekauft</p></div>
+          </div>
+        </section>
+      </main>
+      <!-- block:h-leiste -->
+      <nav class="h-leiste" aria-label="Hauptbereiche">
+        <a class="h-leiste-eintrag" data-seite="lager" href="h04-start.html"><i class="fa-solid fa-house"></i><span>Lager</span></a>
+        <a class="h-leiste-eintrag" data-seite="suche" href="h29-suche.html"><i class="fa-solid fa-magnifying-glass"></i><span>Suche</span></a>
+        <a class="h-leiste-scan" href="h17-scanner-einbuchen.html" aria-label="Scannen"><i class="fa-solid fa-qrcode"></i></a>
+        <a class="h-leiste-eintrag" data-seite="verbrauch" href="h30-verbrauch.html"><i class="fa-solid fa-circle-minus"></i><span>Verbrauch</span></a>
+        <a class="h-leiste-eintrag" data-seite="mehr" href="h48-mehr.html"><i class="fa-solid fa-ellipsis"></i><span>Mehr</span></a>
+      </nav>
+      <!-- /block:h-leiste -->
+    </div>
+
+    <div class="h-schleier" id="schleier"></div>
+
+    <section class="h-blatt" id="blatt-anreichern" role="dialog" aria-modal="true" aria-labelledby="blatt-anreichern-titel">
+      <header class="h-blatt-kopf">
+        <h2 class="h-blatt-titel" id="blatt-anreichern-titel">Anreichern</h2>
+        <button class="h-symbolknopf nackt" type="button" aria-label="Schließen" data-zeige="#schleier, #blatt-anreichern"><i class="fa-solid fa-xmark"></i></button>
+        <p class="h-blatt-unter">Angaben zu Apfelsaft aus einer Quelle holen</p>
+      </header>
+      <div class="h-blatt-rumpf">
+        <div class="h-wahlreihe" role="tablist" aria-label="In welchem Bereich gesucht wird">
+          <button class="h-wahl" type="button" role="tab" aria-selected="false">Buch</button>
+          <button class="h-wahl aktiv" type="button" role="tab" aria-selected="true">Lebensmittel</button>
+          <button class="h-wahl" type="button" role="tab" aria-selected="false">Medizin</button>
+          <button class="h-wahl" type="button" role="tab" aria-selected="false">Produkt</button>
+        </div>
+        <div class="h-feld">
+          <div class="h-suchfeld">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input class="h-eingabe" type="search" inputmode="search" value="4001234500027" placeholder="Strichcode oder Name" aria-label="Strichcode oder Name" />
+            <button class="h-suchfeld-leeren" type="button" aria-label="Suche leeren"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <span class="h-feld-hinweis">Strichcode des Eintrags, oder Name tippen</span>
+        </div>
+        <section class="h-abschnitt">
+          <div class="h-abschnitt-kopf"><h2>Treffer</h2><span class="h-abschnitt-zahl">2 Treffer</span></div>
+          <div role="radiogroup" aria-label="Welcher Treffer passt">
+            <button class="h-wahlzeile gewaehlt" type="button" role="radio" aria-checked="true"><i class="fa-solid fa-bottle-water"></i><span class="h-wahlzeile-text">Apfelsaft naturtrüb, Hofgut, 1 l<small>Lebensmitteldatenbank, Strichcode stimmt überein</small></span><i class="fa-solid fa-check h-wahlzeile-haken"></i></button>
+            <button class="h-wahlzeile" type="button" role="radio" aria-checked="false"><i class="fa-solid fa-bottle-water"></i><span class="h-wahlzeile-text">Apfelsaftschorle, 0,5 l<small>Lebensmitteldatenbank, nur der Name ist ähnlich</small></span><i class="fa-solid fa-check h-wahlzeile-haken"></i></button>
+          </div>
+        </section>
+        <div class="s-kizeile">
+          <button class="h-symbolknopf ki" id="schalter-ki" type="button" role="switch" aria-checked="false" aria-label="Vorschläge der KI dazu einschalten" data-schalte="#schalter-ki" data-klasse="aktiv"><i class="fa-solid fa-brain"></i></button>
+          <span class="s-kizeile-text">
+            <span>Vorschläge der KI dazu</span>
+            <span class="h-klein h-leise">Aus: die Vorschau zeigt nur, was die Quelle liefert.</span>
+          </span>
+        </div>
+      </div>
+      <footer class="h-blatt-fuss">
+        <a class="h-knopf primaer haupt" href="h45-anreichern-vorschau.html">Vorschau ansehen</a>
+      </footer>
+    </section>
+  </body>
+</html>

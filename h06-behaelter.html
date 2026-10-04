@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="de" data-oberflaeche="handy" data-thema="hell">
+  <head>
+    <!-- block:kopf-handy -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/fraunces/full.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/work-sans/index.css" />
+    <link rel="stylesheet" href="schriften/@fontsource-variable/jetbrains-mono/index.css" />
+    <link rel="stylesheet" href="stil/00-schichten.css" />
+    <style>
+      @import url("schriften/@fortawesome/fontawesome-free/css/fontawesome.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/solid.css") layer(icons);
+      @import url("schriften/@fortawesome/fontawesome-free/css/regular.css") layer(icons);
+    </style>
+    <link rel="stylesheet" href="stil/10-marken.css" />
+    <link rel="stylesheet" href="stil/20-zeichen.css" />
+    <link rel="stylesheet" href="stil/handy/40-masse.css" />
+    <link rel="stylesheet" href="stil/handy/41-grund.css" />
+    <link rel="stylesheet" href="stil/handy/42-huelle.css" />
+    <link rel="stylesheet" href="stil/handy/43-bausteine.css" />
+    <link rel="stylesheet" href="stil/handy/44-ansichten.css" />
+    <script src="_vorab.js"></script>
+    <script src="_seiten.js" defer></script>
+    <script src="_gemeinsam.js" defer></script>
+    <!-- /block:kopf-handy -->
+    <title>Kiste - Behälter</title>
+  </head>
+  <body data-seite="lager" data-leuchte="verbunden">
+    <div class="h-huelle">
+      <header class="h-kopf">
+        <a class="h-kopf-zurueck" href="#"><i class="fa-solid fa-chevron-left"></i><span>Küche</span></a>
+        <div class="h-kopf-titel">Kühlschrank</div>
+        <div class="h-kopf-aktionen">
+          <button class="h-symbolknopf nackt hilfe" type="button" aria-label="Hilfe zu dieser Ansicht"><i class="fa-solid fa-circle-info"></i></button>
+          <a class="h-symbolknopf nackt" href="h40-bearbeiten.html" aria-label="Bearbeiten"><i class="fa-solid fa-pen"></i></a>
+        </div>
+      </header>
+      <main class="h-rollfeld">
+        <div class="h-titelblock">
+          <a class="h-pfad" href="h09-pfad-und-aktionen.html" aria-label="Wo liegt das: Wohnung, Küche, Kühlschrank"><span>Wohnung</span><i class="fa-solid fa-chevron-right"></i><span>Küche</span><i class="fa-solid fa-chevron-right"></i><strong>Kühlschrank</strong></a>
+          <h1>Kühlschrank</h1>
+          <p class="h-titelblock-unter">5 Einträge, 10 Gegenstände</p>
+          <div class="h-reihe">
+            <span class="z-code">R2D5</span>
+            <span class="h-pille messing">Behälter</span>
+            <span class="h-pille">Schrank</span>
+          </div>
+        </div>
+
+        <div class="h-neustreifen">
+          <a class="h-knopf primaer" href="h22-anlegen-schnell.html"><i class="fa-solid fa-plus"></i> Neu</a>
+          <button class="h-symbolknopf ki" type="button" role="switch" aria-checked="false" aria-label="Vorschläge der KI einschalten"><i class="fa-solid fa-brain"></i></button>
+          <button class="h-knopf" type="button"><i class="fa-solid fa-camera"></i> Foto</button>
+        </div>
+
+        <section class="h-abschnitt">
+          <div class="h-abschnitt-kopf"><h2>Inhalt</h2><span class="h-abschnitt-zahl">5 Einträge</span></div>
+          <div class="h-liste">
+            <a class="h-zeile" href="h12-eintrag-lebensmittel.html">
+              <span class="z-erscheinung"><i class="fa-solid fa-cow"></i></span>
+              <span class="h-zeile-text">
+                <span class="h-zeile-name">Milch</span>
+                <span class="h-zeile-unter"><span class="z-code">M3T7</span><span class="z-menge"><b>3</b> Tetrapack, <b>2,8</b> l</span></span>
+              </span>
+              <span class="h-zeile-ende"><span class="h-zeichen warn" role="img" aria-label="Läuft in 7 Tagen ab"><i class="fa-solid fa-hourglass-half"></i></span><i class="fa-solid fa-chevron-right"></i></span>
+            </a>
+            <a class="h-zeile" href="#">
+              <span class="z-erscheinung"><i class="fa-solid fa-jar"></i></span>
+              <span class="h-zeile-text">
+                <span class="h-zeile-name">Joghurt</span>
+                <span class="h-zeile-unter"><span class="z-code">Y2G6</span><span class="z-menge"><b>4</b> Becher</span></span>
+              </span>
+              <span class="h-zeile-ende"><span class="h-zeichen warn" role="img" aria-label="Läuft in 3 Tagen ab"><i class="fa-solid fa-hourglass-half"></i></span><i class="fa-solid fa-chevron-right"></i></span>
+            </a>
+            <a class="h-zeile" href="#">
+              <span class="z-erscheinung"><i class="fa-solid fa-cheese"></i></span>
+              <span class="h-zeile-text">
+                <span class="h-zeile-name">Käse</span>
+                <span class="h-zeile-unter"><span class="z-code">C5R8</span><span class="z-menge"><b>1</b> Stück</span></span>
+              </span>
+              <span class="h-zeile-ende"><span class="h-zeichen gefahr" role="img" aria-label="Abgelaufen seit 2 Tagen"><i class="fa-solid fa-triangle-exclamation"></i></span><i class="fa-solid fa-chevron-right"></i></span>
+            </a>
+            <a class="h-zeile leer" href="#">
+              <span class="z-erscheinung"><i class="fa-solid fa-cube"></i></span>
+              <span class="h-zeile-text">
+                <span class="h-zeile-name">Butter</span>
+                <span class="h-zeile-unter"><span class="z-code">B6H2</span><span class="z-menge leer">leer</span></span>
+              </span>
+              <span class="h-zeile-ende"><i class="fa-solid fa-chevron-right"></i></span>
+            </a>
+            <a class="h-zeile" href="#">
+              <span class="z-erscheinung"><i class="fa-solid fa-egg"></i></span>
+              <span class="h-zeile-text">
+                <span class="h-zeile-name">Eier</span>
+                <span class="h-zeile-unter"><span class="z-code">E9C4</span><span class="z-menge"><b>2</b> Schachteln, <b>16</b> Eier</span></span>
+              </span>
+              <span class="h-zeile-ende"><i class="fa-solid fa-chevron-right"></i></span>
+            </a>
+          </div>
+        </section>
+
+        <section class="h-abschnitt">
+          <div class="h-abschnitt-kopf"><h2>Verlauf</h2><a class="h-link" href="#">Alle ansehen</a></div>
+          <div class="h-verlauf">
+            <div class="h-verlauf-zeile"><div class="h-verlauf-wann"><span>heute 08:12</span><span>Mia</span></div><p class="h-verlauf-was">Milch: 200 ml verbraucht</p></div>
+            <div class="h-verlauf-zeile"><div class="h-verlauf-wann"><span>01.10.2026</span><span>Alex</span></div><p class="h-verlauf-was">Butter: letztes Stück verbraucht, steht auf der Einkaufsliste</p></div>
+          </div>
+        </section>
+      </main>
+      <!-- block:h-leiste -->
+      <nav class="h-leiste" aria-label="Hauptbereiche">
+        <a class="h-leiste-eintrag" data-seite="lager" href="h04-start.html"><i class="fa-solid fa-house"></i><span>Lager</span></a>
+        <a class="h-leiste-eintrag" data-seite="suche" href="h29-suche.html"><i class="fa-solid fa-magnifying-glass"></i><span>Suche</span></a>
+        <a class="h-leiste-scan" href="h17-scanner-einbuchen.html" aria-label="Scannen"><i class="fa-solid fa-qrcode"></i></a>
+        <a class="h-leiste-eintrag" data-seite="verbrauch" href="h30-verbrauch.html"><i class="fa-solid fa-circle-minus"></i><span>Verbrauch</span></a>
+        <a class="h-leiste-eintrag" data-seite="mehr" href="h48-mehr.html"><i class="fa-solid fa-ellipsis"></i><span>Mehr</span></a>
+      </nav>
+      <!-- /block:h-leiste -->
+    </div>
+  </body>
+</html>

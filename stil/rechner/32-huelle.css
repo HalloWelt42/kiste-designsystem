@@ -1,0 +1,452 @@
+/* Rechner: die Hülle steht. Spalten von links: Seitenleiste, Anfasser, Mittelspalte, Anfasser,
+   Inhalt. Sie wird beim Seitenwechsel nicht neu aufgebaut. Hier steht die einzige Breitenabfrage
+   der Anwendung: der Hinweis "Fenster zu schmal". */
+@layer r-huelle {
+  .r-huelle {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    grid-template-columns: var(--r-leiste) var(--r-anfasser) var(--r-mitte) var(--r-anfasser) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
+    background-color: var(--papier);
+    background-image:
+      linear-gradient(var(--raster-linie) 1px, transparent 1px),
+      linear-gradient(90deg, var(--raster-linie) 1px, transparent 1px);
+    background-size: var(--raster-weite) var(--raster-weite);
+  }
+  /* Ansichten ohne Baum oder Liste in der Mitte (Start, Einstellungen). */
+  .r-huelle.ohne-mitte {
+    grid-template-columns: var(--r-leiste) var(--r-anfasser) minmax(0, 1fr);
+  }
+  .r-huelle.eingeklappt {
+    --r-leiste: var(--r-leiste-zu);
+  }
+
+  /* ---- Seitenleiste ---------------------------------------------------------------------------- */
+  .r-seitenleiste {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    min-inline-size: 0;
+    background: var(--papier-weich);
+  }
+  .r-seitenleiste-kopf {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--r-a2);
+    min-block-size: 64px;
+    padding: var(--r-a3) var(--r-a3) var(--r-a3) var(--r-a4);
+    border-block-end: 1px solid var(--papier-linie);
+  }
+  .r-seitenleiste-kopf .z-marke {
+    font-size: var(--r-titel-2);
+  }
+  .r-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-block-size: 0;
+    padding: var(--r-a3) var(--r-a2);
+    overflow-y: auto;
+    overflow-x: clip;
+  }
+  .r-nav-gruppe {
+    padding: var(--r-a4) var(--r-a3) var(--r-a1);
+    font-family: var(--schrift-code);
+    font-size: var(--r-schrift-winzig);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--tinte-leise);
+  }
+  .r-nav-eintrag {
+    display: grid;
+    grid-template-columns: 20px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--r-a3);
+    flex: none;
+    min-block-size: var(--r-knopf);
+    padding-inline: var(--r-a3);
+    border-radius: var(--rund-2);
+    color: var(--tinte-weich);
+    font-weight: 500;
+    text-align: start;
+  }
+  .r-nav-eintrag i {
+    text-align: center;
+    font-size: var(--r-icon);
+    color: var(--tinte-leise);
+  }
+  .r-nav-eintrag span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .r-nav-eintrag:hover {
+    background: var(--papier-tief);
+    color: var(--tinte);
+  }
+  .r-nav-eintrag.aktiv {
+    background: var(--tinte);
+    color: var(--auf-tinte);
+  }
+  .r-nav-eintrag.aktiv i {
+    color: var(--auf-tinte);
+  }
+  .r-nav-zahl {
+    font-family: var(--schrift-code);
+    font-size: var(--r-schrift-klein);
+    font-variant-numeric: tabular-nums;
+    color: var(--tinte-leise);
+  }
+  .r-nav-eintrag.aktiv .r-nav-zahl {
+    color: var(--auf-tinte);
+  }
+  .r-seitenfuss {
+    display: grid;
+    gap: 2px;
+    padding: var(--r-a2);
+    border-block-start: 1px solid var(--papier-linie);
+  }
+  .r-nutzer {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--r-a3);
+    padding: var(--r-a2) var(--r-a2) var(--r-a2) var(--r-a3);
+  }
+  .r-nutzer-bild {
+    display: grid;
+    place-items: center;
+    inline-size: 30px;
+    block-size: 30px;
+    border-radius: 50%;
+    background: var(--messing);
+    color: var(--auf-messing);
+    font-weight: 600;
+  }
+  .r-nutzer-text {
+    display: grid;
+    min-inline-size: 0;
+    line-height: 1.25;
+  }
+  .r-nutzer-text strong {
+    font-weight: 600;
+  }
+  .r-nutzer-text small {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: var(--r-schrift-klein);
+    color: var(--tinte-leise);
+  }
+  .r-fassung {
+    display: flex;
+    align-items: center;
+    gap: var(--r-a2);
+    padding: var(--r-a1) var(--r-a2) var(--r-a1) var(--r-a3);
+    font-family: var(--schrift-code);
+    font-size: var(--r-schrift-klein);
+    color: var(--tinte-leise);
+  }
+  .r-fassung span:nth-child(2) {
+    flex: 1;
+  }
+  /* Eingeklappt bleiben nur die Icons stehen. */
+  .r-huelle.eingeklappt .r-nav-eintrag {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    padding-inline: 0;
+  }
+  .r-huelle.eingeklappt .r-nav-eintrag span,
+  .r-huelle.eingeklappt .r-nav-gruppe,
+  .r-huelle.eingeklappt .r-nutzer-text,
+  .r-huelle.eingeklappt .r-nutzer .r-symbolknopf,
+  .r-huelle.eingeklappt .r-fassung span:nth-child(2),
+  .r-huelle.eingeklappt .r-fassung .r-symbolknopf,
+  .r-huelle.eingeklappt .z-marke span {
+    display: none;
+  }
+  .r-huelle.eingeklappt .r-seitenleiste-kopf {
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--r-a2);
+  }
+  .r-huelle.eingeklappt .r-nutzer,
+  .r-huelle.eingeklappt .r-fassung {
+    justify-content: center;
+    grid-template-columns: auto;
+    justify-items: center;
+    padding-inline: 0;
+  }
+
+  /* ---- Anfasser: zieht die Breite der Spalte links von ihm ------------------------------------- */
+  .r-anfasser {
+    position: relative;
+    cursor: col-resize;
+  }
+  .r-anfasser::before {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 50%;
+    inline-size: 1px;
+    background: var(--papier-linie);
+  }
+  .r-anfasser:hover::before,
+  .r-anfasser.gezogen::before {
+    inline-size: 3px;
+    margin-inline-start: -1px;
+    background: var(--messing);
+  }
+
+  /* ---- Mittelspalte: Baum oder Liste des Bereichs ---------------------------------------------- */
+  .r-mitte {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    min-inline-size: 0;
+    background: var(--papier);
+  }
+  .r-mitte-kopf {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    align-items: center;
+    gap: var(--r-a2);
+    min-block-size: 64px;
+    padding: var(--r-a3) var(--r-a4);
+    border-block-end: 1px solid var(--papier-linie);
+  }
+  .r-mitte-rumpf {
+    min-block-size: 0;
+    padding: var(--r-a3) var(--r-a2) var(--r-a6);
+    overflow-y: auto;
+    overflow-x: clip;
+  }
+
+  /* ---- Inhalt: der Seitenkopf steht, darunter das Rollfeld ------------------------------------- */
+  .r-inhalt {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    min-inline-size: 0;
+  }
+  .r-seitenkopf {
+    display: grid;
+    gap: var(--r-a3);
+    padding: var(--r-a4) var(--r-a6) var(--r-a4);
+    border-block-end: 1px solid var(--papier-linie);
+    background: var(--papier);
+  }
+  .r-brotkrumen {
+    display: flex;
+    align-items: center;
+    gap: var(--r-a2);
+    min-inline-size: 0;
+    font-size: var(--r-schrift-klein);
+    color: var(--tinte-leise);
+  }
+  .r-brotkrumen a:hover {
+    color: var(--messing-schrift);
+  }
+  .r-brotkrumen i {
+    font-size: var(--r-icon-klein);
+    color: var(--tinte-blass);
+  }
+  .r-brotkrumen strong {
+    font-weight: 500;
+    color: var(--tinte-weich);
+  }
+  /* Titelzeile: links der Titel, rechts die Handlungen; ganz rechts stehen immer Info und Bearbeiten. */
+  .r-titelzeile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--r-a5);
+    min-inline-size: 0;
+  }
+  /* Im Bearbeiten steht der Name als Feld in der Titelzeile; die Handlungen dürfen darunter umbrechen. */
+  .r-titelzeile.bearbeiten {
+    flex-wrap: wrap;
+    gap: var(--r-a3) var(--r-a5);
+  }
+  .r-titelzeile.bearbeiten .r-eingabe {
+    flex: 1 1 280px;
+    inline-size: auto;
+    max-inline-size: 520px;
+  }
+  .r-titelzeile.bearbeiten .r-seitenkopf-aktionen {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .r-titelzeile h1 {
+    min-inline-size: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: var(--r-titel);
+  }
+  .r-seitenkopf-aktionen {
+    display: flex;
+    align-items: center;
+    gap: var(--r-a2);
+    flex: none;
+  }
+  .r-seitenkopf-fest {
+    display: flex;
+    align-items: center;
+    gap: var(--r-a1);
+    margin-inline-start: var(--r-a2);
+    padding-inline-start: var(--r-a3);
+    border-inline-start: 1px solid var(--papier-linie);
+  }
+  .r-titelunter {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--r-a2) var(--r-a3);
+    color: var(--tinte-leise);
+  }
+  .r-titelunter b {
+    font-weight: 600;
+    color: var(--tinte-weich);
+  }
+  .r-rollfeld {
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+    gap: var(--r-a6);
+    min-block-size: 0;
+    padding: var(--r-a5) var(--r-a6) var(--r-a7);
+    overflow-y: auto;
+    overflow-x: clip;
+  }
+  .r-rollfeld > * {
+    flex: none;
+    min-inline-size: 0;
+  }
+
+  /* ---- Meldungen: Stapel unten rechts ----------------------------------------------------------- */
+  .r-meldungen {
+    position: fixed;
+    inset-block-end: var(--r-a5);
+    inset-inline-end: var(--r-a5);
+    z-index: 30;
+    display: grid;
+    gap: var(--r-a2);
+    inline-size: 380px;
+  }
+
+  /* ---- Schleier, Fenster, Schublade: liegen über allem ------------------------------------------ */
+  .r-schleier {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    display: grid;
+    grid-template-rows: minmax(0, 1fr);
+    place-items: center;
+    padding: var(--r-a6);
+    background: var(--schleier);
+  }
+  .r-fenster {
+    position: relative;
+    z-index: 21;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    inline-size: min(640px, 100%);
+    max-block-size: 100%;
+    border: 1px solid var(--papier-linie);
+    border-radius: var(--rund-3);
+    background: var(--papier);
+    box-shadow: var(--schatten-tief);
+  }
+  .r-fenster.schmal {
+    inline-size: min(460px, 100%);
+  }
+  .r-fenster.breit {
+    inline-size: min(920px, 100%);
+  }
+  .r-fenster-kopf {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--r-a1) var(--r-a3);
+    padding: var(--r-a4) var(--r-a4) var(--r-a4) var(--r-a5);
+    border-block-end: 1px solid var(--papier-linie);
+  }
+  .r-fenster-kopf h2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: var(--r-titel-2);
+  }
+  .r-fenster-unter {
+    grid-column: 1 / -1;
+    font-size: var(--r-schrift-klein);
+    color: var(--tinte-leise);
+  }
+  .r-fenster-rumpf {
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+    gap: var(--r-a4);
+    min-block-size: 0;
+    padding: var(--r-a5);
+    overflow-y: auto;
+    overflow-x: clip;
+  }
+  .r-fenster-rumpf > * {
+    flex: none;
+    min-inline-size: 0;
+  }
+  .r-fenster-fuss {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--r-a2);
+    padding: var(--r-a3) var(--r-a5);
+    border-block-start: 1px solid var(--papier-linie);
+    background: var(--papier-weich);
+    border-end-start-radius: var(--rund-3);
+    border-end-end-radius: var(--rund-3);
+  }
+  .r-schublade {
+    position: fixed;
+    inset: 0 0 0 auto;
+    z-index: 21;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    inline-size: min(440px, 100%);
+    border-inline-start: 1px solid var(--papier-linie);
+    background: var(--papier);
+    box-shadow: var(--schatten-tief);
+  }
+
+  /* ---- Fenster zu schmal: der Rechner nimmt keine Rücksicht auf kleine Fenster ------------------ */
+  .r-zu-schmal {
+    display: none;
+  }
+  @media (max-width: 1023px) {
+    .r-huelle {
+      display: none;
+    }
+    .r-zu-schmal {
+      position: fixed;
+      inset: 0;
+      display: grid;
+      place-content: center;
+      justify-items: center;
+      gap: var(--r-a4);
+      padding: var(--r-a6);
+      text-align: center;
+      background: var(--papier);
+    }
+    .r-zu-schmal i {
+      font-size: var(--r-icon-riesig);
+      color: var(--tinte-blass);
+    }
+    .r-zu-schmal p {
+      max-inline-size: 44ch;
+      color: var(--tinte-leise);
+    }
+  }
+}
