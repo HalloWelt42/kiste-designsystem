@@ -204,6 +204,24 @@
     font-family: var(--schrift-code);
     font-size: 0.9em;
   }
+  /* Tabellen in der Hilfe: volle Breite, Zellen brechen um, nichts rollt seitlich. */
+  .z-hilfetext table {
+    inline-size: 100%;
+    border-collapse: collapse;
+    font-size: 0.95em;
+  }
+  .z-hilfetext th,
+  .z-hilfetext td {
+    padding: 0.35em 0.5em;
+    border-block-end: 1px solid var(--papier-linie);
+    text-align: start;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+  }
+  .z-hilfetext th {
+    font-weight: 600;
+    color: var(--tinte-weich);
+  }
   /* Treffer der Suche: Messing hinterlegt, der aktive kräftig. */
   .z-treffer {
     border-radius: var(--rund-1);

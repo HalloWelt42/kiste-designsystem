@@ -46,6 +46,19 @@
     gap: var(--r-a5);
   }
 
+  /* Drei gleich breite Spalten, etwa für drei Wahlkarten; in einer schmalen Spalte untereinander. */
+  .r-drei {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: var(--r-a3);
+  }
+  @container (max-width: 520px) {
+    .r-drei {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
   /* Anmeldung: eine Karte in der Mitte, ohne Hülle. */
   .r-anmeldung {
     position: fixed;

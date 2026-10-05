@@ -26,7 +26,7 @@
     <script src="_seiten.js" defer></script>
     <script src="_gemeinsam.js" defer></script>
     <!-- /block:kopf-handy -->
-    <title>Kiste - Bearbeiten</title>
+    <title>Kiste - Sorte ändern</title>
   </head>
   <body data-seite="lager" data-leuchte="verbunden">
     <div class="h-huelle vollflaeche">
@@ -65,44 +65,31 @@
     </div>
 
     <div class="h-schleier" id="schleier"></div>
-
-    <section class="h-blatt" id="blatt-menge" role="dialog" aria-modal="true" aria-labelledby="blatt-menge-titel">
+    <section class="h-blatt" id="blatt-sorte" role="dialog" aria-modal="true" aria-labelledby="blatt-sorte-titel">
       <header class="h-blatt-kopf">
-        <h2 class="h-blatt-titel" id="blatt-menge-titel">Menge und Einheit</h2>
-        <button class="h-symbolknopf nackt" type="button" aria-label="Schließen" data-zeige="#schleier, #blatt-menge"><i class="fa-solid fa-xmark"></i></button>
+        <h2 class="h-blatt-titel" id="blatt-sorte-titel">Sorte</h2>
+        <button class="h-symbolknopf nackt" type="button" aria-label="Schließen" data-zeige="#schleier, #blatt-sorte"><i class="fa-solid fa-xmark"></i></button>
+        <p class="h-blatt-unter">Geschirrtabs</p>
       </header>
       <div class="h-blatt-rumpf">
-        <div class="h-wahlreihe" role="tablist" aria-label="Wie wird gezählt">
-          <button class="h-wahl" type="button" role="tab" aria-selected="false">Stück</button>
-          <button class="h-wahl aktiv" type="button" role="tab" aria-selected="true">Packung</button>
-          <button class="h-wahl" type="button" role="tab" aria-selected="false">Lose Menge</button>
+        <div class="h-stapel" role="radiogroup" aria-label="Sorte des Eintrags">
+          <button class="h-wahlkarte" type="button" role="radio" aria-checked="false">
+            <span class="h-wahlkarte-punkt"></span>
+            <span class="h-wahlkarte-text"><strong>Ein Raum</strong><small>Ein Ort, den man betritt: Zimmer, Küche, Etage, Garage.</small></span>
+          </button>
+          <button class="h-wahlkarte" type="button" role="radio" aria-checked="false">
+            <span class="h-wahlkarte-punkt"></span>
+            <span class="h-wahlkarte-text"><strong>Ein Behälter</strong><small>Etwas, in dem anderes liegt: Schrank, Regal, Kiste.</small></span>
+          </button>
+          <button class="h-wahlkarte gewaehlt" type="button" role="radio" aria-checked="true">
+            <span class="h-wahlkarte-punkt"></span>
+            <span class="h-wahlkarte-text"><strong>Ein Ding</strong><small>Etwas, das irgendwo liegt: Milch, Jacke, Bohrmaschine.</small></span>
+          </button>
         </div>
-        <div class="h-feld">
-          <span class="h-feld-name">Packung heißt</span>
-          <button class="h-auswahl" type="button"><span>Karton</span><i class="fa-solid fa-chevron-down"></i></button>
-        </div>
-        <div class="h-feld">
-          <span class="h-feld-name">Inhalt je Karton</span>
-          <div class="h-mengenfeld">
-            <input class="h-eingabe zahl" type="text" inputmode="decimal" value="30" aria-label="Menge" />
-            <button class="h-einheit" type="button" aria-label="Einheit wählen, jetzt Tabs">Tabs <i class="fa-solid fa-chevron-down"></i></button>
-          </div>
-        </div>
-        <div class="h-feld">
-          <span class="h-feld-name">Mindestbestand</span>
-          <div class="h-reihe">
-            <div class="h-stufen">
-              <button type="button" aria-label="Einer weniger"><i class="fa-solid fa-minus"></i></button>
-              <span class="h-stufen-wert">1</span>
-              <button type="button" aria-label="Einer mehr"><i class="fa-solid fa-plus"></i></button>
-            </div>
-            <span>Karton</span>
-          </div>
-        </div>
-        <div class="h-hinweis hilfe"><i class="fa-solid fa-circle-info"></i><p>Gilt für künftige Käufe. Der Bestand bleibt, wie er ist.</p></div>
+        <p class="h-klein h-leise">Ein Wechsel tauscht die Kategorie passend aus; der Inhalt bleibt. Mit Bestand oder Produkt bleibt es ein Ding.</p>
       </div>
       <footer class="h-blatt-fuss">
-        <button class="h-knopf primaer haupt" type="button" data-zeige="#schleier, #blatt-menge">Speichern</button>
+        <button class="h-knopf primaer haupt" type="button" data-zeige="#schleier, #blatt-sorte">Übernehmen</button>
       </footer>
     </section>
   </body>

@@ -47,21 +47,26 @@
         <div class="h-titelblock">
           <h1>Neuer Eintrag</h1>
         </div>
-        <div class="h-hinweis"><i class="fa-solid fa-location-dot"></i><p>Wird abgelegt in: <strong>Kühlschrank</strong> <a class="h-link" href="#">Ändern</a></p></div>
+        <div class="h-hinweis"><i class="fa-solid fa-location-dot"></i><p>Kommt nach: <strong>Kühlschrank</strong> <a class="h-link" href="#">Ändern</a></p></div>
         <label class="h-feld">
           <span class="h-feld-name">Name</span>
           <input class="h-eingabe gross" type="text" value="Sahne" autocomplete="off" />
         </label>
         <div class="h-stapel" role="radiogroup" aria-label="Was ist das">
+          <button class="h-wahlkarte" type="button" role="radio" aria-checked="false">
+            <span class="h-wahlkarte-punkt"></span>
+            <span class="h-wahlkarte-text"><strong>Ein Raum</strong><small>Ein Ort, den man betritt: Zimmer, Küche, Etage, Garage.</small></span>
+          </button>
+          <button class="h-wahlkarte" type="button" role="radio" aria-checked="false">
+            <span class="h-wahlkarte-punkt"></span>
+            <span class="h-wahlkarte-text"><strong>Ein Behälter</strong><small>Etwas, in dem anderes liegt: Schrank, Regal, Kiste.</small></span>
+          </button>
           <button class="h-wahlkarte gewaehlt" type="button" role="radio" aria-checked="true">
             <span class="h-wahlkarte-punkt"></span>
             <span class="h-wahlkarte-text"><strong>Ein Ding</strong><small>Etwas, das irgendwo liegt: Milch, Jacke, Bohrmaschine.</small></span>
           </button>
-          <button class="h-wahlkarte" type="button" role="radio" aria-checked="false">
-            <span class="h-wahlkarte-punkt"></span>
-            <span class="h-wahlkarte-text"><strong>Ein Behälter</strong><small>Etwas, in dem anderes liegt: Schrank, Kiste, Regal.</small></span>
-          </button>
         </div>
+        <p class="h-klein h-leise">Vorgewählt nach dem Ort: in einem Behälter liegt meist ein Ding.</p>
         <div class="h-hinweis messing">
           <i class="fa-solid fa-brain"></i>
           <div class="h-stapel">
