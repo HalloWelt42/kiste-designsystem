@@ -111,6 +111,22 @@
     font-weight: 600;
     color: var(--messing-schrift);
   }
+  .h-band.hilfe {
+    border-color: var(--hilfe-weich);
+    background: var(--hilfe-flaeche);
+    color: var(--tinte);
+  }
+  .h-band.hilfe i,
+  .h-band.hilfe .h-band-knopf {
+    color: var(--hilfe);
+  }
+  /* Info-Modus: was eine Erklärung hat, trägt einen blauen Rahmen; Tippen erklärt statt zu handeln. Der Schalter sitzt
+     am Wurzelelement, weil jede Ansicht ihre eigene Hülle zeichnet. */
+  [data-info-modus] .h-huelle [data-hilfe] {
+    outline: 2px solid var(--hilfe);
+    outline-offset: 2px;
+    border-radius: var(--rund-2);
+  }
 
   /* ---- Rollfeld: das eine Rollfeld der Ansicht ------------------------------------------------ */
   .h-rollfeld {

@@ -143,11 +143,11 @@
     font-size: var(--h-icon);
   }
   /* Wahl des Modus: Einbuchen, Verbrauchen, Nachschlagen. */
+  /* Vier Modi in zwei Reihen: so passt jedes Wort ganz, auch am schmalen Handy. */
   .h-scanner-modi {
     grid-row: 2;
     display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--h-a1);
     margin-inline: var(--h-rand);
     padding: var(--h-a1);
