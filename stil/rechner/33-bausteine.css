@@ -1338,6 +1338,36 @@
     inset-block-start: var(--r-a2);
     inset-inline-start: var(--r-a2);
   }
+  /* Bilder zum Auswählen: das ganze Bild ist der Knopf, angehakt mit Rahmen in Messing; das Kästchen sitzt oben
+     links. Eine Kachel "Weiteres Foto" daneben hat dieselbe Form. */
+  button.r-bild {
+    padding: 0;
+    cursor: pointer;
+  }
+  /* Im Knopf füllt das Bild die Kachel als Ganzes aus und wird eingepasst, nie beschnitten. */
+  button.r-bild img {
+    position: absolute;
+    inset: 0;
+  }
+  .r-bild.an {
+    border-color: var(--messing);
+    box-shadow: 0 0 0 1px var(--messing);
+  }
+  .r-bild.an .r-kaestchen-feld {
+    border-color: var(--tinte);
+    background: var(--tinte);
+    color: var(--auf-tinte);
+  }
+  .r-bild-dazu {
+    display: grid;
+    justify-items: center;
+    gap: var(--r-a2);
+    color: var(--tinte-weich);
+    font-size: var(--r-schrift-klein);
+  }
+  .r-bild-dazu i {
+    font-size: var(--r-icon-gross);
+  }
 
   /* Fortschritt eines Vorgangs: Schritt und Restzeit in Worten, darunter der Balken. --stand ist der Anteil in Prozent. */
   .r-fortschritt {

@@ -26,7 +26,7 @@
     <script src="_seiten.js" defer></script>
     <script src="_gemeinsam.js" defer></script>
     <!-- /block:kopf-handy -->
-    <title>Kiste - Bearbeiten</title>
+    <title>Kiste - Foto erkennen</title>
   </head>
   <body data-seite="lager" data-leuchte="verbunden">
     <div class="h-huelle vollflaeche">
@@ -50,8 +50,7 @@
           <a class="h-bereich" href="#"><i class="fa-solid fa-scale-balanced"></i><span class="h-bereich-text"><strong>Menge und Einheit</strong><small>Karton je 30 Tabs, mindestens 1 Karton</small></span><i class="fa-solid fa-chevron-right"></i></a>
           <a class="h-bereich" href="#"><i class="fa-solid fa-boxes-stacked"></i><span class="h-bereich-text"><strong>Packungen</strong><small>1 Kauf vom 12.09.2026</small></span><i class="fa-solid fa-chevron-right"></i></a>
           <a class="h-bereich" href="#"><i class="fa-solid fa-book-open"></i><span class="h-bereich-text"><strong>Katalog</strong><small>Einzelstück, ohne Produkt</small></span><i class="fa-solid fa-chevron-right"></i></a>
-          <a class="h-bereich" href="#"><i class="fa-solid fa-list-ul"></i><span class="h-bereich-text"><strong>Eigenschaften</strong><small>keine</small></span><i class="fa-solid fa-chevron-right"></i></a>
-          <a class="h-bereich" href="h47-ki-vorschlag.html"><i class="fa-solid fa-broom"></i><span class="h-bereich-text"><strong>Aufräumen</strong><small>Schreibweise und Marke nach festen Regeln, mit Vorschau</small></span><i class="fa-solid fa-chevron-right"></i></a>
+          <a class="h-bereich" href="#"><i class="fa-solid fa-list-ul"></i><span class="h-bereich-text"><strong>Eigenschaften</strong><small>2 Werte</small></span><i class="fa-solid fa-chevron-right"></i></a>
           <a class="h-bereich" href="#"><i class="fa-solid fa-qrcode"></i><span class="h-bereich-text"><strong>Codes</strong><small>Etikett T9B5, 1 Strichcode</small></span><i class="fa-solid fa-chevron-right"></i></a>
           <a class="h-bereich" href="#"><i class="fa-solid fa-camera"></i><span class="h-bereich-text"><strong>Fotos</strong><small>1 Foto</small></span><i class="fa-solid fa-chevron-right"></i></a>
         </div>
@@ -64,45 +63,32 @@
     </div>
 
     <div class="h-schleier" id="schleier"></div>
-
-    <section class="h-blatt" id="blatt-menge" role="dialog" aria-modal="true" aria-labelledby="blatt-menge-titel">
+    <section class="h-blatt" id="blatt-foto" role="dialog" aria-modal="true" aria-labelledby="blatt-foto-titel">
       <header class="h-blatt-kopf">
-        <h2 class="h-blatt-titel" id="blatt-menge-titel">Menge und Einheit</h2>
-        <button class="h-symbolknopf nackt" type="button" aria-label="Schließen" data-zeige="#schleier, #blatt-menge"><i class="fa-solid fa-xmark"></i></button>
+        <h2 class="h-blatt-titel" id="blatt-foto-titel">Foto erkennen</h2>
+        <button class="h-symbolknopf nackt" type="button" aria-label="Schließen" data-zeige="#schleier, #blatt-foto"><i class="fa-solid fa-xmark"></i></button>
+        <p class="h-blatt-unter">Bis zu 3 Fotos, etwa Vorderseite und Rückseite</p>
       </header>
       <div class="h-blatt-rumpf">
-        <div class="h-wahlreihe" role="tablist" aria-label="Wie wird gezählt">
-          <button class="h-wahl" type="button" role="tab" aria-selected="false">Stück</button>
-          <button class="h-wahl aktiv" type="button" role="tab" aria-selected="true">Packung</button>
-          <button class="h-wahl" type="button" role="tab" aria-selected="false">Lose Menge</button>
+        <div class="h-bildwahl" role="group" aria-label="Fotos für die KI">
+          <button class="h-bild an" type="button" aria-pressed="true" aria-label="Gespeichertes Foto 1 mitschicken">
+            <img src="bilder/foto-geschirrtabs.svg" alt="" />
+            <span class="h-bild-marke"><span class="h-kaestchen-feld"><i class="fa-solid fa-check"></i></span></span>
+          </button>
+          <button class="h-bild an" type="button" aria-pressed="true" aria-label="Zusätzliches Foto mitschicken">
+            <img src="bilder/foto-typenschild.svg" alt="" />
+            <span class="h-bild-marke"><span class="h-kaestchen-feld"><i class="fa-solid fa-check"></i></span></span>
+          </button>
+          <button class="h-bild" type="button" aria-label="Weiteres Foto aufnehmen, nur zum Erkennen">
+            <span class="h-bild-dazu"><i class="fa-solid fa-camera"></i> Weiteres Foto</span>
+          </button>
         </div>
-        <div class="h-feld">
-          <span class="h-feld-name">Packung heißt</span>
-          <button class="h-auswahl" type="button"><span>Karton</span><i class="fa-solid fa-chevron-down"></i></button>
-        </div>
-        <div class="h-feld">
-          <span class="h-feld-name">Inhalt je Karton</span>
-          <div class="h-mengenfeld">
-            <input class="h-eingabe zahl" type="text" inputmode="decimal" value="30" aria-label="Menge" />
-            <button class="h-einheit" type="button" aria-label="Einheit wählen, jetzt Tabs">Tabs <i class="fa-solid fa-chevron-down"></i></button>
-          </div>
-        </div>
-        <div class="h-feld">
-          <span class="h-feld-name">Mindestbestand</span>
-          <div class="h-reihe">
-            <div class="h-stufen">
-              <button type="button" aria-label="Einer weniger"><i class="fa-solid fa-minus"></i></button>
-              <span class="h-stufen-wert">1</span>
-              <button type="button" aria-label="Einer mehr"><i class="fa-solid fa-plus"></i></button>
-            </div>
-            <span>Karton</span>
-          </div>
-        </div>
-        <div class="h-hinweis hilfe"><i class="fa-solid fa-circle-info"></i><p>Gilt für künftige Käufe. Der Bestand bleibt, wie er ist.</p></div>
+        <p class="h-klein h-leise">Zusätzliche Fotos dienen nur zum Erkennen und werden nicht beim Eintrag gespeichert.</p>
       </div>
       <footer class="h-blatt-fuss">
-        <button class="h-knopf primaer haupt" type="button" data-zeige="#schleier, #blatt-menge">Speichern</button>
+        <button class="h-knopf primaer haupt" type="button"><i class="fa-solid fa-brain"></i> 2 Fotos erkennen</button>
       </footer>
     </section>
+    </div>
   </body>
 </html>

@@ -25,30 +25,13 @@
     <script src="_seiten.js" defer></script>
     <script src="_gemeinsam.js" defer></script>
     <!-- /block:kopf-rechner -->
-    <title>Kiste - Gegenstand bearbeiten</title>
+    <title>Kiste - Foto erkennen</title>
     <style>
-      /* Nur Anordnung: in einer schmalen Inhaltsspalte steht die Seitenspalte unter dem Hauptteil,
-         und die Handlungen im Seitenkopf dürfen umbrechen. */
-      @container (max-width: 760px) {
-        .s-detail { grid-template-columns: minmax(0, 1fr); }
-      }
-      .s-kopfzeile { flex-wrap: wrap; }
-      .s-aktionen { flex: 1 1 auto; flex-wrap: wrap; justify-content: flex-end; }
-      .s-kartentext { display: grid; min-inline-size: 0; gap: var(--r-a1); }
-      .s-seitenknopf { justify-self: start; }
-      /* Der Hauptteil ist selbst ein Rahmen: Formulare und der Mengenblock richten sich nach seiner Breite. */
-      .s-haupt { container-type: inline-size; }
-      @container (max-width: 520px) {
-        .s-menge { grid-template-columns: minmax(0, 1fr); }
-      }
-      .s-fest { flex: none; white-space: nowrap; }
-      .s-name { flex: 1 1 220px; max-inline-size: 420px; min-inline-size: 0; }
-      .s-links { justify-self: start; }
-      .s-codezeile { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--r-a2); }
-      .s-neu { display: grid; gap: var(--r-a3); margin-block-start: var(--r-a4); padding-block-start: var(--r-a4); border-block-start: 1px dashed var(--papier-linie); }
+      /* Nur Anordnung: das Foto bleibt niedrig, damit die Wahl darunter sichtbar ist. */
+      .s-foto { max-block-size: 220px; }
     </style>
   </head>
-  <body data-seite="lager" data-baum="T9B5" data-leuchte="verbunden">
+  <body data-seite="lager" data-baum="S6P1" data-leuchte="verbunden">
     <!-- block:r-zu-schmal -->
     <div class="r-zu-schmal">
       <i class="fa-solid fa-display"></i>
@@ -261,169 +244,74 @@
       <section class="r-inhalt">
         <header class="r-seitenkopf">
           <nav class="r-brotkrumen" aria-label="Pfad">
-            <a href="#">Wohnung</a><i class="fa-solid fa-chevron-right"></i><a href="#">Küche</a><i class="fa-solid fa-chevron-right"></i><a href="#">Spülenschrank</a><i class="fa-solid fa-chevron-right"></i><strong>Geschirrtabs</strong>
+            <a href="#">Wohnung</a><i class="fa-solid fa-chevron-right"></i><a href="#">Küche</a><i class="fa-solid fa-chevron-right"></i><strong>Spülenschrank</strong>
           </nav>
-          <div class="r-titelzeile s-kopfzeile">
-            <input class="r-eingabe gross s-name" type="text" value="Geschirrtabs" aria-label="Name" autocomplete="off" />
-            <div class="r-seitenkopf-aktionen s-aktionen">
-              <a class="r-knopf" href="r14-fenster-erscheinungsbild.html" title="Bild, Icon und Farbton der Geschirrtabs wählen"><i class="fa-solid fa-palette"></i> Erscheinungsbild</a>
-              <button class="r-knopf" type="button" title="Aus dem Lager nehmen, ohne den Verlauf zu verlieren"><i class="fa-solid fa-box-archive"></i> Archivieren</button>
-              <a class="r-knopf gefahr" href="r13-fenster-loeschen.html" title="Die Geschirrtabs samt Verlauf löschen"><i class="fa-solid fa-trash-can"></i> Löschen</a>
-              <div class="r-seitenkopf-fest">
-                <button class="r-symbolknopf nackt hilfe" type="button" title="Info-Modus: Bedienelemente erklären sich beim Anklicken"><i class="fa-solid fa-circle-info"></i></button>
-                <a class="r-symbolknopf aktiv" href="r06-gegenstand-lesen.html" title="Bearbeiten beenden"><i class="fa-solid fa-pen"></i></a>
-              </div>
+          <div class="r-titelzeile">
+            <h1>Spülenschrank</h1>
+            <div class="r-seitenkopf-aktionen">
+              <a class="r-knopf" href="r11-fenster-bewegen.html" title="Diesen Behälter an einen anderen Ort bewegen"><i class="fa-solid fa-up-down-left-right"></i> Bewegen</a>
+              <a class="r-knopf primaer" href="r10-fenster-anlegen.html" title="Neuen Eintrag in diesem Behälter anlegen"><i class="fa-solid fa-plus"></i> Hinzufügen</a>
+                <div class="r-seitenkopf-fest">
+                  <button class="r-symbolknopf nackt hilfe" type="button" title="Info-Modus: Bedienelemente erklären sich beim Anklicken"><i class="fa-solid fa-circle-info"></i></button>
+                  <button class="r-symbolknopf nackt" type="button" title="Bearbeiten: Einrichten und Korrigieren einschalten"><i class="fa-solid fa-pen"></i></button>
+                </div>
             </div>
           </div>
           <div class="r-titelunter">
-            <span class="z-code">T9B5</span>
-            <span class="r-pille">Haushaltsmittel</span>
+            <span class="z-code">S6P1</span>
+            <span class="r-pille messing">Behälter</span>
+            <span class="r-pille">Schrank</span>
+            <span><b>2</b> Einträge, <b>4</b> Gegenstände</span>
           </div>
         </header>
         <div class="r-rollfeld">
-          <div class="r-detail r-breite s-detail">
-            <div class="r-detail-haupt s-haupt">
-              <section class="r-abschnitt">
-                <div class="r-abschnitt-kopf"><h2>Beschreibung</h2></div>
-                <textarea class="r-eingabe" aria-label="Beschreibung" placeholder="Was man später wissen möchte">Für die Spülmaschine. Der angebrochene Karton steht vorn.</textarea>
-              </section>
-
-              <section class="r-abschnitt">
-                <div class="r-abschnitt-kopf"><h2>Katalog</h2></div>
-                <div class="r-hinweis"><i class="fa-solid fa-book-open"></i><p>Einzelstück, ohne Produkt. Als Produkt erkennt der Scanner die Packung wieder, und weitere Orte teilen seine Angaben.</p><button class="r-knopf klein" type="button" title="Legt aus diesem Eintrag ein Produkt an">Als Produkt erfassen</button><button class="r-knopf klein" type="button" title="Diesen Eintrag zum Abbild eines vorhandenen Produkts machen, mit Vorschau">Mit Produkt verknüpfen</button></div>
-              </section>
-
-              <section class="r-abschnitt">
-                <div class="r-abschnitt-kopf"><h2>Menge und Einheit</h2></div>
-                <div class="r-formular">
-                  <div class="r-feld">
-                    <span class="r-feld-name">Mengenart</span>
-                    <div class="r-formular-rumpf">
-                      <div class="r-wahlreihe s-links" role="radiogroup" aria-label="Mengenart">
-                        <button class="r-wahl" type="button" role="radio" aria-checked="false" title="Gezählt wird in einzelnen Stücken">Stück</button>
-                        <button class="r-wahl aktiv" type="button" role="radio" aria-checked="true" title="Gezählt wird in Packungen mit Inhalt">Packung</button>
-                        <button class="r-wahl" type="button" role="radio" aria-checked="false" title="Gemessen wird eine lose Menge, etwa nach Gewicht">Lose Menge</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="r-feld">
-                    <span class="r-feld-name">Packung heißt</span>
-                    <div class="r-formular-rumpf">
-                      <button class="r-auswahl" type="button" title="Wie die Packung genannt wird"><span>Karton</span><i class="fa-solid fa-chevron-down"></i></button>
-                    </div>
-                  </div>
-                  <div class="r-feld">
-                    <span class="r-feld-name">Inhalt je Karton</span>
-                    <div class="r-formular-rumpf">
-                      <div class="r-mengenfeld">
-                        <input class="r-eingabe zahl" type="text" inputmode="decimal" value="30" aria-label="Inhalt je Karton" title="Wie viel in einer Packung ist" />
-                        <button class="r-auswahl schmal" type="button" title="Einheit wählen"><span>Tabs</span><i class="fa-solid fa-chevron-down"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="r-feld">
-                    <span class="r-feld-name">Mindestbestand</span>
-                    <div class="r-formular-rumpf">
-                      <div class="r-reihe">
-                        <div class="r-stufen" title="Unter diesem Bestand kommt der Eintrag auf die Einkaufsliste">
-                          <button type="button" title="Einen weniger"><i class="fa-solid fa-minus"></i></button>
-                          <span class="r-stufen-wert">1</span>
-                          <button type="button" title="Einen mehr"><i class="fa-solid fa-plus"></i></button>
-                        </div>
-                        <span>Karton</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="r-hinweis hilfe"><i class="fa-solid fa-circle-info"></i><p>Gilt für künftige Käufe. Der Bestand bleibt, wie er ist.</p></div>
-              </section>
-
-              <section class="r-abschnitt">
-                <div class="r-abschnitt-kopf"><h2>Eigenschaften</h2><span class="r-abschnitt-zahl">2 Eigenschaften</span></div>
-                <div class="r-formular">
-                  <div class="r-feld">
-                    <label class="r-feld-name" for="e-sorte">Sorte</label>
-                    <div class="r-formular-rumpf"><input class="r-eingabe" id="e-sorte" type="text" value="Alles in einem" autocomplete="off" /></div>
-                  </div>
-                  <div class="r-feld">
-                    <label class="r-feld-name" for="e-lagerung">Lagerung</label>
-                    <div class="r-formular-rumpf">
-                      <div class="s-codezeile">
-                        <input class="r-eingabe" id="e-lagerung" type="text" value="Trocken und verschlossen" autocomplete="off" title="Eigene Eigenschaft nur dieses Eintrags" />
-                        <button class="r-symbolknopf" type="button" title="Eigene Eigenschaft Lagerung samt Wert entfernen"><i class="fa-solid fa-trash-can"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="s-neu" role="group" aria-label="Eigenschaft hinzufügen">
-                <div class="r-formular">
-                  <div class="r-feld">
-                    <label class="r-feld-name" for="n-name">Name</label>
-                    <div class="r-formular-rumpf">
-                      <input class="r-eingabe" id="n-name" type="text" value="Se" autocomplete="off" />
-                      <div class="r-wahlreihe s-links" aria-label="Vorhandene Felder">
-                        <button class="r-wahl" type="button" title="Das vorhandene Feld Seriennummer (Text) übernehmen">Seriennummer</button>
-                        <button class="r-wahl" type="button" title="Das vorhandene Feld Sendernummer (Ganze Zahl) übernehmen">Sendernummer</button>
-                      </div>
-                      <span class="r-feld-hinweis">Vorhandene Felder antippen oder einen neuen Namen schreiben.</span>
-                    </div>
-                  </div>
-                  <div class="r-feld">
-                    <span class="r-feld-name">Art</span>
-                    <div class="r-formular-rumpf">
-                      <div class="r-wahlreihe s-links" role="radiogroup" aria-label="Art der Eigenschaft">
-                        <button class="r-wahl aktiv" type="button" role="radio" aria-checked="true">Text</button>
-                        <button class="r-wahl" type="button" role="radio" aria-checked="false">Zahl</button>
-                        <button class="r-wahl" type="button" role="radio" aria-checked="false">Ganze Zahl</button>
-                        <button class="r-wahl" type="button" role="radio" aria-checked="false">ja oder nein</button>
-                        <button class="r-wahl" type="button" role="radio" aria-checked="false">Datum</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="r-feld">
-                    <label class="r-feld-name" for="n-wert">Wert</label>
-                    <div class="r-formular-rumpf"><input class="r-eingabe" id="n-wert" type="text" value="" autocomplete="off" /></div>
-                  </div>
-                </div>
-                  <div class="r-reihe">
-                    <button class="r-knopf primaer" type="button">Hinzufügen</button>
-                    <button class="r-knopf" type="button">Abbrechen</button>
-                  </div>
-                </div>
-              </section>
-
-              <section class="r-abschnitt">
-                <div class="r-abschnitt-kopf"><h2>Codes</h2></div>
-                <div class="r-formular">
-                  <div class="r-feld">
-                    <label class="r-feld-name" for="e-code">Strichcode</label>
-                    <div class="r-formular-rumpf">
-                      <div class="s-codezeile">
-                        <input class="r-eingabe" id="e-code" type="text" inputmode="numeric" value="2012345000124" title="Der Strichcode der Packung, 13 Ziffern" />
-                        <button class="r-symbolknopf" type="button" title="Strichcode entfernen"><i class="fa-solid fa-trash-can"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            </div>
-            <aside class="r-detail-seite">
-              <div class="r-flaeche">
-                <span class="r-flaeche-titel">Kategorien</span>
-                <div class="r-pillen">
-                  <span class="r-pille">Haushaltsmittel <button type="button" title="Kategorie Haushaltsmittel entfernen"><i class="fa-solid fa-xmark"></i></button></span>
-                </div>
-                <a class="r-link" href="#" title="Eine weitere Kategorie zuordnen; sie bringt ihre Felder mit"><i class="fa-solid fa-plus"></i> Kategorie hinzufügen</a>
+          <div class="r-breite r-stapel">
+            <section class="r-abschnitt">
+              <div class="r-abschnitt-kopf"><h2>Inhalt</h2><span class="r-reihe"><span class="r-abschnitt-zahl">2 Einträge</span><a class="r-link" href="r51-fotos-anlegen.html" title="Ein oder mehrere Bilder wählen; aus jedem wird ein Eintrag, ein weiteres Foto oder etwas Geparktes"><i class="fa-solid fa-images"></i> Aus Fotos anlegen</a></span></div>
+              <div class="r-karten">
+                <a class="r-karte" href="r06-gegenstand-lesen.html">
+                  <span class="z-erscheinung bild"><img src="bilder/foto-geschirrtabs.svg" alt="" /></span>
+                  <span class="r-karte-name">Geschirrtabs</span>
+                  <span class="r-karte-fuss"><span class="z-code">T9B5</span><span class="z-menge"><b>3</b> Karton, <b>89</b> Tabs</span></span>
+                </a>
+                <a class="r-karte" href="#">
+                  <span class="z-erscheinung"><i class="fa-solid fa-pump-soap"></i></span>
+                  <span class="r-karte-name">Spülmittel</span>
+                  <span class="r-karte-fuss"><span class="z-code">P3W7</span><span class="z-menge"><b>1</b> Flasche, <b>320</b> ml</span></span>
+                </a>
               </div>
-              <div class="r-etikett">
-                <img src="bilder/qr-t9b5.svg" alt="QR-Code des Eintrags" />
-                <span class="z-code gross gedruckt">T9B5</span>
-                <img class="strichcode" src="bilder/strichcode-geschirrtabs.svg" alt="Strichcode 2012345000124" />
-              </div>
-              <button class="r-knopf s-seitenknopf" type="button" title="Der Eintrag bleibt, nur sein Code wird frei"><i class="fa-solid fa-link-slash"></i> Etikett entfernen</button>
-            </aside>
+            </section>
           </div>
         </div>
+      </section>
+    </div>
+    <div class="r-schleier" id="fenster">
+      <section class="r-fenster" role="dialog" aria-modal="true" aria-labelledby="fenster-titel">
+        <header class="r-fenster-kopf">
+          <h2 id="fenster-titel">Foto erkennen</h2>
+          <button class="r-symbolknopf nackt" type="button" title="Schließen" data-zeige="#fenster"><i class="fa-solid fa-xmark"></i></button>
+          <p class="r-fenster-unter">Geschirrtabs: bis zu 3 Fotos, etwa Vorderseite und Rückseite</p>
+        </header>
+        <div class="r-fenster-rumpf">
+          <div class="r-bilder" role="group" aria-label="Fotos für die KI">
+            <button class="r-bild an" type="button" aria-pressed="true" title="Gespeichertes Foto: mitschicken">
+              <img src="bilder/foto-geschirrtabs.svg" alt="Gespeichertes Foto 1" />
+              <span class="r-bild-marke"><span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span></span>
+            </button>
+            <button class="r-bild an" type="button" aria-pressed="true" title="Zusätzliches Foto, nur zum Erkennen: mitschicken">
+              <img src="bilder/foto-typenschild.svg" alt="Zusätzliches Foto der Rückseite" />
+              <span class="r-bild-marke"><span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span></span>
+            </button>
+            <button class="r-bild" type="button" title="Ein weiteres Foto nur zum Erkennen wählen; es wird nicht beim Eintrag gespeichert">
+              <span class="r-bild-dazu"><i class="fa-solid fa-camera"></i> Weiteres Foto</span>
+            </button>
+          </div>
+          <div class="r-hinweis"><i class="fa-solid fa-circle-info"></i><p>Zusätzliche Fotos dienen nur zum Erkennen und werden nicht beim Eintrag gespeichert.</p></div>
+        </div>
+        <footer class="r-fenster-fuss">
+          <button class="r-knopf still" type="button" data-zeige="#fenster">Abbrechen</button>
+          <button class="r-knopf primaer" type="button"><i class="fa-solid fa-brain"></i> 2 Fotos erkennen</button>
+        </footer>
       </section>
     </div>
     <!-- block:mock-leiste -->

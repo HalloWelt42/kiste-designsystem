@@ -1015,6 +1015,45 @@
     max-block-size: 44dvh;
     object-fit: contain;
   }
+  /* Bilder zum Auswählen: zwei je Reihe, das ganze Bild ist die Berührfläche, angehakt mit Rahmen in Messing. */
+  .h-bildwahl {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--h-a2);
+  }
+  .h-bildwahl .h-bild {
+    position: relative;
+    aspect-ratio: 1;
+    padding: 0;
+  }
+  /* Das Bild füllt die Kachel als Ganzes aus und wird eingepasst, nie beschnitten. */
+  .h-bildwahl .h-bild img {
+    position: absolute;
+    inset: 0;
+    block-size: 100%;
+    max-block-size: none;
+  }
+  .h-bildwahl .h-bild.an {
+    border-color: var(--messing);
+    box-shadow: 0 0 0 1px var(--messing);
+  }
+  .h-bild-marke {
+    position: absolute;
+    inset-block-start: var(--h-a2);
+    inset-inline-start: var(--h-a2);
+  }
+  .h-bild.an .h-kaestchen-feld {
+    border-color: var(--tinte);
+    background: var(--tinte);
+    color: var(--auf-tinte);
+  }
+  .h-bild-dazu {
+    display: grid;
+    justify-items: center;
+    gap: var(--h-a2);
+    color: var(--tinte-weich);
+    font-size: var(--h-schrift-klein);
+  }
 
   /* ==== Eigenschaften: Schlüssel klein, Wert blau und fett ==================================== */
   .h-eigenschaften {
