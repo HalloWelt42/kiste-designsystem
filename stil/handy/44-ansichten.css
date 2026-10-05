@@ -97,7 +97,7 @@
   }
 
   /* ==== Scanner: eine dunkle Vollfläche in beiden Themen, damit das Kamerabild ruhig steht ========
-     Zeilen von oben: Kopf, Wahl des Modus, Zielort, Sucher, Ergebnis und Protokoll, Fuß. Der Scanner bleibt
+     Zeilen von oben: Kopf, Wahl des Modus, Zielort, Anzahl, Sucher, Ergebnis und Protokoll, Fuß. Der Scanner bleibt
      offen; was ein Scan bewirkt hat, steht im Ergebnis und wandert danach ins Protokoll. */
   .h-scanner {
     position: fixed;
@@ -105,7 +105,7 @@
     z-index: 15;
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: auto auto auto minmax(0, 1fr) auto auto;
+    grid-template-rows: auto auto auto auto minmax(0, 1fr) auto auto;
     padding: var(--h-sicher-oben) var(--h-sicher-rechts) var(--h-sicher-unten) var(--h-sicher-links);
     background: var(--nacht);
     color: var(--auf-nacht);
@@ -113,7 +113,7 @@
   /* Ein Band (getrennt, neue Fassung) liegt oben über dem Sucher; die festen Zeilen bleiben. Die Spalte steht fest:
      teilen sich zwei Teile eine Zeile ohne feste Spalte, legt das Raster eine zweite Spalte an und alles wird schmal. */
   .h-scanner .h-band {
-    grid-row: 4;
+    grid-row: 5;
     grid-column: 1;
     align-self: start;
     z-index: 1;
@@ -208,9 +208,42 @@
     font-weight: 600;
     color: var(--messing-auf-tinte);
   }
+  /* Anzahl: wie viele der nächste Scan bucht, etwa ein Sechserpack auf einmal. Danach steht sie wieder auf 1;
+     solange sie höher steht, ist die Leiste messingfarben umrandet, damit sie nicht übersehen wird. */
+  .h-scanner-anzahl {
+    grid-row: 4;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--h-a3);
+    margin: var(--h-a2) var(--h-rand) 0;
+    padding: var(--h-a1) var(--h-a1) var(--h-a1) var(--h-a3);
+    border: 1px solid var(--nacht-linie);
+    border-radius: var(--rund-2);
+    font-size: var(--h-schrift-klein);
+    color: var(--auf-nacht-leise);
+  }
+  .h-scanner-anzahl.mehr {
+    border-color: var(--messing-auf-tinte);
+    color: var(--auf-nacht);
+  }
+  .h-scanner-anzahl .h-stufen {
+    grid-template-columns: var(--h-griff) minmax(48px, auto) var(--h-griff);
+    border-color: var(--nacht-linie);
+    background: var(--nacht-weich);
+  }
+  .h-scanner-anzahl .h-stufen button {
+    color: var(--auf-nacht);
+  }
+  .h-scanner-anzahl .h-stufen button:disabled {
+    color: var(--auf-nacht-leise);
+  }
+  .h-scanner-anzahl .h-stufen-wert {
+    color: var(--auf-nacht);
+  }
   /* Sucher: das Kamerabild mit dem Rahmen, in den der Code gehört. */
   .h-scanner-sucher {
-    grid-row: 4;
+    grid-row: 5;
     grid-column: 1;
     position: relative;
     display: grid;
@@ -269,7 +302,7 @@
   /* Ergebnis des letzten Scans: eine helle Karte, damit sie im Dunkeln sofort auffällt. */
   /* Unter dem Sucher: Ergebnis und Protokoll teilen sich eine Zeile und rollen gemeinsam, wenn es eng wird. */
   .h-scanner-unten {
-    grid-row: 5;
+    grid-row: 6;
     display: grid;
     align-content: start;
     gap: var(--h-a2);
@@ -344,7 +377,7 @@
     color: var(--auf-nacht);
   }
   .h-scanner-fuss {
-    grid-row: 6;
+    grid-row: 7;
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: var(--h-a2);
