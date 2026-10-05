@@ -25,13 +25,30 @@
     <script src="_seiten.js" defer></script>
     <script src="_gemeinsam.js" defer></script>
     <!-- /block:kopf-rechner -->
+    <title>Kiste - Verleihen</title>
     <style>
-      /* Nur Anordnung: Datum und Foto-Knopf nebeneinander. */
-      .s-datumfoto { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--r-a2); }
+      /* Nur Anordnung: in einer schmalen Inhaltsspalte steht die Seitenspalte unter dem Hauptteil,
+         und die Handlungen im Seitenkopf dürfen umbrechen. */
+      @container (max-width: 760px) {
+        .s-detail { grid-template-columns: minmax(0, 1fr); }
+      }
+      .s-kopfzeile { flex-wrap: wrap; }
+      .s-aktionen { flex: 1 1 auto; flex-wrap: wrap; justify-content: flex-end; }
+      .s-seitenknopf { justify-self: start; }
+      .s-links { justify-self: start; }
+      .s-zelle { display: grid; gap: 2px; }
+      .s-rechts { inline-size: 1%; white-space: nowrap; text-align: end; }
+      /* Fünf Wahlen passen nicht immer in eine Zeile: die Reihe bricht um. */
+      .s-umbruch { display: flex; flex-wrap: wrap; }
+      /* Der Hauptteil ist selbst ein Rahmen: der Mengenblock richtet sich nach seiner Breite. */
+      .s-haupt { container-type: inline-size; }
+      @container (max-width: 520px) {
+        .s-menge { grid-template-columns: minmax(0, 1fr); }
+      }
+      .s-fest { flex: none; white-space: nowrap; }
     </style>
-    <title>Kiste - Fenster: Anlegen</title>
   </head>
-  <body data-seite="lager" data-baum="S6P1" data-leuchte="verbunden">
+  <body data-seite="lager" data-baum="T4F2" data-leuchte="verbunden">
     <!-- block:r-zu-schmal -->
     <div class="r-zu-schmal">
       <i class="fa-solid fa-display"></i>
@@ -244,151 +261,90 @@
       <section class="r-inhalt">
         <header class="r-seitenkopf">
           <nav class="r-brotkrumen" aria-label="Pfad">
-            <a href="#">Wohnung</a><i class="fa-solid fa-chevron-right"></i><a href="#">Küche</a><i class="fa-solid fa-chevron-right"></i><strong>Spülenschrank</strong>
+            <a href="#">Wohnung</a><i class="fa-solid fa-chevron-right"></i><a href="#">Bad</a><i class="fa-solid fa-chevron-right"></i><a href="#">Hausapotheke</a><i class="fa-solid fa-chevron-right"></i><strong>Fieberthermometer</strong>
           </nav>
-          <div class="r-titelzeile">
-            <h1>Spülenschrank</h1>
-            <div class="r-seitenkopf-aktionen">
-              <a class="r-knopf" href="r11-fenster-bewegen.html" title="Diesen Behälter an einen anderen Ort bewegen"><i class="fa-solid fa-up-down-left-right"></i> Bewegen</a>
-              <a class="r-knopf primaer" href="r10-fenster-anlegen.html" title="Neuen Eintrag in diesem Behälter anlegen"><i class="fa-solid fa-plus"></i> Hinzufügen</a>
-                <div class="r-seitenkopf-fest">
-                  <button class="r-symbolknopf nackt hilfe" type="button" title="Info-Modus: Bedienelemente erklären sich beim Anklicken"><i class="fa-solid fa-circle-info"></i></button>
-                  <button class="r-symbolknopf nackt" type="button" title="Bearbeiten: Einrichten und Korrigieren einschalten"><i class="fa-solid fa-pen"></i></button>
-                </div>
+          <div class="r-titelzeile s-kopfzeile">
+            <h1>Fieberthermometer</h1>
+            <div class="r-seitenkopf-aktionen s-aktionen">
+              <a class="r-knopf" href="r11-fenster-bewegen.html" title="Das Fieberthermometer an einen anderen Ort bewegen"><i class="fa-solid fa-up-down-left-right"></i> Bewegen</a>
+              <div class="r-seitenkopf-fest">
+                <button class="r-symbolknopf nackt hilfe" type="button" title="Info-Modus: Bedienelemente erklären sich beim Anklicken"><i class="fa-solid fa-circle-info"></i></button>
+                <a class="r-symbolknopf nackt" href="r07-gegenstand-bearbeiten.html" title="Bearbeiten: Einrichten und Korrigieren einschalten"><i class="fa-solid fa-pen"></i></a>
+              </div>
             </div>
           </div>
           <div class="r-titelunter">
-            <span class="z-code">S6P1</span>
-            <span class="r-pille messing">Behälter</span>
-            <span class="r-pille">Schrank</span>
-            <span><b>2</b> Einträge, <b>4</b> Gegenstände</span>
+            <span class="z-code">T4F2</span>
+            <span class="r-pille">Gerät</span>
           </div>
         </header>
         <div class="r-rollfeld">
-          <div class="r-breite r-stapel">
-            <section class="r-abschnitt">
-              <div class="r-abschnitt-kopf"><h2>Inhalt</h2><span class="r-abschnitt-zahl">2 Einträge</span></div>
-              <div class="r-karten">
-                <a class="r-karte" href="r06-gegenstand-lesen.html">
-                  <span class="z-erscheinung bild"><img src="bilder/foto-geschirrtabs.svg" alt="" /></span>
-                  <span class="r-karte-name">Geschirrtabs</span>
-                  <span class="r-karte-fuss"><span class="z-code">T9B5</span><span class="z-menge"><b>3</b> Karton, <b>89</b> Tabs</span></span>
-                </a>
-                <a class="r-karte" href="#">
-                  <span class="z-erscheinung"><i class="fa-solid fa-pump-soap"></i></span>
-                  <span class="r-karte-name">Spülmittel</span>
-                  <span class="r-karte-fuss"><span class="z-code">P3W7</span><span class="z-menge"><b>1</b> Flasche, <b>320</b> ml</span></span>
-                </a>
-              </div>
-            </section>
+          <div class="r-detail r-breite s-detail">
+            <div class="r-detail-haupt">
+              <section class="r-abschnitt">
+                <div class="r-abschnitt-kopf"><h2>Erinnerungen</h2><button class="r-link" type="button" title="Eine Erinnerung an diesen Eintrag anlegen, etwa an Pflege oder das Ende der Garantie" data-zeige="#fenster"><i class="fa-solid fa-plus"></i> Erinnerung anlegen</button></div>
+                <div class="r-tabellenfeld"><table class="r-tabelle">
+                  <thead><tr><th>Erinnerung</th><th>Fällig</th><th>Zustand</th><th>Aktion</th></tr></thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="s-zelle"><span>Batterie prüfen</span><span class="r-leise r-klein">Pflege, jedes halbe Jahr</span></span></td>
+                      <td>01.10.2026</td>
+                      <td><span class="r-zustand gefahr"><i class="fa-solid fa-triangle-exclamation"></i> seit 2 Tagen</span></td>
+                      <td class="s-rechts"><button class="r-knopf klein" type="button" title="Hakt die Erinnerung ab; die nächste kommt in einem halben Jahr">Erledigt</button><button class="r-symbolknopf nackt klein" type="button" title="Erinnerung Batterie prüfen ändern" data-zeige="#fenster"><i class="fa-solid fa-pen"></i></button></td>
+                    </tr>
+                    <tr>
+                      <td><span class="s-zelle"><span>Garantie endet</span><span class="r-leise r-klein">Garantie</span></span></td>
+                      <td>14.03.2027</td>
+                      <td><span class="r-zustand">in 162 Tagen</span></td>
+                      <td class="s-rechts"><button class="r-knopf klein" type="button" title="Hakt die Erinnerung ab und nimmt sie aus der Liste">Erledigt</button><button class="r-symbolknopf nackt klein" type="button" title="Erinnerung Garantie endet ändern" data-zeige="#fenster"><i class="fa-solid fa-pen"></i></button></td>
+                    </tr>
+                  </tbody>
+                </table></div>
+              </section>
+            </div>
+            <aside class="r-detail-seite">
+              <div class="r-hinweis hilfe"><i class="fa-solid fa-circle-info"></i><p>Fällige Erinnerungen aller Einträge stehen unter Erinnerungen in der Seitenleiste.</p></div>
+            </aside>
           </div>
         </div>
       </section>
     </div>
     <div class="r-schleier" id="fenster">
-      <section class="r-fenster" role="dialog" aria-modal="true" aria-labelledby="fenster-titel">
+      <section class="r-fenster schmal" role="dialog" aria-modal="true" aria-labelledby="fenster-titel">
         <header class="r-fenster-kopf">
-          <h2 id="fenster-titel">Neuer Eintrag</h2>
+          <h2 id="fenster-titel">Verleihen</h2>
           <button class="r-symbolknopf nackt" type="button" title="Schließen" data-zeige="#fenster"><i class="fa-solid fa-xmark"></i></button>
-          <p class="r-fenster-unter">Wird abgelegt in: Wohnung, Küche, Spülenschrank</p>
+          <p class="r-fenster-unter">Stichsäge an der Werkbank</p>
         </header>
         <div class="r-fenster-rumpf">
-          <div class="r-zwei" role="radiogroup" aria-label="Was ist das">
-            <button class="r-wahlkarte gewaehlt" type="button" role="radio" aria-checked="true">
-              <span class="r-wahlkarte-punkt"></span>
-              <span class="r-wahlkarte-text"><strong>Ein Ding</strong><small>Etwas, das irgendwo liegt: Milch, Jacke, Bohrmaschine.</small></span>
-            </button>
-            <button class="r-wahlkarte" type="button" role="radio" aria-checked="false">
-              <span class="r-wahlkarte-punkt"></span>
-              <span class="r-wahlkarte-text"><strong>Ein Behälter</strong><small>Etwas, in dem anderes liegt: Schrank, Kiste, Regal.</small></span>
-            </button>
-          </div>
           <div class="r-formular">
             <div class="r-feld">
-              <label class="r-feld-name" for="n-name">Name</label>
-              <div class="r-formular-rumpf"><input class="r-eingabe gross" id="n-name" type="text" value="Klarspüler" placeholder="Wie heißt es?" autocomplete="off" /></div>
-            </div>
-            <div class="r-feld">
-              <span class="r-feld-name">Kategorien</span>
+              <label class="r-feld-name" for="v-an">An</label>
               <div class="r-formular-rumpf">
-                <div class="r-pillen">
-                  <span class="r-pille">Haushaltsmittel <button type="button" title="Kategorie entfernen"><i class="fa-solid fa-xmark"></i></button></span>
-                  <a class="r-link" href="#" title="Eine weitere Kategorie aus der Liste wählen"><i class="fa-solid fa-plus"></i> Kategorie hinzufügen</a>
+                <input class="r-eingabe" id="v-an" type="text" value="Pa" autocomplete="off" />
+                <div class="r-pillen" aria-label="Zuletzt verliehen an">
+                  <button class="r-pille wahl" type="button">Paul</button>
+                  <button class="r-pille wahl" type="button">Pascal</button>
                 </div>
               </div>
             </div>
             <div class="r-feld">
-              <span class="r-feld-name">Menge</span>
+              <label class="r-feld-name" for="v-bis">Zurück bis</label>
               <div class="r-formular-rumpf">
-                <div class="r-mengenfeld">
-                  <input class="r-eingabe zahl" type="text" inputmode="decimal" value="1" aria-label="Menge" title="Wie viele Packungen es sind" />
-                  <button class="r-auswahl schmal" type="button" title="Einheit der Packung wählen"><span>Flasche</span><i class="fa-solid fa-chevron-down"></i></button>
-                </div>
+                <input class="r-eingabe" id="v-bis" type="text" value="06.10.2026" placeholder="TT.MM.JJJJ" autocomplete="off" title="Datum tippen, auch kurz: 061026; leer lassen, wenn offen" />
+                <span class="r-feld-deutung"><i class="fa-solid fa-check"></i> Dienstag, 6. Oktober 2026, in 3 Tagen</span>
+                <span class="r-feld-hinweis">Mit Rückgabetag erinnert Kiste an die Rückgabe.</span>
               </div>
             </div>
             <div class="r-feld">
-              <span class="r-feld-name">Inhalt je Flasche</span>
-              <div class="r-formular-rumpf">
-                <div class="r-mengenfeld">
-                  <input class="r-eingabe zahl" type="text" inputmode="decimal" value="500" aria-label="Inhalt je Flasche" title="Wie viel in einer Flasche ist" />
-                  <button class="r-auswahl schmal" type="button" title="Einheit des Inhalts wählen"><span>ml</span><i class="fa-solid fa-chevron-down"></i></button>
-                </div>
-              </div>
-            </div>
-            <div class="r-feld">
-              <label class="r-feld-name" for="n-datum">Haltbar bis</label>
-              <div class="r-formular-rumpf">
-                <div class="r-datumsfeld">
-                  <input class="r-eingabe" id="n-datum" type="text" placeholder="kein Datum" title="Datum tippen, auch kurz: 101026 oder 10.2026" />
-                  <button type="button" title="Kalender öffnen"><i class="fa-solid fa-calendar-days"></i></button>
-                </div>
-              </div>
-            </div>
-            <div class="r-feld">
-              <label class="r-feld-name" for="n-code">Strichcode</label>
-              <div class="r-formular-rumpf"><input class="r-eingabe" id="n-code" type="text" inputmode="numeric" placeholder="13 Ziffern von der Packung" title="Strichcode der Packung tippen oder mit dem Handscanner einlesen" autocomplete="off" /></div>
-            </div>
-            <div class="r-feld">
-              <label class="r-feld-name" for="n-text">Beschreibung</label>
-              <div class="r-formular-rumpf"><textarea class="r-eingabe" id="n-text" placeholder="Was man später wissen möchte"></textarea></div>
-            </div>
-            <div class="r-feld">
-              <span class="r-feld-name">Ort</span>
-              <div class="r-formular-rumpf"><span class="r-reihe"><span>Wohnung, Küche, Spülenschrank</span><button class="r-link" type="button">Ändern</button></span></div>
-            </div>
-            <div class="r-feld">
-              <label class="r-feld-name" for="n-haltbar">Haltbar bis</label>
-              <div class="r-formular-rumpf">
-                <div class="s-datumfoto">
-                  <input class="r-eingabe" id="n-haltbar" type="text" placeholder="TT.MM.JJJJ" value="12.10.2026" autocomplete="off" />
-                  <button class="r-knopf" type="button" title="Ein Foto des aufgedruckten Datums wählen; die KI liest es ab, das Foto wird nicht gespeichert"><i class="fa-solid fa-camera"></i> Foto</button>
-                </div>
-                <span class="r-feld-deutung"><i class="fa-solid fa-check"></i> Montag, 12. Oktober 2026, in 9 Tagen</span>
-                <span class="r-feld-hinweis"><i class="fa-solid fa-camera"></i> Vom Foto gelesen; bitte prüfen und bei Bedarf korrigieren.</span>
-              </div>
-            </div>
-            <div class="r-feld">
-              <label class="r-feld-name" for="n-kennung">Kennung</label>
-              <div class="r-formular-rumpf"><input class="r-eingabe" id="n-kennung" type="text" autocomplete="off" placeholder="Strichcode oder Seriennummer" /><span class="r-feld-hinweis">Ein Scan dieser Kennung findet den Eintrag.</span></div>
-            </div>
-          </div>
-          <button class="r-kaestchen an" type="button" role="checkbox" aria-checked="true" title="Wird beim Speichern übernommen">
-            <span class="r-kaestchen-feld"><i class="fa-solid fa-check"></i></span>
-            <span class="r-kaestchen-text">Als Produkt in den Katalog aufnehmen<small>Dann erkennt der Scanner die Packung wieder.</small></span>
-          </button>
-          <div class="r-hinweis messing">
-            <i class="fa-solid fa-brain"></i>
-            <p>Vorschlag: Kategorie <strong>Haushaltsmittel</strong>, Icon <strong>Sprühflasche</strong></p>
-            <div class="r-reihe">
-              <button class="r-knopf klein" type="button" title="Kategorie und Icon aus dem Vorschlag in den Eintrag übernehmen">Übernehmen</button>
-              <button class="r-knopf klein" type="button" title="Den Vorschlag ausblenden, der Eintrag bleibt wie er ist">Verwerfen</button>
+              <label class="r-feld-name" for="v-notiz">Notiz</label>
+              <div class="r-formular-rumpf"><input class="r-eingabe" id="v-notiz" type="text" value="mit zwei Sägeblättern" autocomplete="off" /></div>
             </div>
           </div>
         </div>
         <footer class="r-fenster-fuss">
           <button class="r-knopf still" type="button" data-zeige="#fenster">Abbrechen</button>
-          <button class="r-knopf" type="button" title="Speichert und öffnet gleich ein leeres Fenster für den nächsten Eintrag am selben Ort">Speichern und nächstes</button>
-          <button class="r-knopf primaer" type="button" data-zeige="#fenster">Speichern</button>
+          <button class="r-knopf primaer" type="button" data-zeige="#fenster">Verleihen</button>
         </footer>
       </section>
     </div>

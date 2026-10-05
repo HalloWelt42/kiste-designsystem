@@ -110,9 +110,11 @@
     background: var(--nacht);
     color: var(--auf-nacht);
   }
-  /* Ein Band (getrennt, neue Fassung) liegt oben über dem Sucher; die festen Zeilen bleiben. */
+  /* Ein Band (getrennt, neue Fassung) liegt oben über dem Sucher; die festen Zeilen bleiben. Die Spalte steht fest:
+     teilen sich zwei Teile eine Zeile ohne feste Spalte, legt das Raster eine zweite Spalte an und alles wird schmal. */
   .h-scanner .h-band {
     grid-row: 4;
+    grid-column: 1;
     align-self: start;
     z-index: 1;
   }
@@ -209,6 +211,7 @@
   /* Sucher: das Kamerabild mit dem Rahmen, in den der Code gehört. */
   .h-scanner-sucher {
     grid-row: 4;
+    grid-column: 1;
     position: relative;
     display: grid;
     grid-template-rows: minmax(0, 1fr) auto;
